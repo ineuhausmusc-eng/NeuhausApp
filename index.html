@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuhaus Apps</title>
+<meta name="description" content="Neuhaus Apps creates simple, purposeful digital experiences designed with privacy, clarity, and usability in mind.">
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --bg-alt: #FAFAFA;
+    --text: #1D1D1F;
+    --text-secondary: #6E6E73;
+    --border: #E5E5E7;
+    --accent: #1D1D1F;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .logo { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  nav a {
+    margin-left: 28px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+  nav a:hover { color: var(--text); }
+
+  .hero {
+    text-align: center;
+    padding: 100px 24px 110px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .hero p {
+    font-size: 19px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 13px 28px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+  }
+  .btn:hover { background: var(--text); color: #fff; border-color: var(--text); }
+
+  .section {
+    padding: 90px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section.alt { background: var(--bg-alt); max-width: 100%; }
+  .section.alt > .inner { max-width: 1100px; margin: 0 auto; padding: 90px 24px; }
+
+  .section-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 56px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+  .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+  .card p { font-size: 15px; color: var(--text-secondary); margin-bottom: 20px; }
+  .card .read-link { font-size: 14px; font-weight: 500; }
+
+  .statement {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 90px 24px;
+  }
+  .statement h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .statement p { color: var(--text-secondary); font-size: 16px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  footer .footer-links { margin-top: 12px; }
+  footer .footer-links a { margin: 0 10px; }
+  footer .footer-links a:hover { color: var(--text); }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 36px; }
+    .hero { padding: 64px 20px 70px; }
+    .cards { grid-template-columns: 1fr; }
+    .section { padding: 60px 20px; }
+    .section.alt > .inner { padding: 60px 20px; }
+    .section-title { font-size: 26px; }
+    header { padding: 20px; }
+    nav a { margin-left: 16px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Neuhaus Apps</div>
+  <nav>
+    <a href="#legal">Legal</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Thoughtfully built software.</h1>
+  <p>Neuhaus Apps creates simple, purposeful digital experiences designed with privacy, clarity, and usability in mind.</p>
+  <a href="#legal" class="btn">View Legal Documents</a>
+</section>
+
+<section class="section" id="legal">
+  <h2 class="section-title">Legal Documents</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Privacy Policy</h3>
+      <p>Learn how information is collected, used, protected, and managed.</p>
+      <a href="privacy.html" class="read-link">Read document →</a>
+    </div>
+    <div class="card">
+      <h3>End User License Agreement</h3>
+      <p>Review the licensing terms that apply when using our software.</p>
+      <a href="eula.html" class="read-link">Read document →</a>
+    </div>
+    <div class="card">
+      <h3>Terms of Use</h3>
+      <p>Review the general conditions governing use of our websites, applications, and services.</p>
+      <a href="terms.html" class="read-link">Read document →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="inner">
+    <div class="statement">
+      <h2>Privacy and transparency matter.</h2>
+      <p>We believe people should be able to understand the terms governing the products and services they use. Our legal documents are written and organized to be as clear and accessible as possible.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Neuhaus Apps. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="eula.html">EULA</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
