@@ -56,4 +56,216 @@
 
   .hero {
     position: relative;
-    text-align:
+    text-align: center;
+    padding: 130px 24px 130px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(58,90,140,0.08) 0%, rgba(58,90,140,0.03) 45%, rgba(255,255,255,0) 70%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero h1 {
+    font-size: 62px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+    line-height: 1.08;
+  }
+  .hero p {
+    font-size: 19px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: #fff;
+    transition: all 0.25s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .btn:hover {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transform: translateY(-1px);
+  }
+
+  .section {
+    padding: 100px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .section.alt {
+    background: linear-gradient(180deg, #FAFAFA 0%, #F6F6F7 100%);
+    max-width: 100%;
+  }
+  .section.alt > .inner { max-width: 1100px; margin: 0 auto; padding: 100px 24px; }
+
+  .section-title {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 60px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 34px 32px;
+    background: #fff;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  }
+  .card:hover {
+    box-shadow: 0 14px 32px rgba(29,29,31,0.08);
+    transform: translateY(-4px);
+    border-color: rgba(58,90,140,0.25);
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba(58,90,140,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+  .card-icon span { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; }
+  .card p { font-size: 15px; color: var(--text-secondary); margin-bottom: 22px; }
+  .card .read-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .statement {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 100px 24px;
+  }
+  .statement h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .statement p { color: var(--text-secondary); font-size: 16px; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 44px 24px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  footer .footer-links { margin-top: 12px; }
+  footer .footer-links a { margin: 0 10px; transition: color 0.2s ease; }
+  footer .footer-links a:hover { color: var(--text); }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 38px; }
+    .hero { padding: 80px 20px 80px; }
+    .cards { grid-template-columns: 1fr; }
+    .section { padding: 64px 20px; }
+    .section.alt > .inner { padding: 64px 20px; }
+    .section-title { font-size: 27px; }
+    header { padding: 20px; }
+    nav a { margin-left: 16px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 20V4L20 20V4" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="logo">Neuhaus Apps</div>
+  </div>
+  <nav>
+    <a href="#legal">Legal</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Thoughtfully built software.</h1>
+    <p>Neuhaus Apps creates simple, purposeful digital experiences designed with privacy, clarity, and usability in mind.</p>
+    <a href="#legal" class="btn">View Legal Documents</a>
+  </div>
+</section>
+
+<section class="section" id="legal">
+  <h2 class="section-title">Legal Documents</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon"><span></span></div>
+      <h3>Privacy Policy</h3>
+      <p>Learn how information is collected, used, protected, and managed.</p>
+      <a href="privacy.html" class="read-link">Read document →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon"><span></span></div>
+      <h3>End User License Agreement</h3>
+      <p>Review the licensing terms that apply when using our software.</p>
+      <a href="eula.html" class="read-link">Read document →</a>
+    </div>
+    <div class="card">
+      <div class="card-icon"><span></span></div>
+      <h3>Terms of Use</h3>
+      <p>Review the general conditions governing use of our websites, applications, and services.</p>
+      <a href="terms.html" class="read-link">Read document →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="inner">
+    <div class="statement">
+      <h2>Privacy and transparency matter.</h2>
+      <p>We believe people should be able to understand the terms governing the products and services they use. Our legal documents are written and organized to be as clear and accessible as possible.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Neuhaus Apps. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="eula.html">EULA</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
