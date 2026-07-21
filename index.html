@@ -7,16 +7,17 @@
 <meta name="description" content="Neuhaus Apps creates simple, purposeful digital experiences designed with privacy, clarity, and usability in mind.">
 <style>
   :root {
-    --bg: #FFFFFF;
-    --bg-alt: #FAFAFA;
+    --bg: #FBFBFD;
+    --bg-alt: #F5F5F7;
     --text: #1D1D1F;
     --text-secondary: #6E6E73;
     --border: #E5E5E7;
-    --accent: #3A5A8C;
+    --accent: #2C5AA0;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text);
     background: var(--bg);
     line-height: 1.6;
@@ -25,30 +26,42 @@
   a { color: inherit; text-decoration: none; }
 
   header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 32px;
+    padding: 18px 32px;
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background: rgba(251,251,253,0.75);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .header-inner {
     max-width: 1100px;
     margin: 0 auto;
-    position: relative;
-    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .logo-wrap { display: flex; align-items: center; gap: 10px; }
   .logo-mark {
-    width: 26px;
-    height: 26px;
-    border-radius: 7px;
-    background: linear-gradient(135deg, #1D1D1F 0%, #3A5A8C 100%);
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #1D1D1F 0%, #2C5AA0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
   }
-  .logo-mark svg { width: 14px; height: 14px; }
-  .logo { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .logo-mark svg { width: 13px; height: 13px; }
+  .logo { font-size: 16px; font-weight: 600; letter-spacing: -0.01em; }
   nav a {
-    margin-left: 28px;
-    font-size: 15px;
+    margin-left: 32px;
+    font-size: 14px;
     color: var(--text-secondary);
     transition: color 0.2s ease;
   }
@@ -57,105 +70,111 @@
   .hero {
     position: relative;
     text-align: center;
-    padding: 130px 24px 130px;
+    padding: 160px 24px 140px;
     overflow: hidden;
+    background: var(--bg);
   }
   .hero::before {
     content: "";
     position: absolute;
-    top: -20%;
+    top: -25%;
     left: 50%;
     transform: translateX(-50%);
-    width: 900px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(58,90,140,0.08) 0%, rgba(58,90,140,0.03) 45%, rgba(255,255,255,0) 70%);
+    width: 1000px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(44,90,160,0.10) 0%, rgba(44,90,160,0.03) 45%, rgba(251,251,253,0) 70%);
     z-index: 0;
     pointer-events: none;
   }
-  .hero-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+  .hero-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
   .hero h1 {
-    font-size: 62px;
+    font-size: 68px;
     font-weight: 700;
-    letter-spacing: -0.03em;
-    margin-bottom: 24px;
-    line-height: 1.08;
+    letter-spacing: -0.035em;
+    margin-bottom: 26px;
+    line-height: 1.05;
+    background: linear-gradient(180deg, #1D1D1F 0%, #3A3A3C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   .hero p {
-    font-size: 19px;
+    font-size: 20px;
     color: var(--text-secondary);
-    max-width: 500px;
-    margin: 0 auto 40px;
+    max-width: 480px;
+    margin: 0 auto 44px;
+    line-height: 1.5;
   }
   .btn {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 15px 32px;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 980px;
     font-size: 15px;
     font-weight: 500;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     background: #fff;
     transition: all 0.25s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
   }
   .btn:hover {
     background: var(--text);
     color: #fff;
     border-color: var(--text);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.14);
     transform: translateY(-1px);
   }
 
   .section {
-    padding: 100px 24px;
+    padding: 110px 24px;
     max-width: 1100px;
     margin: 0 auto;
     position: relative;
   }
   .section.alt {
-    background: linear-gradient(180deg, #FAFAFA 0%, #F6F6F7 100%);
+    background: var(--bg-alt);
     max-width: 100%;
   }
-  .section.alt > .inner { max-width: 1100px; margin: 0 auto; padding: 100px 24px; }
+  .section.alt > .inner { max-width: 1100px; margin: 0 auto; padding: 110px 24px; }
 
   .section-title {
     text-align: center;
-    font-size: 36px;
+    font-size: 38px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 60px;
+    margin-bottom: 64px;
   }
 
   .cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
   .card {
     border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 34px 32px;
+    border-radius: 18px;
+    padding: 36px 30px;
     background: #fff;
-    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   }
   .card:hover {
-    box-shadow: 0 14px 32px rgba(29,29,31,0.08);
-    transform: translateY(-4px);
-    border-color: rgba(58,90,140,0.25);
+    box-shadow: 0 20px 40px rgba(29,29,31,0.09);
+    transform: translateY(-5px);
+    border-color: rgba(44,90,160,0.25);
   }
   .card-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-    background: rgba(58,90,140,0.08);
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(44,90,160,0.08);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
   }
-  .card-icon span { width: 12px; height: 12px; border-radius: 3px; background: var(--accent); }
+  .card-icon span { width: 13px; height: 13px; border-radius: 4px; background: var(--accent); }
   .card h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.01em; }
-  .card p { font-size: 15px; color: var(--text-secondary); margin-bottom: 22px; }
+  .card p { font-size: 15px; color: var(--text-secondary); margin-bottom: 24px; line-height: 1.55; }
   .card .read-link {
     font-size: 14px;
     font-weight: 600;
@@ -164,56 +183,72 @@
 
   .statement {
     text-align: center;
-    max-width: 640px;
+    max-width: 620px;
     margin: 0 auto;
-    padding: 100px 24px;
+    padding: 110px 24px;
   }
   .statement h2 {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     letter-spacing: -0.02em;
   }
-  .statement p { color: var(--text-secondary); font-size: 16px; }
+  .statement p { color: var(--text-secondary); font-size: 17px; line-height: 1.6; }
 
   footer {
     border-top: 1px solid var(--border);
-    padding: 44px 24px;
+    padding: 48px 24px;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-secondary);
+    background: var(--bg);
   }
-  footer .footer-links { margin-top: 12px; }
-  footer .footer-links a { margin: 0 10px; transition: color 0.2s ease; }
+  footer .footer-links { margin-top: 14px; }
+  footer .footer-links a { margin: 0 12px; transition: color 0.2s ease; }
   footer .footer-links a:hover { color: var(--text); }
 
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   @media (max-width: 720px) {
-    .hero h1 { font-size: 38px; }
-    .hero { padding: 80px 20px 80px; }
+    .hero h1 { font-size: 40px; }
+    .hero { padding: 120px 20px 90px; }
+    .hero p { font-size: 17px; }
     .cards { grid-template-columns: 1fr; }
-    .section { padding: 64px 20px; }
-    .section.alt > .inner { padding: 64px 20px; }
-    .section-title { font-size: 27px; }
-    header { padding: 20px; }
-    nav a { margin-left: 16px; font-size: 14px; }
+    .section { padding: 70px 20px; }
+    .section.alt > .inner { padding: 70px 20px; }
+    .section-title { font-size: 28px; margin-bottom: 44px; }
+    header { padding: 16px 20px; }
+    nav a { margin-left: 18px; font-size: 13px; }
+    .statement { padding: 70px 20px; }
+    .statement h2 { font-size: 25px; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo-wrap">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 20V4L20 20V4" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20V4L20 20V4" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo">Neuhaus Apps</div>
     </div>
-    <div class="logo">Neuhaus Apps</div>
+    <nav>
+      <a href="#legal">Legal</a>
+      <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#legal">Legal</a>
-    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
-  </nav>
 </header>
 
 <section class="hero">
@@ -225,21 +260,21 @@
 </section>
 
 <section class="section" id="legal">
-  <h2 class="section-title">Legal Documents</h2>
+  <h2 class="section-title fade-in">Legal Documents</h2>
   <div class="cards">
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-icon"><span></span></div>
       <h3>Privacy Policy</h3>
       <p>Learn how information is collected, used, protected, and managed.</p>
       <a href="privacy.html" class="read-link">Read document →</a>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-icon"><span></span></div>
       <h3>End User License Agreement</h3>
       <p>Review the licensing terms that apply when using our software.</p>
       <a href="eula.html" class="read-link">Read document →</a>
     </div>
-    <div class="card">
+    <div class="card fade-in">
       <div class="card-icon"><span></span></div>
       <h3>Terms of Use</h3>
       <p>Review the general conditions governing use of our websites, applications, and services.</p>
@@ -250,7 +285,7 @@
 
 <section class="section alt">
   <div class="inner">
-    <div class="statement">
+    <div class="statement fade-in">
       <h2>Privacy and transparency matter.</h2>
       <p>We believe people should be able to understand the terms governing the products and services they use. Our legal documents are written and organized to be as clear and accessible as possible.</p>
     </div>
@@ -266,6 +301,18 @@
     <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
   </div>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
