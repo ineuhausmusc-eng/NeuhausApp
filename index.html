@@ -289,8 +289,14 @@
       position:static; display:block; text-align:left !important;
       white-space:normal; margin:14px 24px 0;
     }
-    .hero-photo{width:80vw;}
     #hero{padding-bottom:120px;}
+    .hero-bg, .grain, .hero-vignette{
+      top:0; bottom:auto; height:100vh;
+    }
+    .hero-photo{
+      width:80vw; top:50vh; left:50%; bottom:auto;
+      transform:translate(-50%,-50%);
+    }
   }
   @media (max-width:760px){
     header{padding:18px 20px 0;}
