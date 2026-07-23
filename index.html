@@ -21,8 +21,8 @@
     --g2:#E0A968;
     --g3:#B9662F;
     --g4:#5A2E14;
-    --signal:#39E58C;
-    --signal-dim:#1F8F5B;
+    --signal:#C1571F;
+    --signal-dim:#8C3F14;
     --font-display:'Archivo', sans-serif;
     --font-head:'Space Grotesk', sans-serif;
     --font-body:'IBM Plex Sans', sans-serif;
@@ -47,7 +47,7 @@
     padding:26px 44px 0 32px;
   }
   .dot{ width:9px; height:9px; border-radius:50%; background:var(--signal); }
-  nav{display:flex; gap:38px;}
+  nav{display:flex; gap:38px; margin-right:4vw;}
   nav a{
     font-family:var(--font-display); font-weight:800; font-size:16px; letter-spacing:0.07em;
     color:var(--peach); transition:opacity .2s; opacity:0.92;
@@ -68,13 +68,13 @@
     width:min(58vw, 780px); aspect-ratio:877/536; z-index:0;
     background-image:url('assets/hero-photo.png');
     background-size:cover; background-position:center;
-    opacity:0.55;
-    filter:grayscale(0.25) sepia(0.3) saturate(1.3) brightness(0.78) contrast(1.08);
-    -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 80%);
-    mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 42%, transparent 80%);
+    opacity:0.68;
+    filter:grayscale(0.25) sepia(0.3) saturate(1.3) brightness(0.88) contrast(1.08);
+    -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 46%, transparent 80%);
+    mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 46%, transparent 80%);
   }
   .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-  .blob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.85; will-change:transform; }
+  .blob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.72; will-change:transform; }
   .blob-a{
     width:62vw; height:62vw; left:-14%; bottom:-22%;
     background:radial-gradient(circle at 40% 40%, var(--g1) 0%, var(--g2) 42%, transparent 72%);
@@ -125,7 +125,7 @@
 
   .hero-taghead{
     position:absolute; top:34px; left:0; right:0; text-align:center;
-    font-family:var(--font-display); font-weight:800; font-size:16px; letter-spacing:0.14em;
+    font-family:var(--font-display); font-weight:800; font-size:19px; letter-spacing:0.15em;
     color:var(--paper); z-index:5;
   }
   .hero-title-block{
@@ -135,45 +135,28 @@
     font-family:var(--font-display); font-weight:900;
     font-size:clamp(64px, 11.5vw, 168px); line-height:0.86; letter-spacing:-0.015em;
     color:var(--peach);
+    -webkit-text-stroke:1.5px rgba(0,0,0,0.55);
+    text-stroke:1.5px rgba(0,0,0,0.55);
+    paint-order:stroke fill;
     display:block;
   }
   .hero-subword{
     font-family:var(--font-display); font-weight:800;
-    font-size:clamp(33px, 4.8vw, 63px); letter-spacing:0.03em;
+    font-size:clamp(35px, 5vw, 66px); letter-spacing:0.03em;
     color:var(--peach-dim);
     text-align:left; display:block; margin-top:8px;
   }
-  .hero-copy{
-    position:absolute; right:60px; top:52%;
-    max-width:400px; text-align:left;
+  .hero-stagger{ position:absolute; inset:0; z-index:5; pointer-events:none; }
+  .hero-stagger span{
+    position:absolute;
     font-family:var(--font-head); font-weight:600;
-    font-size:clamp(16px, 1.9vw, 23px); line-height:1.42; color:var(--paper);
-    z-index:5;
+    font-size:clamp(16px, 1.9vw, 23px); line-height:1.3; color:var(--peach-dim);
+    white-space:nowrap;
   }
-  .hero-card{
-    position:absolute; left:32px; bottom:150px;
-    max-width:460px;
-    background:rgba(6,10,13,0.42); backdrop-filter:blur(6px);
-    border:1px solid rgba(255,255,255,0.06);
-    padding:26px 28px 22px;
-    z-index:5;
-  }
-  .hero-card h3{
-    font-family:var(--font-display); font-weight:800; font-size:19px;
-    letter-spacing:0.02em; line-height:1.35; color:var(--paper);
-    text-transform:uppercase;
-  }
-  .hero-card .rule{
-    border:none; border-top:1px dashed rgba(255,255,255,0.18);
-    margin:16px 0 0;
-  }
-  .hero-tail{
-    max-width:460px; margin-left:32px; margin-top:10px;
-    text-align:right; font-family:var(--font-head); font-style:italic; font-weight:500;
-    font-size:15px; color:var(--paper-dim);
-    position:absolute; left:32px; bottom:112px; width:460px;
-    z-index:5;
-  }
+  .hs-1{ right:23%; top:44%; }
+  .hs-2{ right:19%; top:calc(44% + 46px); }
+  .hs-3{ right:15%; top:calc(44% + 92px); }
+  .hs-4{ right:9%; top:calc(44% + 138px); }
   .edge-badge{
     position:absolute; top:0; right:0; bottom:0; width:26px;
     background:#000;
@@ -202,7 +185,7 @@
     background:
       radial-gradient(circle at 26% 76%, rgba(224,169,104,0.22), transparent 46%),
       radial-gradient(circle at 76% 20%, rgba(185,102,47,0.20), transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(57,229,140,0.05), transparent 42%),
+      radial-gradient(circle at 50% 50%, rgba(193,87,31,0.06), transparent 42%),
       #000508 !important;
   }
 
@@ -275,7 +258,7 @@
   .trace-live{
     fill:none; stroke:var(--signal); stroke-width:3;
     stroke-dasharray:600; stroke-dashoffset:600;
-    filter:drop-shadow(0 0 8px rgba(57,229,140,0.8));
+    filter:drop-shadow(0 0 8px rgba(193,87,31,0.8));
     transition:stroke-dashoffset .05s linear;
   }
 
@@ -344,9 +327,13 @@
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
 
   @media (max-width:900px){
-    .hero-copy{position:static; max-width:none; margin-top:420px; padding:0 4px;}
-    .hero-card, .hero-tail{position:static; margin:0 0 12px; width:auto;}
-    #hero{padding-bottom:220px;}
+    .hero-stagger{position:static; inset:auto; padding-top:24px;}
+    .hero-stagger span{
+      position:static; display:block; text-align:left !important;
+      white-space:normal; margin:14px 24px 0;
+    }
+    .hero-photo{width:80vw;}
+    #hero{padding-bottom:120px;}
   }
   @media (max-width:760px){
     header{padding:18px 20px 0;}
@@ -404,13 +391,12 @@
     <span class="hero-subword">APP DESIGN</span>
   </div>
 
-  <div class="hero-copy">Designed to protect, clarify, and simplify in all the right ways. Neuhaus makes the fine print feel considered.</div>
-
-  <div class="hero-card">
-    <h3>Built independently.<br>No trackers.<br>No dark patterns.</h3>
-    <hr class="rule">
+  <div class="hero-stagger">
+    <span class="hs-1">Thoughtful apps designed to simplify</span>
+    <span class="hs-2">everyday life.</span>
+    <span class="hs-3">Every interaction,</span>
+    <span class="hs-4">carefully considered.</span>
   </div>
-  <div class="hero-tail">Terms of service someone actually proofread.</div>
 
   <div class="scroll-cue"><span class="chevron">⌄</span>SCROLL TO CONTINUE</div>
 </section>
