@@ -49,7 +49,7 @@
   .dot{ width:9px; height:9px; border-radius:50%; background:var(--signal); }
   nav{display:flex; gap:38px; margin-right:4vw;}
   nav a{
-    font-family:var(--font-display); font-weight:800; font-size:16px; letter-spacing:0.07em;
+    font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:0.07em;
     color:var(--peach); transition:opacity .2s; opacity:0.92;
   }
   nav a:hover{opacity:1;}
@@ -138,8 +138,8 @@
     font-family:var(--font-display); font-weight:900;
     font-size:clamp(64px, 11.5vw, 168px); line-height:0.86; letter-spacing:-0.015em;
     color:var(--peach);
-    -webkit-text-stroke:clamp(5.5px, 1.05vw, 15px) rgba(0,0,0,0.92);
-    text-stroke:clamp(5.5px, 1.05vw, 15px) rgba(0,0,0,0.92);
+    -webkit-text-stroke:clamp(4.4px, 0.84vw, 12px) rgba(0,0,0,0.92);
+    text-stroke:clamp(4.4px, 0.84vw, 12px) rgba(0,0,0,0.92);
     paint-order:stroke fill;
     display:block;
   }
@@ -157,13 +157,16 @@
   .hero-stagger span{
     position:absolute;
     font-family:var(--font-head); font-weight:600;
-    font-size:clamp(16px, 1.9vw, 23px); line-height:1.3; color:var(--peach-dim);
+    font-size:clamp(16px, 1.9vw, 23px); line-height:1.3; color:#5F302B;
+    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
+    text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
+    paint-order:stroke fill;
     white-space:nowrap;
   }
-  .hs-1{ left:32px; top:44%; font-size:clamp(21px, 2.5vw, 30px); font-weight:700; }
-  .hs-2{ right:19%; top:53%; }
-  .hs-3{ right:15%; top:calc(53% + 69px); }
-  .hs-4{ right:9%; top:calc(53% + 138px); }
+  .hs-1{ left:32px; top:40%; font-size:clamp(21px, 2.5vw, 30px); font-weight:700; }
+  .hs-2{ right:19%; top:49%; }
+  .hs-3{ right:15%; top:calc(49% + 79px); }
+  .hs-4{ right:9%; top:calc(49% + 158px); }
   .edge-badge{
     position:absolute; top:0; right:0; bottom:0; width:26px;
     background:#000;
@@ -416,10 +419,10 @@
   </div>
 
   <div class="hero-stagger">
-    <span class="hs-1">Thoughtful apps designed to simplify</span>
-    <span class="hs-2">everyday life.</span>
-    <span class="hs-3">Every interaction,</span>
-    <span class="hs-4">carefully considered.</span>
+    <span class="hs-1">Thoughtful apps designed to simplify.</span>
+    <span class="hs-2">Everyday life.</span>
+    <span class="hs-3">Every interaction.</span>
+    <span class="hs-4">Carefully considered.</span>
   </div>
 
   <div class="scroll-cue">
