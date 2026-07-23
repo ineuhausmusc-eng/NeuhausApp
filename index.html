@@ -284,18 +284,24 @@
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
 
   @media (max-width:900px){
+    #hero{min-height:82vh; padding-bottom:40px;}
     .hero-stagger{position:static; inset:auto; padding-top:0; margin-top:300px;}
     .hero-stagger span{
       position:static; display:block; text-align:left !important;
       white-space:normal; margin:14px 24px 0;
     }
-    #hero{padding-bottom:120px;}
     .hero-bg, .grain, .hero-vignette{
-      top:0; bottom:auto; height:100vh;
+      top:0; bottom:auto; height:78vh;
+    }
+    .hero-vignette{
+      background:radial-gradient(ellipse 95% 80% at 50% 40%, transparent 60%, var(--ink) 100%);
     }
     .hero-photo{
-      width:80vw; top:50vh; left:50%; bottom:auto;
+      width:80vw; top:37vh; left:50%; bottom:auto;
       transform:translate(-50%,-50%);
+    }
+    .scroll-cue{
+      position:static; margin:40px auto 0;
     }
   }
   @media (max-width:760px){
@@ -312,11 +318,16 @@
     .hs-1{left:20px;}
 
     /* second page */
-    #second{padding-left:20px; padding-right:20px; min-height:115vh;}
-    .second-stage{width:82vw; top:36%;}
+    #second{padding-left:20px; padding-right:20px; min-height:auto; padding-top:0; padding-bottom:60px;}
+    .second-stage{
+      position:absolute; left:50%; top:6vh; bottom:auto;
+      transform:translateX(-50%); width:82vw;
+    }
     .second-text{
-      white-space:normal; width:88%; left:50%; bottom:36px;
-      transform:translateX(-50%); line-height:1.15;
+      position:relative; left:auto; bottom:auto; top:auto;
+      margin:470px auto 0;
+      white-space:normal; width:88%;
+      transform:none; line-height:1.15;
       font-size:clamp(24px, 7vw, 40px);
       -webkit-text-stroke:3px rgba(255,255,255,0.95);
       text-stroke:3px rgba(255,255,255,0.95);
@@ -331,7 +342,6 @@
     .hs-1{font-size:clamp(18px,5vw,24px) !important;}
     .hero-stagger span{font-size:15px;}
     .second-stage{width:88vw;}
-    #second{min-height:120vh;}
   }
 
   @media (prefers-reduced-motion:reduce){
