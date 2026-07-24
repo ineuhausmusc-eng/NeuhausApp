@@ -254,11 +254,19 @@
     .hs-1{ font-size:clamp(26px, 6.4vw, 40px); }
   }
   @media (max-width:760px){
-    header{padding:18px 20px 0; flex-direction:column; align-items:center; gap:10px;}
+    header{
+      position:static;
+      padding:24px 20px 4px;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
     nav{gap:22px; margin-right:0; justify-content:center; width:100%;}
     nav a{font-size:13px;}
     .edge-badge{display:none;}
 
+    #hero{padding-top:16px;}
     .hero-taghead{font-size:14px; letter-spacing:0.1em;}
     .hero-word{font-size:clamp(46px,15vw,80px);}
     .hero-subword{font-size:clamp(24px,8.5vw,42px);}
@@ -281,7 +289,9 @@
     }
 
     footer{padding:24px 20px; flex-direction:column; align-items:center; gap:14px; text-align:center;}
-    .foot-links{justify-content:center;}
+    footer .word{width:100%; text-align:center;}
+    .foot-links{justify-content:center; width:100%;}
+    .copyright{width:100%; text-align:center;}
   }
   @media (max-width:420px){
     .hero-word{font-size:clamp(40px,14vw,64px);}
