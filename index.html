@@ -257,9 +257,14 @@
   }
   .third-title{
     font-family:var(--font-display); font-weight:900; line-height:0.98;
-    font-size:clamp(38px, 5.6vw, 68px); color:var(--t1, var(--signal));
+    font-size:clamp(38px, 5.6vw, 68px);
     letter-spacing:-0.01em;
-    transition:color .4s ease;
+  }
+  .gradient-text{
+    background:linear-gradient(90deg, #A170F0 0%, #8275E6 32%, #6291E5 62%, #50B7EB 100%);
+    background-clip:text; -webkit-background-clip:text;
+    color:transparent; -webkit-text-fill-color:transparent;
+    text-shadow:0 0 10px rgba(161,112,240,0.30), 0 0 18px rgba(80,183,235,0.18);
   }
   .third-title span{ display:block; }
   .third-sub{
@@ -501,7 +506,7 @@
 
 <section id="third" data-theme="faith">
   <div class="third-eyebrow">SEE THEM IN ACTION</div>
-  <h2 class="third-title">
+  <h2 class="third-title gradient-text">
     <span>One studio.</span>
     <span>Every kind of app.</span>
   </h2>
