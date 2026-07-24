@@ -69,62 +69,25 @@
   }
   .hero-photo{
     position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-    width:min(58vw, 780px); aspect-ratio:877/536; z-index:0;
+    width:min(62vw, 820px); aspect-ratio:877/536; z-index:1;
     background-image:url('assets/hero-photo.jpg');
     background-size:cover; background-position:center;
-    opacity:0.75;
-    filter:grayscale(0.22) sepia(0.25) saturate(1.25) brightness(0.91) contrast(1.07);
-    -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 81%);
-    mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 81%);
+    opacity:0.78;
+    filter:saturate(1.15) contrast(1.1) brightness(0.92);
+    -webkit-mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
+    mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
   }
   .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-  .blob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.58; will-change:transform; }
-  .blob-a{
-    width:62vw; height:62vw; left:-14%; bottom:-22%;
-    background:radial-gradient(circle at 40% 40%, #D4742A 0%, #A14B12 42%, transparent 72%);
-    animation:driftA 34s ease-in-out infinite alternate;
-  }
-  .blob-b{
-    width:58vw; height:58vw; right:-16%; bottom:-24%;
-    background:radial-gradient(circle at 60% 35%, #C45A1C 0%, #6B2E0A 45%, transparent 72%);
-    animation:driftB 42s ease-in-out infinite alternate;
-  }
-  .blob-c{
-    width:26vw; height:26vw; right:8%; top:-8%;
-    background:radial-gradient(circle at 50% 50%, #E8943A 0%, transparent 70%);
-    opacity:0.35;
-    animation:driftC 26s ease-in-out infinite alternate;
-  }
-  .blob-d{
-    width:34vw; height:34vw; left:6%; top:-6%;
-    background:radial-gradient(circle at 50% 50%, #1A0E06 0%, transparent 75%);
-    opacity:0.6;
-    animation:driftD 30s ease-in-out infinite alternate;
-  }
-  @keyframes driftA{
-    0%{transform:translate(0,0) rotate(0deg) scale(1);}
-    100%{transform:translate(4%,-3%) rotate(10deg) scale(1.08);}
-  }
-  @keyframes driftB{
-    0%{transform:translate(0,0) rotate(0deg) scale(1);}
-    100%{transform:translate(-3%,4%) rotate(-8deg) scale(1.05);}
-  }
-  @keyframes driftC{
-    0%{transform:translate(0,0) scale(1);}
-    100%{transform:translate(-6%,5%) scale(1.15);}
-  }
-  @keyframes driftD{
-    0%{transform:translate(0,0) scale(1);}
-    100%{transform:translate(5%,4%) scale(1.1);}
+  .hero-vignette{
+    position:absolute; inset:0; z-index:2; pointer-events:none;
+    background:
+      radial-gradient(ellipse 55% 50% at 50% 48%, transparent 40%, rgba(10,14,18,0.7) 72%, var(--ink) 100%),
+      radial-gradient(circle at 50% 50%, rgba(180,90,30,0.06) 0%, transparent 60%);
   }
   .grain{
-    position:absolute; inset:0; z-index:1;
+    position:absolute; inset:0; z-index:3;
     filter:url(#grainFilter);
-    opacity:0.05; mix-blend-mode:overlay; pointer-events:none;
-  }
-  .hero-vignette{
-    position:absolute; inset:0; z-index:1; pointer-events:none;
-    background:radial-gradient(ellipse 70% 60% at 50% 45%, transparent 45%, var(--ink) 92%);
+    opacity:0.04; mix-blend-mode:overlay; pointer-events:none;
   }
 
   .hero-taghead{
@@ -290,11 +253,8 @@
       position:static; display:block; text-align:left !important;
       white-space:normal; margin:14px 24px 0;
     }
-    .hero-bg, .grain, .hero-vignette{
+    .hero-vignette, .grain{
       top:0; bottom:auto; height:78vh;
-    }
-    .hero-vignette{
-      background:radial-gradient(ellipse 95% 80% at 50% 40%, transparent 60%, var(--ink) 100%);
     }
     .hero-photo{
       width:80vw; top:37vh; left:50%; bottom:auto;
@@ -371,12 +331,7 @@
 
 <section id="hero">
   <div class="hero-photo"></div>
-  <div class="hero-bg">
-    <div class="blob blob-d"></div>
-    <div class="blob blob-c"></div>
-    <div class="blob blob-a"></div>
-    <div class="blob blob-b"></div>
-  </div>
+  <div class="hero-bg"></div>
   <div class="grain"></div>
   <div class="hero-vignette"></div>
 
