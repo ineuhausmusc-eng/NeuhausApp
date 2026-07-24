@@ -239,14 +239,27 @@
     text-align:center; padding:120px 32px 100px; gap:22px;
     position:relative; overflow:hidden;
   }
+  /* Per-app themes: swapped via [data-theme] on #third when a tab is selected */
+  #third[data-theme="faith"]{
+    --t1:#9B8CFB; --t2:#4EA8F5; --tglow:rgba(139,124,246,0.45); --ttint:rgba(139,124,246,0.14);
+  }
+  #third[data-theme="focus"]{
+    --t1:#3DDC97; --t2:#0EA5A4; --tglow:rgba(61,220,151,0.4); --ttint:rgba(61,220,151,0.14);
+  }
+  #third[data-theme="clinical"]{
+    --t1:#6FB1F7; --t2:#E4676B; --tglow:rgba(111,177,247,0.4); --ttint:rgba(111,177,247,0.14);
+  }
+
   .third-eyebrow{
     font-family:var(--font-mono); font-size:12px; letter-spacing:0.22em;
-    color:var(--signal-dim); text-transform:uppercase;
+    color:var(--t1, var(--signal-dim)); text-transform:uppercase;
+    transition:color .4s ease;
   }
   .third-title{
     font-family:var(--font-display); font-weight:900; line-height:0.98;
-    font-size:clamp(38px, 5.6vw, 68px); color:var(--signal);
+    font-size:clamp(38px, 5.6vw, 68px); color:var(--t1, var(--signal));
     letter-spacing:-0.01em;
+    transition:color .4s ease;
   }
   .third-title span{ display:block; }
   .third-sub{
@@ -268,14 +281,19 @@
     padding:11px 22px; white-space:nowrap; cursor:pointer;
     transition:background .25s, color .25s;
   }
-  .cat-tab.active{ background:var(--signal); color:var(--ink); }
+  .cat-tab.active{
+    background:linear-gradient(90deg, var(--t1, var(--signal)), var(--t2, var(--signal)));
+    color:#0A0E12; transition:background .4s ease;
+  }
   .cat-tab:hover:not(.active){ color:var(--peach); }
 
   .phone-stage{ position:relative; width:250px; margin-top:16px; }
   .phone-frame{
     position:relative; width:100%; aspect-ratio:250/510;
     background:var(--panel-2); border-radius:42px;
-    border:7px solid #000; box-shadow:0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px var(--line);
+    border:7px solid #000;
+    box-shadow:0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px var(--line), 0 0 48px var(--tglow, transparent);
+    transition:box-shadow .4s ease;
     overflow:hidden;
   }
   .phone-notch{
@@ -293,8 +311,10 @@
     transition:opacity .35s ease;
   }
   .phone-screen.active{ opacity:1; pointer-events:auto; }
-  .ps-inner{ padding:14px 16px; flex:1; display:flex; flex-direction:column; gap:10px; }
+  .ps-inner{ padding:14px 16px; flex:1; display:flex; flex-direction:column; gap:8px; }
   .ps-title{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--paper); text-align:left; }
+  .ps-appname{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--paper); text-align:left; }
+  .ps-question{ font-family:var(--font-body); font-size:10.5px; color:var(--paper-dim); text-align:left; margin-top:-2px; margin-bottom:2px; }
   .ps-card{
     background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 12px;
     text-align:left;
@@ -305,12 +325,29 @@
   .ps-strong{ font-family:var(--font-display); font-weight:700; font-size:12px; color:var(--paper); margin-top:2px; }
   .ps-bar-track{ height:5px; background:var(--line); border-radius:4px; overflow:hidden; margin-top:6px; }
   .ps-bar-fill{ height:100%; background:var(--signal); }
+
+  /* mockup-style category rows */
+  .ps-row2{
+    display:flex; align-items:center; gap:9px;
+    background:var(--panel); border:1px solid var(--line); border-radius:13px;
+    padding:9px 11px; text-align:left;
+    transition:border-color .4s ease, background .4s ease;
+  }
+  .ps-row2.highlight{ border-color:var(--t1, var(--signal)); background:var(--ttint, rgba(193,87,31,0.1)); }
+  .ps-icon{
+    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    font-size:11px; background:rgba(255,255,255,0.06);
+  }
+  .ps-row2-label{ font-family:var(--font-body); font-size:11px; color:var(--paper); flex:1; }
+  .ps-chev{ color:var(--paper-dim); font-size:13px; }
+
   .ps-navbar{
     margin-top:auto; display:flex; justify-content:space-around; padding:10px 6px;
     border-top:1px solid var(--line);
   }
   .ps-navbar span{ font-family:var(--font-mono); font-size:8px; color:var(--paper-dim); }
-  .ps-navbar span.on{ color:var(--signal); }
+  .ps-navbar span.on{ color:var(--t1, var(--signal)); transition:color .4s ease; }
 
   .third-caption{
     font-family:var(--font-body); font-size:13px; color:var(--paper-dim);
@@ -462,7 +499,7 @@
   <div class="second-text">I turn ideas into useful, powerful apps.</div>
 </section>
 
-<section id="third">
+<section id="third" data-theme="faith">
   <div class="third-eyebrow">SEE THEM IN ACTION</div>
   <h2 class="third-title">
     <span>One studio.</span>
@@ -483,36 +520,57 @@
 
       <div class="phone-screen active" data-cat="faith">
         <div class="ps-inner">
-          <div class="ps-title">Prayer Matters</div>
-          <div class="ps-card">
-            <div class="ps-label">TODAY'S PRAYER</div>
-            <div class="ps-strong">Lord, guide my steps and calm my heart.</div>
+          <div class="ps-appname">Prayer Matters</div>
+          <div class="ps-question">What do you need prayer for?</div>
+          <div class="ps-row2 highlight">
+            <span class="ps-icon">❤️</span>
+            <span class="ps-row2-label">Fear &amp; Anxiety</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row"><span class="ps-dot" style="background:var(--signal)"></span> Reading plan — Day 14 of 30</div>
+          <div class="ps-row2">
+            <span class="ps-icon">💧</span>
+            <span class="ps-row2-label">Sadness &amp; Grief</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row"><span class="ps-dot" style="background:var(--peach)"></span> Journal entry saved 2h ago</div>
+          <div class="ps-row2">
+            <span class="ps-icon">⚖️</span>
+            <span class="ps-row2-label">Guilt &amp; Shame</span>
+            <span class="ps-chev">›</span>
+          </div>
+          <div class="ps-row2">
+            <span class="ps-icon">👥</span>
+            <span class="ps-row2-label">Loneliness &amp; Rejection</span>
+            <span class="ps-chev">›</span>
           </div>
         </div>
         <div class="ps-navbar">
-          <span class="on">Pray</span><span>Journal</span><span>Bible</span><span>Community</span>
+          <span class="on">Prayers</span><span>Bible</span><span>My Journey</span><span>Connect</span>
         </div>
       </div>
 
       <div class="phone-screen" data-cat="focus">
         <div class="ps-inner">
-          <div class="ps-title">Focus</div>
-          <div class="ps-card">
-            <div class="ps-label">TODAY</div>
-            <div class="ps-strong">78% Focused</div>
-            <div class="ps-bar-track"><div class="ps-bar-fill" style="width:78%"></div></div>
+          <div class="ps-appname">Focus</div>
+          <div class="ps-question">What are you working on?</div>
+          <div class="ps-row2 highlight">
+            <span class="ps-icon">🧠</span>
+            <span class="ps-row2-label">Deep Work</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row">Avg. session — 1h 46m</div>
+          <div class="ps-row2">
+            <span class="ps-icon">📚</span>
+            <span class="ps-row2-label">Study Session</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row">Distractions logged — 8</div>
+          <div class="ps-row2">
+            <span class="ps-icon">🎨</span>
+            <span class="ps-row2-label">Creative Flow</span>
+            <span class="ps-chev">›</span>
+          </div>
+          <div class="ps-row2">
+            <span class="ps-icon">⚡</span>
+            <span class="ps-row2-label">Quick Task</span>
+            <span class="ps-chev">›</span>
           </div>
         </div>
         <div class="ps-navbar">
@@ -522,25 +580,37 @@
 
       <div class="phone-screen" data-cat="clinical">
         <div class="ps-inner">
-          <div class="ps-title">Specimen Guide</div>
-          <div class="ps-card">
-            <div class="ps-row"><span class="ps-dot" style="background:#C1571F"></span> CBC — Lavender top (EDTA)</div>
+          <div class="ps-appname">Specimen Guide</div>
+          <div class="ps-question">What are you collecting?</div>
+          <div class="ps-row2 highlight">
+            <span class="ps-icon">🧪</span>
+            <span class="ps-row2-label">Chemistry Panel</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row"><span class="ps-dot" style="background:#E0B84A"></span> BMP — Gold top (SST)</div>
+          <div class="ps-row2">
+            <span class="ps-icon">🩸</span>
+            <span class="ps-row2-label">Hematology</span>
+            <span class="ps-chev">›</span>
           </div>
-          <div class="ps-card">
-            <div class="ps-row"><span class="ps-dot" style="background:#5F86B8"></span> Coags — Light blue top (citrate)</div>
+          <div class="ps-row2">
+            <span class="ps-icon">⏱️</span>
+            <span class="ps-row2-label">Coagulation</span>
+            <span class="ps-chev">›</span>
+          </div>
+          <div class="ps-row2">
+            <span class="ps-icon">🦠</span>
+            <span class="ps-row2-label">Microbiology</span>
+            <span class="ps-chev">›</span>
           </div>
         </div>
         <div class="ps-navbar">
-          <span class="on">Search</span><span>By tube</span><span>Favorites</span>
+          <span class="on">Search</span><span>By Tube</span><span>Favorites</span>
         </div>
       </div>
     </div>
   </div>
 
-  <p class="third-caption" id="thirdCaption">Prayer Matters — daily devotionals, journaling, and reading plans, wherever you are.</p>
+  <p class="third-caption" id="thirdCaption">Prayer Matters — pick what's weighing on you and get guided prayer, Scripture, and reflection made for that moment.</p>
 </section>
 
 <footer>
@@ -563,10 +633,11 @@
   var tabs = document.querySelectorAll('.cat-tab');
   var screens = document.querySelectorAll('.phone-screen');
   var caption = document.getElementById('thirdCaption');
+  var thirdSection = document.getElementById('third');
   var captions = {
-    faith: "Prayer Matters — daily devotionals, journaling, and reading plans, wherever you are.",
-    focus: "Focus — track deep work sessions and build a daily focus streak.",
-    clinical: "Specimen Guide — a fast, accurate reference for collection tubes and test codes."
+    faith: "Prayer Matters — pick what's weighing on you and get guided prayer, Scripture, and reflection made for that moment.",
+    focus: "Focus — pick what you're working on and get a session built for that kind of work.",
+    clinical: "Specimen Guide — pick a category to jump straight to the right tube and collection method."
   };
   tabs.forEach(function(tab){
     tab.addEventListener('click', function(){
@@ -577,6 +648,7 @@
       var match = document.querySelector('.phone-screen[data-cat="' + cat + '"]');
       if(match) match.classList.add('active');
       if(caption && captions[cat]) caption.textContent = captions[cat];
+      if(thirdSection) thirdSection.setAttribute('data-theme', cat);
     });
   });
 })();
