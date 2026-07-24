@@ -256,7 +256,7 @@
       radial-gradient(110% 90% at 85% 85%, rgba(80,183,235,0.26) 0%, transparent 55%),
       linear-gradient(160deg, #2A1657 0%, #1B1240 42%, #100C29 100%);
     box-shadow:0 50px 110px rgba(0,0,0,0.55);
-    padding:104px 40px 380px;
+    padding:150px 40px 56px;
     display:flex; flex-direction:column; align-items:center;
     text-align:center;
   }
@@ -305,17 +305,24 @@
     text-align:center;
   }
 
+  /* lower row: download controls (left) + hand/phone (right), normal flow so the frame always sizes to fit them */
+  .pm-lower{
+    position:relative; z-index:2; width:100%;
+    margin-top:44px;
+    display:flex; align-items:flex-end; justify-content:space-between;
+    gap:24px; flex-wrap:wrap;
+  }
+
   /* hand + phone stage, lower center-right */
   .pm-stage{
-    position:absolute; z-index:3;
-    left:58%; bottom:0; transform:translateX(-50%);
+    position:relative; z-index:3;
     width:clamp(430px, 39vw, 610px);
-    pointer-events:none;
+    margin-left:auto;
   }
   .pm-particle{
     position:absolute; border-radius:50%; filter:blur(2px);
     background:radial-gradient(circle, rgba(161,112,240,0.9) 0%, rgba(80,183,235,0.5) 60%, transparent 100%);
-    opacity:0.7; z-index:1;
+    opacity:0.7; z-index:1; pointer-events:none;
   }
   .pm-particle.p1{ width:16px; height:16px; top:4%; left:2%; }
   .pm-particle.p2{ width:10px; height:10px; top:46%; left:-6%; background:radial-gradient(circle, rgba(80,183,235,0.9), transparent 70%); }
@@ -387,8 +394,9 @@
 
   /* download area, lower-left */
   .pm-download{
-    position:absolute; left:44px; bottom:40px; z-index:4;
+    position:relative; z-index:4;
     display:flex; align-items:center; gap:18px;
+    padding-bottom:28px;
   }
   .pm-appstore{
     display:flex; align-items:center; gap:11px;
@@ -477,22 +485,23 @@
     /* third section: Prayer Matters showcase */
     #third{padding:56px 16px 60px;}
     .pm-frame{
-      padding:96px 20px 40px;
+      padding:88px 20px 40px;
       border-radius:26px;
       border-width:10px;
     }
-    .pm-tabs{ top:22px; padding:5px; }
+    .pm-tabs{ top:20px; padding:5px; }
     .pm-tab{ padding:8px 13px; font-size:11px; }
     .pm-copy{ max-width:100%; }
     .pm-headline{ font-size:clamp(28px,8vw,38px); }
     .pm-sub{ margin:16px auto 0; }
+    .pm-lower{
+      flex-direction:column; align-items:center; margin-top:32px; gap:32px;
+    }
     .pm-stage{
-      position:relative; left:auto; bottom:auto; transform:none;
-      width:min(78vw, 380px); margin:36px auto 0; pointer-events:auto;
+      order:1; width:min(78vw, 380px); margin-left:0;
     }
     .pm-download{
-      position:relative; left:auto; bottom:auto; margin:32px auto 0;
-      flex-direction:column; gap:14px;
+      order:2; flex-direction:column; gap:14px; padding-bottom:0;
     }
   }
   @media (max-width:420px){
@@ -576,18 +585,41 @@
   <div class="pm-frame">
     <div class="pm-stars"></div>
 
+    <div class="pm-tabs" role="tablist">
+      <button class="pm-tab active" data-feat="pray" type="button">PRAY</button>
+      <button class="pm-tab" data-feat="read" type="button">READ</button>
+      <button class="pm-tab" data-feat="reflect" type="button">REFLECT</button>
+      <button class="pm-tab" data-feat="connect" type="button">CONNECT</button>
+    </div>
+
     <div class="pm-copy">
       <h2 class="pm-headline">
         <span>Prayer for <span class="gradient-text">every moment</span>.</span>
         <span>Peace for <span class="gradient-text">every day</span>.</span>
       </h2>
       <p class="pm-sub">Guided prayer, Scripture, reflection, and community — Prayer Matters meets you right where you are, whenever you need it most.</p>
+    </div>
 
-      <div class="pm-tabs" role="tablist">
-        <button class="pm-tab active" data-feat="pray" type="button">PRAY</button>
-        <button class="pm-tab" data-feat="read" type="button">READ</button>
-        <button class="pm-tab" data-feat="reflect" type="button">REFLECT</button>
-        <button class="pm-tab" data-feat="connect" type="button">CONNECT</button>
+    <div class="pm-lower">
+    <div class="pm-download">
+      <a class="pm-appstore" href="#" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.463 2.093-1.05 2.808-.617.75-1.633 1.32-2.51 1.32-.11 0-.213-.017-.281-.03-.014-.062-.045-.24-.045-.42 0-1.11.556-2.13 1.11-2.79.68-.75 1.85-1.32 2.79-1.35.03.15.045.31.045.462zm3.16 16.65c-.34.79-.5 1.14-.94 1.83-.61.95-1.47 2.14-2.53 2.15-1.05.01-1.32-.68-2.75-.67-1.42.01-1.72.69-2.77.68-1.06-.01-1.86-1.08-2.48-2.03-1.7-2.6-1.87-5.66-.83-7.28.74-1.16 1.9-1.84 3-1.84 1.12 0 1.83.68 2.76.68.9 0 1.46-.68 2.76-.68 1 0 2.05.54 2.8 1.48-2.46 1.35-2.06 4.86.78 5.68z"/></svg>
+        <span>Download on the<br><strong>App Store</strong></span>
+      </a>
+      <div class="pm-qr">
+        <div class="pm-qr-code">
+          <svg viewBox="0 0 29 29" aria-hidden="true">
+            <rect x="0" y="0" width="7" height="7" fill="#0B0714"/><rect x="2" y="2" width="3" height="3" fill="#fff"/>
+            <rect x="22" y="0" width="7" height="7" fill="#0B0714"/><rect x="24" y="2" width="3" height="3" fill="#fff"/>
+            <rect x="0" y="22" width="7" height="7" fill="#0B0714"/><rect x="2" y="24" width="3" height="3" fill="#fff"/>
+            <rect x="10" y="0" width="2" height="2" fill="#0B0714"/><rect x="14" y="0" width="2" height="2" fill="#0B0714"/>
+            <rect x="10" y="10" width="9" height="9" fill="#0B0714"/>
+            <rect x="0" y="10" width="2" height="2" fill="#0B0714"/><rect x="0" y="14" width="2" height="2" fill="#0B0714"/>
+            <rect x="24" y="10" width="2" height="2" fill="#0B0714"/><rect x="24" y="16" width="2" height="2" fill="#0B0714"/>
+            <rect x="10" y="24" width="2" height="2" fill="#0B0714"/><rect x="16" y="24" width="2" height="2" fill="#0B0714"/><rect x="22" y="22" width="4" height="4" fill="#0B0714"/>
+          </svg>
+        </div>
+        <span class="pm-qr-label">SCAN TO DOWNLOAD<em>Placeholder — swap for real App Store QR</em></span>
       </div>
     </div>
 
@@ -691,27 +723,6 @@
         </div>
       </div>
     </div>
-
-    <div class="pm-download">
-      <a class="pm-appstore" href="#" aria-label="Download on the App Store">
-        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.463 2.093-1.05 2.808-.617.75-1.633 1.32-2.51 1.32-.11 0-.213-.017-.281-.03-.014-.062-.045-.24-.045-.42 0-1.11.556-2.13 1.11-2.79.68-.75 1.85-1.32 2.79-1.35.03.15.045.31.045.462zm3.16 16.65c-.34.79-.5 1.14-.94 1.83-.61.95-1.47 2.14-2.53 2.15-1.05.01-1.32-.68-2.75-.67-1.42.01-1.72.69-2.77.68-1.06-.01-1.86-1.08-2.48-2.03-1.7-2.6-1.87-5.66-.83-7.28.74-1.16 1.9-1.84 3-1.84 1.12 0 1.83.68 2.76.68.9 0 1.46-.68 2.76-.68 1 0 2.05.54 2.8 1.48-2.46 1.35-2.06 4.86.78 5.68z"/></svg>
-        <span>Download on the<br><strong>App Store</strong></span>
-      </a>
-      <div class="pm-qr">
-        <div class="pm-qr-code">
-          <svg viewBox="0 0 29 29" aria-hidden="true">
-            <rect x="0" y="0" width="7" height="7" fill="#0B0714"/><rect x="2" y="2" width="3" height="3" fill="#fff"/>
-            <rect x="22" y="0" width="7" height="7" fill="#0B0714"/><rect x="24" y="2" width="3" height="3" fill="#fff"/>
-            <rect x="0" y="22" width="7" height="7" fill="#0B0714"/><rect x="2" y="24" width="3" height="3" fill="#fff"/>
-            <rect x="10" y="0" width="2" height="2" fill="#0B0714"/><rect x="14" y="0" width="2" height="2" fill="#0B0714"/>
-            <rect x="10" y="10" width="9" height="9" fill="#0B0714"/>
-            <rect x="0" y="10" width="2" height="2" fill="#0B0714"/><rect x="0" y="14" width="2" height="2" fill="#0B0714"/>
-            <rect x="24" y="10" width="2" height="2" fill="#0B0714"/><rect x="24" y="16" width="2" height="2" fill="#0B0714"/>
-            <rect x="10" y="24" width="2" height="2" fill="#0B0714"/><rect x="16" y="24" width="2" height="2" fill="#0B0714"/><rect x="22" y="22" width="4" height="4" fill="#0B0714"/>
-          </svg>
-        </div>
-        <span class="pm-qr-label">SCAN TO DOWNLOAD<em>Placeholder — swap for real App Store QR</em></span>
-      </div>
     </div>
   </div>
 </section>
