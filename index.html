@@ -248,18 +248,17 @@
 
   .pm-frame{
     position:relative; width:100%; max-width:1280px;
-    border-radius:36px; overflow:hidden;
+    border-radius:36px;
+    border:14px solid #0A0716;
+    overflow:hidden;
     background:
       radial-gradient(120% 90% at 18% 10%, rgba(161,112,240,0.32) 0%, transparent 55%),
       radial-gradient(110% 90% at 85% 85%, rgba(80,183,235,0.26) 0%, transparent 55%),
       linear-gradient(160deg, #2A1657 0%, #1B1240 42%, #100C29 100%);
     box-shadow:0 50px 110px rgba(0,0,0,0.55);
-    padding:76px 56px 64px;
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    align-items:center;
-    gap:32px;
-    min-height:680px;
+    padding:104px 40px 380px;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
   }
   .pm-stars{
     position:absolute; inset:0; z-index:0; pointer-events:none;
@@ -272,22 +271,14 @@
       radial-gradient(1px 1px at 22% 85%, rgba(255,255,255,0.3) 50%, transparent 100%);
   }
 
-  .pm-copy{ position:relative; z-index:2; text-align:left; }
-  .pm-headline{
-    font-family:'Fraunces', serif; font-weight:600; line-height:1.08;
-    font-size:clamp(34px, 3.6vw, 54px); color:#F3EEFB;
-    letter-spacing:-0.01em;
-  }
-  .pm-headline span{ display:block; }
-  .pm-sub{
-    font-family:var(--font-body); font-size:clamp(14px,1.2vw,16px);
-    color:#C6C0E0; max-width:420px; margin-top:18px; line-height:1.6;
-  }
-
+  /* centered floating selector pill, anchored to the whole frame */
   .pm-tabs{
-    display:inline-flex; gap:6px; background:rgba(0,0,0,0.35);
-    border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:6px;
-    margin-top:28px;
+    position:absolute; top:44px; left:50%; transform:translateX(-50%);
+    z-index:6;
+    display:inline-flex; gap:6px; background:rgba(10,7,20,0.55);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,0.12); border-radius:999px; padding:6px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
   }
   .pm-tab{
     font-family:var(--font-display); font-weight:700; font-size:12.5px;
@@ -301,118 +292,126 @@
   }
   .pm-tab:hover:not(.active){ color:#F3EEFB; }
 
+  .pm-copy{ position:relative; z-index:2; max-width:740px; margin:0 auto; }
+  .pm-headline{
+    font-family:'Fraunces', serif; font-weight:600; line-height:1.1;
+    font-size:clamp(34px, 4.4vw, 58px); color:#F3EEFB;
+    letter-spacing:-0.01em; text-align:center;
+  }
+  .pm-headline span{ display:block; list-style:none; }
+  .pm-sub{
+    font-family:var(--font-body); font-size:clamp(14px,1.2vw,16px);
+    color:#C6C0E0; max-width:460px; margin:18px auto 0; line-height:1.6;
+    text-align:center;
+  }
+
+  /* hand + phone stage, lower center-right */
   .pm-stage{
-    position:relative; z-index:2;
-    display:flex; align-items:center; justify-content:center;
-    min-height:520px;
+    position:absolute; z-index:3;
+    left:58%; bottom:0; transform:translateX(-50%);
+    width:clamp(430px, 39vw, 610px);
+    pointer-events:none;
   }
   .pm-particle{
     position:absolute; border-radius:50%; filter:blur(2px);
     background:radial-gradient(circle, rgba(161,112,240,0.9) 0%, rgba(80,183,235,0.5) 60%, transparent 100%);
-    opacity:0.7;
+    opacity:0.7; z-index:1;
   }
-  .pm-particle.p1{ width:14px; height:14px; top:8%; left:14%; }
-  .pm-particle.p2{ width:9px; height:9px; top:70%; left:6%; background:radial-gradient(circle, rgba(80,183,235,0.9), transparent 70%); }
-  .pm-particle.p3{ width:11px; height:11px; top:20%; right:8%; }
-  .pm-particle.p4{ width:7px; height:7px; bottom:12%; right:16%; background:radial-gradient(circle, rgba(80,183,235,0.85), transparent 70%); }
+  .pm-particle.p1{ width:16px; height:16px; top:4%; left:2%; }
+  .pm-particle.p2{ width:10px; height:10px; top:46%; left:-6%; background:radial-gradient(circle, rgba(80,183,235,0.9), transparent 70%); }
+  .pm-particle.p3{ width:13px; height:13px; top:10%; right:0%; }
+  .pm-particle.p4{ width:8px; height:8px; bottom:30%; right:-4%; background:radial-gradient(circle, rgba(80,183,235,0.85), transparent 70%); }
 
-  .pm-hand{
-    position:absolute; left:50%; bottom:-6%; transform:translateX(-50%);
-    width:78%; height:60%; z-index:1; pointer-events:none;
-    background:radial-gradient(ellipse 60% 55% at 50% 100%, rgba(70,45,30,0.5) 0%, transparent 70%);
-    filter:blur(2px);
-  }
-
-  .pm-phone{
-    position:relative; z-index:3; width:290px; aspect-ratio:290/592;
-    background:#0B0714; border-radius:46px; border:8px solid #000;
-    box-shadow:0 40px 90px rgba(0,0,0,0.6), 0 0 60px rgba(139,124,246,0.35);
+  .pm-phone-mount{ position:relative; width:100%; z-index:2; }
+  .pm-hand-img{ display:block; width:100%; height:auto; }
+  .pm-screen-wrap{
+    position:absolute;
+    left:20%; top:14%; width:41%; height:56%;
+    border-radius:9%;
     overflow:hidden;
+    background:#0B0714;
   }
-  .pm-notch{
-    position:absolute; top:12px; left:50%; transform:translateX(-50%);
-    width:90px; height:22px; background:#000; border-radius:14px; z-index:5;
+  .pm-screen{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; opacity:0; pointer-events:none;
+    transition:opacity .35s ease;
+    background:radial-gradient(circle at 50% 34%, rgba(80,60,150,0.5) 0%, transparent 60%);
   }
+  .pm-screen.active{ opacity:1; pointer-events:auto; }
   .pm-statusbar{
     position:relative; z-index:4;
     display:flex; justify-content:space-between; align-items:center;
-    padding:18px 20px 4px; font-family:var(--font-mono); font-size:11px; color:#C6C0E0;
+    padding:14px 16px 0; font-family:var(--font-mono); font-size:10px; color:#C6C0E0;
   }
-  .pm-screen{
-    position:absolute; inset:0; padding-top:44px;
-    display:flex; flex-direction:column; opacity:0; pointer-events:none;
-    transition:opacity .35s ease;
-    background:radial-gradient(circle at 50% 38%, rgba(80,60,150,0.5) 0%, transparent 60%);
-  }
-  .pm-screen.active{ opacity:1; pointer-events:auto; }
   .pm-orb{
-    width:150px; height:150px; margin:14px auto 0; border-radius:50%;
+    width:78px; height:78px; margin:10px auto 0; border-radius:50%;
     background:radial-gradient(circle, rgba(161,112,240,0.55) 0%, rgba(80,183,235,0.35) 45%, transparent 75%);
     filter:blur(1px);
   }
   .pm-appname{
-    font-family:'Fraunces', serif; font-weight:600; font-size:19px; color:#F3EEFB;
-    text-align:center; margin-top:-92px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:16px; color:#F3EEFB;
+    text-align:center; margin-top:-68px;
   }
   .pm-verse{
-    font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:12px;
-    color:#E9C46A; text-align:center; margin-top:28px; padding:0 22px; line-height:1.4;
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:11px;
+    color:#E9C46A; text-align:center; margin-top:18px; padding:0 16px; line-height:1.4;
   }
   .pm-ref{
-    font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; color:#8F89B8;
-    text-align:center; margin-top:6px;
+    font-family:var(--font-mono); font-size:8.5px; letter-spacing:0.1em; color:#8F89B8;
+    text-align:center; margin-top:5px;
   }
-  .pm-journey{ margin-top:auto; padding:14px 16px 16px; }
+  .pm-journey{ margin-top:auto; padding:12px 14px 14px; }
   .pm-journey-label{
-    font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; color:#8F89B8;
-    margin-bottom:8px;
+    font-family:var(--font-mono); font-size:8.5px; letter-spacing:0.1em; color:#8F89B8;
+    margin-bottom:6px;
   }
   .pm-journey-card{
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; gap:8px;
     background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
-    border-radius:14px; padding:10px 12px;
+    border-radius:12px; padding:8px 10px;
   }
   .pm-journey-icon{
-    width:30px; height:30px; border-radius:50%; flex-shrink:0;
-    display:flex; align-items:center; justify-content:center; font-size:13px;
+    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:12px;
     background:rgba(161,112,240,0.25);
   }
-  .pm-journey-title{ font-family:var(--font-display); font-weight:700; font-size:12px; color:#F3EEFB; }
-  .pm-journey-sub{ font-family:var(--font-body); font-size:10px; color:#B9B2D6; margin-top:1px; }
-  .pm-chev{ margin-left:auto; color:#8F89B8; font-size:14px; }
+  .pm-journey-title{ font-family:var(--font-display); font-weight:700; font-size:11px; color:#F3EEFB; }
+  .pm-journey-sub{ font-family:var(--font-body); font-size:9.5px; color:#B9B2D6; margin-top:1px; }
+  .pm-chev{ margin-left:auto; color:#8F89B8; font-size:13px; }
   .pm-navbar{
-    margin-top:auto; display:flex; justify-content:space-around; padding:12px 6px;
+    display:flex; justify-content:space-around; padding:10px 4px;
     border-top:1px solid rgba(255,255,255,0.08);
   }
-  .pm-navbar span{ font-family:var(--font-mono); font-size:8.5px; color:#8F89B8; }
+  .pm-navbar span{ font-family:var(--font-mono); font-size:8px; color:#8F89B8; }
   .pm-navbar span.on{ color:#A170F0; }
 
+  /* download area, lower-left */
   .pm-download{
-    position:absolute; left:56px; bottom:40px; z-index:4;
-    display:flex; align-items:center; gap:16px;
+    position:absolute; left:44px; bottom:40px; z-index:4;
+    display:flex; align-items:center; gap:18px;
   }
   .pm-appstore{
-    display:flex; align-items:center; gap:9px;
-    background:#000; border:1px solid rgba(255,255,255,0.14);
-    border-radius:12px; padding:9px 16px;
+    display:flex; align-items:center; gap:11px;
+    background:#000; border:1px solid rgba(255,255,255,0.16);
+    border-radius:14px; padding:12px 20px;
   }
-  .pm-appstore svg{ width:20px; height:20px; flex-shrink:0; }
-  .pm-appstore span{ font-family:var(--font-body); font-size:9.5px; color:#D8D4EC; line-height:1.25; }
-  .pm-appstore strong{ font-family:var(--font-display); font-size:14px; color:#fff; font-weight:700; }
+  .pm-appstore svg{ width:26px; height:26px; flex-shrink:0; }
+  .pm-appstore span{ font-family:var(--font-body); font-size:11.5px; color:#D8D4EC; line-height:1.25; }
+  .pm-appstore strong{ font-family:var(--font-display); font-size:17px; color:#fff; font-weight:700; }
 
-  .pm-qr{ display:flex; align-items:center; gap:10px; }
+  .pm-qr{ display:flex; align-items:center; gap:12px; }
   .pm-qr-code{
-    width:54px; height:54px; border-radius:8px;
+    width:68px; height:68px; border-radius:10px;
     background:#fff; border:2px solid rgba(255,255,255,0.5);
     display:flex; align-items:center; justify-content:center;
     position:relative; flex-shrink:0;
   }
-  .pm-qr-code svg{ width:44px; height:44px; }
+  .pm-qr-code svg{ width:56px; height:56px; }
   .pm-qr-label{
-    font-family:var(--font-mono); font-size:8.5px; letter-spacing:0.08em;
-    color:#B9B2D6; line-height:1.5;
+    font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.08em;
+    color:#B9B2D6; line-height:1.55;
   }
-  .pm-qr-label em{ font-style:normal; color:#7A749E; font-size:8px; display:block; margin-top:2px; }
+  .pm-qr-label em{ font-style:normal; color:#7A749E; font-size:8.5px; display:block; margin-top:2px; }
 
   footer{
     background:var(--ink); border-top:1px solid var(--line);
@@ -478,17 +477,21 @@
     /* third section: Prayer Matters showcase */
     #third{padding:56px 16px 60px;}
     .pm-frame{
-      grid-template-columns:1fr; min-height:auto;
-      padding:44px 22px 210px; border-radius:26px; gap:36px;
+      padding:96px 20px 40px;
+      border-radius:26px;
+      border-width:10px;
     }
-    .pm-copy{ text-align:center; }
-    .pm-headline{ font-size:clamp(28px,8vw,38px); text-align:center; }
-    .pm-sub{ margin-left:auto; margin-right:auto; }
-    .pm-tabs{ margin:24px auto 0; }
-    .pm-stage{ min-height:auto; }
-    .pm-phone{ width:230px; }
+    .pm-tabs{ top:22px; padding:5px; }
+    .pm-tab{ padding:8px 13px; font-size:11px; }
+    .pm-copy{ max-width:100%; }
+    .pm-headline{ font-size:clamp(28px,8vw,38px); }
+    .pm-sub{ margin:16px auto 0; }
+    .pm-stage{
+      position:relative; left:auto; bottom:auto; transform:none;
+      width:min(78vw, 380px); margin:36px auto 0; pointer-events:auto;
+    }
     .pm-download{
-      position:relative; left:auto; bottom:auto; margin-top:28px;
+      position:relative; left:auto; bottom:auto; margin:32px auto 0;
       flex-direction:column; gap:14px;
     }
   }
@@ -498,7 +501,7 @@
     .hs-1{font-size:clamp(22px,5.8vw,32px);}
     .hero-photo{width:92vw;}
     .second-stage{width:88vw;}
-    .pm-phone{width:200px;}
+    .pm-stage{width:min(84vw, 320px);}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -593,86 +596,98 @@
       <div class="pm-particle p2"></div>
       <div class="pm-particle p3"></div>
       <div class="pm-particle p4"></div>
-      <div class="pm-hand" aria-hidden="true"></div>
 
-      <div class="pm-phone">
-        <div class="pm-notch"></div>
-        <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+      <div class="pm-phone-mount">
+        <img class="pm-hand-img" src="assets/prayer-matters-hand-phone.png" alt="Hand holding a phone displaying the Prayer Matters app">
 
-        <div class="pm-screen active" data-feat="pray">
-          <div class="pm-orb"></div>
-          <div class="pm-appname">Prayer Matters</div>
-          <div class="pm-verse">"Be still, and know that I am God."</div>
-          <div class="pm-ref">PSALM 46:10</div>
-          <div class="pm-journey">
-            <div class="pm-journey-label">CONTINUE YOUR JOURNEY</div>
-            <div class="pm-journey-card">
-              <span class="pm-journey-icon">🕯️</span>
-              <div>
-                <div class="pm-journey-title">Evening Prayer</div>
-                <div class="pm-journey-sub">Find rest and peace</div>
+        <div class="pm-screen-wrap">
+          <div class="pm-screen active" data-feat="pray">
+            <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+            <div class="pm-orb"></div>
+            <div class="pm-appname">Prayer Matters</div>
+            <div class="pm-verse">"Be still, and know that I am God."</div>
+            <div class="pm-ref">PSALM 46:10</div>
+            <div class="pm-journey">
+              <div class="pm-journey-label">CONTINUE YOUR JOURNEY</div>
+              <div class="pm-journey-card">
+                <span class="pm-journey-icon">🕯️</span>
+                <div>
+                  <div class="pm-journey-title">Evening Prayer</div>
+                  <div class="pm-journey-sub">Find rest and peace</div>
+                </div>
+                <span class="pm-chev">›</span>
               </div>
-              <span class="pm-chev">›</span>
+            </div>
+            <div class="pm-navbar">
+              <span class="on">Home</span><span>Prayers</span><span>Bible</span><span>Journey</span>
             </div>
           </div>
-        </div>
 
-        <div class="pm-screen" data-feat="read">
-          <div class="pm-orb"></div>
-          <div class="pm-appname">Today's Reading</div>
-          <div class="pm-verse">"The Lord is my shepherd; I shall not want."</div>
-          <div class="pm-ref">PSALM 23:1</div>
-          <div class="pm-journey">
-            <div class="pm-journey-label">READING PLAN — DAY 14 OF 30</div>
-            <div class="pm-journey-card">
-              <span class="pm-journey-icon">📖</span>
-              <div>
-                <div class="pm-journey-title">Psalms of Comfort</div>
-                <div class="pm-journey-sub">5 min read</div>
+          <div class="pm-screen" data-feat="read">
+            <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+            <div class="pm-orb"></div>
+            <div class="pm-appname">Today's Reading</div>
+            <div class="pm-verse">"The Lord is my shepherd; I shall not want."</div>
+            <div class="pm-ref">PSALM 23:1</div>
+            <div class="pm-journey">
+              <div class="pm-journey-label">READING PLAN — DAY 14 OF 30</div>
+              <div class="pm-journey-card">
+                <span class="pm-journey-icon">📖</span>
+                <div>
+                  <div class="pm-journey-title">Psalms of Comfort</div>
+                  <div class="pm-journey-sub">5 min read</div>
+                </div>
+                <span class="pm-chev">›</span>
               </div>
-              <span class="pm-chev">›</span>
+            </div>
+            <div class="pm-navbar">
+              <span>Home</span><span class="on">Prayers</span><span>Bible</span><span>Journey</span>
             </div>
           </div>
-        </div>
 
-        <div class="pm-screen" data-feat="reflect">
-          <div class="pm-orb"></div>
-          <div class="pm-appname">Reflect</div>
-          <div class="pm-verse">"Search me, O God, and know my heart."</div>
-          <div class="pm-ref">PSALM 139:23</div>
-          <div class="pm-journey">
-            <div class="pm-journey-label">TODAY'S PROMPT</div>
-            <div class="pm-journey-card">
-              <span class="pm-journey-icon">📝</span>
-              <div>
-                <div class="pm-journey-title">Journal entry</div>
-                <div class="pm-journey-sub">What are you grateful for?</div>
+          <div class="pm-screen" data-feat="reflect">
+            <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+            <div class="pm-orb"></div>
+            <div class="pm-appname">Reflect</div>
+            <div class="pm-verse">"Search me, O God, and know my heart."</div>
+            <div class="pm-ref">PSALM 139:23</div>
+            <div class="pm-journey">
+              <div class="pm-journey-label">TODAY'S PROMPT</div>
+              <div class="pm-journey-card">
+                <span class="pm-journey-icon">📝</span>
+                <div>
+                  <div class="pm-journey-title">Journal entry</div>
+                  <div class="pm-journey-sub">What are you grateful for?</div>
+                </div>
+                <span class="pm-chev">›</span>
               </div>
-              <span class="pm-chev">›</span>
+            </div>
+            <div class="pm-navbar">
+              <span>Home</span><span>Prayers</span><span>Bible</span><span class="on">Journey</span>
             </div>
           </div>
-        </div>
 
-        <div class="pm-screen" data-feat="connect">
-          <div class="pm-orb"></div>
-          <div class="pm-appname">Community</div>
-          <div class="pm-verse">"Carry each other's burdens."</div>
-          <div class="pm-ref">GALATIANS 6:2</div>
-          <div class="pm-journey">
-            <div class="pm-journey-label">PRAYER CIRCLE</div>
-            <div class="pm-journey-card">
-              <span class="pm-journey-icon">🙏</span>
-              <div>
-                <div class="pm-journey-title">Share a prayer request</div>
-                <div class="pm-journey-sub">12 people praying today</div>
+          <div class="pm-screen" data-feat="connect">
+            <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+            <div class="pm-orb"></div>
+            <div class="pm-appname">Community</div>
+            <div class="pm-verse">"Carry each other's burdens."</div>
+            <div class="pm-ref">GALATIANS 6:2</div>
+            <div class="pm-journey">
+              <div class="pm-journey-label">PRAYER CIRCLE</div>
+              <div class="pm-journey-card">
+                <span class="pm-journey-icon">🙏</span>
+                <div>
+                  <div class="pm-journey-title">Share a prayer request</div>
+                  <div class="pm-journey-sub">12 people praying today</div>
+                </div>
+                <span class="pm-chev">›</span>
               </div>
-              <span class="pm-chev">›</span>
+            </div>
+            <div class="pm-navbar">
+              <span>Home</span><span>Prayers</span><span>Bible</span><span>Journey</span>
             </div>
           </div>
-        </div>
-
-        <div class="pm-navbar">
-          <span class="on">Home</span><span>Prayers</span><span>Bible</span><span>Journey</span>
         </div>
       </div>
     </div>
