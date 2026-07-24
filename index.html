@@ -63,13 +63,7 @@
   /* ---------- HERO + ANIMATED GRAIN GRADIENT ---------- */
   #hero{
     min-height:100vh;
-    padding:0 60px 0 32px;
-    background:var(--ink);
-    overflow:hidden;
-  }
-  #hero{
-    min-height:100vh;
-    padding:110px 32px 40px;
+    padding:80px 32px 40px;
     display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
     text-align:center;
     background:var(--ink);
@@ -78,7 +72,7 @@
   .hero-photo{
     position:relative; left:auto; top:auto; transform:none;
     width:min(68vw, 900px); aspect-ratio:877/536; z-index:1;
-    margin:36px auto 44px;
+    margin:24px auto 32px;
     background-image:url('assets/hero-photo.jpg');
     background-size:cover; background-position:center;
     opacity:0.66;
@@ -100,13 +94,12 @@
   }
 
   .hero-taghead{
-    position:relative; top:auto; left:auto; right:auto;
-    font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:0.15em;
+    position:absolute; top:32px; left:0; right:0; text-align:center;
+    font-family:var(--font-display); font-weight:800; font-size:30px; letter-spacing:0.15em;
     color:var(--paper); z-index:5;
     -webkit-text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
     text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
     paint-order:stroke fill;
-    margin-bottom:18px;
   }
   .hero-title-block{
     position:relative; left:auto; top:auto; z-index:4;
@@ -139,7 +132,7 @@
     text-stroke:clamp(1.2px, 0.192vw, 2.4px) var(--peach);
     paint-order:stroke fill;
   }
-  .hs-1{ font-size:clamp(36px, 4.35vw, 53px); font-weight:700; line-height:1.15; margin:0 auto; max-width:min(1050px, 92vw); }
+  .hs-1{ font-size:clamp(45px, 5.44vw, 66px); font-weight:700; line-height:1.15; margin:0 auto; max-width:min(1050px, 92vw); }
   .edge-badge{
     position:absolute; top:0; right:0; bottom:0; width:26px;
     background:#000;
