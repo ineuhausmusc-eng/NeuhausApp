@@ -69,11 +69,11 @@
   }
   .hero-photo{
     position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-    width:min(62vw, 820px); aspect-ratio:877/536; z-index:1;
+    width:min(68vw, 900px); aspect-ratio:877/536; z-index:1;
     background-image:url('assets/hero-photo.jpg');
     background-size:cover; background-position:center;
-    opacity:0.78;
-    filter:saturate(1.15) contrast(1.1) brightness(0.92);
+    opacity:0.72;
+    filter:saturate(1.15) contrast(1.1) brightness(0.82);
     -webkit-mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
     mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
   }
@@ -94,8 +94,8 @@
     position:absolute; top:34px; left:0; right:0; text-align:center;
     font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:0.15em;
     color:var(--paper); z-index:5;
-    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
-    text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
+    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
+    text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
     paint-order:stroke fill;
   }
   .hero-title-block{
@@ -105,8 +105,8 @@
     font-family:var(--font-display); font-weight:900;
     font-size:clamp(64px, 11.5vw, 168px); line-height:0.86; letter-spacing:-0.015em;
     color:var(--peach);
-    -webkit-text-stroke:clamp(4.4px, 0.84vw, 12px) rgba(0,0,0,0.92);
-    text-stroke:clamp(4.4px, 0.84vw, 12px) rgba(0,0,0,0.92);
+    -webkit-text-stroke:clamp(4.4px, 0.84vw, 12px) #7A1A1F;
+    text-stroke:clamp(4.4px, 0.84vw, 12px) #7A1A1F;
     paint-order:stroke fill;
     display:block;
   }
@@ -114,12 +114,11 @@
     font-family:var(--font-display); font-weight:800;
     font-size:clamp(39px, 5.5vw, 73px); letter-spacing:0.03em;
     color:var(--peach-dim);
-    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
-    text-stroke:clamp(1px, 0.16vw, 2px) rgba(0,0,0,0.85);
+    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
+    text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
     paint-order:stroke fill;
     text-align:left; display:block; margin-top:8px;
   }
-  .hero-subword .n-hide{ opacity:0.4; mix-blend-mode:overlay; }
   .hero-stagger{ position:absolute; inset:0; z-index:5; pointer-events:none; }
   .hero-stagger span{
     position:absolute;
@@ -131,9 +130,6 @@
     white-space:nowrap;
   }
   .hs-1{ left:32px; top:40%; font-size:clamp(24px, 2.9vw, 35px); font-weight:700; }
-  .hs-2{ right:19%; top:49%; }
-  .hs-3{ right:15%; top:calc(49% + 79px); }
-  .hs-4{ right:9%; top:calc(49% + 158px); }
   .edge-badge{
     position:absolute; top:0; right:0; bottom:0; width:26px;
     background:#000;
@@ -248,16 +244,16 @@
 
   @media (max-width:900px){
     #hero{min-height:82vh; padding-bottom:40px;}
-    .hero-stagger{position:static; inset:auto; padding-top:0; margin-top:300px;}
+    .hero-stagger{position:static; inset:auto; padding-top:0; margin-top:230px;}
     .hero-stagger span{
       position:static; display:block; text-align:left !important;
       white-space:normal; margin:14px 24px 0;
     }
     .hero-vignette, .grain{
-      top:0; bottom:auto; height:78vh;
+      top:0; bottom:auto; height:82vh;
     }
     .hero-photo{
-      width:80vw; top:37vh; left:50%; bottom:auto;
+      width:88vw; top:44vh; left:50%; bottom:auto;
       transform:translate(-50%,-50%);
     }
     .scroll-cue{
@@ -271,7 +267,7 @@
     .edge-badge{display:none;}
 
     /* hero */
-    .hero-title-block{top:120px; left:20px;}
+    .hero-title-block{top:100px; left:20px;}
     .hero-word{font-size:clamp(46px,15vw,80px);}
     .hero-subword{font-size:clamp(24px,8.5vw,42px);}
     .hero-taghead{font-size:14px; letter-spacing:0.1em; top:24px;}
@@ -300,7 +296,6 @@
     .hero-word{font-size:clamp(40px,14vw,64px);}
     .hero-subword{font-size:clamp(20px,7.5vw,32px);}
     .hs-1{font-size:clamp(18px,5vw,24px) !important;}
-    .hero-stagger span{font-size:15px;}
     .second-stage{width:88vw;}
   }
 
@@ -340,14 +335,11 @@
 
   <div class="hero-title-block">
     <span class="hero-word">NEUHAUS</span>
-    <span class="hero-subword">APP DESIG<span class="n-hide">N</span></span>
+    <span class="hero-subword">APP DESIGN</span>
   </div>
 
   <div class="hero-stagger">
-    <span class="hs-1">Thoughtful apps designed to simplify.</span>
-    <span class="hs-2">Everyday life.</span>
-    <span class="hs-3">Every interaction.</span>
-    <span class="hs-4">Carefully considered.</span>
+    <span class="hs-1">Thoughtful apps Designed to simplify.</span>
   </div>
 
   <div class="scroll-cue">
