@@ -72,33 +72,33 @@
     width:min(58vw, 780px); aspect-ratio:877/536; z-index:0;
     background-image:url('assets/hero-photo.jpg');
     background-size:cover; background-position:center;
-    opacity:0.82;
-    filter:grayscale(0.2) sepia(0.2) saturate(1.2) brightness(0.95) contrast(1.06);
-    -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 50%, transparent 82%);
-    mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 50%, transparent 82%);
+    opacity:0.75;
+    filter:grayscale(0.22) sepia(0.25) saturate(1.25) brightness(0.91) contrast(1.07);
+    -webkit-mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 81%);
+    mask-image:radial-gradient(ellipse 62% 62% at 50% 50%, #000 48%, transparent 81%);
   }
   .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; }
-  .blob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.43; will-change:transform; }
+  .blob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.58; will-change:transform; }
   .blob-a{
     width:62vw; height:62vw; left:-14%; bottom:-22%;
-    background:radial-gradient(circle at 40% 40%, var(--g1) 0%, var(--g2) 42%, transparent 72%);
+    background:radial-gradient(circle at 40% 40%, #D4742A 0%, #A14B12 42%, transparent 72%);
     animation:driftA 34s ease-in-out infinite alternate;
   }
   .blob-b{
     width:58vw; height:58vw; right:-16%; bottom:-24%;
-    background:radial-gradient(circle at 60% 35%, var(--g2) 0%, var(--g3) 45%, transparent 72%);
+    background:radial-gradient(circle at 60% 35%, #C45A1C 0%, #6B2E0A 45%, transparent 72%);
     animation:driftB 42s ease-in-out infinite alternate;
   }
   .blob-c{
     width:26vw; height:26vw; right:8%; top:-8%;
-    background:radial-gradient(circle at 50% 50%, var(--g1) 0%, transparent 70%);
-    opacity:0.55;
+    background:radial-gradient(circle at 50% 50%, #E8943A 0%, transparent 70%);
+    opacity:0.35;
     animation:driftC 26s ease-in-out infinite alternate;
   }
   .blob-d{
     width:34vw; height:34vw; left:6%; top:-6%;
-    background:radial-gradient(circle at 50% 50%, var(--g4) 0%, transparent 75%);
-    opacity:0.5;
+    background:radial-gradient(circle at 50% 50%, #1A0E06 0%, transparent 75%);
+    opacity:0.6;
     animation:driftD 30s ease-in-out infinite alternate;
   }
   @keyframes driftA{
