@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neuhaus Apps</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0A0E12;
@@ -232,33 +232,12 @@
     paint-order:stroke fill;
   }
 
-  /* ---------- THIRD SECTION: CATEGORY EXPLORER ---------- */
+  /* ---------- THIRD SECTION: PRAYER MATTERS SHOWCASE ---------- */
   #third{
-    min-height:100vh; background:var(--ink);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; padding:120px 32px 100px; gap:22px;
-    position:relative; overflow:hidden;
-  }
-  /* Per-app themes: swapped via [data-theme] on #third when a tab is selected */
-  #third[data-theme="faith"]{
-    --t1:#9B8CFB; --t2:#4EA8F5; --tglow:rgba(139,124,246,0.45); --ttint:rgba(139,124,246,0.14);
-  }
-  #third[data-theme="focus"]{
-    --t1:#3DDC97; --t2:#0EA5A4; --tglow:rgba(61,220,151,0.4); --ttint:rgba(61,220,151,0.14);
-  }
-  #third[data-theme="clinical"]{
-    --t1:#6FB1F7; --t2:#E4676B; --tglow:rgba(111,177,247,0.4); --ttint:rgba(111,177,247,0.14);
-  }
-
-  .third-eyebrow{
-    font-family:var(--font-mono); font-size:12px; letter-spacing:0.22em;
-    color:var(--t1, var(--signal-dim)); text-transform:uppercase;
-    transition:color .4s ease;
-  }
-  .third-title{
-    font-family:var(--font-display); font-weight:900; line-height:0.98;
-    font-size:clamp(38px, 5.6vw, 68px);
-    letter-spacing:-0.01em;
+    background:var(--ink);
+    padding:90px 20px 100px;
+    display:flex; justify-content:center;
+    position:relative;
   }
   .gradient-text{
     background:linear-gradient(90deg, #A170F0 0%, #8275E6 32%, #6291E5 62%, #50B7EB 100%);
@@ -266,98 +245,174 @@
     color:transparent; -webkit-text-fill-color:transparent;
     text-shadow:0 0 10px rgba(161,112,240,0.30), 0 0 18px rgba(80,183,235,0.18);
   }
-  .third-title span{ display:block; }
-  .third-sub{
-    font-family:var(--font-body); font-size:clamp(15px,1.6vw,18px);
-    color:var(--paper-dim); max-width:520px; margin-top:-6px;
+
+  .pm-frame{
+    position:relative; width:100%; max-width:1280px;
+    border-radius:36px; overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 18% 10%, rgba(161,112,240,0.32) 0%, transparent 55%),
+      radial-gradient(110% 90% at 85% 85%, rgba(80,183,235,0.26) 0%, transparent 55%),
+      linear-gradient(160deg, #2A1657 0%, #1B1240 42%, #100C29 100%);
+    box-shadow:0 50px 110px rgba(0,0,0,0.55);
+    padding:76px 56px 64px;
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    align-items:center;
+    gap:32px;
+    min-height:680px;
+  }
+  .pm-stars{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,0.55) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 78% 15%, rgba(255,255,255,0.4) 50%, transparent 100%),
+      radial-gradient(1px 1px at 34% 68%, rgba(255,255,255,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 60% 40%, rgba(255,255,255,0.35) 50%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.4) 50%, transparent 100%),
+      radial-gradient(1px 1px at 22% 85%, rgba(255,255,255,0.3) 50%, transparent 100%);
   }
 
-  .cat-tabs{
-    display:inline-flex; gap:6px; background:var(--panel);
-    border:1px solid var(--line); border-radius:999px; padding:6px;
-    margin-top:10px; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
+  .pm-copy{ position:relative; z-index:2; text-align:left; }
+  .pm-headline{
+    font-family:'Fraunces', serif; font-weight:600; line-height:1.08;
+    font-size:clamp(34px, 3.6vw, 54px); color:#F3EEFB;
+    letter-spacing:-0.01em;
   }
-  .cat-tabs::-webkit-scrollbar{ display:none; }
-  .cat-tab{
-    font-family:var(--font-display); font-weight:700; font-size:13px;
-    letter-spacing:0.04em; color:var(--paper-dim);
+  .pm-headline span{ display:block; }
+  .pm-sub{
+    font-family:var(--font-body); font-size:clamp(14px,1.2vw,16px);
+    color:#C6C0E0; max-width:420px; margin-top:18px; line-height:1.6;
+  }
+
+  .pm-tabs{
+    display:inline-flex; gap:6px; background:rgba(0,0,0,0.35);
+    border:1px solid rgba(255,255,255,0.1); border-radius:999px; padding:6px;
+    margin-top:28px;
+  }
+  .pm-tab{
+    font-family:var(--font-display); font-weight:700; font-size:12.5px;
+    letter-spacing:0.05em; color:#B9B2D6;
     background:transparent; border:none; border-radius:999px;
-    padding:11px 22px; white-space:nowrap; cursor:pointer;
-    transition:background .25s, color .25s;
+    padding:10px 20px; white-space:nowrap; cursor:pointer;
+    transition:background .3s ease, color .3s ease;
   }
-  .cat-tab.active{
-    background:linear-gradient(90deg, var(--t1, var(--signal)), var(--t2, var(--signal)));
-    color:#0A0E12; transition:background .4s ease;
+  .pm-tab.active{
+    background:linear-gradient(90deg, #A170F0, #50B7EB); color:#0E0A22;
   }
-  .cat-tab:hover:not(.active){ color:var(--peach); }
+  .pm-tab:hover:not(.active){ color:#F3EEFB; }
 
-  .phone-stage{ position:relative; width:250px; margin-top:16px; }
-  .phone-frame{
-    position:relative; width:100%; aspect-ratio:250/510;
-    background:var(--panel-2); border-radius:42px;
-    border:7px solid #000;
-    box-shadow:0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px var(--line), 0 0 48px var(--tglow, transparent);
-    transition:box-shadow .4s ease;
+  .pm-stage{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:center;
+    min-height:520px;
+  }
+  .pm-particle{
+    position:absolute; border-radius:50%; filter:blur(2px);
+    background:radial-gradient(circle, rgba(161,112,240,0.9) 0%, rgba(80,183,235,0.5) 60%, transparent 100%);
+    opacity:0.7;
+  }
+  .pm-particle.p1{ width:14px; height:14px; top:8%; left:14%; }
+  .pm-particle.p2{ width:9px; height:9px; top:70%; left:6%; background:radial-gradient(circle, rgba(80,183,235,0.9), transparent 70%); }
+  .pm-particle.p3{ width:11px; height:11px; top:20%; right:8%; }
+  .pm-particle.p4{ width:7px; height:7px; bottom:12%; right:16%; background:radial-gradient(circle, rgba(80,183,235,0.85), transparent 70%); }
+
+  .pm-hand{
+    position:absolute; left:50%; bottom:-6%; transform:translateX(-50%);
+    width:78%; height:60%; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse 60% 55% at 50% 100%, rgba(70,45,30,0.5) 0%, transparent 70%);
+    filter:blur(2px);
+  }
+
+  .pm-phone{
+    position:relative; z-index:3; width:290px; aspect-ratio:290/592;
+    background:#0B0714; border-radius:46px; border:8px solid #000;
+    box-shadow:0 40px 90px rgba(0,0,0,0.6), 0 0 60px rgba(139,124,246,0.35);
     overflow:hidden;
   }
-  .phone-notch{
-    position:absolute; top:10px; left:50%; transform:translateX(-50%);
-    width:80px; height:20px; background:#000; border-radius:12px; z-index:5;
+  .pm-notch{
+    position:absolute; top:12px; left:50%; transform:translateX(-50%);
+    width:90px; height:22px; background:#000; border-radius:14px; z-index:5;
   }
-  .phone-statusbar{
+  .pm-statusbar{
     position:relative; z-index:4;
     display:flex; justify-content:space-between; align-items:center;
-    padding:16px 18px 4px; font-family:var(--font-mono); font-size:10px; color:var(--paper-dim);
+    padding:18px 20px 4px; font-family:var(--font-mono); font-size:11px; color:#C6C0E0;
   }
-  .phone-screen{
-    position:absolute; inset:0; padding-top:38px;
+  .pm-screen{
+    position:absolute; inset:0; padding-top:44px;
     display:flex; flex-direction:column; opacity:0; pointer-events:none;
     transition:opacity .35s ease;
+    background:radial-gradient(circle at 50% 38%, rgba(80,60,150,0.5) 0%, transparent 60%);
   }
-  .phone-screen.active{ opacity:1; pointer-events:auto; }
-  .ps-inner{ padding:14px 16px; flex:1; display:flex; flex-direction:column; gap:8px; }
-  .ps-title{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--paper); text-align:left; }
-  .ps-appname{ font-family:var(--font-display); font-weight:800; font-size:15px; color:var(--paper); text-align:left; }
-  .ps-question{ font-family:var(--font-body); font-size:10.5px; color:var(--paper-dim); text-align:left; margin-top:-2px; margin-bottom:2px; }
-  .ps-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:10px 12px;
-    text-align:left;
+  .pm-screen.active{ opacity:1; pointer-events:auto; }
+  .pm-orb{
+    width:150px; height:150px; margin:14px auto 0; border-radius:50%;
+    background:radial-gradient(circle, rgba(161,112,240,0.55) 0%, rgba(80,183,235,0.35) 45%, transparent 75%);
+    filter:blur(1px);
   }
-  .ps-row{ display:flex; align-items:center; gap:8px; font-family:var(--font-body); font-size:10.5px; color:var(--paper-dim); }
-  .ps-dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
-  .ps-label{ font-family:var(--font-mono); font-size:9px; color:var(--peach-dim); letter-spacing:.06em; }
-  .ps-strong{ font-family:var(--font-display); font-weight:700; font-size:12px; color:var(--paper); margin-top:2px; }
-  .ps-bar-track{ height:5px; background:var(--line); border-radius:4px; overflow:hidden; margin-top:6px; }
-  .ps-bar-fill{ height:100%; background:var(--signal); }
+  .pm-appname{
+    font-family:'Fraunces', serif; font-weight:600; font-size:19px; color:#F3EEFB;
+    text-align:center; margin-top:-92px;
+  }
+  .pm-verse{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500; font-size:12px;
+    color:#E9C46A; text-align:center; margin-top:28px; padding:0 22px; line-height:1.4;
+  }
+  .pm-ref{
+    font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; color:#8F89B8;
+    text-align:center; margin-top:6px;
+  }
+  .pm-journey{ margin-top:auto; padding:14px 16px 16px; }
+  .pm-journey-label{
+    font-family:var(--font-mono); font-size:9px; letter-spacing:0.1em; color:#8F89B8;
+    margin-bottom:8px;
+  }
+  .pm-journey-card{
+    display:flex; align-items:center; gap:10px;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px; padding:10px 12px;
+  }
+  .pm-journey-icon{
+    width:30px; height:30px; border-radius:50%; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:13px;
+    background:rgba(161,112,240,0.25);
+  }
+  .pm-journey-title{ font-family:var(--font-display); font-weight:700; font-size:12px; color:#F3EEFB; }
+  .pm-journey-sub{ font-family:var(--font-body); font-size:10px; color:#B9B2D6; margin-top:1px; }
+  .pm-chev{ margin-left:auto; color:#8F89B8; font-size:14px; }
+  .pm-navbar{
+    margin-top:auto; display:flex; justify-content:space-around; padding:12px 6px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .pm-navbar span{ font-family:var(--font-mono); font-size:8.5px; color:#8F89B8; }
+  .pm-navbar span.on{ color:#A170F0; }
 
-  /* mockup-style category rows */
-  .ps-row2{
+  .pm-download{
+    position:absolute; left:56px; bottom:40px; z-index:4;
+    display:flex; align-items:center; gap:16px;
+  }
+  .pm-appstore{
     display:flex; align-items:center; gap:9px;
-    background:var(--panel); border:1px solid var(--line); border-radius:13px;
-    padding:9px 11px; text-align:left;
-    transition:border-color .4s ease, background .4s ease;
+    background:#000; border:1px solid rgba(255,255,255,0.14);
+    border-radius:12px; padding:9px 16px;
   }
-  .ps-row2.highlight{ border-color:var(--t1, var(--signal)); background:var(--ttint, rgba(193,87,31,0.1)); }
-  .ps-icon{
-    width:24px; height:24px; border-radius:50%; flex-shrink:0;
+  .pm-appstore svg{ width:20px; height:20px; flex-shrink:0; }
+  .pm-appstore span{ font-family:var(--font-body); font-size:9.5px; color:#D8D4EC; line-height:1.25; }
+  .pm-appstore strong{ font-family:var(--font-display); font-size:14px; color:#fff; font-weight:700; }
+
+  .pm-qr{ display:flex; align-items:center; gap:10px; }
+  .pm-qr-code{
+    width:54px; height:54px; border-radius:8px;
+    background:#fff; border:2px solid rgba(255,255,255,0.5);
     display:flex; align-items:center; justify-content:center;
-    font-size:11px; background:rgba(255,255,255,0.06);
+    position:relative; flex-shrink:0;
   }
-  .ps-row2-label{ font-family:var(--font-body); font-size:11px; color:var(--paper); flex:1; }
-  .ps-chev{ color:var(--paper-dim); font-size:13px; }
-
-  .ps-navbar{
-    margin-top:auto; display:flex; justify-content:space-around; padding:10px 6px;
-    border-top:1px solid var(--line);
+  .pm-qr-code svg{ width:44px; height:44px; }
+  .pm-qr-label{
+    font-family:var(--font-mono); font-size:8.5px; letter-spacing:0.08em;
+    color:#B9B2D6; line-height:1.5;
   }
-  .ps-navbar span{ font-family:var(--font-mono); font-size:8px; color:var(--paper-dim); }
-  .ps-navbar span.on{ color:var(--t1, var(--signal)); transition:color .4s ease; }
-
-  .third-caption{
-    font-family:var(--font-body); font-size:13px; color:var(--paper-dim);
-    max-width:360px; margin-top:2px; min-height:34px;
-  }
+  .pm-qr-label em{ font-style:normal; color:#7A749E; font-size:8px; display:block; margin-top:2px; }
 
   footer{
     background:var(--ink); border-top:1px solid var(--line);
@@ -420,11 +475,22 @@
     .foot-links{justify-content:center; width:100%;}
     .copyright{width:100%; text-align:center;}
 
-    /* third section */
-    #third{padding:80px 20px 70px; min-height:auto;}
-    .third-title{font-size:clamp(30px,8vw,42px);}
-    .cat-tabs{width:100%; justify-content:flex-start;}
-    .phone-stage{width:220px;}
+    /* third section: Prayer Matters showcase */
+    #third{padding:56px 16px 60px;}
+    .pm-frame{
+      grid-template-columns:1fr; min-height:auto;
+      padding:44px 22px 210px; border-radius:26px; gap:36px;
+    }
+    .pm-copy{ text-align:center; }
+    .pm-headline{ font-size:clamp(28px,8vw,38px); text-align:center; }
+    .pm-sub{ margin-left:auto; margin-right:auto; }
+    .pm-tabs{ margin:24px auto 0; }
+    .pm-stage{ min-height:auto; }
+    .pm-phone{ width:230px; }
+    .pm-download{
+      position:relative; left:auto; bottom:auto; margin-top:28px;
+      flex-direction:column; gap:14px;
+    }
   }
   @media (max-width:420px){
     .hero-word{font-size:clamp(40px,14vw,64px);}
@@ -432,8 +498,7 @@
     .hs-1{font-size:clamp(22px,5.8vw,32px);}
     .hero-photo{width:92vw;}
     .second-stage{width:88vw;}
-    .phone-stage{width:190px;}
-    .third-sub{font-size:14px;}
+    .pm-phone{width:200px;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -504,118 +569,136 @@
   <div class="second-text">I turn ideas into useful, powerful apps.</div>
 </section>
 
-<section id="third" data-theme="faith">
-  <div class="third-eyebrow">SEE THEM IN ACTION</div>
-  <h2 class="third-title gradient-text">
-    <span>One studio.</span>
-    <span>Every kind of app.</span>
-  </h2>
-  <p class="third-sub">Pick a category to see how each app takes shape.</p>
+<section id="third">
+  <div class="pm-frame">
+    <div class="pm-stars"></div>
 
-  <div class="cat-tabs" role="tablist">
-    <button class="cat-tab active" data-cat="faith" type="button">FAITH</button>
-    <button class="cat-tab" data-cat="focus" type="button">FOCUS</button>
-    <button class="cat-tab" data-cat="clinical" type="button">CLINICAL</button>
-  </div>
+    <div class="pm-copy">
+      <h2 class="pm-headline">
+        <span>Prayer for <span class="gradient-text">every moment</span>.</span>
+        <span>Peace for <span class="gradient-text">every day</span>.</span>
+      </h2>
+      <p class="pm-sub">Guided prayer, Scripture, reflection, and community — Prayer Matters meets you right where you are, whenever you need it most.</p>
 
-  <div class="phone-stage">
-    <div class="phone-frame">
-      <div class="phone-notch"></div>
-      <div class="phone-statusbar"><span>9:41</span><span>●●● 100%</span></div>
-
-      <div class="phone-screen active" data-cat="faith">
-        <div class="ps-inner">
-          <div class="ps-appname">Prayer Matters</div>
-          <div class="ps-question">What do you need prayer for?</div>
-          <div class="ps-row2 highlight">
-            <span class="ps-icon">❤️</span>
-            <span class="ps-row2-label">Fear &amp; Anxiety</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">💧</span>
-            <span class="ps-row2-label">Sadness &amp; Grief</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">⚖️</span>
-            <span class="ps-row2-label">Guilt &amp; Shame</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">👥</span>
-            <span class="ps-row2-label">Loneliness &amp; Rejection</span>
-            <span class="ps-chev">›</span>
-          </div>
-        </div>
-        <div class="ps-navbar">
-          <span class="on">Prayers</span><span>Bible</span><span>My Journey</span><span>Connect</span>
-        </div>
+      <div class="pm-tabs" role="tablist">
+        <button class="pm-tab active" data-feat="pray" type="button">PRAY</button>
+        <button class="pm-tab" data-feat="read" type="button">READ</button>
+        <button class="pm-tab" data-feat="reflect" type="button">REFLECT</button>
+        <button class="pm-tab" data-feat="connect" type="button">CONNECT</button>
       </div>
+    </div>
 
-      <div class="phone-screen" data-cat="focus">
-        <div class="ps-inner">
-          <div class="ps-appname">Focus</div>
-          <div class="ps-question">What are you working on?</div>
-          <div class="ps-row2 highlight">
-            <span class="ps-icon">🧠</span>
-            <span class="ps-row2-label">Deep Work</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">📚</span>
-            <span class="ps-row2-label">Study Session</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">🎨</span>
-            <span class="ps-row2-label">Creative Flow</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">⚡</span>
-            <span class="ps-row2-label">Quick Task</span>
-            <span class="ps-chev">›</span>
-          </div>
-        </div>
-        <div class="ps-navbar">
-          <span class="on">Today</span><span>Backlog</span><span>Plan</span><span>Insights</span>
-        </div>
-      </div>
+    <div class="pm-stage">
+      <div class="pm-particle p1"></div>
+      <div class="pm-particle p2"></div>
+      <div class="pm-particle p3"></div>
+      <div class="pm-particle p4"></div>
+      <div class="pm-hand" aria-hidden="true"></div>
 
-      <div class="phone-screen" data-cat="clinical">
-        <div class="ps-inner">
-          <div class="ps-appname">Specimen Guide</div>
-          <div class="ps-question">What are you collecting?</div>
-          <div class="ps-row2 highlight">
-            <span class="ps-icon">🧪</span>
-            <span class="ps-row2-label">Chemistry Panel</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">🩸</span>
-            <span class="ps-row2-label">Hematology</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">⏱️</span>
-            <span class="ps-row2-label">Coagulation</span>
-            <span class="ps-chev">›</span>
-          </div>
-          <div class="ps-row2">
-            <span class="ps-icon">🦠</span>
-            <span class="ps-row2-label">Microbiology</span>
-            <span class="ps-chev">›</span>
+      <div class="pm-phone">
+        <div class="pm-notch"></div>
+        <div class="pm-statusbar"><span>9:41</span><span>●●● 100%</span></div>
+
+        <div class="pm-screen active" data-feat="pray">
+          <div class="pm-orb"></div>
+          <div class="pm-appname">Prayer Matters</div>
+          <div class="pm-verse">"Be still, and know that I am God."</div>
+          <div class="pm-ref">PSALM 46:10</div>
+          <div class="pm-journey">
+            <div class="pm-journey-label">CONTINUE YOUR JOURNEY</div>
+            <div class="pm-journey-card">
+              <span class="pm-journey-icon">🕯️</span>
+              <div>
+                <div class="pm-journey-title">Evening Prayer</div>
+                <div class="pm-journey-sub">Find rest and peace</div>
+              </div>
+              <span class="pm-chev">›</span>
+            </div>
           </div>
         </div>
-        <div class="ps-navbar">
-          <span class="on">Search</span><span>By Tube</span><span>Favorites</span>
+
+        <div class="pm-screen" data-feat="read">
+          <div class="pm-orb"></div>
+          <div class="pm-appname">Today's Reading</div>
+          <div class="pm-verse">"The Lord is my shepherd; I shall not want."</div>
+          <div class="pm-ref">PSALM 23:1</div>
+          <div class="pm-journey">
+            <div class="pm-journey-label">READING PLAN — DAY 14 OF 30</div>
+            <div class="pm-journey-card">
+              <span class="pm-journey-icon">📖</span>
+              <div>
+                <div class="pm-journey-title">Psalms of Comfort</div>
+                <div class="pm-journey-sub">5 min read</div>
+              </div>
+              <span class="pm-chev">›</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pm-screen" data-feat="reflect">
+          <div class="pm-orb"></div>
+          <div class="pm-appname">Reflect</div>
+          <div class="pm-verse">"Search me, O God, and know my heart."</div>
+          <div class="pm-ref">PSALM 139:23</div>
+          <div class="pm-journey">
+            <div class="pm-journey-label">TODAY'S PROMPT</div>
+            <div class="pm-journey-card">
+              <span class="pm-journey-icon">📝</span>
+              <div>
+                <div class="pm-journey-title">Journal entry</div>
+                <div class="pm-journey-sub">What are you grateful for?</div>
+              </div>
+              <span class="pm-chev">›</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pm-screen" data-feat="connect">
+          <div class="pm-orb"></div>
+          <div class="pm-appname">Community</div>
+          <div class="pm-verse">"Carry each other's burdens."</div>
+          <div class="pm-ref">GALATIANS 6:2</div>
+          <div class="pm-journey">
+            <div class="pm-journey-label">PRAYER CIRCLE</div>
+            <div class="pm-journey-card">
+              <span class="pm-journey-icon">🙏</span>
+              <div>
+                <div class="pm-journey-title">Share a prayer request</div>
+                <div class="pm-journey-sub">12 people praying today</div>
+              </div>
+              <span class="pm-chev">›</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pm-navbar">
+          <span class="on">Home</span><span>Prayers</span><span>Bible</span><span>Journey</span>
         </div>
       </div>
     </div>
-  </div>
 
-  <p class="third-caption" id="thirdCaption">Prayer Matters — pick what's weighing on you and get guided prayer, Scripture, and reflection made for that moment.</p>
+    <div class="pm-download">
+      <a class="pm-appstore" href="#" aria-label="Download on the App Store">
+        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.463 2.093-1.05 2.808-.617.75-1.633 1.32-2.51 1.32-.11 0-.213-.017-.281-.03-.014-.062-.045-.24-.045-.42 0-1.11.556-2.13 1.11-2.79.68-.75 1.85-1.32 2.79-1.35.03.15.045.31.045.462zm3.16 16.65c-.34.79-.5 1.14-.94 1.83-.61.95-1.47 2.14-2.53 2.15-1.05.01-1.32-.68-2.75-.67-1.42.01-1.72.69-2.77.68-1.06-.01-1.86-1.08-2.48-2.03-1.7-2.6-1.87-5.66-.83-7.28.74-1.16 1.9-1.84 3-1.84 1.12 0 1.83.68 2.76.68.9 0 1.46-.68 2.76-.68 1 0 2.05.54 2.8 1.48-2.46 1.35-2.06 4.86.78 5.68z"/></svg>
+        <span>Download on the<br><strong>App Store</strong></span>
+      </a>
+      <div class="pm-qr">
+        <div class="pm-qr-code">
+          <svg viewBox="0 0 29 29" aria-hidden="true">
+            <rect x="0" y="0" width="7" height="7" fill="#0B0714"/><rect x="2" y="2" width="3" height="3" fill="#fff"/>
+            <rect x="22" y="0" width="7" height="7" fill="#0B0714"/><rect x="24" y="2" width="3" height="3" fill="#fff"/>
+            <rect x="0" y="22" width="7" height="7" fill="#0B0714"/><rect x="2" y="24" width="3" height="3" fill="#fff"/>
+            <rect x="10" y="0" width="2" height="2" fill="#0B0714"/><rect x="14" y="0" width="2" height="2" fill="#0B0714"/>
+            <rect x="10" y="10" width="9" height="9" fill="#0B0714"/>
+            <rect x="0" y="10" width="2" height="2" fill="#0B0714"/><rect x="0" y="14" width="2" height="2" fill="#0B0714"/>
+            <rect x="24" y="10" width="2" height="2" fill="#0B0714"/><rect x="24" y="16" width="2" height="2" fill="#0B0714"/>
+            <rect x="10" y="24" width="2" height="2" fill="#0B0714"/><rect x="16" y="24" width="2" height="2" fill="#0B0714"/><rect x="22" y="22" width="4" height="4" fill="#0B0714"/>
+          </svg>
+        </div>
+        <span class="pm-qr-label">SCAN TO DOWNLOAD<em>Placeholder — swap for real App Store QR</em></span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -635,25 +718,16 @@
 })();
 
 (function(){
-  var tabs = document.querySelectorAll('.cat-tab');
-  var screens = document.querySelectorAll('.phone-screen');
-  var caption = document.getElementById('thirdCaption');
-  var thirdSection = document.getElementById('third');
-  var captions = {
-    faith: "Prayer Matters — pick what's weighing on you and get guided prayer, Scripture, and reflection made for that moment.",
-    focus: "Focus — pick what you're working on and get a session built for that kind of work.",
-    clinical: "Specimen Guide — pick a category to jump straight to the right tube and collection method."
-  };
+  var tabs = document.querySelectorAll('.pm-tab');
+  var screens = document.querySelectorAll('.pm-screen');
   tabs.forEach(function(tab){
     tab.addEventListener('click', function(){
       tabs.forEach(function(t){ t.classList.remove('active'); });
       screens.forEach(function(s){ s.classList.remove('active'); });
       tab.classList.add('active');
-      var cat = tab.getAttribute('data-cat');
-      var match = document.querySelector('.phone-screen[data-cat="' + cat + '"]');
+      var feat = tab.getAttribute('data-feat');
+      var match = document.querySelector('.pm-screen[data-feat="' + feat + '"]');
       if(match) match.classList.add('active');
-      if(caption && captions[cat]) caption.textContent = captions[cat];
-      if(thirdSection) thirdSection.setAttribute('data-theme', cat);
     });
   });
 })();
