@@ -243,6 +243,7 @@
     width:100%;
     max-width:1448px;
     margin:0 auto;
+    position:relative;
   }
   .pm-showcase img{
     display:block;
@@ -250,6 +251,96 @@
     height:auto;
     aspect-ratio:1448 / 1086;
     object-fit:contain;
+  }
+
+  /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
+  .app-hero-content{
+    width:100%;
+  }
+  .app-hero-content--medical{
+    aspect-ratio:1448 / 1086;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--panel);
+    border-radius:18px;
+  }
+  .app-hero-medical-placeholder{
+    font-family:var(--font-mono);
+    font-size:clamp(13px, 1.3vw, 19px);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    text-align:center;
+    padding:0 24px;
+  }
+  .app-hero-toggle{
+    position:absolute;
+    left:50%;
+    top:3.1%;
+    transform:translateX(-50%);
+    width:31.2%;
+    min-width:230px;
+    aspect-ratio:7 / 1;
+    z-index:10;
+    display:flex;
+    border-radius:999px;
+    background:#F1ECFB;
+    border:1.5px solid rgba(255,255,255,0.95);
+    box-shadow:
+      0 0 10px rgba(255,255,255,0.25),
+      0 0 24px rgba(123,54,255,0.35),
+      0 0 44px rgba(37,115,255,0.2);
+    overflow:hidden;
+  }
+  .app-hero-toggle__bg{
+    position:absolute;
+    top:0; left:0;
+    width:50%; height:100%;
+    border-radius:999px;
+    background:linear-gradient(135deg, #5B16E8 0%, #3215B8 48%, #056FEA 100%);
+    border:1.5px solid rgba(255,255,255,0.95);
+    box-shadow:
+      0 0 8px rgba(255,255,255,0.75),
+      0 0 18px rgba(123,54,255,0.85),
+      0 0 32px rgba(37,115,255,0.45);
+    transition:transform 300ms cubic-bezier(0.4,0,0.2,1);
+    z-index:1;
+    pointer-events:none;
+  }
+  .app-hero-toggle[data-active="medical"] .app-hero-toggle__bg{
+    transform:translateX(100%);
+  }
+  .app-hero-toggle__btn{
+    position:relative;
+    z-index:2;
+    flex:1 1 50%;
+    border:none;
+    background:transparent;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(9.5px, 1.05vw, 15px);
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:#14133D;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 4px;
+    white-space:nowrap;
+    transition:color 300ms ease;
+  }
+  .app-hero-toggle[data-active="prayer"] .app-hero-toggle__btn--prayer{ color:#FFFFFF; }
+  .app-hero-toggle[data-active="medical"] .app-hero-toggle__btn--medical{ color:#FFFFFF; }
+  .app-hero-toggle__btn:focus-visible{
+    outline:2px solid #FFFFFF;
+    outline-offset:2px;
+    border-radius:999px;
+  }
+  @media (max-width:760px){
+    .app-hero-toggle{ min-width:210px; }
+    .app-hero-medical-placeholder{ font-size:12px; }
   }
 
   footer{
@@ -394,7 +485,19 @@
 
 <section id="third">
   <div class="pm-showcase">
-    <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
+    <div class="app-hero-toggle" data-active="prayer" role="group" aria-label="Choose Prayer Matters or Medical">
+      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--prayer" aria-pressed="true">Prayer Matters</button>
+      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--medical" aria-pressed="false">Medical</button>
+      <span class="app-hero-toggle__bg" aria-hidden="true"></span>
+    </div>
+
+    <div class="app-hero-content app-hero-content--prayer">
+      <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
+    </div>
+
+    <div class="app-hero-content app-hero-content--medical" hidden>
+      <div class="app-hero-medical-placeholder">Medical — coming soon</div>
+    </div>
   </div>
 </section>
 
@@ -412,6 +515,27 @@
 <script>
 (function(){
   var mouse = document.querySelector('.scroll-mouse');
+})();
+
+(function(){
+  var toggle = document.querySelector('.app-hero-toggle');
+  if(!toggle) return;
+
+  var prayerBtn = toggle.querySelector('.app-hero-toggle__btn--prayer');
+  var medicalBtn = toggle.querySelector('.app-hero-toggle__btn--medical');
+  var prayerPanel = document.querySelector('.app-hero-content--prayer');
+  var medicalPanel = document.querySelector('.app-hero-content--medical');
+
+  function setActive(which){
+    toggle.setAttribute('data-active', which);
+    prayerBtn.setAttribute('aria-pressed', which === 'prayer' ? 'true' : 'false');
+    medicalBtn.setAttribute('aria-pressed', which === 'medical' ? 'true' : 'false');
+    prayerPanel.hidden = which !== 'prayer';
+    medicalPanel.hidden = which !== 'medical';
+  }
+
+  prayerBtn.addEventListener('click', function(){ setActive('prayer'); });
+  medicalBtn.addEventListener('click', function(){ setActive('medical'); });
 })();
 </script>
 
