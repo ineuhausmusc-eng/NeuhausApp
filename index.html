@@ -439,6 +439,94 @@
     paint-order:stroke fill;
   }
 
+  /* ---------- PAGE 4: PRAYER MATTERS — FULL MOCKUP SHOWCASE ---------- */
+  #fourth{
+    min-height:100vh;
+    background:var(--ink);
+    padding:80px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .fourth-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .fblob{ position:absolute; border-radius:50%; filter:blur(100px); mix-blend-mode:screen; opacity:0.5; will-change:transform; pointer-events:none; }
+  .fblob-a{
+    width:54vw; height:54vw; left:-16%; top:-12%;
+    background:radial-gradient(circle at 40% 40%, #5B16E8 0%, #3215B8 42%, transparent 74%);
+    animation:driftA 36s ease-in-out infinite alternate;
+  }
+  .fblob-b{
+    width:50vw; height:50vw; right:-16%; bottom:-14%;
+    background:radial-gradient(circle at 60% 35%, #056FEA 0%, #3215B8 45%, transparent 74%);
+    animation:driftB 44s ease-in-out infinite alternate;
+  }
+  .fblob-c{
+    width:24vw; height:24vw; right:6%; top:10%;
+    background:radial-gradient(circle at 50% 50%, #056FEA 0%, transparent 70%);
+    opacity:0.32;
+    animation:driftC 27s ease-in-out infinite alternate;
+  }
+  .fblob-d{
+    width:26vw; height:26vw; left:8%; bottom:8%;
+    background:radial-gradient(circle at 50% 50%, #5B16E8 0%, transparent 75%);
+    opacity:0.32;
+    animation:driftD 31s ease-in-out infinite alternate;
+  }
+  .fourth-vignette{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse 70% 62% at 50% 50%, transparent 44%, var(--ink) 94%);
+  }
+
+  /* stage sized to the exact 1798 x 875 artwork ratio — never cropped or stretched */
+  .page4-stage{
+    position:relative;
+    z-index:2;
+    width:min(92vw, 1400px);
+    aspect-ratio:1798 / 875;
+  }
+  .page4-stage img{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    object-fit:contain; /* guarantees the whole image is shown, never cropped/stretched */
+    display:block;
+  }
+
+  /* feathered violet / indigo / electric-blue haze, overlapping ~5-8% of the left/right edges only */
+  .page4-haze{
+    position:absolute;
+    top:-32%;
+    bottom:-32%;
+    width:18%;
+    z-index:3;
+    pointer-events:none;
+    filter:blur(32px);
+    mix-blend-mode:screen;
+  }
+  .page4-haze.left{
+    left:-7%;
+    background:radial-gradient(ellipse 68% 85% at 30% 50%,
+      rgba(91,22,232,0.6) 0%,
+      rgba(50,21,184,0.4) 40%,
+      rgba(5,111,234,0.2) 62%,
+      transparent 82%);
+    -webkit-mask-image:linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+    mask-image:linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+  }
+  .page4-haze.right{
+    right:-7%;
+    background:radial-gradient(ellipse 68% 85% at 70% 50%,
+      rgba(5,111,234,0.55) 0%,
+      rgba(50,21,184,0.4) 40%,
+      rgba(91,22,232,0.22) 62%,
+      transparent 82%);
+    -webkit-mask-image:linear-gradient(270deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+    mask-image:linear-gradient(270deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+  }
+
   footer{
     background:var(--ink); border-top:1px solid var(--line);
     padding:30px 40px; display:flex; justify-content:space-between; align-items:center;
@@ -504,6 +592,11 @@
       text-shadow:0 0 16px rgba(255,255,255,0.35);
     }
 
+    /* prayer matters full mockup showcase */
+    #fourth{ padding:56px 14px; min-height:auto; }
+    .page4-stage{ width:94vw; }
+    .page4-haze{ width:26%; filter:blur(20px); }
+
     footer{padding:24px 20px; flex-direction:column; align-items:center; gap:14px; text-align:center;}
     footer .word{width:100%; text-align:center;}
     .foot-links{justify-content:center; width:100%;}
@@ -514,6 +607,8 @@
     .hero-subword{font-size:clamp(20px,7.5vw,32px);}
     .hs-1{font-size:clamp(22px,5.8vw,32px);}
     .second-stage{width:88vw;}
+    .page4-stage{ width:96vw; }
+    .page4-haze{ width:30%; }
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -594,7 +689,7 @@
   </div>
 </section>
 
-<!-- PAGE 3: HAND / CARDS SECTION, immediately before footer -->
+<!-- PAGE 3: HAND / CARDS SECTION -->
 <section id="second">
   <div class="second-stage">
     <div class="second-photo"></div>
@@ -611,6 +706,23 @@
     <div class="hand-card right"><img src="assets/card-prayer.png" alt="App mockup three"></div>
   </div>
   <div class="second-text">I turn ideas into useful, powerful apps.</div>
+</section>
+
+<!-- PAGE 4: PRAYER MATTERS — FULL MOCKUP SHOWCASE -->
+<section id="fourth">
+  <div class="fourth-bg">
+    <div class="fblob fblob-d"></div>
+    <div class="fblob fblob-c"></div>
+    <div class="fblob fblob-a"></div>
+    <div class="fblob fblob-b"></div>
+  </div>
+  <div class="fourth-vignette"></div>
+
+  <div class="page4-stage">
+    <div class="page4-haze left"></div>
+    <div class="page4-haze right"></div>
+    <img src="assets/prayer-matters-page4-mockup.png" alt="Prayer Matters app — Pause. Pray. Be Still. Guided prayer, Scripture, and quiet reflection right when you need them, with App Store download and QR code.">
+  </div>
 </section>
 
 <footer>
