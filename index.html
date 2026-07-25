@@ -238,6 +238,41 @@
     height:auto;
     aspect-ratio:1448 / 1086;
     object-fit:contain;
+    position:relative;
+    z-index:1;
+  }
+
+  /* Atmospheric mist hugging the Prayer Matters artwork edges */
+  .pm-artwork{
+    position:relative;
+    width:100%;
+  }
+  .pm-artwork .app-hero-content{
+    position:relative;
+    z-index:1;
+  }
+  .pm-mist{
+    position:absolute;
+    inset:-14% -18%;
+    z-index:0;
+    pointer-events:none;
+    filter:blur(70px);
+    background:
+      radial-gradient(ellipse 42% 85% at 2% 50%, rgba(91,22,232,0.55) 0%, rgba(91,22,232,0.28) 32%, transparent 62%),
+      radial-gradient(ellipse 42% 85% at 98% 50%, rgba(5,111,234,0.5) 0%, rgba(5,111,234,0.25) 32%, transparent 62%),
+      radial-gradient(ellipse 88% 34% at 50% 2%, rgba(50,21,184,0.22) 0%, transparent 65%),
+      radial-gradient(ellipse 88% 34% at 50% 98%, rgba(34,51,92,0.24) 0%, transparent 65%);
+  }
+  .pm-mist--soft{
+    position:absolute;
+    inset:-6% -8%;
+    z-index:0;
+    pointer-events:none;
+    filter:blur(36px);
+    opacity:0.7;
+    background:
+      radial-gradient(ellipse 30% 70% at 0% 50%, rgba(123,54,255,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 30% 70% at 100% 50%, rgba(37,115,255,0.38) 0%, transparent 60%);
   }
 
   /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
@@ -521,12 +556,17 @@
       <span class="app-hero-toggle__bg" aria-hidden="true"></span>
     </div>
 
-    <div class="app-hero-content app-hero-content--prayer">
-      <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
-    </div>
+    <div class="pm-artwork">
+      <div class="pm-mist" aria-hidden="true"></div>
+      <div class="pm-mist pm-mist--soft" aria-hidden="true"></div>
 
-    <div class="app-hero-content app-hero-content--medical" hidden>
-      <div class="app-hero-medical-placeholder">Medical — coming soon</div>
+      <div class="app-hero-content app-hero-content--prayer">
+        <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
+      </div>
+
+      <div class="app-hero-content app-hero-content--medical" hidden>
+        <div class="app-hero-medical-placeholder">Medical — coming soon</div>
+      </div>
     </div>
   </div>
 </section>
