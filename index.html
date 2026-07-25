@@ -451,28 +451,68 @@
     overflow:hidden;
   }
   .fourth-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  /* base atmosphere: deep violet under the headline, indigo/blue under the phone, soft blue-violet under the download bar, near-black at the edges */
+  .fourth-atmosphere{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 46% 50% at 14% 22%, rgba(58,22,120,0.55) 0%, rgba(58,22,120,0.22) 45%, transparent 72%),
+      radial-gradient(ellipse 52% 58% at 58% 46%, rgba(15,60,150,0.5) 0%, rgba(20,50,140,0.22) 46%, transparent 74%),
+      radial-gradient(ellipse 40% 42% at 52% 92%, rgba(70,40,150,0.4) 0%, rgba(50,30,120,0.16) 50%, transparent 78%),
+      radial-gradient(ellipse 120% 100% at 50% 50%, transparent 40%, var(--ink) 88%);
+    animation:fourthAtmosDrift 70s ease-in-out infinite alternate;
+  }
+  @keyframes fourthAtmosDrift{
+    0%{ background-position:0 0, 0 0, 0 0, 0 0; }
+    100%{ background-position:1.5% -1%, -1.5% 1.5%, 1% -1.5%, 0 0; }
+  }
   .fblob{ position:absolute; border-radius:50%; filter:blur(100px); mix-blend-mode:screen; opacity:0.5; will-change:transform; pointer-events:none; }
   .fblob-a{
     width:54vw; height:54vw; left:-16%; top:-12%;
-    background:radial-gradient(circle at 40% 40%, #5B16E8 0%, #3215B8 42%, transparent 74%);
+    background:radial-gradient(circle at 40% 40%, #6B2FF0 0%, #3215B8 42%, transparent 74%);
     animation:driftA 36s ease-in-out infinite alternate;
   }
   .fblob-b{
     width:50vw; height:50vw; right:-16%; bottom:-14%;
-    background:radial-gradient(circle at 60% 35%, #056FEA 0%, #3215B8 45%, transparent 74%);
+    background:radial-gradient(circle at 60% 35%, #1C86F2 0%, #23319C 45%, transparent 74%);
     animation:driftB 44s ease-in-out infinite alternate;
   }
   .fblob-c{
     width:24vw; height:24vw; right:6%; top:10%;
     background:radial-gradient(circle at 50% 50%, #056FEA 0%, transparent 70%);
-    opacity:0.32;
+    opacity:0.3;
     animation:driftC 27s ease-in-out infinite alternate;
   }
   .fblob-d{
     width:26vw; height:26vw; left:8%; bottom:8%;
-    background:radial-gradient(circle at 50% 50%, #5B16E8 0%, transparent 75%);
-    opacity:0.32;
+    background:radial-gradient(circle at 50% 50%, #7B3FF2 0%, transparent 75%);
+    opacity:0.3;
     animation:driftD 31s ease-in-out infinite alternate;
+  }
+  .fourth-grain{
+    position:absolute; inset:0; z-index:2;
+    filter:url(#grainFilter);
+    opacity:0.025; mix-blend-mode:overlay; pointer-events:none;
+  }
+  .fourth-particles{ position:absolute; inset:0; z-index:2; pointer-events:none; overflow:hidden; }
+  .fparticle{
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle, rgba(210,190,255,0.9) 0%, rgba(140,120,255,0.35) 45%, transparent 75%);
+    filter:blur(1px);
+    opacity:0.35;
+    animation:fparticleDrift 26s ease-in-out infinite alternate;
+  }
+  .fp1{ width:5px; height:5px; left:18%; top:20%; animation-duration:24s; }
+  .fp2{ width:3px; height:3px; left:34%; top:62%; animation-duration:31s; animation-delay:-4s; }
+  .fp3{ width:4px; height:4px; left:52%; top:14%; animation-duration:27s; animation-delay:-9s; }
+  .fp4{ width:3px; height:3px; left:64%; top:78%; animation-duration:33s; animation-delay:-14s; }
+  .fp5{ width:6px; height:6px; left:76%; top:30%; animation-duration:29s; animation-delay:-6s; }
+  .fp6{ width:3px; height:3px; left:10%; top:70%; animation-duration:35s; animation-delay:-18s; }
+  .fp7{ width:4px; height:4px; left:88%; top:60%; animation-duration:25s; animation-delay:-11s; }
+  .fp8{ width:3px; height:3px; left:45%; top:88%; animation-duration:32s; animation-delay:-2s; }
+  @keyframes fparticleDrift{
+    0%{ transform:translate(0,0); opacity:0.2; }
+    50%{ opacity:0.5; }
+    100%{ transform:translate(1.6vw, -1.4vh); opacity:0.2; }
   }
   .fourth-vignette{
     position:absolute; inset:0; z-index:1; pointer-events:none;
@@ -497,30 +537,42 @@
   .pm4-headline{
     font-family:'Fraunces', serif; font-weight:600;
     font-size:clamp(30px, 4.6cqw, 68px); line-height:1.05;
-    color:#F4F1EA; margin-bottom:clamp(14px,1.8cqw,26px);
+    color:#FBF6EC; margin-bottom:clamp(14px,1.8cqw,26px);
   }
-  .pm4-headline .glow{
-    color:#C7B6FF;
-    text-shadow:0 0 18px rgba(91,22,232,0.85), 0 0 42px rgba(5,111,234,0.4);
+  .pm4-headline .glow-pray{
+    background:linear-gradient(135deg, #9B7CFF 0%, #4FA8FF 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 14px rgba(91,22,232,0.5)) drop-shadow(0 0 28px rgba(5,111,234,0.28));
+  }
+  .pm4-headline .glow-still{
+    background:linear-gradient(135deg, #C9A9FF 0%, #8F6FFB 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 14px rgba(139,92,246,0.5)) drop-shadow(0 0 28px rgba(139,92,246,0.24));
   }
   .pm4-sub{
     font-family:var(--font-body); font-size:clamp(13px,1.05cqw,16px); line-height:1.6;
-    color:var(--paper-dim); max-width:340px; margin-bottom:clamp(18px,2cqw,30px);
+    color:#CBD3D6; max-width:340px; margin-bottom:clamp(18px,2cqw,30px);
   }
   .pm4-btn-explore{
+    position:relative;
     display:inline-flex; align-items:center; justify-content:center;
     padding:clamp(10px,1.1cqw,15px) clamp(20px,2.4cqw,32px); border-radius:999px;
     font-family:var(--font-display); font-weight:800; font-size:clamp(12px,0.95cqw,14px); letter-spacing:0.02em;
     color:#fff;
-    background:linear-gradient(135deg, #5B16E8 0%, #3215B8 48%, #056FEA 100%);
-    box-shadow:0 8px 24px rgba(50,21,184,0.4), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    background:linear-gradient(135deg, #6E24F5 0%, #3B1AC2 46%, #1487F5 100%);
+    box-shadow:0 10px 30px rgba(60,25,190,0.5), 0 0 22px rgba(20,135,245,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset, 0 1px 0 rgba(255,255,255,0.35) inset;
     transition:transform .2s ease, box-shadow .2s ease;
     margin-bottom:clamp(14px,1.6cqw,22px);
   }
-  .pm4-btn-explore:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(50,21,184,0.55); }
+  .pm4-btn-explore::before{
+    content:''; position:absolute; inset:0; border-radius:999px; pointer-events:none;
+    background:linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 55%);
+    mix-blend-mode:overlay;
+  }
+  .pm4-btn-explore:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(60,25,190,0.6), 0 0 28px rgba(20,135,245,0.35), 0 0 0 1px rgba(255,255,255,0.12) inset; }
   .pm4-tagline{
     display:block;
-    font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:var(--paper-dim);
+    font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:#CBD3D6;
   }
 
   /* logo — top-right, exactly like the mockup */
@@ -569,15 +621,24 @@
     50%{ transform:translateY(-16px) rotate(-1deg); }
     100%{ transform:translateY(0) rotate(-4deg); }
   }
+  .pm4-phone-float::before{
+    content:''; position:absolute; inset:-55% -95%; z-index:-2;
+    background:radial-gradient(ellipse 65% 65% at 48% 48%, rgba(107,47,240,0.35), rgba(28,134,242,0.22) 42%, transparent 74%);
+    filter:blur(80px); pointer-events:none;
+  }
   .pm4-phone-float::after{
     content:''; position:absolute; inset:-30% -60%; z-index:-1;
-    background:radial-gradient(ellipse 60% 60% at 50% 45%, rgba(91,22,232,0.45), rgba(5,111,234,0.28) 45%, transparent 75%);
+    background:radial-gradient(ellipse 60% 60% at 50% 45%, rgba(107,47,240,0.5), rgba(28,134,242,0.32) 45%, transparent 75%);
     filter:blur(50px); pointer-events:none;
   }
   .pm4-phone-img{
     display:block; width:100%; aspect-ratio:222/480;
     border-radius:14%/7%;
-    box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 70px rgba(91,22,232,0.3);
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.6),
+      0 0 70px rgba(91,22,232,0.32),
+      0 0 30px rgba(20,135,245,0.22),
+      0 0 0 1px rgba(180,150,255,0.18);
   }
   .pm4-phone{
     position:relative; display:flex; flex-direction:column;
@@ -651,14 +712,14 @@
   /* floating info cards — bottom-right cluster, matching the mockup */
   .pm4-floatcard{
     position:absolute; z-index:4;
-    background:rgba(18,24,32,0.78);
+    background:linear-gradient(160deg, rgba(60,40,110,0.4) 0%, rgba(20,26,40,0.68) 60%);
     backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,0.1);
+    border:1px solid rgba(150,120,255,0.28);
     border-radius:16px;
     padding:clamp(10px,1.2cqw,18px) clamp(12px,1.4cqw,20px);
     color:var(--paper); line-height:1.45;
     font-size:clamp(10px,0.85cqw,13px);
-    box-shadow:0 20px 44px rgba(0,0,0,0.45);
+    box-shadow:0 20px 44px rgba(0,0,0,0.45), 0 0 26px rgba(91,22,232,0.14), 0 1px 0 rgba(255,255,255,0.12) inset;
   }
   .pm4-floatcard.companion{ right:11%; bottom:11%; width:clamp(150px,16cqw,225px); }
   .pm4-floatcard-icons{ display:flex; gap:clamp(6px,0.8cqw,10px); margin-top:clamp(8px,1cqw,14px); }
@@ -900,6 +961,7 @@
 
 <!-- PAGE 4: PRAYER MATTERS — STANDALONE FLOATING PHONE -->
 <section id="fourth">
+  <div class="fourth-atmosphere"></div>
   <div class="fourth-bg">
     <div class="fblob fblob-d"></div>
     <div class="fblob fblob-c"></div>
@@ -907,12 +969,23 @@
     <div class="fblob fblob-b"></div>
   </div>
   <div class="fourth-vignette"></div>
+  <div class="fourth-grain"></div>
+  <div class="fourth-particles">
+    <span class="fparticle fp1"></span>
+    <span class="fparticle fp2"></span>
+    <span class="fparticle fp3"></span>
+    <span class="fparticle fp4"></span>
+    <span class="fparticle fp5"></span>
+    <span class="fparticle fp6"></span>
+    <span class="fparticle fp7"></span>
+    <span class="fparticle fp8"></span>
+  </div>
 
   <div class="pm4-stage">
 
     <!-- headline + copy — top-left, matching the mockup -->
     <div class="pm4-headline-block">
-      <h2 class="pm4-headline">Pause. <span class="glow">Pray.</span><br>Be <span class="glow">Still.</span></h2>
+      <h2 class="pm4-headline">Pause. <span class="glow-pray">Pray.</span><br>Be <span class="glow-still">Still.</span></h2>
       <p class="pm4-sub">Guided prayer, Scripture, and quiet reflection — right when you need them.</p>
       <!-- Explore button: point this at the App Store link (or an in-page app screen) when ready -->
       <a href="#" class="pm4-btn-explore">Explore the App</a>
@@ -978,7 +1051,7 @@
       </div>
     </div>
 
-    <!-- bottom pill bar — ☰ / PM / Download, overlapping the base of the frame, matching the mockup -->
+    <!-- bottom pill bar — the ☰ / PM / Download strip overlapping the base of the frame, like the mockup -->
     <div class="pm4-bottombar">
       <span class="pm4-bb-burger" aria-hidden="true">☰</span>
       <span class="pm4-bb-logo">PM</span>
