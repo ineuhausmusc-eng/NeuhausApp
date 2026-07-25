@@ -70,6 +70,31 @@
   }
   nav a:hover{opacity:1;}
 
+  /* "APPS" nav heading — clustered spectral-light gradient (blue/violet dominant,
+     cyan + pink-violet accents, icy-white highlight points), crisp bold
+     letterforms with a controlled, non-blurry drop-shadow glow. Static — no animation. */
+  nav a.nav-apps{
+    font-weight:900;
+    background:
+      radial-gradient(circle at 14% 28%, rgba(248,250,255,0.5) 0%, rgba(248,250,255,0) 13%),
+      radial-gradient(circle at 62% 78%, #67DCFF 0%, rgba(103,220,255,0) 22%),
+      radial-gradient(circle at 85% 32%, rgba(232,121,255,0.55) 0%, rgba(232,121,255,0) 12%),
+      radial-gradient(circle at 34% 85%, #A9B8FF 0%, rgba(169,184,255,0) 24%),
+      radial-gradient(circle at 92% 70%, rgba(248,250,255,0.6) 0%, rgba(248,250,255,0) 14%),
+      linear-gradient(120deg, #5C55FF 0%, #6485FF 28%, #8457FF 52%, #5C55FF 76%, #6485FF 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    opacity:1 !important;
+    filter:
+      saturate(1.4)
+      brightness(1.12)
+      drop-shadow(0 0 2px rgba(245, 247, 255, 0.8))
+      drop-shadow(0 0 5px rgba(109, 91, 255, 0.7))
+      drop-shadow(0 0 9px rgba(83, 92, 255, 0.37));
+  }
+  nav a.nav-apps:hover{ opacity:1 !important; }
+
   section{position:relative;}
 
   /* ---------- HERO: single artwork hero, palette-matched atmosphere ---------- */
@@ -780,8 +805,7 @@
 
 <header>
   <nav>
-    <a href="#hero">INTRO</a>
-    <a href="prayer-matters.html">PRAYER MATTERS</a>
+    <a href="prayer-matters.html" class="nav-apps">APPS</a>
     <a href="privacy.html">LEGAL</a>
     <a href="mailto:Ineuhaus.musc@gmail.com">CONTACT</a>
   </nav>
