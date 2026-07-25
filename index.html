@@ -479,52 +479,219 @@
     background:radial-gradient(ellipse 70% 62% at 50% 50%, transparent 44%, var(--ink) 94%);
   }
 
-  /* stage sized to the exact 1798 x 875 artwork ratio — never cropped or stretched */
-  .page4-stage{
+  /* ---------- PM4: standalone floating phone, laid out to match the mockup's exact composition ---------- */
+  /* container-query units (cqw) below are % of the stage's own width, so every element scales together,
+     the same way a single flat image would — but everything stays real, crisp text and working buttons. */
+  .pm4-stage{
     position:relative;
     z-index:2;
-    width:min(92vw, 1400px);
-    aspect-ratio:1798 / 875;
-  }
-  .page4-stage img{
-    position:relative;
-    z-index:2;
-    width:100%;
-    height:100%;
-    object-fit:contain; /* guarantees the whole image is shown, never cropped/stretched */
-    display:block;
+    width:min(94vw, 1500px);
+    aspect-ratio:1798/875;
+    margin:0 auto;
+    container-type:inline-size;
+    container-name:pm4;
   }
 
-  /* feathered violet / indigo / electric-blue haze, overlapping ~5-8% of the left/right edges only */
-  .page4-haze{
-    position:absolute;
-    top:-32%;
-    bottom:-32%;
-    width:18%;
-    z-index:3;
-    pointer-events:none;
-    filter:blur(32px);
-    mix-blend-mode:screen;
+  /* headline + copy — top-left, exactly like the mockup */
+  .pm4-headline-block{ position:absolute; left:2.8%; top:4%; max-width:46%; z-index:5; }
+  .pm4-headline{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(30px, 4.6cqw, 68px); line-height:1.05;
+    color:#F4F1EA; margin-bottom:clamp(14px,1.8cqw,26px);
   }
-  .page4-haze.left{
-    left:-7%;
-    background:radial-gradient(ellipse 68% 85% at 30% 50%,
-      rgba(91,22,232,0.6) 0%,
-      rgba(50,21,184,0.4) 40%,
-      rgba(5,111,234,0.2) 62%,
-      transparent 82%);
-    -webkit-mask-image:linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
-    mask-image:linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+  .pm4-headline .glow{
+    color:#C7B6FF;
+    text-shadow:0 0 18px rgba(91,22,232,0.85), 0 0 42px rgba(5,111,234,0.4);
   }
-  .page4-haze.right{
-    right:-7%;
-    background:radial-gradient(ellipse 68% 85% at 70% 50%,
-      rgba(5,111,234,0.55) 0%,
-      rgba(50,21,184,0.4) 40%,
-      rgba(91,22,232,0.22) 62%,
-      transparent 82%);
-    -webkit-mask-image:linear-gradient(270deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
-    mask-image:linear-gradient(270deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 100%);
+  .pm4-sub{
+    font-family:var(--font-body); font-size:clamp(13px,1.05cqw,16px); line-height:1.6;
+    color:var(--paper-dim); max-width:340px; margin-bottom:clamp(18px,2cqw,30px);
+  }
+  .pm4-btn-explore{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:clamp(10px,1.1cqw,15px) clamp(20px,2.4cqw,32px); border-radius:999px;
+    font-family:var(--font-display); font-weight:800; font-size:clamp(12px,0.95cqw,14px); letter-spacing:0.02em;
+    color:#fff;
+    background:linear-gradient(135deg, #5B16E8 0%, #3215B8 48%, #056FEA 100%);
+    box-shadow:0 8px 24px rgba(50,21,184,0.4), 0 0 0 1px rgba(255,255,255,0.08) inset;
+    transition:transform .2s ease, box-shadow .2s ease;
+    margin-bottom:clamp(14px,1.6cqw,22px);
+  }
+  .pm4-btn-explore:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(50,21,184,0.55); }
+  .pm4-tagline{
+    display:block;
+    font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:var(--paper-dim);
+  }
+
+  /* logo — top-right, exactly like the mockup */
+  .pm4-logo{
+    position:absolute; right:1.2%; top:5%; text-align:right; z-index:5;
+    font-family:var(--font-display); font-weight:800; line-height:1.08;
+    font-size:clamp(17px,1.9cqw,28px);
+  }
+  .pm4-logo .w{ color:var(--paper); display:block; }
+  .pm4-logo .v{
+    display:block;
+    background:linear-gradient(135deg, #B9A6FF 0%, #7FB8FF 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  /* app store badge + QR — top-right, below the logo, like the mockup */
+  .pm4-badges{
+    position:absolute; right:1.2%; top:20%; z-index:5;
+    display:flex; align-items:center; gap:clamp(8px,1cqw,14px);
+  }
+  .pm4-store-badge{
+    display:inline-flex; align-items:center; gap:clamp(6px,0.8cqw,10px);
+    padding:clamp(8px,0.9cqw,12px) clamp(12px,1.4cqw,20px); border-radius:14px;
+    background:#000; border:1px solid rgba(255,255,255,0.12);
+    transition:border-color .2s ease;
+  }
+  .pm4-store-badge:hover{ border-color:rgba(255,255,255,0.3); }
+  .pm4-store-icon{
+    width:clamp(14px,1.3cqw,20px); height:clamp(14px,1.3cqw,20px); border-radius:6px; flex:none;
+    background:linear-gradient(135deg,#5B16E8,#056FEA);
+  }
+  .pm4-store-text{ font-family:var(--font-mono); font-size:clamp(8px,0.62cqw,11px); line-height:1.3; color:var(--paper); white-space:nowrap; }
+  .pm4-store-text b{ display:block; font-size:1.2em; font-family:var(--font-display); font-weight:800; }
+  .pm4-qr{ width:clamp(50px,6.4cqw,90px); aspect-ratio:1/1; border-radius:12px; flex:none; background:#fff; padding:5px; }
+  .pm4-qr svg{ width:100%; height:100%; display:block; }
+
+  /* the standalone floating phone — center-right, large, tilted, bleeding past the frame like the mockup */
+  .pm4-phone-float{
+    position:absolute; left:37%; top:13%; z-index:3;
+    width:clamp(190px,24cqw,345px);
+    animation:pm4Float 7s ease-in-out infinite;
+    will-change:transform;
+  }
+  @keyframes pm4Float{
+    0%{ transform:translateY(0) rotate(-4deg); }
+    50%{ transform:translateY(-16px) rotate(-1deg); }
+    100%{ transform:translateY(0) rotate(-4deg); }
+  }
+  .pm4-phone-float::after{
+    content:''; position:absolute; inset:-30% -60%; z-index:-1;
+    background:radial-gradient(ellipse 60% 60% at 50% 45%, rgba(91,22,232,0.45), rgba(5,111,234,0.28) 45%, transparent 75%);
+    filter:blur(50px); pointer-events:none;
+  }
+  .pm4-phone{
+    position:relative; display:flex; flex-direction:column;
+    width:100%; aspect-ratio:9/19.4;
+    font-size:clamp(11px,1.15cqw,19px); /* base unit — children below use em, so they scale with the phone itself */
+    background:#05070a;
+    border-radius:15%/7%;
+    border:3px solid #1c232c;
+    padding:6% 5% 4%;
+    box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) inset, 0 0 70px rgba(91,22,232,0.3);
+    overflow:hidden;
+  }
+  .pm4-notch{
+    position:absolute; top:2%; left:50%; transform:translateX(-50%);
+    width:34%; height:1.1em; background:#000; border-radius:12px; z-index:6;
+  }
+  .pm4-statusbar{
+    flex:none; display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--font-mono); font-size:0.62em; color:var(--paper);
+    padding:0 0.2em 0.8em;
+  }
+  .pm4-screen{ flex:1; min-height:0; display:flex; flex-direction:column; }
+  .pm4-welcome{ font-family:var(--font-mono); letter-spacing:0.2em; font-size:0.56em; color:#F4D35E; margin-bottom:0.5em; }
+  .pm4-screen-title{ font-family:var(--font-display); font-weight:900; font-size:1.44em; line-height:1.05; color:#fff; margin-bottom:0.7em; }
+  .pm4-screen-title span{
+    background:linear-gradient(135deg,#8B5CF6,#3B9CFF);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .pm4-verse{ font-family:'Fraunces', serif; font-style:italic; font-size:0.75em; line-height:1.4; color:#F4D35E; margin-bottom:1.1em; }
+  .pm4-verse small{ display:block; font-family:var(--font-mono); font-style:normal; letter-spacing:0.12em; font-size:0.68em; color:#c9ae85; margin-top:0.4em; }
+  .pm4-journey-label{ font-family:var(--font-mono); font-size:0.56em; letter-spacing:0.1em; color:#8891a0; margin-bottom:0.6em; }
+  .pm4-journey-card{
+    display:flex; align-items:center; gap:0.7em; width:100%;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px; padding:0.6em 0.75em; color:#fff; text-align:left;
+    font-family:var(--font-body); cursor:pointer;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .pm4-journey-card:hover{ background:rgba(91,22,232,0.3); }
+  .pm4-journey-card.is-selected{ background:rgba(91,22,232,0.5); border-color:rgba(255,255,255,0.3); }
+  .pm4-journey-icon{
+    width:2.1em; height:2.1em; border-radius:50%; flex:none;
+    background:linear-gradient(135deg,#5B16E8,#056FEA);
+    display:flex; align-items:center; justify-content:center; font-size:1em;
+  }
+  .pm4-journey-text{ flex:1; font-size:0.72em; line-height:1.35; }
+  .pm4-journey-text strong{ display:block; font-size:1.1em; }
+  .pm4-journey-text small{ color:#9aa5b1; font-size:0.87em; }
+  .pm4-journey-arrow{ color:#8891a0; font-size:1.15em; }
+  .pm4-journey-card.is-selected .pm4-journey-arrow::after{ content:' ✓'; color:#B9A6FF; }
+
+  .pm4-tabbar{
+    margin-top:auto; display:flex; justify-content:space-between;
+    padding-top:0.7em; border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .pm4-tab{
+    flex:1; background:none; border:none; cursor:pointer;
+    display:flex; flex-direction:column; align-items:center; gap:0.2em;
+    font-family:var(--font-mono); font-size:0.5em; letter-spacing:0.02em;
+    color:#8891a0; padding:0.15em 0;
+  }
+  .pm4-tab .ico{ font-size:1.6em; filter:grayscale(1) opacity(0.7); }
+  .pm4-tab.active{ color:#fff; }
+  .pm4-tab.active .ico{ filter:none; }
+
+  /* floating info cards — bottom-right cluster, matching the mockup */
+  .pm4-floatcard{
+    position:absolute; z-index:4;
+    background:rgba(18,24,32,0.78);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:16px;
+    padding:clamp(10px,1.2cqw,18px) clamp(12px,1.4cqw,20px);
+    color:var(--paper); line-height:1.45;
+    font-size:clamp(10px,0.85cqw,13px);
+    box-shadow:0 20px 44px rgba(0,0,0,0.45);
+  }
+  .pm4-floatcard.companion{ right:11%; bottom:11%; width:clamp(150px,16cqw,225px); }
+  .pm4-floatcard-icons{ display:flex; gap:clamp(6px,0.8cqw,10px); margin-top:clamp(8px,1cqw,14px); }
+  .pm4-icon-btn{
+    width:clamp(24px,2.6cqw,34px); height:clamp(24px,2.6cqw,34px); border-radius:50%; border:none; cursor:pointer;
+    background:rgba(255,255,255,0.08); color:var(--paper);
+    font-family:var(--font-mono); font-size:clamp(7px,0.55cqw,9px); letter-spacing:0.02em;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .pm4-icon-btn:hover{ background:rgba(91,22,232,0.4); }
+
+  .pm4-floatcard.evening{ right:0.8%; top:68%; width:clamp(110px,10.5cqw,160px); text-align:center; }
+  .pm4-evening-title{ font-family:var(--font-display); font-weight:700; font-size:1.05em; margin-bottom:clamp(6px,0.9cqw,12px); }
+  .pm4-play-btn{
+    width:clamp(32px,4cqw,46px); height:clamp(32px,4cqw,46px); border-radius:50%; border:none; cursor:pointer;
+    background:linear-gradient(135deg,#5B16E8,#056FEA); color:#fff; font-size:clamp(10px,1.1cqw,15px);
+    display:flex; align-items:center; justify-content:center; margin:0 auto;
+    box-shadow:0 0 18px rgba(91,22,232,0.5);
+  }
+  .pm4-waveform{ display:flex; align-items:flex-end; justify-content:center; gap:2px; height:clamp(18px,2cqw,26px); margin-top:clamp(6px,0.9cqw,10px); }
+  .pm4-waveform span{ width:clamp(2px,0.25cqw,3px); border-radius:2px; background:linear-gradient(180deg,#8B5CF6,#3B9CFF); display:block; }
+  .pm4-waveform.is-playing span{ animation:pm4Wave 1s ease-in-out infinite; }
+  .pm4-waveform.is-playing span:nth-child(2n){ animation-delay:.12s; }
+  .pm4-waveform.is-playing span:nth-child(3n){ animation-delay:.24s; }
+  .pm4-waveform.is-playing span:nth-child(4n){ animation-delay:.36s; }
+  @keyframes pm4Wave{ 0%,100%{ height:20%; } 50%{ height:95%; } }
+
+  /* bottom pill bar — the ☰ / PM / Download strip overlapping the base of the frame, like the mockup */
+  .pm4-bottombar{
+    position:absolute; left:50%; bottom:-3%; transform:translateX(-50%); z-index:6;
+    width:clamp(220px,34cqw,480px);
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg, #EDEFEC 0%, #D9CFF0 100%);
+    border-radius:999px;
+    padding:clamp(8px,0.9cqw,12px) clamp(10px,1.2cqw,16px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  }
+  .pm4-bb-burger{ font-size:clamp(12px,1.2cqw,16px); color:#14133D; line-height:1; }
+  .pm4-bb-logo{ font-family:'Fraunces', serif; font-weight:700; font-size:clamp(13px,1.3cqw,18px); color:#14133D; }
+  .pm4-bb-download{
+    font-family:var(--font-display); font-weight:800; font-size:clamp(10px,0.85cqw,13px);
+    color:#fff; background:#0A0E12; padding:clamp(6px,0.7cqw,9px) clamp(12px,1.3cqw,18px); border-radius:999px;
   }
 
   footer{
@@ -592,10 +759,24 @@
       text-shadow:0 0 16px rgba(255,255,255,0.35);
     }
 
-    /* prayer matters full mockup showcase */
+    /* prayer matters — on small screens, drop the absolute mockup layout and stack everything, centered */
     #fourth{ padding:56px 14px; min-height:auto; }
-    .page4-stage{ width:94vw; }
-    .page4-haze{ width:26%; filter:blur(20px); }
+    .pm4-stage{
+      position:relative; width:100%; aspect-ratio:auto; height:auto;
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:26px;
+    }
+    .pm4-headline-block, .pm4-logo, .pm4-badges, .pm4-phone-float, .pm4-floatcard, .pm4-bottombar{
+      position:static; left:auto; right:auto; top:auto; bottom:auto; transform:none; margin:0 auto;
+    }
+    .pm4-headline-block{ max-width:100%; }
+    .pm4-headline{ font-size:clamp(28px,7vw,40px); }
+    .pm4-sub{ max-width:320px; margin-left:auto; margin-right:auto; }
+    .pm4-logo{ text-align:center; }
+    .pm4-logo .w, .pm4-logo .v{ display:inline; }
+    .pm4-badges{ justify-content:center; }
+    .pm4-phone-float{ width:220px; }
+    .pm4-floatcard{ width:auto; max-width:260px; }
+    .pm4-bottombar{ width:auto; max-width:300px; }
 
     footer{padding:24px 20px; flex-direction:column; align-items:center; gap:14px; text-align:center;}
     footer .word{width:100%; text-align:center;}
@@ -607,8 +788,7 @@
     .hero-subword{font-size:clamp(20px,7.5vw,32px);}
     .hs-1{font-size:clamp(22px,5.8vw,32px);}
     .second-stage{width:88vw;}
-    .page4-stage{ width:96vw; }
-    .page4-haze{ width:30%; }
+    .pm4-phone-float{ width:190px; }
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -708,7 +888,7 @@
   <div class="second-text">I turn ideas into useful, powerful apps.</div>
 </section>
 
-<!-- PAGE 4: PRAYER MATTERS — FULL MOCKUP SHOWCASE -->
+<!-- PAGE 4: PRAYER MATTERS — STANDALONE FLOATING PHONE -->
 <section id="fourth">
   <div class="fourth-bg">
     <div class="fblob fblob-d"></div>
@@ -718,10 +898,112 @@
   </div>
   <div class="fourth-vignette"></div>
 
-  <div class="page4-stage">
-    <div class="page4-haze left"></div>
-    <div class="page4-haze right"></div>
-    <img src="assets/prayer-matters-page4-mockup.png" alt="Prayer Matters app — Pause. Pray. Be Still. Guided prayer, Scripture, and quiet reflection right when you need them, with App Store download and QR code.">
+  <div class="pm4-stage">
+
+    <!-- headline + copy — top-left, matching the mockup -->
+    <div class="pm4-headline-block">
+      <h2 class="pm4-headline">Pause. <span class="glow">Pray.</span><br>Be <span class="glow">Still.</span></h2>
+      <p class="pm4-sub">Guided prayer, Scripture, and quiet reflection — right when you need them.</p>
+      <!-- Explore button: point this at the App Store link (or an in-page app screen) when ready -->
+      <a href="#" class="pm4-btn-explore">Explore the App</a>
+      <span class="pm4-tagline">A quiet place to reconnect with God.</span>
+    </div>
+
+    <!-- logo — top-right, matching the mockup -->
+    <div class="pm4-logo"><span class="w">PRAYER</span><span class="v">MATTERS.</span></div>
+
+    <!-- App Store badge + QR — top-right, below the logo, matching the mockup -->
+    <div class="pm4-badges">
+      <!-- App Store badge: replace href="#" with your real App Store URL -->
+      <a href="#" class="pm4-store-badge">
+        <span class="pm4-store-icon" aria-hidden="true"></span>
+        <span class="pm4-store-text">Download on the<b>App Store</b></span>
+      </a>
+
+      <!-- QR placeholder: this is a decorative stand-in pattern, not a real scannable code.
+           Swap it for an <img src="assets/your-real-qr.png"> once you generate the real one. -->
+      <div class="pm4-qr" aria-hidden="true">
+        <svg viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg">
+          <rect width="29" height="29" fill="#fff"/>
+          <g fill="#111">
+            <rect x="0" y="0" width="9" height="9"/><rect x="2" y="2" width="5" height="5" fill="#fff"/><rect x="3.5" y="3.5" width="2" height="2" fill="#111"/>
+            <rect x="20" y="0" width="9" height="9"/><rect x="22" y="2" width="5" height="5" fill="#fff"/><rect x="23.5" y="3.5" width="2" height="2" fill="#111"/>
+            <rect x="0" y="20" width="9" height="9"/><rect x="2" y="22" width="5" height="5" fill="#fff"/><rect x="3.5" y="23.5" width="2" height="2" fill="#111"/>
+            <rect x="11" y="0" width="2" height="2"/><rect x="15" y="0" width="2" height="2"/><rect x="11" y="4" width="2" height="2"/>
+            <rect x="11" y="11" width="2" height="2"/><rect x="15" y="11" width="2" height="2"/><rect x="19" y="11" width="2" height="2"/>
+            <rect x="11" y="15" width="2" height="2"/><rect x="15" y="15" width="2" height="2"/><rect x="11" y="19" width="2" height="2"/>
+            <rect x="15" y="19" width="2" height="2"/><rect x="19" y="15" width="2" height="2"/><rect x="22" y="11" width="2" height="2"/>
+            <rect x="26" y="11" width="2" height="2"/><rect x="22" y="15" width="2" height="2"/><rect x="26" y="19" width="2" height="2"/>
+            <rect x="22" y="22" width="2" height="2"/><rect x="26" y="26" width="2" height="2"/><rect x="11" y="22" width="2" height="2"/>
+            <rect x="15" y="26" width="2" height="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- the standalone floating phone — center-right, matching the mockup's position and scale -->
+    <div class="pm4-phone-float">
+      <div class="pm4-phone">
+        <div class="pm4-notch"></div>
+        <div class="pm4-statusbar">
+          <span>9:41</span>
+          <span>••• 📶 🔋</span>
+        </div>
+        <div class="pm4-screen">
+          <div class="pm4-welcome">WELCOME TO</div>
+          <div class="pm4-screen-title">PRAYER<br><span>MATTERS.</span></div>
+          <div class="pm4-verse">
+            “Be still, and know that I am God.”
+            <small>PSALM 46:10</small>
+          </div>
+
+          <div class="pm4-journey-label">CONTINUE YOUR JOURNEY</div>
+          <button type="button" class="pm4-journey-card">
+            <span class="pm4-journey-icon" aria-hidden="true">🌙</span>
+            <span class="pm4-journey-text"><strong>Evening Prayer</strong><small>Find rest and peace</small></span>
+            <span class="pm4-journey-arrow">›</span>
+          </button>
+
+          <div class="pm4-tabbar">
+            <button type="button" class="pm4-tab active"><span class="ico">🏠</span>Home</button>
+            <button type="button" class="pm4-tab"><span class="ico">🙏</span>Prayers</button>
+            <button type="button" class="pm4-tab"><span class="ico">📖</span>Bible</button>
+            <button type="button" class="pm4-tab"><span class="ico">🧭</span>Journey</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- "thoughtful companion" card — bottom-right, matching the mockup -->
+    <div class="pm4-floatcard companion">
+      A thoughtful companion for prayer, Scripture, and quiet reflection.
+      <div class="pm4-floatcard-icons">
+        <!-- dummy icons — link to your real App Store / direct-download URLs later -->
+        <a href="#" class="pm4-icon-btn" aria-label="App Store">App</a>
+        <a href="#" class="pm4-icon-btn" aria-label="Direct download">DL</a>
+      </div>
+    </div>
+
+    <!-- "Evening Prayer" card — far right, matching the mockup -->
+    <div class="pm4-floatcard evening">
+      <div class="pm4-evening-title">Evening Prayer</div>
+      <button type="button" class="pm4-play-btn" aria-label="Play preview">►</button>
+      <div class="pm4-waveform">
+        <span style="height:40%"></span><span style="height:70%"></span><span style="height:50%"></span>
+        <span style="height:90%"></span><span style="height:30%"></span><span style="height:60%"></span>
+        <span style="height:80%"></span><span style="height:45%"></span><span style="height:65%"></span>
+        <span style="height:35%"></span><span style="height:55%"></span><span style="height:75%"></span>
+      </div>
+    </div>
+
+    <!-- bottom pill bar — ☰ / PM / Download, overlapping the base of the frame, matching the mockup -->
+    <div class="pm4-bottombar">
+      <span class="pm4-bb-burger" aria-hidden="true">☰</span>
+      <span class="pm4-bb-logo">PM</span>
+      <!-- Download pill: same placeholder link as the buttons above — point it at the App Store URL later -->
+      <a href="#" class="pm4-bb-download">Download</a>
+    </div>
+
   </div>
 </section>
 
@@ -760,6 +1042,34 @@
 
   prayerBtn.addEventListener('click', function(){ setActive('prayer'); });
   medicalBtn.addEventListener('click', function(){ setActive('medical'); });
+})();
+
+/* Page 4 — Prayer Matters standalone phone: dummy but real interactivity */
+(function(){
+  var tabs = document.querySelectorAll('.pm4-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
+
+  var journeyCard = document.querySelector('.pm4-journey-card');
+  if(journeyCard){
+    journeyCard.addEventListener('click', function(){
+      journeyCard.classList.toggle('is-selected');
+    });
+  }
+
+  var playBtn = document.querySelector('.pm4-play-btn');
+  var waveform = document.querySelector('.pm4-waveform');
+  if(playBtn){
+    playBtn.addEventListener('click', function(){
+      var playing = playBtn.classList.toggle('is-playing');
+      playBtn.textContent = playing ? '❚❚' : '►';
+      if(waveform) waveform.classList.toggle('is-playing', playing);
+    });
+  }
 })();
 </script>
 
