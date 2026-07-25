@@ -111,13 +111,14 @@
     aspect-ratio:1717 / 916;
     margin:clamp(16px, 4vh, 56px) auto auto auto;
     overflow:hidden;
-    border-radius:2px;
+  }
+  .hero-art-wrap picture{
+    display:block; width:100%; height:100%;
   }
   .hero-art-wrap img{
     display:block; width:100%; height:100%;
     object-fit:contain;
-    transform:scale(1.025);
-    transform-origin:center;
+    object-position:center center;
   }
 
   /* Layer 3: soft feathered mist tucked into the outer edges of the artwork,
@@ -685,7 +686,19 @@
     header{padding:20px 20px 0;}
     nav{gap:22px;}
 
-    .hero-art-wrap{ width:min(94vw, calc(78svh * 1.8744)); }
+    .hero-art-wrap{
+      position:absolute; inset:0;
+      width:100%; height:100%; max-width:none;
+      aspect-ratio:auto; margin:0; border-radius:0;
+    }
+    .hero-art-wrap img{
+      object-fit:cover;
+      object-position:center center;
+    }
+    .hero-mist-left, .hero-mist-right{ opacity:0.5; }
+    .hero-vignette-outer{
+      background:radial-gradient(ellipse 96% 92% at 50% 50%, transparent 74%, rgba(4,6,8,0.5) 96%, var(--ink) 100%);
+    }
 
     /* prayer matters promo page */
     #third{padding:48px 16px 56px;}
@@ -767,7 +780,10 @@
   <div class="hero-atmosphere-grain"></div>
 
   <div class="hero-art-wrap">
-    <img src="assets/neuhaus-hero-main.png" alt="Two hands reaching toward a glowing NEUHAUS app icon, with the words NEUHAUS APP DESIGN and the tagline Apps Worth Opening">
+    <picture>
+      <source media="(max-width: 759px)" srcset="assets/Neuhaus-Apps-Mobile-Hero-Centered-v7.png">
+      <img src="assets/Neuhaus-Apps-App-Grid-Energy-Hero-v6.png" alt="Two hands reaching toward a glowing NEUHAUS app icon, with the words NEUHAUS APP DESIGN and the tagline Apps Worth Opening">
+    </picture>
     <div class="hero-mist hero-mist-left"></div>
     <div class="hero-mist hero-mist-right"></div>
   </div>
