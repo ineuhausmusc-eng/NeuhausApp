@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prayer Matters — Neuhaus Apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E12;
+    --panel:#121820;
+    --panel-2:#0E141B;
+    --line:#22303A;
+    --paper:#EDEFEC;
+    --paper-dim:#B9C2C3;
+    --peach:#F3D9AE;
+    --peach-dim:#C9AE85;
+    --signal:#C1571F;
+    --signal-dim:#8C3F14;
+    --font-display:'Archivo', sans-serif;
+    --font-head:'Space Grotesk', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--signal); color:var(--ink);}
+  svg{overflow:visible;}
+
+  /* ---------- TOP NAV ---------- */
+  header{
+    position:relative;
+    width:100%;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 24px 0;
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  nav a{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(13px, 1.6vw, 20px);
+    letter-spacing:0.07em;
+    color:var(--peach); transition:opacity .2s; opacity:0.92;
+  }
+  nav a:hover{opacity:1;}
+
+  section{position:relative;}
+
+  /* ---------- PRAYER MATTERS — FULL MOCKUP SHOWCASE ---------- */
+  #fourth{
+    min-height:100vh;
+    background:var(--ink);
+    padding:80px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .fourth-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .fourth-atmosphere{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 46% 50% at 14% 22%, rgba(58,22,120,0.55) 0%, rgba(58,22,120,0.22) 45%, transparent 72%),
+      radial-gradient(ellipse 52% 58% at 58% 46%, rgba(15,60,150,0.5) 0%, rgba(20,50,140,0.22) 46%, transparent 74%),
+      radial-gradient(ellipse 40% 42% at 52% 92%, rgba(70,40,150,0.4) 0%, rgba(50,30,120,0.16) 50%, transparent 78%),
+      radial-gradient(ellipse 120% 100% at 50% 50%, transparent 40%, var(--ink) 88%);
+    animation:fourthAtmosDrift 70s ease-in-out infinite alternate;
+  }
+  @keyframes fourthAtmosDrift{
+    0%{ background-position:0 0, 0 0, 0 0, 0 0; }
+    100%{ background-position:1.5% -1%, -1.5% 1.5%, 1% -1.5%, 0 0; }
+  }
+  .fblob{ position:absolute; border-radius:50%; filter:blur(100px); mix-blend-mode:screen; opacity:0.5; will-change:transform; pointer-events:none; }
+  .fblob-a{
+    width:54vw; height:54vw; left:-16%; top:-12%;
+    background:radial-gradient(circle at 40% 40%, #6B2FF0 0%, #3215B8 42%, transparent 74%);
+    animation:driftA 36s ease-in-out infinite alternate;
+  }
+  .fblob-b{
+    width:50vw; height:50vw; right:-16%; bottom:-14%;
+    background:radial-gradient(circle at 60% 35%, #1C86F2 0%, #23319C 45%, transparent 74%);
+    animation:driftB 44s ease-in-out infinite alternate;
+  }
+  .fblob-c{
+    width:24vw; height:24vw; right:6%; top:10%;
+    background:radial-gradient(circle at 50% 50%, #056FEA 0%, transparent 70%);
+    opacity:0.3;
+    animation:driftC 27s ease-in-out infinite alternate;
+  }
+  .fblob-d{
+    width:26vw; height:26vw; left:8%; bottom:8%;
+    background:radial-gradient(circle at 50% 50%, #7B3FF2 0%, transparent 75%);
+    opacity:0.3;
+    animation:driftD 31s ease-in-out infinite alternate;
+  }
+  @keyframes driftA{ 0%{ transform:translate(0,0); } 100%{ transform:translate(4%, 3%); } }
+  @keyframes driftB{ 0%{ transform:translate(0,0); } 100%{ transform:translate(-4%, -3%); } }
+  @keyframes driftC{ 0%{ transform:translate(0,0); } 100%{ transform:translate(-3%, 4%); } }
+  @keyframes driftD{ 0%{ transform:translate(0,0); } 100%{ transform:translate(3%, -4%); } }
+  .fourth-grain{
+    position:absolute; inset:0; z-index:2;
+    filter:url(#grainFilter);
+    opacity:0.025; mix-blend-mode:overlay; pointer-events:none;
+  }
+  .fourth-particles{ position:absolute; inset:0; z-index:2; pointer-events:none; overflow:hidden; }
+  .fparticle{
+    position:absolute; border-radius:50%;
+    background:radial-gradient(circle, rgba(210,190,255,0.9) 0%, rgba(140,120,255,0.35) 45%, transparent 75%);
+    filter:blur(1px);
+    opacity:0.35;
+    animation:fparticleDrift 26s ease-in-out infinite alternate;
+  }
+  .fp1{ width:5px; height:5px; left:18%; top:20%; animation-duration:24s; }
+  .fp2{ width:3px; height:3px; left:34%; top:62%; animation-duration:31s; animation-delay:-4s; }
+  .fp3{ width:4px; height:4px; left:52%; top:14%; animation-duration:27s; animation-delay:-9s; }
+  .fp4{ width:3px; height:3px; left:64%; top:78%; animation-duration:33s; animation-delay:-14s; }
+  .fp5{ width:6px; height:6px; left:76%; top:30%; animation-duration:29s; animation-delay:-6s; }
+  .fp6{ width:3px; height:3px; left:10%; top:70%; animation-duration:35s; animation-delay:-18s; }
+  .fp7{ width:4px; height:4px; left:88%; top:60%; animation-duration:25s; animation-delay:-11s; }
+  .fp8{ width:3px; height:3px; left:45%; top:88%; animation-duration:32s; animation-delay:-2s; }
+  @keyframes fparticleDrift{
+    0%{ transform:translate(0,0); opacity:0.2; }
+    50%{ opacity:0.5; }
+    100%{ transform:translate(1.6vw, -1.4vh); opacity:0.2; }
+  }
+  .fourth-vignette{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse 70% 62% at 50% 50%, transparent 44%, var(--ink) 94%);
+  }
+
+  /* ---------- PM4: standalone floating phone, laid out to match the mockup's exact composition ---------- */
+  .pm4-stage{
+    position:relative;
+    z-index:2;
+    width:min(94vw, 1500px);
+    aspect-ratio:1798/875;
+    margin:0 auto;
+    container-type:inline-size;
+    container-name:pm4;
+  }
+
+  .pm4-headline-block{ position:absolute; left:2.8%; top:4%; max-width:46%; z-index:5; }
+  .pm4-headline{
+    font-family:'Fraunces', serif; font-weight:600;
+    font-size:clamp(30px, 4.6cqw, 68px); line-height:1.05;
+    color:#FBF6EC; margin-bottom:clamp(14px,1.8cqw,26px);
+  }
+  .pm4-headline .glow-pray{
+    background:linear-gradient(135deg, #9B7CFF 0%, #4FA8FF 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 14px rgba(91,22,232,0.5)) drop-shadow(0 0 28px rgba(5,111,234,0.28));
+  }
+  .pm4-headline .glow-still{
+    background:linear-gradient(135deg, #C9A9FF 0%, #8F6FFB 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 0 14px rgba(139,92,246,0.5)) drop-shadow(0 0 28px rgba(139,92,246,0.24));
+  }
+  .pm4-sub{
+    font-family:var(--font-body); font-size:clamp(13px,1.05cqw,16px); line-height:1.6;
+    color:#CBD3D6; max-width:340px; margin-bottom:clamp(18px,2cqw,30px);
+  }
+  .pm4-btn-explore{
+    position:relative;
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:clamp(10px,1.1cqw,15px) clamp(20px,2.4cqw,32px); border-radius:999px;
+    font-family:var(--font-display); font-weight:800; font-size:clamp(12px,0.95cqw,14px); letter-spacing:0.02em;
+    color:#fff;
+    background:linear-gradient(135deg, #6E24F5 0%, #3B1AC2 46%, #1487F5 100%);
+    box-shadow:0 10px 30px rgba(60,25,190,0.5), 0 0 22px rgba(20,135,245,0.25), 0 0 0 1px rgba(255,255,255,0.1) inset, 0 1px 0 rgba(255,255,255,0.35) inset;
+    transition:transform .2s ease, box-shadow .2s ease;
+    margin-bottom:clamp(14px,1.6cqw,22px);
+  }
+  .pm4-btn-explore::before{
+    content:''; position:absolute; inset:0; border-radius:999px; pointer-events:none;
+    background:linear-gradient(180deg, rgba(255,255,255,0.35) 0%, transparent 55%);
+    mix-blend-mode:overlay;
+  }
+  .pm4-btn-explore:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(60,25,190,0.6), 0 0 28px rgba(20,135,245,0.35), 0 0 0 1px rgba(255,255,255,0.12) inset; }
+  .pm4-tagline{
+    display:block;
+    font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:#CBD3D6;
+  }
+
+  .pm4-logo{
+    position:absolute; right:1.2%; top:5%; text-align:right; z-index:5;
+    font-family:var(--font-display); font-weight:800; line-height:1.08;
+    font-size:clamp(17px,1.9cqw,28px);
+  }
+  .pm4-logo .w{ color:var(--paper); display:block; }
+  .pm4-logo .v{
+    display:block;
+    background:linear-gradient(135deg, #B9A6FF 0%, #7FB8FF 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .pm4-badges{
+    position:absolute; right:1.2%; top:20%; z-index:5;
+    display:flex; align-items:center; gap:clamp(8px,1cqw,14px);
+  }
+  .pm4-store-badge{
+    display:inline-flex; align-items:center; gap:clamp(6px,0.8cqw,10px);
+    padding:clamp(8px,0.9cqw,12px) clamp(12px,1.4cqw,20px); border-radius:14px;
+    background:#000; border:1px solid rgba(255,255,255,0.12);
+    transition:border-color .2s ease;
+  }
+  .pm4-store-badge:hover{ border-color:rgba(255,255,255,0.3); }
+  .pm4-store-icon{
+    width:clamp(14px,1.3cqw,20px); height:clamp(14px,1.3cqw,20px); border-radius:6px; flex:none;
+    background:linear-gradient(135deg,#5B16E8,#056FEA);
+  }
+  .pm4-store-text{ font-family:var(--font-mono); font-size:clamp(8px,0.62cqw,11px); line-height:1.3; color:var(--paper); white-space:nowrap; }
+  .pm4-store-text b{ display:block; font-size:1.2em; font-family:var(--font-display); font-weight:800; }
+  .pm4-qr{ width:clamp(50px,6.4cqw,90px); aspect-ratio:1/1; border-radius:12px; flex:none; background:#fff; padding:5px; }
+  .pm4-qr svg{ width:100%; height:100%; display:block; }
+
+  .pm4-phone-float{
+    position:absolute; left:37%; top:13%; z-index:3;
+    width:clamp(190px,24cqw,345px);
+    animation:pm4Float 7s ease-in-out infinite;
+    will-change:transform;
+  }
+  @keyframes pm4Float{
+    0%{ transform:translateY(0) rotate(-4deg); }
+    50%{ transform:translateY(-16px) rotate(-1deg); }
+    100%{ transform:translateY(0) rotate(-4deg); }
+  }
+  .pm4-phone-float::before{
+    content:''; position:absolute; inset:-55% -95%; z-index:-2;
+    background:radial-gradient(ellipse 65% 65% at 48% 48%, rgba(107,47,240,0.35), rgba(28,134,242,0.22) 42%, transparent 74%);
+    filter:blur(80px); pointer-events:none;
+  }
+  .pm4-phone-float::after{
+    content:''; position:absolute; inset:-30% -60%; z-index:-1;
+    background:radial-gradient(ellipse 60% 60% at 50% 45%, rgba(107,47,240,0.5), rgba(28,134,242,0.32) 45%, transparent 75%);
+    filter:blur(50px); pointer-events:none;
+  }
+  .pm4-phone-img{
+    display:block; width:100%; aspect-ratio:222/480;
+    border-radius:14%/7%;
+    box-shadow:
+      0 30px 70px rgba(0,0,0,0.6),
+      0 0 70px rgba(91,22,232,0.32),
+      0 0 30px rgba(20,135,245,0.22),
+      0 0 0 1px rgba(180,150,255,0.18);
+  }
+
+  .pm4-floatcard{
+    position:absolute; z-index:4;
+    background:linear-gradient(160deg, rgba(60,40,110,0.4) 0%, rgba(20,26,40,0.68) 60%);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    border:1px solid rgba(150,120,255,0.28);
+    border-radius:16px;
+    padding:clamp(10px,1.2cqw,18px) clamp(12px,1.4cqw,20px);
+    color:var(--paper); line-height:1.45;
+    font-size:clamp(10px,0.85cqw,13px);
+    box-shadow:0 20px 44px rgba(0,0,0,0.45), 0 0 26px rgba(91,22,232,0.14), 0 1px 0 rgba(255,255,255,0.12) inset;
+  }
+  .pm4-floatcard.companion{ right:11%; bottom:11%; width:clamp(150px,16cqw,225px); }
+  .pm4-floatcard-icons{ display:flex; gap:clamp(6px,0.8cqw,10px); margin-top:clamp(8px,1cqw,14px); }
+  .pm4-icon-btn{
+    width:clamp(24px,2.6cqw,34px); height:clamp(24px,2.6cqw,34px); border-radius:50%; border:none; cursor:pointer;
+    background:rgba(255,255,255,0.08); color:var(--paper);
+    font-family:var(--font-mono); font-size:clamp(7px,0.55cqw,9px); letter-spacing:0.02em;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .pm4-icon-btn:hover{ background:rgba(91,22,232,0.4); }
+
+  .pm4-floatcard.evening{ right:0.8%; top:68%; width:clamp(110px,10.5cqw,160px); text-align:center; }
+  .pm4-evening-title{ font-family:var(--font-display); font-weight:700; font-size:1.05em; margin-bottom:clamp(6px,0.9cqw,12px); }
+  .pm4-play-btn{
+    width:clamp(32px,4cqw,46px); height:clamp(32px,4cqw,46px); border-radius:50%; border:none; cursor:pointer;
+    background:linear-gradient(135deg,#5B16E8,#056FEA); color:#fff; font-size:clamp(10px,1.1cqw,15px);
+    display:flex; align-items:center; justify-content:center; margin:0 auto;
+    box-shadow:0 0 18px rgba(91,22,232,0.5);
+  }
+  .pm4-waveform{ display:flex; align-items:flex-end; justify-content:center; gap:2px; height:clamp(18px,2cqw,26px); margin-top:clamp(6px,0.9cqw,10px); }
+  .pm4-waveform span{ width:clamp(2px,0.25cqw,3px); border-radius:2px; background:linear-gradient(180deg,#8B5CF6,#3B9CFF); display:block; }
+  .pm4-waveform.is-playing span{ animation:pm4Wave 1s ease-in-out infinite; }
+  .pm4-waveform.is-playing span:nth-child(2n){ animation-delay:.12s; }
+  .pm4-waveform.is-playing span:nth-child(3n){ animation-delay:.24s; }
+  .pm4-waveform.is-playing span:nth-child(4n){ animation-delay:.36s; }
+  @keyframes pm4Wave{ 0%,100%{ height:20%; } 50%{ height:95%; } }
+
+  .pm4-bottombar{
+    position:absolute; left:50%; bottom:-3%; transform:translateX(-50%); z-index:6;
+    width:clamp(220px,34cqw,480px);
+    display:flex; align-items:center; justify-content:space-between;
+    background:linear-gradient(135deg, #EDEFEC 0%, #D9CFF0 100%);
+    border-radius:999px;
+    padding:clamp(8px,0.9cqw,12px) clamp(10px,1.2cqw,16px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  }
+  .pm4-bb-burger{ font-size:clamp(12px,1.2cqw,16px); color:#14133D; line-height:1; }
+  .pm4-bb-logo{ font-family:'Fraunces', serif; font-weight:700; font-size:clamp(13px,1.3cqw,18px); color:#14133D; }
+  .pm4-bb-download{
+    font-family:var(--font-display); font-weight:800; font-size:clamp(10px,0.85cqw,13px);
+    color:#fff; background:#0A0E12; padding:clamp(6px,0.7cqw,9px) clamp(12px,1.3cqw,18px); border-radius:999px;
+  }
+
+  footer{
+    background:var(--ink); border-top:1px solid var(--line);
+    padding:30px 40px; display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:16px;
+  }
+  footer .word{font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:0.06em;}
+  .foot-links{display:flex; gap:26px; flex-wrap:wrap;}
+  .foot-links a{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--paper-dim);
+    transition:color .2s;
+  }
+  .foot-links a:hover{color:var(--signal);}
+  .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
+
+  @media (max-width:760px){
+    header{padding:20px 20px 0;}
+    nav{gap:22px;}
+
+    #fourth{ padding:56px 14px; min-height:auto; }
+    .pm4-stage{
+      position:relative; width:100%; aspect-ratio:auto; height:auto;
+      display:flex; flex-direction:column; align-items:center; text-align:center; gap:26px;
+    }
+    .pm4-headline-block, .pm4-logo, .pm4-badges, .pm4-phone-float, .pm4-floatcard, .pm4-bottombar{
+      position:static; left:auto; right:auto; top:auto; bottom:auto; transform:none; margin:0 auto;
+    }
+    .pm4-headline-block{ max-width:100%; }
+    .pm4-headline{ font-size:clamp(28px,7vw,40px); }
+    .pm4-sub{ max-width:320px; margin-left:auto; margin-right:auto; }
+    .pm4-logo{ text-align:center; }
+    .pm4-logo .w, .pm4-logo .v{ display:inline; }
+    .pm4-badges{ justify-content:center; }
+    .pm4-phone-float{ width:220px; }
+    .pm4-floatcard{ width:auto; max-width:260px; }
+    .pm4-bottombar{ width:auto; max-width:300px; }
+
+    footer{padding:24px 20px; flex-direction:column; align-items:center; gap:14px; text-align:center;}
+    footer .word{width:100%; text-align:center;}
+    .foot-links{justify-content:center; width:100%;}
+    .copyright{width:100%; text-align:center;}
+  }
+  @media (max-width:420px){
+    .pm4-phone-float{ width:190px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <filter id="grainFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<header>
+  <nav>
+    <a href="index.html">INTRO</a>
+    <a href="prayer-matters.html">PRAYER MATTERS</a>
+    <a href="privacy.html">LEGAL</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">CONTACT</a>
+  </nav>
+</header>
+
+<!-- PRAYER MATTERS — STANDALONE FLOATING PHONE -->
+<section id="fourth">
+  <div class="fourth-atmosphere"></div>
+  <div class="fourth-bg">
+    <div class="fblob fblob-d"></div>
+    <div class="fblob fblob-c"></div>
+    <div class="fblob fblob-a"></div>
+    <div class="fblob fblob-b"></div>
+  </div>
+  <div class="fourth-vignette"></div>
+  <div class="fourth-grain"></div>
+  <div class="fourth-particles">
+    <span class="fparticle fp1"></span>
+    <span class="fparticle fp2"></span>
+    <span class="fparticle fp3"></span>
+    <span class="fparticle fp4"></span>
+    <span class="fparticle fp5"></span>
+    <span class="fparticle fp6"></span>
+    <span class="fparticle fp7"></span>
+    <span class="fparticle fp8"></span>
+  </div>
+
+  <div class="pm4-stage">
+
+    <!-- headline + copy — top-left, matching the mockup -->
+    <div class="pm4-headline-block">
+      <h2 class="pm4-headline">Pause. <span class="glow-pray">Pray.</span><br>Be <span class="glow-still">Still.</span></h2>
+      <p class="pm4-sub">Guided prayer, Scripture, and quiet reflection — right when you need them.</p>
+      <!-- Explore button: point this at the App Store link (or an in-page app screen) when ready -->
+      <a href="#" class="pm4-btn-explore">Explore the App</a>
+      <span class="pm4-tagline">A quiet place to reconnect with God.</span>
+    </div>
+
+    <!-- logo — top-right, matching the mockup -->
+    <div class="pm4-logo"><span class="w">PRAYER</span><span class="v">MATTERS.</span></div>
+
+    <!-- App Store badge + QR — top-right, below the logo, matching the mockup -->
+    <div class="pm4-badges">
+      <!-- App Store badge: replace href="#" with your real App Store URL -->
+      <a href="#" class="pm4-store-badge">
+        <span class="pm4-store-icon" aria-hidden="true"></span>
+        <span class="pm4-store-text">Download on the<b>App Store</b></span>
+      </a>
+
+      <!-- QR placeholder: this is a decorative stand-in pattern, not a real scannable code.
+           Swap it for an <img src="assets/your-real-qr.png"> once you generate the real one. -->
+      <div class="pm4-qr" aria-hidden="true">
+        <svg viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg">
+          <rect width="29" height="29" fill="#fff"/>
+          <g fill="#111">
+            <rect x="0" y="0" width="9" height="9"/><rect x="2" y="2" width="5" height="5" fill="#fff"/><rect x="3.5" y="3.5" width="2" height="2" fill="#111"/>
+            <rect x="20" y="0" width="9" height="9"/><rect x="22" y="2" width="5" height="5" fill="#fff"/><rect x="23.5" y="3.5" width="2" height="2" fill="#111"/>
+            <rect x="0" y="20" width="9" height="9"/><rect x="2" y="22" width="5" height="5" fill="#fff"/><rect x="3.5" y="23.5" width="2" height="2" fill="#111"/>
+            <rect x="11" y="0" width="2" height="2"/><rect x="15" y="0" width="2" height="2"/><rect x="11" y="4" width="2" height="2"/>
+            <rect x="11" y="11" width="2" height="2"/><rect x="15" y="11" width="2" height="2"/><rect x="19" y="11" width="2" height="2"/>
+            <rect x="11" y="15" width="2" height="2"/><rect x="15" y="15" width="2" height="2"/><rect x="11" y="19" width="2" height="2"/>
+            <rect x="15" y="19" width="2" height="2"/><rect x="19" y="15" width="2" height="2"/><rect x="22" y="11" width="2" height="2"/>
+            <rect x="26" y="11" width="2" height="2"/><rect x="22" y="15" width="2" height="2"/><rect x="26" y="19" width="2" height="2"/>
+            <rect x="22" y="22" width="2" height="2"/><rect x="26" y="26" width="2" height="2"/><rect x="11" y="22" width="2" height="2"/>
+            <rect x="15" y="26" width="2" height="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- the standalone floating phone — center-right, matching the mockup's position and scale -->
+    <div class="pm4-phone-float">
+      <img class="pm4-phone-img" src="assets/prayer-matters-phone-screen.png" alt="Prayer Matters app screen — Welcome to Prayer Matters, Be still and know that I am God, Psalm 46:10, Continue Your Journey, Evening Prayer.">
+    </div>
+
+    <!-- "thoughtful companion" card — bottom-right, matching the mockup -->
+    <div class="pm4-floatcard companion">
+      A thoughtful companion for prayer, Scripture, and quiet reflection.
+      <div class="pm4-floatcard-icons">
+        <!-- dummy icons — link to your real App Store / direct-download URLs later -->
+        <a href="#" class="pm4-icon-btn" aria-label="App Store">App</a>
+        <a href="#" class="pm4-icon-btn" aria-label="Direct download">DL</a>
+      </div>
+    </div>
+
+    <!-- "Evening Prayer" card — far right, matching the mockup -->
+    <div class="pm4-floatcard evening">
+      <div class="pm4-evening-title">Evening Prayer</div>
+      <button type="button" class="pm4-play-btn" aria-label="Play preview">►</button>
+      <div class="pm4-waveform">
+        <span style="height:40%"></span><span style="height:70%"></span><span style="height:50%"></span>
+        <span style="height:90%"></span><span style="height:30%"></span><span style="height:60%"></span>
+        <span style="height:80%"></span><span style="height:45%"></span><span style="height:65%"></span>
+        <span style="height:35%"></span><span style="height:55%"></span><span style="height:75%"></span>
+      </div>
+    </div>
+
+    <!-- bottom pill bar — the ☰ / PM / Download strip overlapping the base of the frame, like the mockup -->
+    <div class="pm4-bottombar">
+      <span class="pm4-bb-burger" aria-hidden="true">☰</span>
+      <span class="pm4-bb-logo">PM</span>
+      <!-- Download pill: same placeholder link as the buttons above — point it at the App Store URL later -->
+      <a href="#" class="pm4-bb-download">Download</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="word">NEUHAUS APPS</div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="eula.html">EULA</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </div>
+  <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
+</footer>
+
+<script>
+/* Prayer Matters standalone phone: dummy but real interactivity */
+(function(){
+  var journeyCard = document.querySelector('.pm4-journey-card');
+  if(journeyCard){
+    journeyCard.addEventListener('click', function(){
+      journeyCard.classList.toggle('is-selected');
+    });
+  }
+
+  var playBtn = document.querySelector('.pm4-play-btn');
+  var waveform = document.querySelector('.pm4-waveform');
+  if(playBtn){
+    playBtn.addEventListener('click', function(){
+      var playing = playBtn.classList.toggle('is-playing');
+      playBtn.textContent = playing ? '❚❚' : '►';
+      if(waveform) waveform.classList.toggle('is-playing', playing);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
