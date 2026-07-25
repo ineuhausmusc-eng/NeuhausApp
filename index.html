@@ -57,11 +57,11 @@
   }
   nav{
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:4px;
+    gap:32px;
     flex-wrap:wrap;
+    transform:translateY(18px);
   }
   nav a{
     font-family:var(--font-display); font-weight:800;
@@ -70,13 +70,6 @@
     color:var(--peach); transition:opacity .2s; opacity:0.92;
   }
   nav a:hover{opacity:1;}
-  nav .nav-tagline{
-    font-family:var(--font-display); font-weight:800;
-    font-size:clamp(11px, 1.35vw, 16.9px);
-    letter-spacing:0.14em;
-    color:var(--peach-dim);
-    opacity:0.85;
-  }
 
   /* "APPS" nav heading — clustered spectral-light gradient (blue/violet dominant,
      cyan + pink-violet accents, icy-white highlight points), crisp bold
@@ -724,8 +717,9 @@
       padding:22px 14px 0;
     }
     nav{
-      gap:2px;
+      gap:8px;
       flex-wrap:nowrap;
+      transform:translateY(12px);
     }
     nav a{
       font-size:clamp(9.9px, 3.74vw, 17.6px);
@@ -735,9 +729,6 @@
     nav a.nav-apps{
       font-size:clamp(12.375px, 4.675vw, 22px);
       letter-spacing:0.042em;
-    }
-    nav .nav-tagline{
-      font-size:clamp(8.25px, 2.86vw, 12.65px);
     }
 
     .hero-art-wrap{
@@ -820,7 +811,6 @@
 <header>
   <nav>
     <a href="prayer-matters.html" class="nav-apps">APPS</a>
-    <span class="nav-tagline">WORTH OPENING</span>
   </nav>
 </header>
 
