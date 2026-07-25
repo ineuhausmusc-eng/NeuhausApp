@@ -81,23 +81,74 @@
     background:var(--ink);
     position:relative; overflow:hidden;
   }
-  .hero-photo{
-    position:relative; left:auto; top:auto; transform:none;
-    width:min(68vw, 900px); aspect-ratio:877/536; z-index:1;
-    margin:24px auto 32px;
-    background-image:url('assets/hero-photo.jpg');
-    background-size:cover; background-position:center;
-    opacity:0.66;
-    filter:saturate(1.15) contrast(1.1) brightness(0.78);
-    -webkit-mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
-    mask-image:radial-gradient(ellipse 68% 68% at 50% 50%, #000 52%, transparent 85%);
+  .hero-photo {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(96vw, 1810px);
+    aspect-ratio: 1810 / 435;
+    z-index: 1;
+    margin: 12px auto 20px;
+    background-image: url('assets/hero-app-studio-final.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 1;
+    filter: saturate(1.04) contrast(1.04) brightness(0.98);
   }
-  .hero-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
-  .hero-vignette{
-    position:absolute; inset:0; z-index:2; pointer-events:none;
+
+  .hero-photo::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
     background:
-      radial-gradient(ellipse 55% 50% at 50% 48%, transparent 40%, rgba(10,14,18,0.7) 72%, var(--ink) 100%),
-      radial-gradient(circle at 50% 50%, rgba(180,90,30,0.06) 0%, transparent 60%);
+      linear-gradient(
+        90deg,
+        var(--ink) 0%,
+        transparent 7%,
+        transparent 93%,
+        var(--ink) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(10,14,18,0.35) 0%,
+        transparent 12%,
+        transparent 76%,
+        rgba(10,14,18,0.58) 100%
+      );
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 42% 56% at 13% 51%,
+        rgba(112,8,14,0.24),
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 42% 56% at 87% 51%,
+        rgba(201,73,3,0.22),
+        transparent 72%
+      );
+  }
+  .hero-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        ellipse 76% 65% at 50% 51%,
+        transparent 60%,
+        rgba(10,14,18,0.26) 88%,
+        var(--ink) 100%
+      );
   }
   .grain{
     position:absolute; inset:0; z-index:3;
@@ -238,41 +289,6 @@
     height:auto;
     aspect-ratio:1448 / 1086;
     object-fit:contain;
-    position:relative;
-    z-index:1;
-  }
-
-  /* Atmospheric mist hugging the Prayer Matters artwork edges */
-  .pm-artwork{
-    position:relative;
-    width:100%;
-  }
-  .pm-artwork .app-hero-content{
-    position:relative;
-    z-index:1;
-  }
-  .pm-mist{
-    position:absolute;
-    inset:-14% -18%;
-    z-index:0;
-    pointer-events:none;
-    filter:blur(70px);
-    background:
-      radial-gradient(ellipse 42% 85% at 2% 50%, rgba(91,22,232,0.55) 0%, rgba(91,22,232,0.28) 32%, transparent 62%),
-      radial-gradient(ellipse 42% 85% at 98% 50%, rgba(5,111,234,0.5) 0%, rgba(5,111,234,0.25) 32%, transparent 62%),
-      radial-gradient(ellipse 88% 34% at 50% 2%, rgba(50,21,184,0.22) 0%, transparent 65%),
-      radial-gradient(ellipse 88% 34% at 50% 98%, rgba(34,51,92,0.24) 0%, transparent 65%);
-  }
-  .pm-mist--soft{
-    position:absolute;
-    inset:-6% -8%;
-    z-index:0;
-    pointer-events:none;
-    filter:blur(36px);
-    opacity:0.7;
-    background:
-      radial-gradient(ellipse 30% 70% at 0% 50%, rgba(123,54,255,0.4) 0%, transparent 60%),
-      radial-gradient(ellipse 30% 70% at 100% 50%, rgba(37,115,255,0.38) 0%, transparent 60%);
   }
 
   /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
@@ -439,10 +455,23 @@
 
   @media (max-width:900px){
     #hero{padding:40px 20px 40px; min-height:auto;}
-    .hero-photo{
-      width:88vw; margin:28px auto 30px;
-    }
     .hs-1{ font-size:clamp(26px, 6.4vw, 40px); }
+  }
+  @media (max-width: 900px) {
+    .hero-photo {
+      width: 94vw;
+      aspect-ratio: 16 / 9;
+      background-size: cover;
+      background-position: center;
+      margin: 22px auto 26px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .hero-photo {
+      width: 96vw;
+      aspect-ratio: 4 / 3;
+    }
   }
   @media (max-width:760px){
     header{padding:20px 20px 0;}
@@ -484,7 +513,6 @@
     .hero-word{font-size:clamp(40px,14vw,64px);}
     .hero-subword{font-size:clamp(20px,7.5vw,32px);}
     .hs-1{font-size:clamp(22px,5.8vw,32px);}
-    .hero-photo{width:92vw;}
     .second-stage{width:88vw;}
   }
 
@@ -556,17 +584,12 @@
       <span class="app-hero-toggle__bg" aria-hidden="true"></span>
     </div>
 
-    <div class="pm-artwork">
-      <div class="pm-mist" aria-hidden="true"></div>
-      <div class="pm-mist pm-mist--soft" aria-hidden="true"></div>
+    <div class="app-hero-content app-hero-content--prayer">
+      <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
+    </div>
 
-      <div class="app-hero-content app-hero-content--prayer">
-        <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
-      </div>
-
-      <div class="app-hero-content app-hero-content--medical" hidden>
-        <div class="app-hero-medical-placeholder">Medical — coming soon</div>
-      </div>
+    <div class="app-hero-content app-hero-content--medical" hidden>
+      <div class="app-hero-medical-placeholder">Medical — coming soon</div>
     </div>
   </div>
 </section>
