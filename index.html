@@ -72,146 +72,78 @@
 
   section{position:relative;}
 
-  /* ---------- HERO + ANIMATED GRAIN GRADIENT ---------- */
+  /* ---------- HERO: single artwork hero, palette-matched atmosphere ---------- */
   #hero{
     min-height:100vh;
-    padding:40px 32px 40px;
-    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
-    text-align:center;
+    min-height:100svh;
+    padding:0;
+    display:flex; align-items:center; justify-content:center;
     background:var(--ink);
     position:relative; overflow:hidden;
   }
-  .hero-photo {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    width: min(96vw, 1810px);
-    aspect-ratio: 1810 / 435;
-    z-index: 1;
-    margin: 12px auto 20px;
-    background-image: url('assets/hero-app-studio-final.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    opacity: 1;
-    filter: saturate(1.04) contrast(1.04) brightness(0.98);
-  }
 
-  .hero-photo::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    pointer-events: none;
+  /* Layer 1: full-width gradient background, colors drawn from the artwork's own
+     near-black / oxblood / ember / copper / antique-gold palette, so the hero
+     reads as one continuous environment even where the image doesn't reach. */
+  .hero-atmosphere{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
     background:
-      linear-gradient(
-        90deg,
-        var(--ink) 0%,
-        transparent 7%,
-        transparent 93%,
-        var(--ink) 100%
-      ),
-      linear-gradient(
-        180deg,
-        rgba(10,14,18,0.35) 0%,
-        transparent 12%,
-        transparent 76%,
-        rgba(10,14,18,0.58) 100%
-      );
+      radial-gradient(ellipse 44% 62% at 6% 50%, rgba(122,26,31,0.40) 0%, rgba(90,20,20,0.16) 42%, transparent 72%),
+      radial-gradient(ellipse 44% 62% at 94% 50%, rgba(185,102,47,0.34) 0%, rgba(122,26,31,0.15) 42%, transparent 74%),
+      radial-gradient(ellipse 58% 50% at 50% 46%, rgba(102,36,18,0.22) 0%, transparent 66%),
+      linear-gradient(180deg, #04060A 0%, #0A0E12 26%, #0A0E12 74%, #04060A 100%);
   }
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
-    background:
-      radial-gradient(
-        ellipse 42% 56% at 13% 51%,
-        rgba(112,8,14,0.24),
-        transparent 72%
-      ),
-      radial-gradient(
-        ellipse 42% 56% at 87% 51%,
-        rgba(201,73,3,0.22),
-        transparent 72%
-      );
-  }
-  .hero-vignette {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    pointer-events: none;
-    background:
-      radial-gradient(
-        ellipse 76% 65% at 50% 51%,
-        transparent 60%,
-        rgba(10,14,18,0.26) 88%,
-        var(--ink) 100%
-      );
-  }
-  .grain{
-    position:absolute; inset:0; z-index:3;
+  .hero-atmosphere-grain{
+    position:absolute; inset:0; z-index:1;
     filter:url(#grainFilter);
-    opacity:0.04; mix-blend-mode:overlay; pointer-events:none;
+    opacity:0.045; mix-blend-mode:overlay; pointer-events:none;
   }
 
-  .hero-taghead{
-    position:absolute; top:32px; left:0; right:0; text-align:center;
-    font-family:var(--font-display); font-weight:800; font-size:30px; letter-spacing:0.15em;
-    color:var(--paper); z-index:5;
-    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
-    text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
-    paint-order:stroke fill;
+  /* Layer 2: the artwork itself — centered, unaltered, aspect-ratio locked so it
+     never stretches or distorts, capped by both viewport width and height so it
+     never overflows or gets cropped on very wide or very short screens. */
+  .hero-art-wrap{
+    position:relative; z-index:2;
+    width:min(92vw, calc(86svh * 1.8744));
+    max-width:1717px;
+    aspect-ratio:1717 / 916;
+    margin:auto;
   }
-  .hero-title-block{
-    position:relative; left:auto; top:auto; z-index:4;
-    text-align:center;
-    margin-top:56px;
+  .hero-art-wrap img{
+    display:block; width:100%; height:100%;
+    object-fit:contain;
   }
-  .hero-word{
-    font-family:var(--font-display); font-weight:900;
-    font-size:clamp(64px, 11.5vw, 168px); line-height:0.86; letter-spacing:-0.015em;
-    color:var(--peach);
-    -webkit-text-stroke:clamp(4.4px, 0.84vw, 12px) #7A1A1F;
-    text-stroke:clamp(4.4px, 0.84vw, 12px) #7A1A1F;
-    paint-order:stroke fill;
-    display:block;
+
+  /* Layer 3: soft feathered mist tucked into the outer edges of the artwork,
+     concentrated at the corners (background/particle areas) so the hands,
+     app icon and type are never obscured, plus a light overall vignette. */
+  .hero-mist{ position:absolute; inset:0; z-index:3; pointer-events:none; }
+  .hero-mist-left{
+    background:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(3,2,2,0.9), transparent 68%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(3,2,2,0.9), transparent 68%),
+      linear-gradient(to right, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
+    filter:blur(5px);
   }
-  .hero-subword{
-    font-family:var(--font-display); font-weight:800;
-    font-size:clamp(39px, 5.5vw, 73px); letter-spacing:0.03em;
-    color:var(--peach-dim);
-    -webkit-text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
-    text-stroke:clamp(1px, 0.16vw, 2px) #7A1A1F;
-    paint-order:stroke fill;
-    text-align:center; display:block; margin-top:8px;
+  .hero-mist-right{
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(3,2,2,0.9), transparent 68%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(3,2,2,0.9), transparent 68%),
+      linear-gradient(to left, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
+    filter:blur(5px);
   }
-  .hero-stagger{ position:relative; inset:auto; z-index:5; pointer-events:none; text-align:center; }
-  .hero-stagger span{
-    display:block; text-align:center;
-    font-family:var(--font-head); font-weight:700;
-    color:#000000;
-    -webkit-text-stroke:clamp(1.2px, 0.192vw, 2.4px) var(--peach);
-    text-stroke:clamp(1.2px, 0.192vw, 2.4px) var(--peach);
-    paint-order:stroke fill;
+  .hero-vignette-outer{
+    position:absolute; inset:0; z-index:4; pointer-events:none;
+    background:radial-gradient(ellipse 82% 80% at 50% 50%, transparent 64%, rgba(4,6,8,0.46) 90%, var(--ink) 100%);
   }
-  .hs-1{ font-size:clamp(45px, 5.44vw, 66px); font-weight:700; line-height:1.15; margin:0 auto; max-width:min(1050px, 92vw); }
-  .edge-badge{
-    position:absolute; top:0; right:0; bottom:0; width:26px;
-    background:#000;
-    display:flex; align-items:center; justify-content:center;
-    z-index:6;
-  }
-  .edge-badge span{
-    writing-mode:vertical-rl; transform:rotate(180deg);
-    font-family:var(--font-mono); font-size:10px; letter-spacing:0.16em;
-    color:var(--signal);
-  }
+
+  /* Layer 4: nav/buttons already live in <header>, outside this section, so
+     they stack above the artwork automatically. The scroll cue is the one
+     interactive element that lives inside the hero — kept as real HTML,
+     floated over everything else, never merged into the image. */
   .scroll-cue{
-    position:relative; bottom:auto; left:auto; right:auto; z-index:5;
+    position:absolute; left:50%; bottom:24px; transform:translateX(-50%); z-index:5;
     display:flex; flex-direction:column; align-items:center; gap:12px;
-    margin-top:36px;
   }
   .scroll-mouse{
     width:24px; height:38px; border:2px solid var(--peach); border-radius:14px;
@@ -779,35 +711,11 @@
   .foot-links a:hover{color:var(--signal);}
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
 
-  @media (max-width:900px){
-    #hero{padding:40px 20px 40px; min-height:auto;}
-    .hs-1{ font-size:clamp(26px, 6.4vw, 40px); }
-  }
-  @media (max-width: 900px) {
-    .hero-photo {
-      width: 94vw;
-      aspect-ratio: 16 / 9;
-      background-size: cover;
-      background-position: center;
-      margin: 22px auto 26px;
-    }
-  }
-
-  @media (max-width: 420px) {
-    .hero-photo {
-      width: 96vw;
-      aspect-ratio: 4 / 3;
-    }
-  }
   @media (max-width:760px){
     header{padding:20px 20px 0;}
     nav{gap:22px;}
-    .edge-badge{display:none;}
 
-    #hero{padding-top:16px;}
-    .hero-taghead{font-size:14px; letter-spacing:0.1em;}
-    .hero-word{font-size:clamp(46px,15vw,80px);}
-    .hero-subword{font-size:clamp(24px,8.5vw,42px);}
+    .hero-art-wrap{ width:min(94vw, calc(78svh * 1.8744)); }
 
     /* prayer matters promo page */
     #third{padding:48px 16px 56px;}
@@ -855,9 +763,6 @@
     .copyright{width:100%; text-align:center;}
   }
   @media (max-width:420px){
-    .hero-word{font-size:clamp(40px,14vw,64px);}
-    .hero-subword{font-size:clamp(20px,7.5vw,32px);}
-    .hs-1{font-size:clamp(22px,5.8vw,32px);}
     .second-stage{width:88vw;}
     .pm4-phone-float{ width:190px; }
   }
@@ -889,24 +794,18 @@
 
 <!-- PAGE 1: NEUHAUS HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-vignette"></div>
-  <div class="grain"></div>
+  <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus App Design — Apps Worth Opening</h1>
 
-  <div class="edge-badge"><span>NEUHAUS MARK — 3D</span></div>
+  <div class="hero-atmosphere"></div>
+  <div class="hero-atmosphere-grain"></div>
 
-  <div class="hero-taghead">APPS WORTH OPENING.</div>
-
-  <div class="hero-title-block">
-    <span class="hero-word">NEUHAUS</span>
-    <span class="hero-subword">APP DESIGN</span>
+  <div class="hero-art-wrap">
+    <img src="assets/neuhaus-hero-main.png" alt="Two hands reaching toward a glowing NEUHAUS app icon, with the words NEUHAUS APP DESIGN and the tagline Apps Worth Opening">
+    <div class="hero-mist hero-mist-left"></div>
+    <div class="hero-mist hero-mist-right"></div>
   </div>
 
-  <div class="hero-photo"></div>
-
-  <div class="hero-stagger">
-    <span class="hs-1">Thoughtful apps. Designed to simplify.</span>
-  </div>
+  <div class="hero-vignette-outer"></div>
 
   <div class="scroll-cue">
     <div class="scroll-mouse"></div>
