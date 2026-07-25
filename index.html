@@ -110,10 +110,14 @@
     max-width:1717px;
     aspect-ratio:1717 / 916;
     margin:clamp(16px, 4vh, 56px) auto auto auto;
+    overflow:hidden;
+    border-radius:2px;
   }
   .hero-art-wrap img{
     display:block; width:100%; height:100%;
     object-fit:contain;
+    transform:scale(1.025);
+    transform-origin:center;
   }
 
   /* Layer 3: soft feathered mist tucked into the outer edges of the artwork,
@@ -425,8 +429,6 @@
   }
 
   /* ---------- PM4: standalone floating phone, laid out to match the mockup's exact composition ---------- */
-  /* container-query units (cqw) below are % of the stage's own width, so every element scales together,
-     the same way a single flat image would — but everything stays real, crisp text and working buttons. */
   .pm4-stage{
     position:relative;
     z-index:2;
@@ -437,7 +439,6 @@
     container-name:pm4;
   }
 
-  /* headline + copy — top-left, exactly like the mockup */
   .pm4-headline-block{ position:absolute; left:2.8%; top:4%; max-width:46%; z-index:5; }
   .pm4-headline{
     font-family:'Fraunces', serif; font-weight:600;
@@ -480,7 +481,6 @@
     font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:#CBD3D6;
   }
 
-  /* logo — top-right, exactly like the mockup */
   .pm4-logo{
     position:absolute; right:1.2%; top:5%; text-align:right; z-index:5;
     font-family:var(--font-display); font-weight:800; line-height:1.08;
@@ -493,7 +493,6 @@
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
 
-  /* app store badge + QR — top-right, below the logo, like the mockup */
   .pm4-badges{
     position:absolute; right:1.2%; top:20%; z-index:5;
     display:flex; align-items:center; gap:clamp(8px,1cqw,14px);
@@ -514,7 +513,6 @@
   .pm4-qr{ width:clamp(50px,6.4cqw,90px); aspect-ratio:1/1; border-radius:12px; flex:none; background:#fff; padding:5px; }
   .pm4-qr svg{ width:100%; height:100%; display:block; }
 
-  /* the standalone floating phone — center-right, large, tilted, bleeding past the frame like the mockup */
   .pm4-phone-float{
     position:absolute; left:37%; top:13%; z-index:3;
     width:clamp(190px,24cqw,345px);
@@ -548,7 +546,7 @@
   .pm4-phone{
     position:relative; display:flex; flex-direction:column;
     width:100%; aspect-ratio:9/19.4;
-    font-size:clamp(11px,1.15cqw,19px); /* base unit — children below use em, so they scale with the phone itself */
+    font-size:clamp(11px,1.15cqw,19px);
     background:#05070a;
     border-radius:15%/7%;
     border:3px solid #1c232c;
@@ -613,8 +611,6 @@
   .pm4-tab.active{ color:#fff; }
   .pm4-tab.active .ico{ color:#8B5CF6; }
 
-
-  /* floating info cards — bottom-right cluster, matching the mockup */
   .pm4-floatcard{
     position:absolute; z-index:4;
     background:linear-gradient(160deg, rgba(60,40,110,0.4) 0%, rgba(20,26,40,0.68) 60%);
@@ -653,7 +649,6 @@
   .pm4-waveform.is-playing span:nth-child(4n){ animation-delay:.36s; }
   @keyframes pm4Wave{ 0%,100%{ height:20%; } 50%{ height:95%; } }
 
-  /* bottom pill bar — the ☰ / PM / Download strip overlapping the base of the frame, like the mockup */
   .pm4-bottombar{
     position:absolute; left:50%; bottom:-3%; transform:translateX(-50%); z-index:6;
     width:clamp(220px,34cqw,480px);
@@ -672,17 +667,19 @@
 
   footer{
     background:var(--ink); border-top:1px solid var(--line);
-    padding:30px 40px; display:flex; justify-content:space-between; align-items:center;
-    flex-wrap:wrap; gap:16px;
+    padding:30px 40px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    gap:14px;
   }
-  footer .word{font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:0.06em;}
-  .foot-links{display:flex; gap:26px; flex-wrap:wrap;}
+  footer .word{font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:0.06em; text-align:center; width:100%;}
+  .foot-links{display:flex; gap:26px; flex-wrap:wrap; justify-content:center; width:100%;}
   .foot-links a{
     font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--paper-dim);
     transition:color .2s;
   }
   .foot-links a:hover{color:var(--signal);}
-  .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
+  .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim); text-align:center; width:100%;}
 
   @media (max-width:760px){
     header{padding:20px 20px 0;}
@@ -730,10 +727,7 @@
     .pm4-floatcard{ width:auto; max-width:260px; }
     .pm4-bottombar{ width:auto; max-width:300px; }
 
-    footer{padding:24px 20px; flex-direction:column; align-items:center; gap:14px; text-align:center;}
-    footer .word{width:100%; text-align:center;}
-    .foot-links{justify-content:center; width:100%;}
-    .copyright{width:100%; text-align:center;}
+    footer{padding:24px 20px; gap:14px;}
   }
   @media (max-width:420px){
     .second-stage{width:88vw;}
