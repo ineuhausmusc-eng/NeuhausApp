@@ -75,6 +75,8 @@
      letterforms with a controlled, non-blurry drop-shadow glow. Static — no animation. */
   nav a.nav-apps{
     font-weight:900;
+    font-size:clamp(18.75px, 2.3vw, 28.75px);
+    letter-spacing:0.0735em;
     background:
       radial-gradient(circle at 20% 30%, rgba(248,250,255,0.9) 0%, rgba(248,250,255,0) 6%),
       radial-gradient(circle at 70% 65%, rgba(248,250,255,0.7) 0%, rgba(248,250,255,0) 5%),
@@ -722,6 +724,10 @@
       letter-spacing:0.04em;
       white-space:nowrap;
     }
+    nav a.nav-apps{
+      font-size:clamp(11.25px, 4.25vw, 20px);
+      letter-spacing:0.042em;
+    }
 
     .hero-art-wrap{
       position:absolute; inset:0;
@@ -803,8 +809,6 @@
 <header>
   <nav>
     <a href="prayer-matters.html" class="nav-apps">APPS</a>
-    <a href="privacy.html">LEGAL</a>
-    <a href="mailto:Ineuhaus.musc@gmail.com">CONTACT</a>
   </nav>
 </header>
 
