@@ -45,14 +45,27 @@
   ::selection{background:var(--signal); color:var(--ink);}
   svg{overflow:visible;}
 
+  /* ---------- TOP NAV: normal flow, centered, scrolls away with intro page ---------- */
   header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:26px 44px 0 32px;
+    position:relative;
+    width:100%;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px 24px 0;
   }
-  nav{display:flex; gap:38px; margin-right:4vw;}
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:32px;
+    flex-wrap:wrap;
+  }
   nav a{
-    font-family:var(--font-display); font-weight:800; font-size:22px; letter-spacing:0.07em;
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(13px, 1.6vw, 20px);
+    letter-spacing:0.07em;
     color:var(--peach); transition:opacity .2s; opacity:0.92;
   }
   nav a:hover{opacity:1;}
@@ -62,7 +75,7 @@
   /* ---------- HERO + ANIMATED GRAIN GRADIENT ---------- */
   #hero{
     min-height:100vh;
-    padding:80px 32px 40px;
+    padding:40px 32px 40px;
     display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
     text-align:center;
     background:var(--ink);
@@ -170,7 +183,150 @@
   }
   @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
 
-  /* ---------- SECOND PAGE (photo, no copy yet) ---------- */
+  /* ---------- PAGE 2: PRAYER MATTERS PROMO (moved up, redesigned) ---------- */
+  #third{
+    min-height:100vh;
+    background:var(--ink);
+    padding:64px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .third-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .tblob{ position:absolute; border-radius:50%; filter:blur(90px); mix-blend-mode:screen; opacity:0.5; will-change:transform; }
+  .tblob-a{
+    width:50vw; height:50vw; left:-10%; top:-8%;
+    background:radial-gradient(circle at 40% 40%, var(--n1) 0%, var(--n2) 42%, transparent 72%);
+    animation:driftA 34s ease-in-out infinite alternate;
+  }
+  .tblob-b{
+    width:46vw; height:46vw; right:-12%; bottom:-12%;
+    background:radial-gradient(circle at 60% 35%, var(--n2) 0%, var(--n3) 45%, transparent 72%);
+    animation:driftB 42s ease-in-out infinite alternate;
+  }
+  .tblob-c{
+    width:22vw; height:22vw; right:4%; top:6%;
+    background:radial-gradient(circle at 50% 50%, var(--n1) 0%, transparent 70%);
+    opacity:0.35;
+    animation:driftC 26s ease-in-out infinite alternate;
+  }
+  .tblob-d{
+    width:26vw; height:26vw; left:6%; bottom:4%;
+    background:radial-gradient(circle at 50% 50%, var(--n4) 0%, transparent 75%);
+    opacity:0.4;
+    animation:driftD 30s ease-in-out infinite alternate;
+  }
+  .third-vignette{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse 62% 62% at 50% 50%, transparent 42%, var(--ink) 92%);
+  }
+  .pm-showcase{
+    width:min(86vw, 1240px);
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:24px;
+  }
+  .pm-showcase img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:1448 / 1086;
+    object-fit:contain;
+  }
+
+  /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
+  .app-hero-content{
+    width:100%;
+  }
+  .app-hero-content--medical{
+    aspect-ratio:1448 / 1086;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--panel);
+    border-radius:18px;
+  }
+  .app-hero-medical-placeholder{
+    font-family:var(--font-mono);
+    font-size:clamp(13px, 1.3vw, 19px);
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    text-align:center;
+    padding:0 24px;
+  }
+  .app-hero-toggle{
+    position:relative;
+    width:31.2%;
+    min-width:230px;
+    aspect-ratio:7 / 1;
+    display:flex;
+    border-radius:999px;
+    background:#F1ECFB;
+    border:1.5px solid rgba(255,255,255,0.95);
+    box-shadow:
+      0 0 10px rgba(255,255,255,0.25),
+      0 0 24px rgba(123,54,255,0.35),
+      0 0 44px rgba(37,115,255,0.2);
+    overflow:hidden;
+  }
+  .app-hero-toggle__bg{
+    position:absolute;
+    top:0; left:0;
+    width:50%; height:100%;
+    border-radius:999px;
+    background:linear-gradient(135deg, #5B16E8 0%, #3215B8 48%, #056FEA 100%);
+    border:1.5px solid rgba(255,255,255,0.95);
+    box-shadow:
+      0 0 8px rgba(255,255,255,0.75),
+      0 0 18px rgba(123,54,255,0.85),
+      0 0 32px rgba(37,115,255,0.45);
+    transition:transform 300ms cubic-bezier(0.4,0,0.2,1);
+    z-index:1;
+    pointer-events:none;
+  }
+  .app-hero-toggle[data-active="medical"] .app-hero-toggle__bg{
+    transform:translateX(100%);
+  }
+  .app-hero-toggle__btn{
+    position:relative;
+    z-index:2;
+    flex:1 1 50%;
+    border:none;
+    background:transparent;
+    font-family:var(--font-display);
+    font-weight:800;
+    font-size:clamp(9.5px, 1.05vw, 15px);
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:#14133D;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 4px;
+    white-space:nowrap;
+    transition:color 300ms ease;
+  }
+  .app-hero-toggle[data-active="prayer"] .app-hero-toggle__btn--prayer{ color:#FFFFFF; }
+  .app-hero-toggle[data-active="medical"] .app-hero-toggle__btn--medical{ color:#FFFFFF; }
+  .app-hero-toggle__btn:focus-visible{
+    outline:2px solid #FFFFFF;
+    outline-offset:2px;
+    border-radius:999px;
+  }
+  @media (max-width:760px){
+    .app-hero-toggle{ min-width:210px; }
+    .app-hero-medical-placeholder{ font-size:12px; }
+  }
+
+  /* ---------- PAGE 3: HAND / CARDS SECTION (moved down, immediately before footer) ---------- */
   #second{
     min-height:100vh; background:var(--ink);
     position:relative; overflow:hidden;
@@ -232,117 +388,6 @@
     paint-order:stroke fill;
   }
 
-  /* ---------- THIRD SECTION: PRAYER MATTERS FINAL HERO IMAGE ---------- */
-  #third{
-    background:var(--ink);
-    padding:90px 20px 100px;
-    display:flex; justify-content:center;
-    position:relative;
-  }
-  .pm-showcase{
-    width:100%;
-    max-width:1448px;
-    margin:0 auto;
-    position:relative;
-  }
-  .pm-showcase img{
-    display:block;
-    width:100%;
-    height:auto;
-    aspect-ratio:1448 / 1086;
-    object-fit:contain;
-  }
-
-  /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
-  .app-hero-content{
-    width:100%;
-  }
-  .app-hero-content--medical{
-    aspect-ratio:1448 / 1086;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--panel);
-    border-radius:18px;
-  }
-  .app-hero-medical-placeholder{
-    font-family:var(--font-mono);
-    font-size:clamp(13px, 1.3vw, 19px);
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--paper-dim);
-    text-align:center;
-    padding:0 24px;
-  }
-  .app-hero-toggle{
-    position:absolute;
-    left:50%;
-    top:3.1%;
-    transform:translateX(-50%);
-    width:31.2%;
-    min-width:230px;
-    aspect-ratio:7 / 1;
-    z-index:10;
-    display:flex;
-    border-radius:999px;
-    background:#F1ECFB;
-    border:1.5px solid rgba(255,255,255,0.95);
-    box-shadow:
-      0 0 10px rgba(255,255,255,0.25),
-      0 0 24px rgba(123,54,255,0.35),
-      0 0 44px rgba(37,115,255,0.2);
-    overflow:hidden;
-  }
-  .app-hero-toggle__bg{
-    position:absolute;
-    top:0; left:0;
-    width:50%; height:100%;
-    border-radius:999px;
-    background:linear-gradient(135deg, #5B16E8 0%, #3215B8 48%, #056FEA 100%);
-    border:1.5px solid rgba(255,255,255,0.95);
-    box-shadow:
-      0 0 8px rgba(255,255,255,0.75),
-      0 0 18px rgba(123,54,255,0.85),
-      0 0 32px rgba(37,115,255,0.45);
-    transition:transform 300ms cubic-bezier(0.4,0,0.2,1);
-    z-index:1;
-    pointer-events:none;
-  }
-  .app-hero-toggle[data-active="medical"] .app-hero-toggle__bg{
-    transform:translateX(100%);
-  }
-  .app-hero-toggle__btn{
-    position:relative;
-    z-index:2;
-    flex:1 1 50%;
-    border:none;
-    background:transparent;
-    font-family:var(--font-display);
-    font-weight:800;
-    font-size:clamp(9.5px, 1.05vw, 15px);
-    letter-spacing:0.03em;
-    text-transform:uppercase;
-    color:#14133D;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:0 4px;
-    white-space:nowrap;
-    transition:color 300ms ease;
-  }
-  .app-hero-toggle[data-active="prayer"] .app-hero-toggle__btn--prayer{ color:#FFFFFF; }
-  .app-hero-toggle[data-active="medical"] .app-hero-toggle__btn--medical{ color:#FFFFFF; }
-  .app-hero-toggle__btn:focus-visible{
-    outline:2px solid #FFFFFF;
-    outline-offset:2px;
-    border-radius:999px;
-  }
-  @media (max-width:760px){
-    .app-hero-toggle{ min-width:210px; }
-    .app-hero-medical-placeholder{ font-size:12px; }
-  }
-
   footer{
     background:var(--ink); border-top:1px solid var(--line);
     padding:30px 40px; display:flex; justify-content:space-between; align-items:center;
@@ -358,23 +403,15 @@
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
 
   @media (max-width:900px){
-    #hero{padding:96px 20px 40px; min-height:auto;}
+    #hero{padding:40px 20px 40px; min-height:auto;}
     .hero-photo{
       width:88vw; margin:28px auto 30px;
     }
     .hs-1{ font-size:clamp(26px, 6.4vw, 40px); }
   }
   @media (max-width:760px){
-    header{
-      position:static;
-      padding:24px 20px 4px;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-    }
-    nav{gap:22px; margin-right:0; justify-content:center; width:100%;}
-    nav a{font-size:13px;}
+    header{padding:20px 20px 0;}
+    nav{gap:22px;}
     .edge-badge{display:none;}
 
     #hero{padding-top:16px;}
@@ -382,7 +419,11 @@
     .hero-word{font-size:clamp(46px,15vw,80px);}
     .hero-subword{font-size:clamp(24px,8.5vw,42px);}
 
-    /* second page */
+    /* prayer matters promo page */
+    #third{padding:48px 16px 56px;}
+    .pm-showcase{width:92vw; gap:18px;}
+
+    /* hand / cards page */
     #second{padding-left:20px; padding-right:20px; min-height:auto; padding-top:0; padding-bottom:60px;}
     .second-stage{
       position:absolute; left:50%; top:6vh; bottom:auto;
@@ -403,9 +444,6 @@
     footer .word{width:100%; text-align:center;}
     .foot-links{justify-content:center; width:100%;}
     .copyright{width:100%; text-align:center;}
-
-    /* third section: Prayer Matters final image */
-    #third{padding:48px 16px 56px;}
   }
   @media (max-width:420px){
     .hero-word{font-size:clamp(40px,14vw,64px);}
@@ -439,6 +477,7 @@
   </nav>
 </header>
 
+<!-- PAGE 1: NEUHAUS HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-vignette"></div>
@@ -465,6 +504,34 @@
   </div>
 </section>
 
+<!-- PAGE 2: PRAYER MATTERS PROMO -->
+<section id="third">
+  <div class="third-bg">
+    <div class="tblob tblob-d"></div>
+    <div class="tblob tblob-c"></div>
+    <div class="tblob tblob-a"></div>
+    <div class="tblob tblob-b"></div>
+  </div>
+  <div class="third-vignette"></div>
+
+  <div class="pm-showcase">
+    <div class="app-hero-toggle" data-active="prayer" role="group" aria-label="Choose Prayer Matters or Medical">
+      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--prayer" aria-pressed="true">Prayer Matters</button>
+      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--medical" aria-pressed="false">Medical</button>
+      <span class="app-hero-toggle__bg" aria-hidden="true"></span>
+    </div>
+
+    <div class="app-hero-content app-hero-content--prayer">
+      <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
+    </div>
+
+    <div class="app-hero-content app-hero-content--medical" hidden>
+      <div class="app-hero-medical-placeholder">Medical — coming soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3: HAND / CARDS SECTION, immediately before footer -->
 <section id="second">
   <div class="second-stage">
     <div class="second-photo"></div>
@@ -481,24 +548,6 @@
     <div class="hand-card right"><img src="assets/card-prayer.png" alt="App mockup three"></div>
   </div>
   <div class="second-text">I turn ideas into useful, powerful apps.</div>
-</section>
-
-<section id="third">
-  <div class="pm-showcase">
-    <div class="app-hero-toggle" data-active="prayer" role="group" aria-label="Choose Prayer Matters or Medical">
-      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--prayer" aria-pressed="true">Prayer Matters</button>
-      <button type="button" class="app-hero-toggle__btn app-hero-toggle__btn--medical" aria-pressed="false">Medical</button>
-      <span class="app-hero-toggle__bg" aria-hidden="true"></span>
-    </div>
-
-    <div class="app-hero-content app-hero-content--prayer">
-      <img src="assets/Prayer-Matters-Website-Hero-Final.png" alt="Prayer Matters app — Pause. Pray. Be still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download.">
-    </div>
-
-    <div class="app-hero-content app-hero-content--medical" hidden>
-      <div class="app-hero-medical-placeholder">Medical — coming soon</div>
-    </div>
-  </div>
 </section>
 
 <footer>
