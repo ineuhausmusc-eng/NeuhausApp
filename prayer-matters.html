@@ -316,6 +316,75 @@
     color:#fff; background:#0A0E12; padding:clamp(6px,0.7cqw,9px) clamp(12px,1.3cqw,18px); border-radius:999px;
   }
 
+  /* ---------- PRAYER MATTERS APP — FULL PREVIEW IMAGE (second screen) ---------- */
+  #app-preview{
+    min-height:100vh;
+    background:var(--ink);
+    padding:80px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .preview-bg{ position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
+  .glow{ position:absolute; border-radius:50%; filter:blur(110px); mix-blend-mode:screen; will-change:transform; }
+  .glow-blue{
+    width:52vw; height:52vw; left:-14%; top:-6%;
+    background:radial-gradient(circle at 40% 40%, #2E6BFF 0%, #123A9C 42%, transparent 72%);
+    opacity:0.5;
+    animation:glowDriftA 34s ease-in-out infinite alternate;
+  }
+  .glow-pink{
+    width:50vw; height:50vw; right:-16%; bottom:-10%;
+    background:radial-gradient(circle at 60% 35%, #FF4FD8 0%, #9C1A8C 45%, transparent 74%);
+    opacity:0.42;
+    animation:glowDriftB 40s ease-in-out infinite alternate;
+  }
+  .glow-blue-soft{
+    width:24vw; height:24vw; right:6%; top:8%;
+    background:radial-gradient(circle at 50% 50%, #6FA8FF 0%, transparent 70%);
+    opacity:0.3;
+    animation:glowDriftC 26s ease-in-out infinite alternate;
+  }
+  .glow-pink-soft{
+    width:26vw; height:26vw; left:8%; bottom:6%;
+    background:radial-gradient(circle at 50% 50%, #FF8CE8 0%, transparent 75%);
+    opacity:0.3;
+    animation:glowDriftD 30s ease-in-out infinite alternate;
+  }
+  @keyframes glowDriftA{ 0%{ transform:translate(0,0); } 100%{ transform:translate(4%, 3%); } }
+  @keyframes glowDriftB{ 0%{ transform:translate(0,0); } 100%{ transform:translate(-4%, -3%); } }
+  @keyframes glowDriftC{ 0%{ transform:translate(0,0); } 100%{ transform:translate(-3%, 4%); } }
+  @keyframes glowDriftD{ 0%{ transform:translate(0,0); } 100%{ transform:translate(3%, -4%); } }
+  .preview-vignette{
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:radial-gradient(ellipse 74% 66% at 50% 50%, transparent 52%, var(--ink) 94%);
+  }
+  .preview-frame{
+    position:relative;
+    z-index:2;
+    width:min(92vw, 1400px);
+    aspect-ratio:1742/903;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:
+      0 40px 100px rgba(0,0,0,0.6),
+      0 0 90px rgba(46,107,255,0.28),
+      0 0 90px rgba(255,79,216,0.22),
+      0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .preview-frame img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  @media (max-width:760px){
+    #app-preview{ padding:48px 16px; }
+    .preview-frame{ width:100%; border-radius:14px; }
+  }
+
   footer{
     background:var(--ink); border-top:1px solid var(--line);
     padding:30px 40px; display:flex; justify-content:space-between; align-items:center;
@@ -486,6 +555,21 @@
       <a href="#" class="pm4-bb-download">Download</a>
     </div>
 
+  </div>
+</section>
+
+<!-- PRAYER MATTERS APP — SECOND SCREEN: FULL PREVIEW IMAGE -->
+<section id="app-preview">
+  <div class="preview-bg">
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-pink"></div>
+    <div class="glow glow-blue-soft"></div>
+    <div class="glow glow-pink-soft"></div>
+  </div>
+  <div class="preview-vignette"></div>
+
+  <div class="preview-frame">
+    <img src="assets/prayer-matters-app-preview.png" alt="Prayer Matters app preview — Pause. Pray. Be Still. Guided prayer, Scripture, and quiet reflection, right when you need them. Download on the App Store or scan to download. Evening Prayer audio player.">
   </div>
 </section>
 
