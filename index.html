@@ -683,8 +683,23 @@
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim); text-align:center; width:100%;}
 
   @media (max-width:760px){
-    header{padding:20px 20px 0;}
-    nav{gap:22px;}
+    /* Nav now floats directly on top of the hero photo instead of pushing it
+       down, so the photo starts right at the top edge of the screen. */
+    header{
+      position:absolute;
+      top:0; left:0; right:0;
+      z-index:20;
+      padding:22px 14px 0;
+    }
+    nav{
+      gap:8px;
+      flex-wrap:nowrap;
+    }
+    nav a{
+      font-size:clamp(9px, 3.4vw, 16px);
+      letter-spacing:0.04em;
+      white-space:nowrap;
+    }
 
     .hero-art-wrap{
       position:absolute; inset:0;
