@@ -2,124 +2,805 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Use | Neuhaus Apps</title>
+<meta name="description" content="Terms governing NeuhausApps.com and Prayer Matters, a Christian prayer and Scripture application published by Ian Neuhaus under the Neuhaus Apps name.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #FFFFFF;
-    --text: #1D1D1F;
-    --text-secondary: #6E6E73;
-    --border: #E5E5E7;
+  :root{
+    --ink:#0A0E12;
+    --panel:#121820;
+    --panel-2:#0E141B;
+    --line:#22303A;
+    --paper:#EDEFEC;
+    --paper-dim:#B9C2C3;
+    --peach:#F3D9AE;
+    --peach-dim:#C9AE85;
+    --signal:#C1571F;
+    --signal-dim:#8C3F14;
+    --font-display:'Archivo', sans-serif;
+    --font-body:'IBM Plex Sans', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
-    background: var(--bg);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  a { color: inherit; }
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--signal); color:var(--ink);}
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 28px 32px;
-    max-width: 1100px;
-    margin: 0 auto;
+  /* Skip link */
+  .skip-link{
+    position:absolute; left:12px; top:-60px;
+    background:var(--signal); color:var(--ink);
+    font-family:var(--font-mono); font-weight:500; font-size:13px;
+    padding:10px 16px; border-radius:6px; z-index:1000;
+    transition:top .2s ease;
   }
-  .logo { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
-  nav a {
-    margin-left: 28px;
-    font-size: 15px;
-    color: var(--text-secondary);
-  }
-  nav a:hover { color: var(--text); }
+  .skip-link:focus{ top:12px; }
 
-  main {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 40px 24px 100px;
-  }
-  .doc-title {
-    font-size: 38px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    margin-bottom: 8px;
-  }
-  .last-updated {
-    color: var(--text-secondary);
-    font-size: 14px;
-    margin-bottom: 40px;
-  }
-  .notice {
-    background: #FAFAFA;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px 24px;
-    font-size: 14px;
-    color: var(--text-secondary);
-    margin-bottom: 48px;
-  }
-  h2 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 12px;
-  }
-  p { font-size: 16px; color: var(--text); margin-bottom: 12px; }
-  .placeholder {
-    color: #A65D00;
-    font-weight: 600;
-    background: #FFF6E8;
-    padding: 2px 6px;
-    border-radius: 4px;
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+    border-radius:3px;
   }
 
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 40px 24px;
-    text-align: center;
-    font-size: 14px;
-    color: var(--text-secondary);
+  /* ================= HEADER ================= */
+  header.site-header{
+    border-bottom:1px solid var(--line);
+    background:var(--ink);
+    position:relative; z-index:20;
   }
-  footer .footer-links { margin-top: 12px; }
-  footer .footer-links a { margin: 0 10px; }
+  .header-inner{
+    max-width:1200px; margin:0 auto;
+    padding:22px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px; flex-wrap:wrap;
+  }
+  .header-back{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:var(--font-mono); font-weight:500; font-size:13px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--paper);
+  }
+  .header-back .arrow{ color:var(--signal); font-size:15px; transition:transform .2s ease; }
+  .header-back:hover .arrow{ transform:translateX(-3px); }
+  .header-legal{
+    display:inline-flex; align-items:center; gap:9px;
+    font-family:var(--font-mono); font-weight:500; font-size:13px;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--paper-dim);
+  }
+  .header-legal .dot{
+    width:6px; height:6px; border-radius:50%; flex:none;
+    background:radial-gradient(circle, #C9A6FF 0%, var(--signal) 100%);
+    box-shadow:0 0 6px rgba(193,87,31,0.6);
+  }
 
-  @media (max-width: 720px) {
-    .doc-title { font-size: 28px; }
-    header { padding: 20px; }
-    nav a { margin-left: 16px; font-size: 14px; }
+  /* ================= HERO ================= */
+  .legal-hero{
+    position:relative;
+    overflow:hidden;
+    padding:72px 24px 0;
+  }
+  .legal-hero-atmosphere{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 46% 60% at 4% 30%, rgba(122,26,31,0.30) 0%, rgba(90,20,20,0.12) 45%, transparent 75%),
+      radial-gradient(ellipse 40% 55% at 98% 20%, rgba(90,40,70,0.22) 0%, transparent 70%),
+      linear-gradient(180deg, #0C0A10 0%, #0A0E12 55%, #0A0E12 100%);
+  }
+  .legal-particles{ position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+  .lp{
+    position:absolute; border-radius:50%;
+    opacity:0.55;
+    animation:lpDrift 34s ease-in-out infinite alternate, lpPulse 6s ease-in-out infinite;
+  }
+  .lp-copper{ background:var(--signal); box-shadow:0 0 4px rgba(193,87,31,0.7); }
+  .lp-violet{ background:#9B7CFF; box-shadow:0 0 4px rgba(155,124,255,0.7); }
+  .lp-lavender{ background:#C9B6FF; box-shadow:0 0 3px rgba(201,182,255,0.6); }
+  .lp-cream{ background:var(--peach); box-shadow:0 0 3px rgba(243,217,174,0.6); }
+  .lp1{ width:3px; height:3px; left:2.4%; top:9%; animation-duration:30s; }
+  .lp2{ width:2px; height:2px; left:6%; top:82%; animation-duration:38s; animation-delay:-6s; }
+  .lp3{ width:4px; height:4px; left:96%; top:14%; animation-duration:33s; animation-delay:-11s; }
+  .lp4{ width:2px; height:2px; left:93%; top:70%; animation-duration:29s; animation-delay:-4s; }
+  .lp5{ width:3px; height:3px; left:0.5%; top:46%; animation-duration:41s; animation-delay:-16s; }
+  .lp6{ width:2px; height:2px; left:98.5%; top:44%; animation-duration:36s; animation-delay:-9s; }
+  @keyframes lpDrift{
+    0%{ transform:translate(0,0); }
+    100%{ transform:translate(0.6vw, -0.8vh); }
+  }
+  @keyframes lpPulse{
+    0%,100%{ opacity:0.3; }
+    50%{ opacity:0.7; }
+  }
+  .legal-hero-inner{
+    position:relative; z-index:2;
+    max-width:1200px; margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:48px;
+    align-items:center;
+    padding-bottom:56px;
+  }
+  .hero-left{ min-width:0; }
+  .hero-breadcrumb{
+    font-family:var(--font-mono); font-weight:500; font-size:12.5px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:22px;
+  }
+  .hero-title{
+    font-family:var(--font-display); font-weight:900;
+    font-size:clamp(48px, 8vw, 108px);
+    line-height:0.94;
+    letter-spacing:-0.015em;
+  }
+  .hero-title .line-solid{
+    display:block;
+    color:var(--paper);
+  }
+  .hero-title .line-outline{
+    display:block;
+    color:transparent;
+    -webkit-text-fill-color:transparent;
+    -webkit-text-stroke:1.5px var(--peach-dim);
+    letter-spacing:-0.01em;
+  }
+  .hero-divider{
+    width:1px; height:112px;
+    background:var(--line);
+    justify-self:center;
+  }
+  .hero-right{ min-width:0; }
+  .hero-desc{
+    font-family:var(--font-body); font-weight:400;
+    font-size:16.5px; line-height:1.65;
+    color:var(--paper-dim);
+    max-width:340px;
+    margin-bottom:26px;
+  }
+  .hero-dates{
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em;
+    color:var(--paper-dim); text-transform:uppercase;
+    line-height:1.9;
+  }
+
+  /* ================= SUMMARY CARD ================= */
+  .summary-wrap{
+    position:relative; z-index:2;
+    max-width:1200px; margin:0 auto;
+    padding:0 24px 88px;
+  }
+  .summary-card{
+    position:relative;
+    background:var(--panel);
+    border:1px solid rgba(237,239,236,0.08);
+    border-radius:20px;
+    padding:44px 48px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:40px; flex-wrap:wrap;
+    box-shadow:0 24px 50px rgba(0,0,0,0.35);
+    overflow:hidden;
+  }
+  .summary-card::before{
+    content:'';
+    position:absolute; top:0; left:6%; right:30%; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(193,87,31,0.55), rgba(155,124,255,0.4), transparent);
+  }
+  .summary-text{ min-width:260px; flex:1 1 100%; }
+  .summary-text h2{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(22px, 2.6vw, 28px);
+    margin-bottom:12px;
+    color:var(--paper);
+  }
+  .summary-text p{
+    font-family:var(--font-body); font-size:15.5px; line-height:1.65;
+    color:var(--paper-dim); max-width:560px;
+    margin-bottom:20px;
+  }
+  .summary-links{
+    display:flex; flex-wrap:wrap; gap:14px 32px;
+  }
+  .summary-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-weight:500; font-size:12.5px;
+    letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--signal);
+    border-bottom:1px solid rgba(193,87,31,0.4);
+    padding-bottom:2px;
+    transition:color .2s ease, border-color .2s ease;
+  }
+  .summary-link:hover{ color:var(--peach); border-color:var(--peach); }
+
+  /* ================= POLICY CONTENT ================= */
+  .policy-content{
+    background:var(--ink);
+    border-top:1px solid var(--line);
+    padding:64px 24px 96px;
+  }
+  .policy-layout{
+    max-width:1200px; margin:0 auto;
+    display:grid;
+    grid-template-columns:260px minmax(0, 740px);
+    gap:64px;
+    align-items:start;
+  }
+  /* TOC */
+  .toc-wrap{
+    position:sticky;
+    top:32px;
+    max-height:calc(100vh - 64px);
+    overflow-y:auto;
+    padding-right:6px;
+    scrollbar-width:thin;
+    scrollbar-color:var(--line) transparent;
+  }
+  .toc-wrap::-webkit-scrollbar{ width:5px; }
+  .toc-wrap::-webkit-scrollbar-thumb{ background:var(--line); border-radius:3px; }
+  .toc-label{
+    font-family:var(--font-mono); font-weight:500; font-size:11px;
+    letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:18px;
+  }
+  .toc-list{ list-style:none; }
+  .toc-list li{ border-top:1px solid var(--line); }
+  .toc-list li:last-child{ border-bottom:1px solid var(--line); }
+  .toc-list a{
+    display:flex; align-items:baseline; gap:12px;
+    padding:11px 2px;
+    font-family:var(--font-body); font-size:13.5px;
+    color:var(--paper-dim);
+    transition:color .2s ease;
+  }
+  .toc-list a .num{
+    font-family:var(--font-mono); font-size:11px;
+    color:var(--peach-dim);
+    flex:none;
+  }
+  .toc-list a:hover{ color:var(--paper); }
+  .toc-list li.is-active a{ color:var(--paper); font-weight:500; }
+  .toc-list li.is-active a .num{ color:var(--signal); }
+
+  /* Mobile TOC */
+  .toc-mobile{ display:none; }
+  .toc-mobile summary{
+    cursor:pointer;
+    list-style:none;
+    display:flex; align-items:center; justify-content:space-between;
+    font-family:var(--font-mono); font-weight:500; font-size:13px;
+    letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--paper);
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 18px;
+  }
+  .toc-mobile summary::-webkit-details-marker{ display:none; }
+  .toc-mobile summary::after{ content:'▾'; color:var(--signal); }
+  .toc-mobile[open] summary::after{ content:'▴'; }
+  .toc-mobile .toc-list{
+    margin-top:10px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:6px 16px;
+    max-height:60vh;
+    overflow-y:auto;
+  }
+
+  /* Reading column */
+  .policy-intro p{
+    font-family:var(--font-body); font-size:16.5px; line-height:1.75;
+    color:var(--paper-dim); margin-bottom:16px;
+    max-width:72ch;
+  }
+  .policy-intro{ margin-bottom:8px; }
+  .policy-section{
+    padding-top:44px;
+    margin-top:44px;
+    border-top:1px solid var(--line);
+    scroll-margin-top:28px;
+  }
+  .policy-section:first-of-type{
+    border-top:none;
+    margin-top:0;
+    padding-top:0;
+  }
+  .section-num{
+    display:block;
+    font-family:var(--font-mono); font-weight:500; font-size:12px;
+    letter-spacing:0.1em;
+    color:var(--peach-dim);
+    margin-bottom:10px;
+  }
+  .policy-section.is-active .section-num{ color:var(--signal); }
+  .policy-section h2{
+    font-family:var(--font-display); font-weight:800;
+    font-size:clamp(21px, 2.4vw, 25px);
+    letter-spacing:-0.005em;
+    margin-bottom:16px;
+    color:var(--paper);
+  }
+  .policy-section p{
+    font-family:var(--font-body); font-size:16.5px; line-height:1.78;
+    color:var(--paper-dim);
+    max-width:70ch;
+    margin-bottom:14px;
+  }
+  .policy-section ul{
+    margin:8px 0 16px 0;
+    list-style:none;
+    max-width:70ch;
+  }
+  .policy-section ul.two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:4px 28px;
+  }
+  .policy-section li{
+    position:relative;
+    padding-left:20px;
+    font-family:var(--font-body); font-size:16px; line-height:1.65;
+    color:var(--paper-dim);
+    margin-bottom:9px;
+  }
+  .policy-section li::before{
+    content:'';
+    position:absolute; left:0; top:0.6em;
+    width:5px; height:5px; border-radius:50%;
+    background:var(--signal);
+  }
+  .policy-section strong{ color:var(--paper); font-weight:600; }
+  .policy-section a{
+    color:var(--signal);
+    border-bottom:1px solid rgba(193,87,31,0.35);
+    word-break:break-word;
+  }
+  .policy-section a:hover{ color:var(--peach); border-bottom-color:var(--peach); }
+  .contact-block{
+    font-family:var(--font-body); font-size:16.5px; line-height:1.9;
+    color:var(--paper-dim);
+    max-width:70ch;
+  }
+  .contact-block strong{ display:block; color:var(--paper); font-size:17px; margin-bottom:2px; }
+  .doc-footer-note{
+    margin-top:44px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    font-family:var(--font-mono); font-size:12px; letter-spacing:0.04em;
+    color:var(--paper-dim);
+  }
+
+  /* ================= FOOTER ================= */
+  footer{
+    background:var(--ink); border-top:1px solid var(--line);
+    padding:30px 40px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; gap:14px;
+  }
+  footer .word{ font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:0.06em; }
+  .foot-links{ display:flex; gap:26px; flex-wrap:wrap; justify-content:center; }
+  .foot-links a{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--paper-dim);
+    transition:color .2s;
+  }
+  .foot-links a:hover{ color:var(--signal); }
+  .copyright{ font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim); }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:980px){
+    .policy-layout{ grid-template-columns:1fr; }
+    .toc-wrap{ display:none; }
+    .toc-mobile{ display:block; margin-bottom:40px; }
+  }
+  @media (max-width:759px){
+    .header-inner{ padding:18px 20px; }
+    .legal-hero{ padding:48px 20px 0; }
+    .legal-hero-inner{
+      grid-template-columns:1fr;
+      gap:28px;
+      padding-bottom:40px;
+    }
+    .hero-divider{ display:none; }
+    .hero-title{ font-size:clamp(40px, 15vw, 64px); }
+    .hero-desc{ max-width:none; }
+    .summary-wrap{ padding:0 20px 64px; }
+    .summary-card{ padding:28px 24px; flex-direction:column; align-items:stretch; }
+    .summary-links{ flex-direction:column; gap:14px; }
+    .policy-content{ padding:48px 20px 72px; }
+    .policy-section ul.two-col{ grid-template-columns:1fr; }
+  }
+  @media (max-width:420px){
+    .hero-desc{ font-size:15.5px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+    html{ scroll-behavior:auto; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <a href="index.html" class="logo">Neuhaus Apps</a>
-  <nav>
-    <a href="index.html#legal">Legal</a>
-    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
-  </nav>
+<a href="#policy-content" class="skip-link">Skip to terms content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="header-back" href="index.html"><span class="arrow" aria-hidden="true">&larr;</span> NEUHAUS APPS</a>
+    <span class="header-legal"><span class="dot" aria-hidden="true"></span> LEGAL / TERMS</span>
+  </div>
 </header>
 
-<main>
-  <h1 class="doc-title">Terms of Use</h1>
-  <div class="last-updated">Last updated: <span class="placeholder">[INSERT DATE OF PUBLICATION]</span></div>
-
-  <div class="notice">
-    This is a general template and not finalized legal advice. Please have it reviewed by an attorney before relying on it.
+<section class="legal-hero" aria-hidden="false">
+  <div class="legal-hero-atmosphere" aria-hidden="true"></div>
+  <div class="legal-particles" aria-hidden="true">
+    <span class="lp lp-copper lp1"></span>
+    <span class="lp lp-violet lp2"></span>
+    <span class="lp lp-lavender lp3"></span>
+    <span class="lp lp-cream lp4"></span>
+    <span class="lp lp-copper lp5"></span>
+    <span class="lp lp-violet lp6"></span>
   </div>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By accessing NeuhausApps.com or using any application or service offered by Neuhaus Apps, you agree to these Terms of Use.</p>
+  <div class="legal-hero-inner">
+    <div class="hero-left">
+      <div class="hero-breadcrumb">NEUHAUS APPS / LEGAL</div>
+      <h1 class="hero-title">
+        <span class="line-solid">TERMS</span>
+        <span class="line-outline" aria-hidden="true">OF USE</span>
+      </h1>
+      <span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus Apps Terms of Use</span>
+    </div>
+    <div class="hero-divider" aria-hidden="true"></div>
+    <div class="hero-right">
+      <p class="hero-desc">The terms governing NeuhausApps.com and Prayer Matters, published by Ian Neuhaus under the Neuhaus Apps name.</p>
+      <div class="hero-dates">
+        Effective July 25, 2026<br>
+        Last Updated July 25, 2026
+      </div>
+    </div>
+  </div>
 
-  <h2>2. Eligibility</h2>
-  <p>You must be at least 13 years old to use our services. <span class="placeholder">[CONFIRM: minimum age may need to be higher depending on jurisdiction or specific app audience]</span></p>
+  <div class="summary-wrap">
+    <div class="summary-card">
+      <div class="summary-text">
+        <h2>Created for devotion. Used with care.</h2>
+        <p>Prayer Matters provides Christian prayer, Scripture, journaling, and reflection tools for personal devotional use. It is not medical, mental-health, crisis, emergency, or pastoral care.</p>
+        <div class="summary-links">
+          <a class="summary-link" href="privacy.html">View Privacy Policy &rarr;</a>
+          <a class="summary-link" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Read Apple&rsquo;s Standard EULA &#8599;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <h2>3. Acceptable Use</h2>
-  <p>You agree to use our website, applications, and services only for lawful purposes and in accordance with these Terms.</p>
+<main id="policy-content" class="policy-content">
+  <div class="policy-layout">
 
-  <h2>4. Prohibited Conduct</h2>
-  <p>You agree not to misuse our services, interfere with their operation, attempt unauthorized access, or use them in a way that could harm Neuhaus Apps or
+    <aside aria-label="Table of contents">
+      <nav class="toc-wrap" aria-label="Terms sections">
+        <div class="toc-label">In These Terms</div>
+        <ul class="toc-list" id="toc-list">
+          <li><a href="#s1"><span class="num">01</span> Acceptance and Scope</a></li>
+          <li><a href="#s2"><span class="num">02</span> Eligibility</a></li>
+          <li><a href="#s3"><span class="num">03</span> Services and Intended Use</a></li>
+          <li><a href="#s4"><span class="num">04</span> App License, Purchases, and Refunds</a></li>
+          <li><a href="#s5"><span class="num">05</span> Religious and Devotional Content</a></li>
+          <li><a href="#s6"><span class="num">06</span> No Medical or Emergency Services</a></li>
+          <li><a href="#s7"><span class="num">07</span> User Content and Local Storage</a></li>
+          <li><a href="#s8"><span class="num">08</span> Acceptable Use</a></li>
+          <li><a href="#s9"><span class="num">09</span> Intellectual Property and Scripture</a></li>
+          <li><a href="#s10"><span class="num">10</span> Third-Party Platforms and Links</a></li>
+          <li><a href="#s11"><span class="num">11</span> Availability, Updates, and Termination</a></li>
+          <li><a href="#s12"><span class="num">12</span> Disclaimer of Warranties</a></li>
+          <li><a href="#s13"><span class="num">13</span> Limitation of Liability</a></li>
+          <li><a href="#s14"><span class="num">14</span> Indemnification</a></li>
+          <li><a href="#s15"><span class="num">15</span> Changes to These Terms</a></li>
+          <li><a href="#s16"><span class="num">16</span> Governing Law and Venue</a></li>
+          <li><a href="#s17"><span class="num">17</span> General Terms</a></li>
+          <li><a href="#s18"><span class="num">18</span> Contact</a></li>
+        </ul>
+      </nav>
+
+      <details class="toc-mobile">
+        <summary>Jump to a section</summary>
+        <ul class="toc-list">
+          <li><a href="#s1"><span class="num">01</span> Acceptance and Scope</a></li>
+          <li><a href="#s2"><span class="num">02</span> Eligibility</a></li>
+          <li><a href="#s3"><span class="num">03</span> Services and Intended Use</a></li>
+          <li><a href="#s4"><span class="num">04</span> App License, Purchases, and Refunds</a></li>
+          <li><a href="#s5"><span class="num">05</span> Religious and Devotional Content</a></li>
+          <li><a href="#s6"><span class="num">06</span> No Medical or Emergency Services</a></li>
+          <li><a href="#s7"><span class="num">07</span> User Content and Local Storage</a></li>
+          <li><a href="#s8"><span class="num">08</span> Acceptable Use</a></li>
+          <li><a href="#s9"><span class="num">09</span> Intellectual Property and Scripture</a></li>
+          <li><a href="#s10"><span class="num">10</span> Third-Party Platforms and Links</a></li>
+          <li><a href="#s11"><span class="num">11</span> Availability, Updates, and Termination</a></li>
+          <li><a href="#s12"><span class="num">12</span> Disclaimer of Warranties</a></li>
+          <li><a href="#s13"><span class="num">13</span> Limitation of Liability</a></li>
+          <li><a href="#s14"><span class="num">14</span> Indemnification</a></li>
+          <li><a href="#s15"><span class="num">15</span> Changes to These Terms</a></li>
+          <li><a href="#s16"><span class="num">16</span> Governing Law and Venue</a></li>
+          <li><a href="#s17"><span class="num">17</span> General Terms</a></li>
+          <li><a href="#s18"><span class="num">18</span> Contact</a></li>
+        </ul>
+      </details>
+    </aside>
+
+    <div class="policy-reading">
+      <div class="policy-intro">
+        <p>These Terms of Use (&ldquo;Terms&rdquo;) govern your access to NeuhausApps.com and your use of any application or service published by Ian Neuhaus under the Neuhaus Apps name that links to these Terms.</p>
+      </div>
+
+      <section class="policy-section" id="s1">
+        <span class="section-num">01 / 18</span>
+        <h2>Acceptance and Scope</h2>
+        <p>These Terms of Use (&ldquo;Terms&rdquo;) govern your access to NeuhausApps.com (the &ldquo;Website&rdquo;) and your use of any application or service published by Ian Neuhaus under the Neuhaus Apps name that links to these Terms. The Website, Prayer Matters, and any other applicable services are collectively referred to as the &ldquo;Services.&rdquo;</p>
+        <p>Prayer Matters is currently the only application published under the Neuhaus Apps name.</p>
+        <p>Neuhaus Apps is a name used by Ian Neuhaus, the individual developer and operator of the Services. Neuhaus Apps is not a separate corporation or limited liability company.</p>
+        <p>By accessing or using any of the Services, you acknowledge that you have read, understood, and agreed to these Terms. If you do not agree to these Terms, do not access or use the Services.</p>
+        <p>Use of Prayer Matters is also subject to the Neuhaus Apps <a href="privacy.html">Privacy Policy</a> and Apple&rsquo;s Standard End User License Agreement. If an applicable app-store agreement conflicts with these Terms concerning the license to use an application, the app-store agreement controls with respect to that subject.</p>
+      </section>
+
+      <section class="policy-section" id="s2">
+        <span class="section-num">02 / 18</span>
+        <h2>Eligibility</h2>
+        <p>You must be at least 13 years old to use the Services.</p>
+        <p>If you are at least 13 but have not reached the age of legal majority where you live, you may use the Services only with the permission and supervision of a parent or legal guardian. Your parent or legal guardian must review and agree to these Terms on your behalf.</p>
+        <p>The Services are intended for a general audience and are not directed to children under 13.</p>
+      </section>
+
+      <section class="policy-section" id="s3">
+        <span class="section-num">03 / 18</span>
+        <h2>Services and Intended Use</h2>
+        <p>The Website provides information about Neuhaus Apps and its applications, together with legal, privacy, and support information.</p>
+        <p>Prayer Matters is a Christian prayer, Scripture, journaling, reflection, gratitude, and devotional application intended to help users spend intentional time in prayer and Scripture.</p>
+        <p>Prayer Matters includes or may provide features such as:</p>
+        <ul class="two-col">
+          <li>Written prayers.</li>
+          <li>Audio-guided prayers.</li>
+          <li>Scripture reading.</li>
+          <li>Daily Scripture.</li>
+          <li>Journaling and reflection.</li>
+          <li>Gratitude entries.</li>
+          <li>Prayer-related progress or streaks.</li>
+          <li>Other Christian devotional tools.</li>
+        </ul>
+        <p>Prayer Matters does not currently require an account and does not provide social networking, messaging, or user-to-user sharing.</p>
+        <p>You may use the Services only for their intended personal and noncommercial purposes and in accordance with these Terms and applicable law.</p>
+      </section>
+
+      <section class="policy-section" id="s4">
+        <span class="section-num">04 / 18</span>
+        <h2>App License, Purchases, and Refunds</h2>
+        <p>Applications distributed through Apple&rsquo;s App Store are licensed, not sold.</p>
+        <p>Prayer Matters is governed by Apple&rsquo;s Licensed Application End User License Agreement (&ldquo;Apple Standard EULA&rdquo;). These Terms supplement the Apple Standard EULA but do not replace or modify it.</p>
+        <p>The Apple Standard EULA is available at: <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">https://www.apple.com/legal/internet-services/itunes/dev/stdeula/</a></p>
+        <p>At the Effective Date, Prayer Matters is intended to be offered as a one-time paid download and does not offer subscriptions or in-app purchases.</p>
+        <p>Apple processes App Store purchases and determines whether a purchase is eligible for a refund. Neuhaus Apps does not receive users&rsquo; complete payment-card information and cannot directly issue an App Store refund.</p>
+        <p>Prices, taxes, payment methods, refund eligibility, and availability may vary by country or region and are subject to Apple&rsquo;s applicable terms and policies and to applicable law.</p>
+      </section>
+
+      <section class="policy-section" id="s5">
+        <span class="section-num">05 / 18</span>
+        <h2>Religious and Devotional Content</h2>
+        <p>Prayer Matters provides Christian prayer, Scripture, and devotional content intended to support personal prayer, reflection, and spiritual growth.</p>
+        <p>The content reflects a Christian devotional perspective and may not reflect every denomination, tradition, interpretation, or individual belief.</p>
+        <p>Neuhaus Apps does not represent or guarantee that use of the Services will produce any particular spiritual, emotional, personal, relational, or other outcome.</p>
+        <p>Users remain responsible for their own beliefs, decisions, conduct, and actions.</p>
+        <p>Prayer Matters is not intended to replace participation in a local church, pastoral counseling, or other appropriate spiritual guidance.</p>
+        <p>No affiliation with or endorsement by a church, denomination, ministry, Scripture publisher, or other organization should be inferred unless expressly stated.</p>
+      </section>
+
+      <section class="policy-section" id="s6">
+        <span class="section-num">06 / 18</span>
+        <h2>No Medical, Mental-Health, Crisis, or Emergency Services</h2>
+        <p>Prayer Matters may contain prayers or Scripture addressing anxiety, depression, grief, sadness, fear, panic, stress, loneliness, guilt, hopelessness, distressing thoughts, or other difficult experiences.</p>
+        <p>This content is provided solely for religious, informational, inspirational, and devotional purposes.</p>
+        <p>The Services do not provide medical, psychiatric, psychological, diagnostic, therapeutic, counseling, crisis-intervention, or emergency services. Nothing in the Services is intended to diagnose, treat, cure, or prevent a medical or mental-health condition.</p>
+        <p>Use of the Services does not create a physician-patient, clinician-patient, therapist-client, counselor-client, or pastor-congregant relationship.</p>
+        <p>Do not rely on the Services to make medical, mental-health, safety, or emergency decisions. Do not disregard or delay obtaining professional advice or care because of content available through Prayer Matters.</p>
+        <p>If you believe that you or another person may be experiencing an emergency or may be in immediate danger, seek assistance from local emergency services or an appropriately qualified professional immediately.</p>
+      </section>
+
+      <section class="policy-section" id="s7">
+        <span class="section-num">07 / 18</span>
+        <h2>User Content and Local Storage</h2>
+        <p>Prayer Matters may allow you to create journal entries, reflections, prayers, gratitude entries, progress information, or other personal content (&ldquo;User Content&rdquo;).</p>
+        <p>You retain ownership of your User Content. Creating or storing User Content locally in Prayer Matters does not grant Neuhaus Apps a license to use that content.</p>
+        <p>Prayer Matters stores User Content locally on the user&rsquo;s device. Neuhaus Apps does not operate an account system or developer-controlled cloud-storage service for this content and cannot view, retrieve, recover, or remotely delete it.</p>
+        <p>You are responsible for:</p>
+        <ul>
+          <li>The content you enter.</li>
+          <li>Maintaining the security of your device and Apple account.</li>
+          <li>Maintaining backups where desired.</li>
+          <li>Avoiding the inclusion of another person&rsquo;s private or protected information without appropriate authority.</li>
+          <li>Ensuring that your User Content does not violate applicable law or another person&rsquo;s rights.</li>
+        </ul>
+        <p>Apple may include locally stored application data in user-controlled device backups according to the user&rsquo;s Apple and iCloud settings. Additional information about local storage, backups, deletion, and privacy is provided in the Neuhaus Apps <a href="privacy.html">Privacy Policy</a>.</p>
+        <p>Information that you voluntarily send directly to Neuhaus Apps, such as through a support email, is handled according to the <a href="privacy.html">Privacy Policy</a>.</p>
+      </section>
+
+      <section class="policy-section" id="s8">
+        <span class="section-num">08 / 18</span>
+        <h2>Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul class="two-col">
+          <li>Use the Services for unlawful, fraudulent, abusive, or harmful purposes.</li>
+          <li>Interfere with, disrupt, damage, or impair the Website, an application, or related infrastructure.</li>
+          <li>Attempt to gain unauthorized access to any system, account, code, service, or network.</li>
+          <li>Introduce malware, malicious code, or other harmful technology.</li>
+          <li>Exploit vulnerabilities, defects, or bugs for an improper purpose.</li>
+          <li>Circumvent security features or technical protections.</li>
+          <li>Reverse engineer, decompile, disassemble, modify, or attempt to derive protected source code except to the limited extent expressly permitted by applicable law or applicable open-source licensing terms.</li>
+          <li>Copy, scrape, reproduce, republish, or commercially exploit a substantial portion of the Services without permission.</li>
+          <li>Remove or alter copyright, trademark, attribution, or proprietary notices.</li>
+          <li>Misrepresent your identity or falsely imply an affiliation with Ian Neuhaus, Neuhaus Apps, or Prayer Matters.</li>
+          <li>Use the Services in a manner that infringes, misappropriates, or violates another person&rsquo;s legal rights.</li>
+        </ul>
+      </section>
+
+      <section class="policy-section" id="s9">
+        <span class="section-num">09 / 18</span>
+        <h2>Intellectual Property and Scripture</h2>
+        <p>Except for User Content and third-party material, the original software, design, graphics, written prayers, audio, branding, logos, website content, and other original materials made available through the Services are owned by Ian Neuhaus or the applicable licensors and are protected by applicable intellectual-property laws.</p>
+        <p>Your use of the Services does not transfer any ownership rights to you.</p>
+        <p>You may use the Services and their protected content only for personal, noncommercial purposes as permitted by these Terms, the Apple Standard EULA, and applicable law.</p>
+        <p>Prayer Matters currently uses Scripture from the World English Bible (&ldquo;WEB&rdquo;). The WEB Scripture text is in the public domain. The name &ldquo;World English Bible&rdquo; is a trademark of <a href="https://ebible.org/engwebp/copyright.htm" target="_blank" rel="noopener noreferrer">eBible.org</a>.</p>
+        <p>Neuhaus Apps does not claim ownership of the WEB Scripture text, and inclusion of that text does not imply sponsorship or endorsement of Prayer Matters by eBible.org or any other Scripture publisher.</p>
+        <p>Other third-party materials, if any, remain subject to the rights, licenses, public-domain terms, notices, and attribution requirements applicable to those materials.</p>
+      </section>
+
+      <section class="policy-section" id="s10">
+        <span class="section-num">10 / 18</span>
+        <h2>Third-Party Platforms and Links</h2>
+        <p>The Services may rely on or provide links to third-party platforms, websites, or services, including Apple services and website-hosting infrastructure.</p>
+        <p>Third-party services operate independently and may have their own terms, privacy policies, availability requirements, and technical limitations.</p>
+        <p>Neuhaus Apps does not control and, to the extent permitted by law, is not responsible for the independent content, security, availability, accuracy, or practices of third-party services.</p>
+        <p>The inclusion of a link does not necessarily imply endorsement. You are responsible for reviewing the terms and policies of any third-party service you choose to use.</p>
+      </section>
+
+      <section class="policy-section" id="s11">
+        <span class="section-num">11 / 18</span>
+        <h2>Availability, Updates, and Termination</h2>
+        <p>Neuhaus Apps may update, modify, add, remove, suspend, or discontinue portions of the Services when reasonably necessary to maintain, improve, secure, or change them or to comply with legal or technical requirements.</p>
+        <p>Neuhaus Apps does not guarantee that every feature will remain available indefinitely, operate without interruption or error, or remain compatible with every future device or operating-system version.</p>
+        <p>Updates may be required for continued compatibility, security, or use of certain features.</p>
+        <p>You may stop using the Services at any time.</p>
+        <p>Your rights under these Terms may terminate if you materially violate them. Any termination of the license to use Prayer Matters is also governed by the Apple Standard EULA and applicable law.</p>
+        <p>Upon termination, you must stop the prohibited use. Provisions that by their nature should survive termination&mdash;including intellectual-property, warranty, liability, indemnification, governing-law, and general provisions&mdash;will remain in effect.</p>
+      </section>
+
+      <section class="policy-section" id="s12">
+        <span class="section-num">12 / 18</span>
+        <h2>Disclaimer of Warranties</h2>
+        <p>To the fullest extent permitted by applicable law, the Services are provided &ldquo;as is&rdquo; and &ldquo;as available,&rdquo; with all faults and without warranties of any kind, whether express, implied, or statutory.</p>
+        <p>Neuhaus Apps does not warrant that the Services will be uninterrupted, error-free, completely secure, free from harmful components, accurate in every respect, or suitable for every user&rsquo;s particular needs.</p>
+        <p>Neuhaus Apps disclaims implied warranties of merchantability, satisfactory quality, fitness for a particular purpose, title, quiet enjoyment, accuracy, and non-infringement to the extent those warranties may lawfully be disclaimed.</p>
+        <p>No statement, devotional content, support response, or other communication creates a warranty not expressly stated in these Terms.</p>
+        <p>Nothing in these Terms excludes or limits a warranty, remedy, or consumer right that cannot lawfully be excluded or limited. Any warranty remedy provided through Apple&rsquo;s Standard EULA remains subject to that agreement.</p>
+      </section>
+
+      <section class="policy-section" id="s13">
+        <span class="section-num">13 / 18</span>
+        <h2>Limitation of Liability</h2>
+        <p>To the fullest extent permitted by applicable law, Ian Neuhaus, Neuhaus Apps, and their applicable contractors, licensors, and service providers will not be liable for indirect, incidental, special, exemplary, punitive, or consequential damages arising from or related to the Services.</p>
+        <p>This limitation includes, where permitted by law, loss of data, loss of use, business interruption, device problems, reliance on content, or inability to access or use the Services, regardless of the legal theory asserted and even if the possibility of such damage was known.</p>
+        <p>To the fullest extent permitted by applicable law, the total aggregate liability of Ian Neuhaus and Neuhaus Apps for all claims arising from or related to the Services will not exceed fifty United States dollars (US $50.00).</p>
+        <p>These limitations do not apply to fraud, willful misconduct, death or personal injury caused by negligence where such liability cannot be limited, or any other liability that applicable law does not permit to be excluded or limited.</p>
+        <p>Some jurisdictions do not allow certain warranty exclusions or liability limitations. In those jurisdictions, these provisions apply only to the maximum extent permitted by law.</p>
+      </section>
+
+      <section class="policy-section" id="s14">
+        <span class="section-num">14 / 18</span>
+        <h2>Indemnification</h2>
+        <p>To the extent permitted by applicable law, you agree to indemnify and hold Ian Neuhaus and Neuhaus Apps harmless from third-party claims, liabilities, damages, judgments, losses, and reasonable expenses arising directly from:</p>
+        <ul>
+          <li>Your intentional or unlawful misuse of the Services.</li>
+          <li>Your material violation of these Terms.</li>
+          <li>Your infringement or violation of another person&rsquo;s legal rights.</li>
+        </ul>
+        <p>This obligation does not apply to the extent a claim results from the negligence, willful misconduct, or violation of law by Ian Neuhaus or Neuhaus Apps.</p>
+      </section>
+
+      <section class="policy-section" id="s15">
+        <span class="section-num">15 / 18</span>
+        <h2>Changes to These Terms</h2>
+        <p>These Terms may be updated to reflect changes to the Services, legal requirements, technology, or operating practices.</p>
+        <p>The revised Terms will be posted on NeuhausApps.com with an updated &ldquo;Last Updated&rdquo; date.</p>
+        <p>When required by law, material changes will also be communicated through the Website, an application, or another appropriate method.</p>
+        <p>Changes apply prospectively from their stated effective date unless applicable law permits otherwise.</p>
+        <p>Your continued use of the Services after revised Terms become effective constitutes acceptance of those revised Terms to the extent permitted by law. If you do not agree to revised Terms, you must stop using the affected Services.</p>
+      </section>
+
+      <section class="policy-section" id="s16">
+        <span class="section-num">16 / 18</span>
+        <h2>Governing Law and Venue</h2>
+        <p>These Terms and disputes arising from them are governed by the laws of the State of Florida, United States, without regard to conflict-of-law principles.</p>
+        <p>Subject to applicable consumer-protection law, disputes arising from these Terms will be brought in the state courts located in St. Johns County, Florida, or in the federal courts having jurisdiction over St. Johns County, Florida.</p>
+        <p>If the law where you reside gives you mandatory consumer rights, governing-law protections, or the right to bring a claim in another forum, nothing in these Terms removes those rights.</p>
+        <p>The Apple Standard EULA contains separate provisions governing disputes and the license relationship covered by that agreement.</p>
+      </section>
+
+      <section class="policy-section" id="s17">
+        <span class="section-num">17 / 18</span>
+        <h2>General Terms</h2>
+        <p>If any provision of these Terms is found unenforceable, that provision will be enforced to the greatest extent permitted, and the remaining provisions will remain in effect.</p>
+        <p>A failure to enforce any provision is not a waiver of the right to enforce it later.</p>
+        <p>These Terms, together with the Apple Standard EULA and any applicable supplemental terms, constitute the agreement governing your use of the Services. The Neuhaus Apps <a href="privacy.html">Privacy Policy</a> separately explains how information is handled.</p>
+        <p>If a supplemental agreement for a particular application conflicts with these Terms, the supplemental agreement controls only for that application and subject matter.</p>
+        <p>Section headings are provided for convenience and do not affect interpretation.</p>
+      </section>
+
+      <section class="policy-section" id="s18">
+        <span class="section-num">18 / 18</span>
+        <h2>Contact</h2>
+        <p>Questions about these Terms may be sent to:</p>
+        <div class="contact-block">
+          <strong>Ian Neuhaus</strong>
+          Individual Developer and Operator of Neuhaus Apps<br>
+          Florida, United States<br>
+          Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a><br>
+          Website: <a href="https://neuhausapps.com">https://neuhausapps.com</a>
+        </div>
+        <div class="doc-footer-note">&copy; 2026 Ian Neuhaus. Published under the Neuhaus Apps name. All rights reserved.</div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="word">NEUHAUS APPS</div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="eula.html">EULA</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:support@neuhausapps.com">Contact</a>
+  </div>
+  <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
+</footer>
+
+<script>
+  // Progressive enhancement: highlight the active TOC entry and section number
+  // as the reader scrolls. All anchor links function without this script.
+  (function(){
+    if (!('IntersectionObserver' in window)) return;
+
+    var sections = Array.prototype.slice.call(document.querySelectorAll('.policy-section[id]'));
+    var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-list a'));
+
+    function setActive(id){
+      tocLinks.forEach(function(a){
+        var li = a.closest('li');
+        if (!li) return;
+        li.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
+      });
+      sections.forEach(function(sec){
+        sec.classList.toggle('is-active', sec.id === id);
+      });
+    }
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          setActive(entry.target.id);
+        }
+      });
+    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+
+    sections.forEach(function(sec){ observer.observe(sec); });
+  })();
+</script>
+</body>
+</html>
