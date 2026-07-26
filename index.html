@@ -97,11 +97,11 @@
 
   section{position:relative;}
 
-  /* ---------- HERO: single artwork hero, full-bleed, no letterbox gaps ---------- */
+  /* ---------- HERO: single artwork hero. On desktop this now hugs the image's
+     own height instead of forcing a full 100vh section, so there's no leftover
+     black space above/below the artwork before the next section. ---------- */
   #hero{
-    min-height:100vh;
-    min-height:100svh;
-    padding:0;
+    padding:clamp(16px, 2.4vh, 40px) 0;
     display:flex; align-items:center; justify-content:center;
     background:var(--ink);
     position:relative; overflow:hidden;
@@ -714,6 +714,11 @@
       top:0; left:0; right:0;
       z-index:20;
       padding:22px 14px 0;
+    }
+    #hero{
+      min-height:100vh;
+      min-height:100svh;
+      padding:0;
     }
     nav{
       gap:8px;
