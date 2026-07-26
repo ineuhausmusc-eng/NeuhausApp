@@ -149,6 +149,7 @@
   .hero-title .line-outline{
     display:block;
     color:transparent;
+    -webkit-text-fill-color:transparent;
     -webkit-text-stroke:1.5px var(--peach-dim);
     letter-spacing:-0.01em;
   }
@@ -205,8 +206,8 @@
     color:var(--paper-dim); max-width:460px;
   }
   .summary-pills{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(150px, 1fr));
+    display:flex;
+    flex-wrap:wrap;
     gap:12px;
     flex:1 1 380px;
     max-width:460px;
@@ -220,7 +221,8 @@
     letter-spacing:0.08em; text-transform:uppercase;
     color:var(--paper);
     background:rgba(237,239,236,0.02);
-    white-space:nowrap;
+    white-space:normal;
+    max-width:100%;
   }
   .pill .dot{
     width:6px; height:6px; border-radius:50%; flex:none;
@@ -406,12 +408,13 @@
     .hero-desc{ max-width:none; }
     .summary-wrap{ padding:0 20px 64px; }
     .summary-card{ padding:28px 24px; flex-direction:column; align-items:stretch; }
-    .summary-pills{ grid-template-columns:1fr 1fr; max-width:none; }
+    .summary-pills{ max-width:none; }
+    .pill{ flex:1 1 100%; }
     .policy-content{ padding:48px 20px 72px; }
     .policy-section ul.two-col{ grid-template-columns:1fr; }
   }
   @media (max-width:420px){
-    .summary-pills{ grid-template-columns:1fr; }
+    .hero-desc{ font-size:15.5px; }
   }
 
   @media (prefers-reduced-motion:reduce){
