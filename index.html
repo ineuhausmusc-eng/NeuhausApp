@@ -44,7 +44,6 @@
   a{color:inherit; text-decoration:none;}
   ::selection{background:var(--signal); color:var(--ink);}
   svg{overflow:visible;}
-
   /* ---------- TOP NAV: normal flow, centered, scrolls away with intro page ---------- */
   header{
     position:relative;
@@ -70,7 +69,6 @@
     color:var(--peach); transition:opacity .2s; opacity:0.92;
   }
   nav a:hover{opacity:1;}
-
   /* "APPS" nav heading — clustered spectral-light gradient (blue/violet dominant,
      cyan + pink-violet accents, icy-white highlight points), crisp bold
      letterforms with a controlled, non-blurry drop-shadow glow. Static — no animation. */
@@ -94,9 +92,7 @@
     -webkit-font-smoothing:antialiased;
   }
   nav a.nav-apps:hover{ opacity:1 !important; }
-
   section{position:relative;}
-
   /* ---------- HERO: single artwork hero. On desktop this now hugs the image's
      own height instead of forcing a full 100vh section, so there's no leftover
      black space above/below the artwork before the next section. ---------- */
@@ -106,7 +102,6 @@
     background:var(--ink);
     position:relative; overflow:hidden;
   }
-
   /* Layer 1: full-width gradient background, colors drawn from the artwork's own
      near-black / oxblood / ember / copper / antique-gold palette, so the hero
      reads as one continuous environment even where the image doesn't reach. */
@@ -123,16 +118,15 @@
     filter:url(#grainFilter);
     opacity:0.045; mix-blend-mode:overlay; pointer-events:none;
   }
-
   /* Layer 2: the artwork itself — centered, unaltered, aspect-ratio locked so it
      never stretches, distorts, or crops. Sized to fill nearly the full viewport
      (98vw / 98svh) so there's minimal empty space above/below, while still
      leaving a hair of breathing room and never overflowing on odd screen shapes. */
   .hero-art-wrap{
     position:relative; z-index:2;
-    width:min(98vw, calc(98svh * 2.1172));
-    max-width:1825px;
-    aspect-ratio:1825 / 862;
+    width:min(98vw, calc(98svh * 1.75));
+    max-width:1659px;
+    aspect-ratio:1659 / 948;
     margin:0 auto;
     overflow:hidden;
   }
@@ -144,7 +138,6 @@
     object-fit:contain;
     object-position:center center;
   }
-
   /* Layer 3: soft feathered mist tucked into the outer edges of the artwork,
      concentrated at the corners (background/particle areas) so the hands,
      app icon and type are never obscured, plus a light overall vignette. */
@@ -167,7 +160,6 @@
     position:absolute; inset:0; z-index:4; pointer-events:none;
     background:radial-gradient(ellipse 82% 80% at 50% 50%, transparent 64%, rgba(4,6,8,0.46) 90%, var(--ink) 100%);
   }
-
   /* ---------- PAGE 2: PRAYER MATTERS PROMO (moved up, redesigned) ---------- */
   #third{
     min-height:100vh;
@@ -224,7 +216,6 @@
     aspect-ratio:1448 / 1086;
     object-fit:contain;
   }
-
   /* ---------- APP HERO TOGGLE (Prayer Matters / Medical segmented control) ---------- */
   .app-hero-content{
     width:100%;
@@ -310,7 +301,6 @@
     .app-hero-toggle{ min-width:210px; }
     .app-hero-medical-placeholder{ font-size:12px; }
   }
-
   /* ---------- PAGE 3: HAND / CARDS SECTION (moved down, immediately before footer) ---------- */
   #second{
     min-height:100vh; background:var(--ink);
@@ -372,7 +362,6 @@
     text-stroke:clamp(2.2px, 0.42vw, 6px) rgba(255,255,255,0.92);
     paint-order:stroke fill;
   }
-
   /* ---------- PAGE 4: PRAYER MATTERS — FULL MOCKUP SHOWCASE ---------- */
   #fourth{
     min-height:100vh;
@@ -452,7 +441,6 @@
     position:absolute; inset:0; z-index:1; pointer-events:none;
     background:radial-gradient(ellipse 70% 62% at 50% 50%, transparent 44%, var(--ink) 94%);
   }
-
   /* ---------- PM4: standalone floating phone, laid out to match the mockup's exact composition ---------- */
   .pm4-stage{
     position:relative;
@@ -463,7 +451,6 @@
     container-type:inline-size;
     container-name:pm4;
   }
-
   .pm4-headline-block{ position:absolute; left:2.8%; top:4%; max-width:46%; z-index:5; }
   .pm4-headline{
     font-family:'Fraunces', serif; font-weight:600;
@@ -505,7 +492,6 @@
     display:block;
     font-family:var(--font-mono); font-size:clamp(10px,0.68cqw,12px); letter-spacing:0.04em; color:#CBD3D6;
   }
-
   .pm4-logo{
     position:absolute; right:1.2%; top:5%; text-align:right; z-index:5;
     font-family:var(--font-display); font-weight:800; line-height:1.08;
@@ -517,7 +503,6 @@
     background:linear-gradient(135deg, #B9A6FF 0%, #7FB8FF 100%);
     -webkit-background-clip:text; background-clip:text; color:transparent;
   }
-
   .pm4-badges{
     position:absolute; right:1.2%; top:20%; z-index:5;
     display:flex; align-items:center; gap:clamp(8px,1cqw,14px);
@@ -537,7 +522,6 @@
   .pm4-store-text b{ display:block; font-size:1.2em; font-family:var(--font-display); font-weight:800; }
   .pm4-qr{ width:clamp(50px,6.4cqw,90px); aspect-ratio:1/1; border-radius:12px; flex:none; background:#fff; padding:5px; }
   .pm4-qr svg{ width:100%; height:100%; display:block; }
-
   .pm4-phone-float{
     position:absolute; left:37%; top:13%; z-index:3;
     width:clamp(190px,24cqw,345px);
@@ -620,7 +604,6 @@
   .pm4-journey-text small{ color:#9aa5b1; font-size:0.87em; }
   .pm4-journey-arrow{ color:#8891a0; font-size:1.15em; }
   .pm4-journey-card.is-selected .pm4-journey-arrow::after{ content:' ✓'; color:#B9A6FF; }
-
   .pm4-tabbar{
     margin-top:auto; display:flex; justify-content:space-between;
     padding-top:0.7em; border-top:1px solid rgba(255,255,255,0.08);
@@ -635,7 +618,6 @@
   .pm4-tab .ico svg{ width:100%; height:100%; }
   .pm4-tab.active{ color:#fff; }
   .pm4-tab.active .ico{ color:#8B5CF6; }
-
   .pm4-floatcard{
     position:absolute; z-index:4;
     background:linear-gradient(160deg, rgba(60,40,110,0.4) 0%, rgba(20,26,40,0.68) 60%);
@@ -657,7 +639,6 @@
     transition:background .2s ease;
   }
   .pm4-icon-btn:hover{ background:rgba(91,22,232,0.4); }
-
   .pm4-floatcard.evening{ right:0.8%; top:68%; width:clamp(110px,10.5cqw,160px); text-align:center; }
   .pm4-evening-title{ font-family:var(--font-display); font-weight:700; font-size:1.05em; margin-bottom:clamp(6px,0.9cqw,12px); }
   .pm4-play-btn{
@@ -673,7 +654,6 @@
   .pm4-waveform.is-playing span:nth-child(3n){ animation-delay:.24s; }
   .pm4-waveform.is-playing span:nth-child(4n){ animation-delay:.36s; }
   @keyframes pm4Wave{ 0%,100%{ height:20%; } 50%{ height:95%; } }
-
   .pm4-bottombar{
     position:absolute; left:50%; bottom:-3%; transform:translateX(-50%); z-index:6;
     width:clamp(220px,34cqw,480px);
@@ -689,7 +669,6 @@
     font-family:var(--font-display); font-weight:800; font-size:clamp(10px,0.85cqw,13px);
     color:#fff; background:#0A0E12; padding:clamp(6px,0.7cqw,9px) clamp(12px,1.3cqw,18px); border-radius:999px;
   }
-
   footer{
     background:var(--ink); border-top:1px solid var(--line);
     padding:30px 40px;
@@ -705,7 +684,6 @@
   }
   .foot-links a:hover{color:var(--signal);}
   .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim); text-align:center; width:100%;}
-
   @media (max-width:760px){
     /* Nav now floats directly on top of the hero photo instead of pushing it
        down, so the photo starts right at the top edge of the screen. */
@@ -734,7 +712,6 @@
       font-size:clamp(12.375px, 4.675vw, 22px);
       letter-spacing:0.042em;
     }
-
     .hero-art-wrap{
       position:absolute; inset:0;
       width:100%; height:100%; max-width:none;
@@ -748,11 +725,9 @@
     .hero-vignette-outer{
       background:radial-gradient(ellipse 96% 92% at 50% 50%, transparent 74%, rgba(4,6,8,0.5) 96%, var(--ink) 100%);
     }
-
     /* prayer matters promo page */
     #third{padding:48px 16px 56px;}
     .pm-showcase{width:92vw; gap:18px;}
-
     /* hand / cards page */
     #second{padding-left:20px; padding-right:20px; min-height:auto; padding-top:0; padding-bottom:60px;}
     .second-stage{
@@ -769,7 +744,6 @@
       text-stroke:3px rgba(255,255,255,0.95);
       text-shadow:0 0 16px rgba(255,255,255,0.35);
     }
-
     /* prayer matters — on small screens, drop the absolute mockup layout and stack everything, centered */
     #fourth{ padding:56px 14px; min-height:auto; }
     .pm4-stage{
@@ -788,21 +762,18 @@
     .pm4-phone-float{ width:220px; }
     .pm4-floatcard{ width:auto; max-width:260px; }
     .pm4-bottombar{ width:auto; max-width:300px; }
-
     footer{padding:24px 20px; gap:14px;}
   }
   @media (max-width:420px){
     .second-stage{width:88vw;}
     .pm4-phone-float{ width:190px; }
   }
-
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
   }
 </style>
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute">
   <defs>
     <filter id="grainFilter">
@@ -811,20 +782,16 @@
     </filter>
   </defs>
 </svg>
-
 <header>
   <nav>
     <a href="prayer-matters.html" class="nav-apps">APPS</a>
   </nav>
 </header>
-
 <!-- PAGE 1: NEUHAUS HERO -->
 <section id="hero">
   <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus App Design — Apps Worth Opening</h1>
-
   <div class="hero-atmosphere"></div>
   <div class="hero-atmosphere-grain"></div>
-
   <div class="hero-art-wrap">
     <picture>
       <source media="(max-width: 759px)" srcset="assets/Neuhaus-Apps-Mobile-Hero-v8.png">
@@ -833,10 +800,8 @@
     <div class="hero-mist hero-mist-left"></div>
     <div class="hero-mist hero-mist-right"></div>
   </div>
-
   <div class="hero-vignette-outer"></div>
 </section>
-
 <footer>
   <div class="word">NEUHAUS APPS</div>
   <div class="foot-links">
@@ -847,9 +812,7 @@
   </div>
   <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
 </footer>
-
 <script>
 </script>
-
 </body>
 </html>
