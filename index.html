@@ -160,6 +160,34 @@
     position:absolute; inset:0; z-index:4; pointer-events:none;
     background:radial-gradient(ellipse 82% 80% at 50% 50%, transparent 64%, rgba(4,6,8,0.46) 90%, var(--ink) 100%);
   }
+  /* Invisible clickable hotspot placed directly over the "APPS" wordmark that's
+     baked into the hero artwork itself, so tapping/clicking that part of the
+     photo navigates to the apps page. Desktop coordinates are plain percentages
+     of the artwork (the wrap's aspect-ratio matches the image exactly, so no
+     letterboxing to correct for). Mobile overrides both left/width using a
+     viewport-height-based calc, because on small screens the artwork is shown
+     with object-fit:cover and gets cropped symmetrically on the sides — height
+     stays uncropped, so top/height percentages remain accurate as-is. */
+  .hero-apps-link{
+    position:absolute;
+    z-index:6;
+    display:block;
+    left:37.57%;
+    top:0.98%;
+    width:24.31%;
+    height:9.95%;
+    cursor:pointer;
+  }
+  @media (max-width:760px){
+    .hero-apps-link{
+      left:calc(50vw - 12.89vh);
+      left:calc(50vw - 12.89svh);
+      width:25.538vh;
+      width:25.538svh;
+      top:3.07%;
+      height:9.59%;
+    }
+  }
   /* ---------- PAGE 2: PRAYER MATTERS PROMO (moved up, redesigned) ---------- */
   #third{
     min-height:100vh;
@@ -782,11 +810,6 @@
     </filter>
   </defs>
 </svg>
-<header>
-  <nav>
-    <a href="prayer-matters.html" class="nav-apps">APPS</a>
-  </nav>
-</header>
 <!-- PAGE 1: NEUHAUS HERO -->
 <section id="hero">
   <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus App Design — Apps Worth Opening</h1>
@@ -799,6 +822,7 @@
     </picture>
     <div class="hero-mist hero-mist-left"></div>
     <div class="hero-mist hero-mist-right"></div>
+    <a href="prayer-matters.html" class="hero-apps-link" aria-label="Explore our apps"></a>
   </div>
   <div class="hero-vignette-outer"></div>
 </section>
