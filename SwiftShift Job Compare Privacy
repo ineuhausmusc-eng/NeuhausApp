@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — SwiftShift</title>
+<meta name="description" content="Privacy Policy for SwiftShift, a Neuhaus Apps product.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background: oklch(16% .035 265);
+    --foreground: oklch(97% .005 250);
+    --card: oklch(21% .035 265);
+    --muted-foreground: oklch(72% .028 254);
+    --border: oklch(100% 0 0/.12);
+    --surface: oklch(100% 0 0/.04);
+    --primary: oklch(62% .212 259);
+    --primary-foreground: oklch(99% .002 250);
+    --accent: oklch(69% .18 46);
+    --glow-blue: 0 0 90px -20px oklch(62% .212 259/.55);
+    --glow-orange: 0 0 90px -24px oklch(69% .18 46/.45);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .font-display {
+    font-family: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in oklab, var(--background) 80%, transparent);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  .header-inner {
+    margin: 0 auto;
+    max-width: 80rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .header-inner { padding: 0.75rem 2rem; }
+  }
+
+  .brand {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .brand img {
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 0.7rem;
+    box-shadow: 0 6px 20px -8px var(--primary);
+  }
+
+  .brand span {
+    font-weight: 800;
+    font-size: 1.125rem;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .back-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 1.25rem;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--foreground); }
+
+  main {
+    margin: 0 auto;
+    max-width: 48rem;
+    padding: 4rem 1.25rem 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    main { padding: 5.5rem 2rem 6rem; }
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: 'Archivo', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted-foreground);
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 2.75rem;
+    line-height: 1.05;
+    margin: 0 0 0.75rem;
+  }
+
+  h1 .accent { color: var(--primary); }
+
+  .updated {
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+    margin: 0 0 3rem;
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    color: var(--foreground);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--glow-blue);
+  }
+
+  section { margin-bottom: 2.75rem; }
+
+  h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    font-size: 1.4rem;
+    margin: 0 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  h2::before {
+    content: "";
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: var(--accent);
+    box-shadow: var(--glow-orange);
+    flex-shrink: 0;
+  }
+
+  p { color: var(--foreground); margin: 0 0 1rem; }
+  p.muted { color: var(--muted-foreground); }
+
+  ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+  li { margin-bottom: 0.5rem; color: var(--foreground); }
+  li::marker { color: var(--primary); }
+
+  .fact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  @media (min-width: 640px) {
+    .fact-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .fact {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 0.875rem;
+    padding: 1rem 1.25rem;
+  }
+  .fact strong {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  .fact span { color: var(--muted-foreground); font-size: 0.9rem; }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 0.35rem;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.85em;
+  }
+
+  footer {
+    border-top: 1px solid color-mix(in oklab, var(--border) 60%, transparent);
+    padding: 3.5rem 0;
+  }
+
+  .footer-inner {
+    margin: 0 auto;
+    max-width: 80rem;
+    display: grid;
+    gap: 2rem;
+    padding: 0 1.25rem;
+  }
+
+  @media (min-width: 1024px) {
+    .footer-inner {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      padding: 0 2rem;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .footer-brand img {
+    height: 2.75rem;
+    width: 2.75rem;
+    flex-shrink: 0;
+    border-radius: 0.75rem;
+  }
+  .footer-brand p { margin: 0; }
+  .footer-brand .name {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+  .footer-brand .tagline {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+  }
+
+  footer nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  @media (min-width: 1024px) { footer nav ul { justify-content: flex-end; } }
+  footer nav a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s;
+  }
+  footer nav a:hover { color: var(--foreground); }
+
+  .copyright {
+    margin: 2rem auto 0;
+    max-width: 80rem;
+    padding: 0 1.25rem;
+    font-size: 0.75rem;
+    color: color-mix(in oklab, var(--muted-foreground) 70%, transparent);
+  }
+  @media (min-width: 1024px) { .copyright { padding: 0 2rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="https://neuhausapps.com/swiftshift" class="brand">
+      <img src="icon.png" alt="SwiftShift app icon">
+      <span class="font-display">SwiftShift</span>
+    </a>
+    <a href="https://neuhausapps.com/swiftshift" class="back-link">Back to SwiftShift</a>
+  </div>
+</header>
+
+<main>
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy <span class="accent">Policy.</span></h1>
+  <p class="updated">Last updated: July 31, 2026</p>
+
+  <div class="lede">
+    SwiftShift is built to compare job offers without asking anything of you in return.
+    There is no account, no sign-up, and no data collection. Everything you enter stays
+    on your device.
+  </div>
+
+  <div class="fact-grid">
+    <div class="fact"><strong>No account required</strong><span>Use the app immediately — nothing to sign up for.</span></div>
+    <div class="fact"><strong>No internet required</strong><span>Comparisons are calculated entirely on your device.</span></div>
+    <div class="fact"><strong>No data leaves your device</strong><span>We don't have servers that store your offer details.</span></div>
+    <div class="fact"><strong>No analytics or tracking</strong><span>No third-party SDKs, ads, or usage tracking of any kind.</span></div>
+  </div>
+
+  <section>
+    <h2>What SwiftShift Does</h2>
+    <p>
+      SwiftShift helps you compare two job offers — pay, schedule, paid time off, benefits,
+      and commute — to see which one is worth more in practice, not just on paper. You enter
+      details about each offer, and the app calculates an estimated comparison locally, on
+      your device.
+    </p>
+  </section>
+
+  <section>
+    <h2>Information We Collect</h2>
+    <p><strong>None.</strong> SwiftShift does not collect, transmit, or have access to any
+      information you enter into the app. There are no SwiftShift servers that receive your
+      offer details, and the app does not require you to create an account or provide any
+      personal information to use it.</p>
+  </section>
+
+  <section>
+    <h2>Where Your Data Lives</h2>
+    <p>
+      The offers you enter — employer names, pay, schedule, PTO, benefits, and commute
+      details — are saved only in local storage on your own device. This data is never
+      transmitted anywhere. If you delete the app, that data is deleted with it. SwiftShift
+      has no mechanism to back this data up to a server, sync it across devices, or share
+      it with us or anyone else.
+    </p>
+  </section>
+
+  <section>
+    <h2>App Store Review Prompts</h2>
+    <p>
+      SwiftShift may occasionally ask iOS to show Apple's native "Ask to Rate" prompt,
+      using Apple's own <code>StoreReview</code> API. This is entirely handled by Apple at
+      the operating system level — SwiftShift does not receive any information about
+      whether you rated the app, and no data about this interaction is sent to us.
+    </p>
+  </section>
+
+  <section>
+    <h2>Analytics, Advertising &amp; Third Parties</h2>
+    <p>
+      SwiftShift does not integrate any analytics, advertising, or crash-reporting SDKs,
+      and does not share data with third parties, because it does not collect any data to
+      share in the first place.
+    </p>
+  </section>
+
+  <section>
+    <h2>Children's Privacy</h2>
+    <p>
+      SwiftShift does not knowingly collect information from anyone, including children
+      under 13, because it does not collect information from anyone at all.
+    </p>
+  </section>
+
+  <section>
+    <h2>Changes to This Policy</h2>
+    <p>
+      If SwiftShift's data practices ever change — for example, if a future version adds an
+      optional account or cloud sync — this page will be updated first, and the "Last
+      updated" date above will reflect the change.
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+      Questions about this policy can be sent through
+      <a href="https://neuhausapps.com/support" style="color: var(--primary); text-decoration: underline;">neuhausapps.com/support</a>.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="icon.png" alt="SwiftShift app icon">
+      <p>
+        <span class="name">SwiftShift</span><br>
+        <span class="tagline">A Neuhaus Apps product</span>
+      </p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="https://neuhausapps.com">Back to Neuhaus Apps</a></li>
+        <li><a href="https://neuhausapps.com/swiftshift/privacy">Privacy Policy</a></li>
+        <li><a href="https://neuhausapps.com/swiftshift/terms">Terms of Use</a></li>
+        <li><a href="https://neuhausapps.com/support">Support</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="copyright">© 2026 Neuhaus Apps. SwiftShift is not yet available on the App Store.</p>
+</footer>
+
+</body>
+</html>
