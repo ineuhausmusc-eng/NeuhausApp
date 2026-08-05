@@ -1,763 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Neuhaus Apps</title>
-<meta name="description" content="Neuhaus Apps Privacy Policy — what Prayer Matters handles, and what stays private on your device.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0A0E12;
-    --panel:#121820;
-    --panel-2:#0E141B;
-    --line:#22303A;
-    --paper:#EDEFEC;
-    --paper-dim:#B9C2C3;
-    --peach:#F3D9AE;
-    --peach-dim:#C9AE85;
-    --signal:#C1571F;
-    --signal-dim:#8C3F14;
-    --font-display:'Archivo', sans-serif;
-    --font-body:'IBM Plex Sans', sans-serif;
-    --font-mono:'IBM Plex Mono', monospace;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--ink);
-    color:var(--paper);
-    font-family:var(--font-body);
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  a{color:inherit; text-decoration:none;}
-  ::selection{background:var(--signal); color:var(--ink);}
-
-  /* Skip link */
-  .skip-link{
-    position:absolute; left:12px; top:-60px;
-    background:var(--signal); color:var(--ink);
-    font-family:var(--font-mono); font-weight:500; font-size:13px;
-    padding:10px 16px; border-radius:6px; z-index:1000;
-    transition:top .2s ease;
-  }
-  .skip-link:focus{ top:12px; }
-
-  a:focus-visible, button:focus-visible, summary:focus-visible{
-    outline:2px solid var(--signal);
-    outline-offset:3px;
-    border-radius:3px;
-  }
-
-  /* ================= HEADER ================= */
-  header.site-header{
-    border-bottom:1px solid var(--line);
-    background:var(--ink);
-    position:relative; z-index:20;
-  }
-  .header-inner{
-    max-width:1200px; margin:0 auto;
-    padding:22px 24px;
-    display:flex; align-items:center; justify-content:space-between;
-    gap:16px; flex-wrap:wrap;
-  }
-  .header-back{
-    display:inline-flex; align-items:center; gap:9px;
-    font-family:var(--font-mono); font-weight:500; font-size:13px;
-    letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--paper);
-  }
-  .header-back .arrow{ color:var(--signal); font-size:15px; transition:transform .2s ease; }
-  .header-back:hover .arrow{ transform:translateX(-3px); }
-  .header-legal{
-    display:inline-flex; align-items:center; gap:9px;
-    font-family:var(--font-mono); font-weight:500; font-size:13px;
-    letter-spacing:0.12em; text-transform:uppercase;
-    color:var(--paper-dim);
-  }
-  .header-legal .dot{
-    width:6px; height:6px; border-radius:50%; flex:none;
-    background:radial-gradient(circle, #C9A6FF 0%, var(--signal) 100%);
-    box-shadow:0 0 6px rgba(193,87,31,0.6);
-  }
-
-  /* ================= HERO ================= */
-  .legal-hero{
-    position:relative;
-    overflow:hidden;
-    padding:72px 24px 0;
-  }
-  .legal-hero-atmosphere{
-    position:absolute; inset:0; z-index:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 46% 60% at 4% 30%, rgba(122,26,31,0.30) 0%, rgba(90,20,20,0.12) 45%, transparent 75%),
-      radial-gradient(ellipse 40% 55% at 98% 20%, rgba(90,40,70,0.22) 0%, transparent 70%),
-      linear-gradient(180deg, #0C0A10 0%, #0A0E12 55%, #0A0E12 100%);
-  }
-  .legal-particles{ position:absolute; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
-  .lp{
-    position:absolute; border-radius:50%;
-    opacity:0.55;
-    animation:lpDrift 34s ease-in-out infinite alternate, lpPulse 6s ease-in-out infinite;
-  }
-  .lp-copper{ background:var(--signal); box-shadow:0 0 4px rgba(193,87,31,0.7); }
-  .lp-violet{ background:#9B7CFF; box-shadow:0 0 4px rgba(155,124,255,0.7); }
-  .lp-lavender{ background:#C9B6FF; box-shadow:0 0 3px rgba(201,182,255,0.6); }
-  .lp-cream{ background:var(--peach); box-shadow:0 0 3px rgba(243,217,174,0.6); }
-  .lp1{ width:3px; height:3px; left:2.4%; top:9%; animation-duration:30s; }
-  .lp2{ width:2px; height:2px; left:6%; top:82%; animation-duration:38s; animation-delay:-6s; }
-  .lp3{ width:4px; height:4px; left:96%; top:14%; animation-duration:33s; animation-delay:-11s; }
-  .lp4{ width:2px; height:2px; left:93%; top:70%; animation-duration:29s; animation-delay:-4s; }
-  .lp5{ width:3px; height:3px; left:0.5%; top:46%; animation-duration:41s; animation-delay:-16s; }
-  .lp6{ width:2px; height:2px; left:98.5%; top:44%; animation-duration:36s; animation-delay:-9s; }
-  @keyframes lpDrift{
-    0%{ transform:translate(0,0); }
-    100%{ transform:translate(0.6vw, -0.8vh); }
-  }
-  @keyframes lpPulse{
-    0%,100%{ opacity:0.3; }
-    50%{ opacity:0.7; }
-  }
-  .legal-hero-inner{
-    position:relative; z-index:2;
-    max-width:1200px; margin:0 auto;
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-    gap:48px;
-    align-items:center;
-    padding-bottom:56px;
-  }
-  .hero-left{ min-width:0; }
-  .hero-breadcrumb{
-    font-family:var(--font-mono); font-weight:500; font-size:12.5px;
-    letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--signal);
-    margin-bottom:22px;
-  }
-  .hero-title{
-    font-family:var(--font-display); font-weight:900;
-    font-size:clamp(48px, 8vw, 108px);
-    line-height:0.94;
-    letter-spacing:-0.015em;
-  }
-  .hero-title .line-solid{
-    display:block;
-    color:var(--paper);
-  }
-  .hero-title .line-outline{
-    display:block;
-    color:transparent;
-    -webkit-text-fill-color:transparent;
-    -webkit-text-stroke:1.5px var(--peach-dim);
-    letter-spacing:-0.01em;
-  }
-  .hero-divider{
-    width:1px; height:112px;
-    background:var(--line);
-    justify-self:center;
-  }
-  .hero-right{ min-width:0; }
-  .hero-desc{
-    font-family:var(--font-body); font-weight:400;
-    font-size:16.5px; line-height:1.65;
-    color:var(--paper-dim);
-    max-width:340px;
-    margin-bottom:26px;
-  }
-  .hero-dates{
-    font-family:var(--font-mono); font-size:12px; letter-spacing:0.08em;
-    color:var(--paper-dim); text-transform:uppercase;
-    line-height:1.9;
-  }
-
-  /* ================= SUMMARY CARD ================= */
-  .summary-wrap{
-    position:relative; z-index:2;
-    max-width:1200px; margin:0 auto;
-    padding:0 24px 88px;
-  }
-  .summary-card{
-    position:relative;
-    background:var(--panel);
-    border:1px solid rgba(237,239,236,0.08);
-    border-radius:20px;
-    padding:44px 48px;
-    display:flex; align-items:center; justify-content:space-between;
-    gap:40px; flex-wrap:wrap;
-    box-shadow:0 24px 50px rgba(0,0,0,0.35);
-    overflow:hidden;
-  }
-  .summary-card::before{
-    content:'';
-    position:absolute; top:0; left:6%; right:30%; height:1px;
-    background:linear-gradient(90deg, transparent, rgba(193,87,31,0.55), rgba(155,124,255,0.4), transparent);
-  }
-  .summary-text{ min-width:260px; flex:1 1 320px; }
-  .summary-text h2{
-    font-family:var(--font-display); font-weight:800;
-    font-size:clamp(22px, 2.6vw, 28px);
-    margin-bottom:12px;
-    color:var(--paper);
-  }
-  .summary-text p{
-    font-family:var(--font-body); font-size:15.5px; line-height:1.65;
-    color:var(--paper-dim); max-width:460px;
-  }
-  .summary-pills{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    flex:1 1 380px;
-    max-width:460px;
-  }
-  .pill{
-    display:inline-flex; align-items:center; gap:9px;
-    border:1px solid rgba(237,239,236,0.14);
-    border-radius:999px;
-    padding:11px 18px;
-    font-family:var(--font-mono); font-weight:500; font-size:11.5px;
-    letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--paper);
-    background:rgba(237,239,236,0.02);
-    white-space:normal;
-    max-width:100%;
-  }
-  .pill .dot{
-    width:6px; height:6px; border-radius:50%; flex:none;
-    background:var(--signal);
-  }
-
-  /* ================= POLICY CONTENT ================= */
-  .policy-content{
-    background:var(--ink);
-    border-top:1px solid var(--line);
-    padding:64px 24px 96px;
-  }
-  .policy-layout{
-    max-width:1200px; margin:0 auto;
-    display:grid;
-    grid-template-columns:260px minmax(0, 740px);
-    gap:64px;
-    align-items:start;
-  }
-  /* TOC */
-  .toc-wrap{
-    position:sticky;
-    top:32px;
-  }
-  .toc-label{
-    font-family:var(--font-mono); font-weight:500; font-size:11px;
-    letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--signal);
-    margin-bottom:18px;
-  }
-  .toc-list{ list-style:none; }
-  .toc-list li{ border-top:1px solid var(--line); }
-  .toc-list li:last-child{ border-bottom:1px solid var(--line); }
-  .toc-list a{
-    display:flex; align-items:baseline; gap:12px;
-    padding:11px 2px;
-    font-family:var(--font-body); font-size:13.5px;
-    color:var(--paper-dim);
-    transition:color .2s ease;
-  }
-  .toc-list a .num{
-    font-family:var(--font-mono); font-size:11px;
-    color:var(--peach-dim);
-    flex:none;
-  }
-  .toc-list a:hover{ color:var(--paper); }
-  .toc-list li.is-active a{ color:var(--paper); font-weight:500; }
-  .toc-list li.is-active a .num{ color:var(--signal); }
-
-  /* Mobile TOC */
-  .toc-mobile{ display:none; }
-  .toc-mobile summary{
-    cursor:pointer;
-    list-style:none;
-    display:flex; align-items:center; justify-content:space-between;
-    font-family:var(--font-mono); font-weight:500; font-size:13px;
-    letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--paper);
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:14px 18px;
-  }
-  .toc-mobile summary::-webkit-details-marker{ display:none; }
-  .toc-mobile summary::after{ content:'▾'; color:var(--signal); }
-  .toc-mobile[open] summary::after{ content:'▴'; }
-  .toc-mobile .toc-list{
-    margin-top:10px;
-    background:var(--panel);
-    border:1px solid var(--line);
-    border-radius:12px;
-    padding:6px 16px;
-  }
-
-  /* Reading column */
-  .policy-intro p{
-    font-family:var(--font-body); font-size:16.5px; line-height:1.75;
-    color:var(--paper-dim); margin-bottom:16px;
-    max-width:72ch;
-  }
-  .policy-intro{ margin-bottom:8px; }
-  .policy-section{
-    padding-top:44px;
-    margin-top:44px;
-    border-top:1px solid var(--line);
-    scroll-margin-top:28px;
-  }
-  .policy-section:first-of-type{
-    border-top:none;
-    margin-top:0;
-    padding-top:0;
-  }
-  .section-num{
-    display:block;
-    font-family:var(--font-mono); font-weight:500; font-size:12px;
-    letter-spacing:0.1em;
-    color:var(--peach-dim);
-    margin-bottom:10px;
-  }
-  .policy-section.is-active .section-num{ color:var(--signal); }
-  .policy-section h2{
-    font-family:var(--font-display); font-weight:800;
-    font-size:clamp(21px, 2.4vw, 25px);
-    letter-spacing:-0.005em;
-    margin-bottom:16px;
-    color:var(--paper);
-  }
-  .policy-section p{
-    font-family:var(--font-body); font-size:16.5px; line-height:1.78;
-    color:var(--paper-dim);
-    max-width:70ch;
-    margin-bottom:14px;
-  }
-  .policy-section ul{
-    margin:8px 0 16px 0;
-    list-style:none;
-    max-width:70ch;
-  }
-  .policy-section ul.two-col{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:4px 28px;
-  }
-  .policy-section li{
-    position:relative;
-    padding-left:20px;
-    font-family:var(--font-body); font-size:16px; line-height:1.65;
-    color:var(--paper-dim);
-    margin-bottom:9px;
-  }
-  .policy-section li::before{
-    content:'';
-    position:absolute; left:0; top:0.6em;
-    width:5px; height:5px; border-radius:50%;
-    background:var(--signal);
-  }
-  .policy-section strong{ color:var(--paper); font-weight:600; }
-  .policy-section a{
-    color:var(--signal);
-    border-bottom:1px solid rgba(193,87,31,0.35);
-    word-break:break-word;
-  }
-  .policy-section a:hover{ color:var(--peach); border-bottom-color:var(--peach); }
-  .contact-block{
-    font-family:var(--font-body); font-size:16.5px; line-height:1.9;
-    color:var(--paper-dim);
-    max-width:70ch;
-  }
-  .contact-block strong{ display:block; color:var(--paper); font-size:17px; margin-bottom:2px; }
-
-  /* ================= FOOTER ================= */
-  footer{
-    background:var(--ink); border-top:1px solid var(--line);
-    padding:30px 40px;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; gap:14px;
-  }
-  footer .word{ font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:0.06em; }
-  .foot-links{ display:flex; gap:26px; flex-wrap:wrap; justify-content:center; }
-  .foot-links a{
-    font-family:var(--font-mono); font-size:11px; letter-spacing:0.08em; color:var(--paper-dim);
-    transition:color .2s;
-  }
-  .foot-links a:hover{ color:var(--signal); }
-  .copyright{ font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim); }
-
-  /* ================= RESPONSIVE ================= */
-  @media (max-width:980px){
-    .policy-layout{ grid-template-columns:1fr; }
-    .toc-wrap{ display:none; }
-    .toc-mobile{ display:block; margin-bottom:40px; }
-  }
-  @media (max-width:759px){
-    .header-inner{ padding:18px 20px; }
-    .legal-hero{ padding:48px 20px 0; }
-    .legal-hero-inner{
-      grid-template-columns:1fr;
-      gap:28px;
-      padding-bottom:40px;
-    }
-    .hero-divider{ display:none; }
-    .hero-title{ font-size:clamp(40px, 15vw, 64px); }
-    .hero-desc{ max-width:none; }
-    .summary-wrap{ padding:0 20px 64px; }
-    .summary-card{ padding:28px 24px; flex-direction:column; align-items:stretch; }
-    .summary-pills{ max-width:none; }
-    .pill{ flex:1 1 100%; }
-    .policy-content{ padding:48px 20px 72px; }
-    .policy-section ul.two-col{ grid-template-columns:1fr; }
-  }
-  @media (max-width:420px){
-    .hero-desc{ font-size:15.5px; }
-  }
-
-  @media (prefers-reduced-motion:reduce){
-    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
-    html{ scroll-behavior:auto; }
-  }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
 <body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #06070d; color: #eef0f6; font-family: 'Manrope', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #8fb4ff; text-decoration: none; }
+  a:hover { color: #bcd2ff; }
+</style>
+</helmet>
 
-<a href="#policy-content" class="skip-link">Skip to policy content</a>
+<div style="position:relative; width:100%; min-height:100vh; background:
+  radial-gradient(900px 700px at 78% 6%, rgba(52,74,190,0.24), transparent 60%),
+  radial-gradient(700px 600px at 8% 30%, rgba(150,50,180,0.16), transparent 60%),
+  #070812;">
 
-<header class="site-header">
-  <div class="header-inner">
-    <a class="header-back" href="index.html"><span class="arrow" aria-hidden="true">&larr;</span> NEUHAUS APPS</a>
-    <span class="header-legal"><span class="dot" aria-hidden="true"></span> LEGAL / PRIVACY</span>
-  </div>
-</header>
+  <nav style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px clamp(16px,6vw,64px); border-bottom:1px solid rgba(255,255,255,0.07);">
+    <a href="prayer-matters.html" style="display:flex; align-items:center; gap:11px;">
+      <img src="assets/logo-ring.jpeg" alt="Prayer Matters" style="width:34px; height:34px; border-radius:10px;">
+      <span style="font-family:'Archivo',sans-serif; font-weight:800; font-size:15px; color:#eef0f6;">PRAYER <span style="background:linear-gradient(100deg,#ef54c8,#5c74ff); -webkit-background-clip:text; background-clip:text; color:transparent;">MATTERS.</span></span>
+    </a>
+    <a href="prayer-matters.html" style="font-family:'Manrope'; font-weight:600; font-size:15px; color:#c3c8db;">← Back to home</a>
+  </nav>
 
-<section class="legal-hero" aria-hidden="false">
-  <div class="legal-hero-atmosphere" aria-hidden="true"></div>
-  <div class="legal-particles" aria-hidden="true">
-    <span class="lp lp-copper lp1"></span>
-    <span class="lp lp-violet lp2"></span>
-    <span class="lp lp-lavender lp3"></span>
-    <span class="lp lp-cream lp4"></span>
-    <span class="lp lp-copper lp5"></span>
-    <span class="lp lp-violet lp6"></span>
-  </div>
+  <main style="max-width:760px; margin:0 auto; padding:clamp(48px,8vw,96px) clamp(20px,6vw,40px) clamp(72px,10vw,120px);">
+    <span style="font-family:'Manrope'; font-weight:600; font-size:13px; letter-spacing:0.3em; text-transform:uppercase; color:#efd9a6;">Legal</span>
+    <h1 style="margin:14px 0 0; font-family:'Newsreader',serif; font-weight:500; font-size:clamp(38px,7vw,64px); line-height:1.05; color:#f3f4fa;">Privacy <span style="font-style:italic; background:linear-gradient(100deg,#ef54c8,#5c74ff); -webkit-background-clip:text; background-clip:text; color:transparent;">Policy</span></h1>
+    <p style="margin:16px 0 0; font-family:'Manrope'; font-size:16px; color:#9aa0b4;">Last updated: [ADD DATE]</p>
 
-  <div class="legal-hero-inner">
-    <div class="hero-left">
-      <div class="hero-breadcrumb">NEUHAUS APPS / LEGAL</div>
-      <h1 class="hero-title">
-        <span class="line-solid">PRIVACY</span>
-        <span class="line-outline" aria-hidden="true">POLICY</span>
-      </h1>
-      <span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus Apps Privacy Policy</span>
+    <div style="margin-top:36px; padding:20px 24px; border-radius:16px; border:1px dashed rgba(255,255,255,0.2); background:rgba(255,255,255,0.03);">
+      <p style="margin:0; font-family:ui-monospace,monospace; font-size:13px; line-height:1.7; letter-spacing:0.02em; color:#a9aec4;">PLACEHOLDER — replace this page with your real privacy policy. The sections below are a starting skeleton for a faith / wellbeing app. Fill in or delete each as it applies to Prayer Matters.</p>
     </div>
-    <div class="hero-divider" aria-hidden="true"></div>
-    <div class="hero-right">
-      <p class="hero-desc">A clear explanation of what Neuhaus Apps handles&mdash;and, more importantly, what stays private on your device.</p>
-      <div class="hero-dates">
-        Effective July 25, 2026<br>
-        Last Updated July 25, 2026
-      </div>
+
+    <div style="margin-top:16px; display:flex; flex-direction:column; gap:34px;">
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Overview</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[Describe your commitment to privacy in a sentence or two. Example: Prayer Matters is built to be a quiet, private space. We collect as little as possible, and your journal and reflections stay on your device.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Information we collect</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[List what, if anything, the app collects — e.g. no personal account required, on-device journal storage, optional analytics, crash reports. Be specific.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">How your data is used</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[Explain how any collected data is used and confirm it is not sold. Note if reflections/journal entries never leave the device.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Third-party services</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[List any third parties — Apple, analytics, etc. — and link their policies.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Children's privacy</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[Add your policy regarding users under 13 / applicable age.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Your choices &amp; rights</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">[Explain how users can delete data, opt out of analytics, or contact you with requests.]</p>
+      </section>
+      <section>
+        <h2 style="margin:0 0 12px; font-family:'Archivo',sans-serif; font-weight:800; font-size:22px; color:#f3f4fa;">Contact</h2>
+        <p style="margin:0; font-family:'Manrope'; font-size:17px; line-height:1.7; color:#b3b8cc;">Questions about this policy? Reach us at <a href="mailto:hello@neuhausapps.com">hello@neuhausapps.com</a>. [Update email.]</p>
+      </section>
     </div>
-  </div>
 
-  <div class="summary-wrap">
-    <div class="summary-card">
-      <div class="summary-text">
-        <h2>Your prayers stay yours.</h2>
-        <p>Prayer Matters is designed as a private space. Personal prayer, journal, and reflection content remains on your device.</p>
-      </div>
-      <div class="summary-pills">
-        <span class="pill"><span class="dot" aria-hidden="true"></span>No Accounts</span>
-        <span class="pill"><span class="dot" aria-hidden="true"></span>No Advertising</span>
-        <span class="pill"><span class="dot" aria-hidden="true"></span>No Third-Party App Analytics</span>
-        <span class="pill"><span class="dot" aria-hidden="true"></span>On-Device Storage</span>
-      </div>
+    <div style="margin-top:56px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.08);">
+      <a href="prayer-matters.html" style="font-family:'Manrope'; font-weight:600; font-size:15px; color:#c3c8db;">← Back to Prayer Matters</a>
     </div>
-  </div>
-</section>
-
-<main id="policy-content" class="policy-content">
-  <div class="policy-layout">
-
-    <aside aria-label="Table of contents">
-      <nav class="toc-wrap" aria-label="Policy sections">
-        <div class="toc-label">In This Policy</div>
-        <ul class="toc-list" id="toc-list">
-          <li><a href="#s1"><span class="num">01</span> Privacy Overview</a></li>
-          <li><a href="#s2"><span class="num">02</span> Information Stored by Prayer Matters</a></li>
-          <li><a href="#s3"><span class="num">03</span> Scripture and Audio Content</a></li>
-          <li><a href="#s4"><span class="num">04</span> iCloud Backups</a></li>
-          <li><a href="#s5"><span class="num">05</span> App Store and Apple Services</a></li>
-          <li><a href="#s6"><span class="num">06</span> Website Information</a></li>
-          <li><a href="#s7"><span class="num">07</span> Email Communications</a></li>
-          <li><a href="#s8"><span class="num">08</span> Cookies and Tracking</a></li>
-          <li><a href="#s9"><span class="num">09</span> How Information Is Shared</a></li>
-          <li><a href="#s10"><span class="num">10</span> Data Retention and Deletion</a></li>
-          <li><a href="#s11"><span class="num">11</span> Children&rsquo;s Privacy</a></li>
-          <li><a href="#s12"><span class="num">12</span> Data Security</a></li>
-          <li><a href="#s13"><span class="num">13</span> International Users</a></li>
-          <li><a href="#s14"><span class="num">14</span> Privacy Rights</a></li>
-          <li><a href="#s15"><span class="num">15</span> Third-Party Services</a></li>
-          <li><a href="#s16"><span class="num">16</span> Changes to This Privacy Policy</a></li>
-          <li><a href="#s17"><span class="num">17</span> Contact</a></li>
-        </ul>
-      </nav>
-
-      <details class="toc-mobile">
-        <summary>Jump to a section</summary>
-        <ul class="toc-list">
-          <li><a href="#s1"><span class="num">01</span> Privacy Overview</a></li>
-          <li><a href="#s2"><span class="num">02</span> Information Stored by Prayer Matters</a></li>
-          <li><a href="#s3"><span class="num">03</span> Scripture and Audio Content</a></li>
-          <li><a href="#s4"><span class="num">04</span> iCloud Backups</a></li>
-          <li><a href="#s5"><span class="num">05</span> App Store and Apple Services</a></li>
-          <li><a href="#s6"><span class="num">06</span> Website Information</a></li>
-          <li><a href="#s7"><span class="num">07</span> Email Communications</a></li>
-          <li><a href="#s8"><span class="num">08</span> Cookies and Tracking</a></li>
-          <li><a href="#s9"><span class="num">09</span> How Information Is Shared</a></li>
-          <li><a href="#s10"><span class="num">10</span> Data Retention and Deletion</a></li>
-          <li><a href="#s11"><span class="num">11</span> Children&rsquo;s Privacy</a></li>
-          <li><a href="#s12"><span class="num">12</span> Data Security</a></li>
-          <li><a href="#s13"><span class="num">13</span> International Users</a></li>
-          <li><a href="#s14"><span class="num">14</span> Privacy Rights</a></li>
-          <li><a href="#s15"><span class="num">15</span> Third-Party Services</a></li>
-          <li><a href="#s16"><span class="num">16</span> Changes to This Privacy Policy</a></li>
-          <li><a href="#s17"><span class="num">17</span> Contact</a></li>
-        </ul>
-      </details>
-    </aside>
-
-    <div class="policy-reading">
-      <div class="policy-intro">
-        <p>This Privacy Policy explains how Ian Neuhaus, the individual developer and operator of Neuhaus Apps (&ldquo;Neuhaus Apps,&rdquo; &ldquo;I,&rdquo; &ldquo;me,&rdquo; or &ldquo;my&rdquo;), handles information in connection with NeuhausApps.com and applications published under the Neuhaus Apps name.</p>
-        <p>Prayer Matters is currently the only application offered by Neuhaus Apps.</p>
-      </div>
-
-      <section class="policy-section" id="s1">
-        <span class="section-num">01 / 17</span>
-        <h2>Privacy Overview</h2>
-        <p>Prayer Matters is designed to provide a private space for prayer, Scripture reading, journaling, reflection, gratitude, and spiritual growth.</p>
-        <p>Prayer Matters does not require users to create an account. Neuhaus Apps does not operate a cloud-storage system for users&rsquo; prayers, journal entries, reflections, gratitude entries, streak information, or other private content.</p>
-        <p>This content is stored locally on the user&rsquo;s device and is not transmitted to, received by, or accessible to Neuhaus Apps.</p>
-        <p>Neuhaus Apps does not:</p>
-        <ul class="two-col">
-          <li>Sell personal information.</li>
-          <li>Use personal information for targeted advertising.</li>
-          <li>Display third-party advertisements.</li>
-          <li>Send prayer, journal, reflection, or gratitude content to an artificial intelligence service.</li>
-          <li>Operate social, messaging, or user-to-user sharing features.</li>
-          <li>Use third-party analytics inside Prayer Matters.</li>
-          <li>Request access to the user&rsquo;s microphone, camera, photos, contacts, or location.</li>
-        </ul>
-      </section>
-
-      <section class="policy-section" id="s2">
-        <span class="section-num">02 / 17</span>
-        <h2>Information Stored by Prayer Matters</h2>
-        <p>Prayer Matters may allow users to create or save information such as:</p>
-        <ul class="two-col">
-          <li>Prayers.</li>
-          <li>Journal entries.</li>
-          <li>Reflections.</li>
-          <li>Gratitude entries.</li>
-          <li>Prayer history.</li>
-          <li>Streak and progress information.</li>
-          <li>App preferences.</li>
-        </ul>
-        <p>This information is stored within the application&rsquo;s local storage on the user&rsquo;s device. Neuhaus Apps cannot view, retrieve, or receive this information.</p>
-        <p>Prayer Matters does not provide developer-operated cloud synchronization or cloud storage.</p>
-      </section>
-
-      <section class="policy-section" id="s3">
-        <span class="section-num">03 / 17</span>
-        <h2>Scripture and Audio Content</h2>
-        <p>Scripture used for features such as Verse of the Day is selected from content bundled within Prayer Matters. The app does not send a request to an external Bible or verse-of-the-day service when displaying this content.</p>
-        <p>Prayer and background audio included with Prayer Matters is bundled with or otherwise supplied as part of the application. Private user content is not transmitted to an audio-hosting service.</p>
-      </section>
-
-      <section class="policy-section" id="s4">
-        <span class="section-num">04 / 17</span>
-        <h2>iCloud Backups</h2>
-        <p>Although Neuhaus Apps does not provide cloud storage, Apple may include locally stored Prayer Matters data in an ordinary iCloud device backup if the user has enabled iCloud Backup.</p>
-        <p>These backups are controlled by Apple and the user. Neuhaus Apps cannot access, retrieve, modify, or delete information contained in a user&rsquo;s iCloud account or iCloud backups.</p>
-        <p>Users can manage their iCloud backup settings through their Apple device settings.</p>
-      </section>
-
-      <section class="policy-section" id="s5">
-        <span class="section-num">05 / 17</span>
-        <h2>App Store and Apple Services</h2>
-        <p>Prayer Matters is distributed through Apple&rsquo;s App Store. Apple may process information related to downloading or purchasing the app, including transaction, account, device, diagnostic, and payment information.</p>
-        <p>Neuhaus Apps does not receive users&rsquo; complete payment-card information. Apple handles App Store transactions according to Apple&rsquo;s own terms and privacy policies.</p>
-        <p>Depending on a user&rsquo;s Apple privacy and diagnostic-sharing settings, Apple may provide Neuhaus Apps with aggregated sales information or limited technical and crash information. Such information does not include the contents of users&rsquo; prayers, journals, reflections, or gratitude entries.</p>
-      </section>
-
-      <section class="policy-section" id="s6">
-        <span class="section-num">06 / 17</span>
-        <h2>Website Information</h2>
-        <p>NeuhausApps.com does not currently use an advertising network, contact form, or developer-installed analytics service.</p>
-        <p>The website is hosted using GitHub Pages. When someone visits a GitHub Pages website, GitHub may log technical information such as the visitor&rsquo;s Internet Protocol address for security and service-operation purposes. GitHub handles this information according to its own privacy statement.</p>
-        <p>Neuhaus Apps does not use the website to obtain access to Prayer Matters content stored on users&rsquo; devices.</p>
-      </section>
-
-      <section class="policy-section" id="s7">
-        <span class="section-num">07 / 17</span>
-        <h2>Email Communications</h2>
-        <p>If a person contacts Neuhaus Apps by email, Neuhaus Apps will receive the information the person voluntarily provides, such as:</p>
-        <ul>
-          <li>The sender&rsquo;s email address.</li>
-          <li>The sender&rsquo;s name, if provided.</li>
-          <li>The contents of the message.</li>
-          <li>Attachments or technical information included by the sender.</li>
-        </ul>
-        <p>This information will be used to respond to the inquiry, provide support, address legal or safety concerns, and maintain appropriate records.</p>
-        <p>Users should not include private prayers, journal entries, medical information, or other sensitive personal information in support emails unless necessary.</p>
-        <p>Support emails are retained only as long as reasonably necessary to respond to the request, maintain support records, resolve disputes, comply with legal obligations, or protect the rights and safety of Neuhaus Apps and its users.</p>
-      </section>
-
-      <section class="policy-section" id="s8">
-        <span class="section-num">08 / 17</span>
-        <h2>Cookies and Tracking</h2>
-        <p>Neuhaus Apps does not currently place its own advertising or analytics cookies on NeuhausApps.com.</p>
-        <p>GitHub or other infrastructure providers may process limited technical information necessary to deliver, secure, and operate their services. Their practices are governed by their respective privacy policies.</p>
-        <p>Neuhaus Apps does not use cross-site tracking or behavioral advertising.</p>
-      </section>
-
-      <section class="policy-section" id="s9">
-        <span class="section-num">09 / 17</span>
-        <h2>How Information Is Shared</h2>
-        <p>Neuhaus Apps does not sell or rent personal information.</p>
-        <p>Information voluntarily provided to Neuhaus Apps may be disclosed only:</p>
-        <ul>
-          <li>To service providers needed to operate email, website hosting, or application distribution.</li>
-          <li>When required by applicable law, regulation, subpoena, court order, or other valid legal process.</li>
-          <li>When reasonably necessary to protect the rights, safety, security, or property of users, Neuhaus Apps, or others.</li>
-          <li>In connection with a transfer of the Neuhaus Apps applications or related assets, subject to applicable privacy obligations.</li>
-        </ul>
-        <p>Private content stored only within Prayer Matters cannot be shared by Neuhaus Apps because Neuhaus Apps does not receive or have access to that content.</p>
-      </section>
-
-      <section class="policy-section" id="s10">
-        <span class="section-num">10 / 17</span>
-        <h2>Data Retention and Deletion</h2>
-        <p>Private Prayer Matters content remains on the user&rsquo;s device until the user deletes it through available app controls or deletes the application and its related data.</p>
-        <p>Deleting Prayer Matters from an iPhone removes the app and its locally stored related data. Offloading the app may preserve its documents and data so they remain available if the app is reinstalled.</p>
-        <p>Copies contained in an Apple-controlled iCloud backup may remain until the user modifies or deletes the applicable backup through Apple&rsquo;s settings.</p>
-        <p>Neuhaus Apps cannot remotely retrieve or delete locally stored application data or data contained in a user&rsquo;s Apple account.</p>
-        <p>To request deletion of information voluntarily sent directly to Neuhaus Apps, such as a support email, contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>. Certain records may be retained when reasonably necessary for legal, security, fraud-prevention, or recordkeeping purposes.</p>
-      </section>
-
-      <section class="policy-section" id="s11">
-        <span class="section-num">11 / 17</span>
-        <h2>Children&rsquo;s Privacy</h2>
-        <p>Prayer Matters is a general-audience faith-based application intended for users age 13 and older. It is not directed to children under 13.</p>
-        <p>Neuhaus Apps does not knowingly collect personal information from children under 13. Because Prayer Matters does not require accounts and private content remains locally stored, Neuhaus Apps does not receive children&rsquo;s prayers, journals, or reflections.</p>
-        <p>If a parent or legal guardian believes that a child under 13 has sent personal information directly to Neuhaus Apps, the parent or guardian may contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a> to request its deletion.</p>
-      </section>
-
-      <section class="policy-section" id="s12">
-        <span class="section-num">12 / 17</span>
-        <h2>Data Security</h2>
-        <p>Neuhaus Apps uses reasonable administrative and technical measures appropriate to the limited information it handles.</p>
-        <p>No electronic transmission or storage system can be guaranteed to be completely secure. Users are responsible for maintaining the security of their devices, Apple accounts, passcodes, backups, and email accounts.</p>
-      </section>
-
-      <section class="policy-section" id="s13">
-        <span class="section-num">13 / 17</span>
-        <h2>International Users</h2>
-        <p>Prayer Matters may be made available in countries and regions where Apple permits its distribution.</p>
-        <p>Neuhaus Apps is operated from Florida, United States. Information voluntarily sent to Neuhaus Apps, such as support emails, may be processed in the United States or in other locations where Apple, GitHub, or applicable service providers operate.</p>
-        <p>By contacting Neuhaus Apps, users acknowledge that their information may be processed outside their country of residence, subject to applicable legal protections.</p>
-      </section>
-
-      <section class="policy-section" id="s14">
-        <span class="section-num">14 / 17</span>
-        <h2>Privacy Rights</h2>
-        <p>Depending on where a person resides, applicable law may provide rights regarding personal information, including the right to request access, correction, deletion, or information about how personal information is handled.</p>
-        <p>Because Neuhaus Apps does not receive private content stored within Prayer Matters, Neuhaus Apps cannot access, correct, export, or remotely delete that locally stored content.</p>
-        <p>Requests concerning information provided directly to Neuhaus Apps may be sent to <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>. Neuhaus Apps may need to verify the requester&rsquo;s identity before completing a request.</p>
-      </section>
-
-      <section class="policy-section" id="s15">
-        <span class="section-num">15 / 17</span>
-        <h2>Third-Party Services</h2>
-        <p>Neuhaus Apps currently relies on third-party services including:</p>
-        <ul>
-          <li>Apple for App Store distribution, purchases, optional diagnostics, and user-controlled iCloud backups.</li>
-          <li>GitHub for website hosting and related security and operational services.</li>
-          <li>Apple iCloud Mail for email services associated with the neuhausapps.com domain.</li>
-        </ul>
-        <p>These providers process information according to their own terms and privacy policies. Neuhaus Apps does not control the independent privacy practices of third-party services.</p>
-      </section>
-
-      <section class="policy-section" id="s16">
-        <span class="section-num">16 / 17</span>
-        <h2>Changes to This Privacy Policy</h2>
-        <p>This Privacy Policy may be updated when Neuhaus Apps changes its applications, website, service providers, or legal obligations.</p>
-        <p>The updated policy will be posted on NeuhausApps.com with a revised &ldquo;Last Updated&rdquo; date. Material changes will be communicated through the website, the application, or another appropriate method when required by law.</p>
-      </section>
-
-      <section class="policy-section" id="s17">
-        <span class="section-num">17 / 17</span>
-        <h2>Contact</h2>
-        <p>For privacy questions, support requests, or requests concerning personal information, contact:</p>
-        <div class="contact-block">
-          <strong>Ian Neuhaus</strong>
-          Individual Developer and Operator of Neuhaus Apps<br>
-          Florida, United States<br>
-          Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a><br>
-          Website: <a href="https://neuhausapps.com">https://neuhausapps.com</a>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</main>
-
-<footer>
-  <div class="word">NEUHAUS APPS</div>
-  <div class="foot-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="eula.html">EULA</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="mailto:support@neuhausapps.com">Contact</a>
-  </div>
-  <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
-</footer>
-
-<script>
-  // Progressive enhancement: highlight the active TOC entry and section number
-  // as the reader scrolls. All anchor links function without this script.
-  (function(){
-    if (!('IntersectionObserver' in window)) return;
-
-    var sections = Array.prototype.slice.call(document.querySelectorAll('.policy-section[id]'));
-    var tocLinks = Array.prototype.slice.call(document.querySelectorAll('.toc-list a'));
-
-    function setActive(id){
-      tocLinks.forEach(function(a){
-        var li = a.closest('li');
-        if (!li) return;
-        li.classList.toggle('is-active', a.getAttribute('href') === '#' + id);
-      });
-      sections.forEach(function(sec){
-        sec.classList.toggle('is-active', sec.id === id);
-      });
-    }
-
-    var observer = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting){
-          setActive(entry.target.id);
-        }
-      });
-    }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
-
-    sections.forEach(function(sec){ observer.observe(sec); });
-  })();
-</script>
+  </main>
+</div>
+</x-dc>
 </body>
 </html>
