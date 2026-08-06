@@ -1,1 +1,315 @@
-[
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuhaus Apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E12; --panel:#121820; --panel-2:#0E141B; --line:#22303A;
+    --paper:#EDEFEC; --paper-dim:#B9C2C3; --peach:#F3D9AE; --peach-2:#E0A968;
+    --signal:#C1571F; --violet:#5B16E8; --blue:#056FEA;
+    --font-display:'Archivo',sans-serif; --font-head:'Space Grotesk',sans-serif;
+    --font-body:'IBM Plex Sans',sans-serif; --font-mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--ink); color:var(--paper); font-family:var(--font-body); overflow-x:hidden; -webkit-font-smoothing:antialiased;}
+  a{color:var(--signal); text-decoration:none;}
+  a:hover{color:var(--peach-2);}
+  ::selection{background:var(--signal); color:var(--ink);}
+
+  /* ---------- TOP NAV ---------- */
+  header{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px clamp(20px,4vw,48px);
+    position:sticky; top:0; z-index:100;
+    background:rgba(10,14,18,.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid #141b22;
+  }
+  .brand{font-family:var(--font-display); font-weight:900; font-size:clamp(16px,2vw,19px); letter-spacing:.04em; color:var(--paper);}
+  .brand span{color:var(--signal);}
+  nav{display:flex; align-items:center; gap:clamp(14px,2.4vw,28px); flex-wrap:wrap;}
+  nav a{font-family:var(--font-head); font-weight:600; font-size:clamp(13px,1.5vw,15px); color:var(--paper-dim); transition:color .2s;}
+  nav a:hover{color:var(--paper);}
+  nav a.nav-apps{
+    font-weight:700; color:var(--ink);
+    background:linear-gradient(135deg,var(--peach),var(--peach-2));
+    padding:9px 22px; border-radius:999px;
+  }
+  nav a.nav-apps:hover{color:var(--ink); filter:brightness(1.05);}
+
+  /* ---------- HERO (kept from original artwork) ---------- */
+  #hero{
+    padding:clamp(16px,2.4vh,40px) 0 clamp(8px,2vh,28px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:var(--ink); position:relative; overflow:hidden;
+  }
+  .hero-atmosphere{
+    position:absolute; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(ellipse 44% 62% at 6% 50%, rgba(122,26,31,0.40) 0%, rgba(90,20,20,0.16) 42%, transparent 72%),
+      radial-gradient(ellipse 44% 62% at 94% 50%, rgba(185,102,47,0.34) 0%, rgba(122,26,31,0.15) 42%, transparent 74%),
+      radial-gradient(ellipse 58% 50% at 50% 46%, rgba(102,36,18,0.22) 0%, transparent 66%),
+      linear-gradient(180deg,#04060A 0%,#0A0E12 26%,#0A0E12 74%,#04060A 100%);
+  }
+  .hero-art-wrap{
+    position:relative; z-index:2;
+    width:min(96vw, calc(88svh * 1.75)); max-width:1659px;
+    aspect-ratio:1659 / 948; margin:0 auto; overflow:hidden;
+  }
+  .hero-art-wrap picture{display:block; width:100%; height:100%;}
+  .hero-art-wrap img{display:block; width:100%; height:100%; object-fit:contain; object-position:center;}
+  .hero-mist{position:absolute; inset:0; z-index:3; pointer-events:none;}
+  .hero-mist-left{
+    background:
+      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(3,2,2,0.9), transparent 68%),
+      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(3,2,2,0.9), transparent 68%),
+      linear-gradient(to right, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
+    filter:blur(5px);
+  }
+  .hero-mist-right{
+    background:
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(3,2,2,0.9), transparent 68%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(3,2,2,0.9), transparent 68%),
+      linear-gradient(to left, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
+    filter:blur(5px);
+  }
+  .hero-vignette-outer{
+    position:absolute; inset:0; z-index:4; pointer-events:none;
+    background:radial-gradient(ellipse 82% 80% at 50% 50%, transparent 64%, rgba(4,6,8,0.46) 90%, var(--ink) 100%);
+  }
+  .hero-cta{
+    position:relative; z-index:5; margin-top:clamp(6px,1.5vh,18px);
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:var(--font-display); font-weight:800; font-size:clamp(14px,1.4vw,16px); letter-spacing:.02em;
+    color:var(--ink); background:linear-gradient(135deg,var(--peach),var(--peach-2));
+    padding:15px 30px; border-radius:999px; box-shadow:0 14px 34px rgba(224,169,104,.32);
+    transition:transform .2s ease;
+  }
+  .hero-cta:hover{color:var(--ink); transform:translateY(-2px);}
+
+  /* ---------- SHOWCASE ---------- */
+  main{max-width:1200px; margin:0 auto; padding:clamp(40px,6vh,72px) clamp(20px,4vw,48px) clamp(56px,9vh,104px);}
+  .kicker{font-family:var(--font-mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--signal); margin-bottom:16px;}
+
+  .featured{
+    position:relative; display:flex; gap:clamp(20px,3vw,30px); align-items:center; flex-wrap:wrap;
+    background:linear-gradient(135deg, rgba(91,22,232,.26), rgba(5,111,234,.14) 55%, rgba(10,14,18,0));
+    border:1px solid #3a2f5e; border-radius:22px; padding:clamp(22px,3vw,32px); overflow:hidden;
+    box-shadow:0 24px 60px rgba(60,25,190,.28), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .featured::before{content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 46% 120% at 12% 50%, rgba(123,63,242,.4), transparent 62%);}
+  .featured-icon{
+    position:relative; width:clamp(96px,10vw,116px); height:clamp(96px,10vw,116px); border-radius:26px; flex:none;
+    background:linear-gradient(135deg,var(--violet),var(--blue)); display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:900; font-size:clamp(44px,4.6vw,54px); color:#fff;
+    box-shadow:0 0 60px rgba(91,22,232,.6), 0 10px 30px rgba(0,0,0,.4); animation:nhFloat 6s ease-in-out infinite;
+  }
+  @keyframes nhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .featured-body{position:relative; flex:1; min-width:240px; display:flex; flex-direction:column; gap:9px;}
+  .featured-label{font-family:var(--font-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B9A6FF;}
+  .featured-name{font-family:var(--font-head); font-weight:700; font-size:clamp(22px,2.6vw,28px); color:var(--paper);}
+  .featured-tag{font-size:15px; line-height:1.5; color:#CBD3D6; max-width:540px;}
+  .featured-actions{display:flex; gap:16px; margin-top:8px; align-items:center; flex-wrap:wrap;}
+
+  .store-badge{display:inline-flex; align-items:center; gap:8px; background:#000; border:1px solid #2a2a2a; border-radius:10px; padding:9px 14px; transition:border-color .2s;}
+  .store-badge:hover{border-color:#555;}
+  .store-mark{width:16px; height:16px; border-radius:5px; background:var(--paper); flex:none;}
+  .store-text{font-family:var(--font-mono); font-size:9px; line-height:1.2; color:var(--paper);}
+  .store-text b{display:block; font-family:var(--font-display); font-weight:800; font-size:12px;}
+  .privacy-link{font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; color:#8891a0;}
+  .privacy-link:hover{color:var(--peach-2);}
+
+  .apps-head{display:flex; align-items:center; justify-content:space-between; margin:clamp(44px,7vh,68px) 0 22px; flex-wrap:wrap; gap:16px; scroll-margin-top:88px;}
+  .apps-title{font-family:var(--font-display); font-weight:800; font-size:clamp(22px,3vw,28px); color:var(--paper);}
+  .apps-title span{font-family:var(--font-mono); font-size:14px; color:#5F6B75; font-weight:400;}
+  .apps-controls{display:flex; gap:10px;}
+  .apps-controls input, .apps-controls select{
+    background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:11px 14px;
+    color:var(--paper); font-family:var(--font-body); font-size:14px; outline:none;
+  }
+  .apps-controls input{width:clamp(150px,26vw,240px);}
+  .apps-controls input::placeholder{color:#5F6B75;}
+  .apps-controls select{cursor:pointer;}
+
+  .apps-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px;}
+  .app-card{display:flex; flex-direction:column; align-items:center; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px 20px; gap:12px; transition:border-color .2s, transform .2s;}
+  .app-card:hover{border-color:#3a4a55; transform:translateY(-3px);}
+  .app-icon{width:64px; height:64px; border-radius:16px; flex:none; background:linear-gradient(135deg,var(--signal),var(--peach-2)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:30px; color:var(--ink);}
+  .app-name{font-family:var(--font-head); font-weight:700; font-size:17px; color:var(--paper);}
+  .app-cat{font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; color:#8C6A4A; text-transform:uppercase; margin-top:3px;}
+  .app-tag{font-size:13px; line-height:1.5; color:var(--paper-dim); flex:1;}
+  .app-store-mini{display:inline-flex; align-items:center; gap:6px; background:#000; border:1px solid #2a2a2a; border-radius:9px; padding:8px 13px; transition:border-color .2s;}
+  .app-store-mini:hover{border-color:#555;}
+  .app-store-mini b{font-family:var(--font-display); font-weight:800; font-size:10px; color:var(--paper);}
+  .app-privacy{font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; color:#8891a0; border-top:1px solid var(--line); padding-top:12px; width:100%;}
+  .app-privacy:hover{color:var(--peach-2);}
+  .ghost-card{border:1.5px dashed var(--line); border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px; gap:8px;}
+  .ghost-plus{font-family:var(--font-display); font-weight:900; font-size:32px; color:#2f3d47;}
+  .ghost-text{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:#3f4d57; text-transform:uppercase;}
+  .no-results{grid-column:1/-1; text-align:center; padding:40px; font-family:var(--font-mono); font-size:13px; letter-spacing:.06em; color:#5F6B75;}
+
+  /* ---------- FOOTER (links preserved verbatim) ---------- */
+  footer{background:var(--ink); border-top:1px solid var(--line); padding:34px clamp(20px,4vw,48px); display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;}
+  footer .word{font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:.06em;}
+  .foot-links{display:flex; gap:26px; flex-wrap:wrap; justify-content:center;}
+  .foot-links a{font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; color:var(--paper-dim); transition:color .2s;}
+  .foot-links a:hover{color:var(--signal);}
+  .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
+
+  @media (max-width:760px){
+    #hero{padding:14px 0 6px;}
+    .hero-art-wrap{width:100%; max-width:none;}
+    nav{gap:12px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/" class="brand">NEUHAUS<span>.</span>APPS</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="#apps">About</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+    <a href="#apps" class="nav-apps">Apps</a>
+  </nav>
+</header>
+
+<!-- PAGE 1: NEUHAUS HERO (artwork retained) -->
+<section id="hero">
+  <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus App Design — Apps Worth Opening</h1>
+  <div class="hero-atmosphere"></div>
+  <div class="hero-art-wrap">
+    <picture>
+      <source media="(max-width: 759px)" srcset="assets/Neuhaus-Apps-Mobile-Hero-v9.png">
+      <img src="assets/Neuhaus-Apps-Hero-v8.png" alt="Two hands reaching toward a glowing NEUHAUS app icon, with the words NEUHAUS APP DESIGN and the tagline Worth Opening">
+    </picture>
+    <div class="hero-mist hero-mist-left"></div>
+    <div class="hero-mist hero-mist-right"></div>
+  </div>
+  <div class="hero-vignette-outer"></div>
+  <a href="#apps" class="hero-cta">Explore all apps →</a>
+</section>
+
+<main>
+  <!-- FEATURED -->
+  <div class="kicker">Featured</div>
+  <div class="featured">
+    <div class="featured-icon">P</div>
+    <div class="featured-body">
+      <div class="featured-label">✦ Featured app</div>
+      <div class="featured-name">Prayer Matters</div>
+      <div class="featured-tag">Daily guided prayer, scripture, and evening reflections.</div>
+      <div class="featured-actions">
+        <a href="prayer-matters.html" class="store-badge"><span class="store-mark"></span><span class="store-text">Download on the<b>App Store</b></span></a>
+        <a href="privacy.html" class="privacy-link">Privacy Policy ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL APPS -->
+  <div class="apps-head" id="apps">
+    <div class="apps-title">All apps <span id="app-count">(3)</span></div>
+    <div class="apps-controls">
+      <input id="app-search" type="text" placeholder="Search apps…" aria-label="Search apps">
+      <select id="app-sort" aria-label="Sort apps">
+        <option value="newest">Newest</option>
+        <option value="popular">Popular</option>
+        <option value="az">A–Z</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="apps-grid" id="apps-grid">
+    <div class="app-card" data-name="Prayer Matters" data-cat="faith" data-order="1" data-featured="1">
+      <div class="app-icon">P</div>
+      <div><div class="app-name">Prayer Matters</div><div class="app-cat">Faith</div></div>
+      <div class="app-tag">Daily guided prayer, scripture, and evening reflections.</div>
+      <a href="prayer-matters.html" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
+      <a href="privacy.html" class="app-privacy">Privacy Policy ↗</a>
+    </div>
+
+    <div class="app-card" data-name="SwiftShift" data-cat="work" data-order="2">
+      <div class="app-icon">S</div>
+      <div><div class="app-name">SwiftShift</div><div class="app-cat">Work</div></div>
+      <div class="app-tag">Fast, flexible shift scheduling for busy teams.</div>
+      <a href="#" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
+      <a href="/swiftshift/support/" class="app-privacy">Privacy Policy ↗</a>
+    </div>
+
+    <div class="app-card" data-name="Receipt Scanner" data-cat="productivity" data-order="3">
+      <div class="app-icon">R</div>
+      <div><div class="app-name">Receipt Scanner</div><div class="app-cat">Productivity</div></div>
+      <div class="app-tag">Snap, scan, and organize every receipt in seconds.</div>
+      <a href="#" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
+      <a href="#" class="app-privacy">Privacy Policy ↗</a>
+    </div>
+
+    <div class="ghost-card" data-ghost="1">
+      <div class="ghost-plus">+</div>
+      <div class="ghost-text">More apps soon</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="word">NEUHAUS APPS</div>
+  <div class="foot-links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="/swiftshift/support/">SwiftShift Support</a>
+    <a href="eula.html">EULA</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
+  </div>
+  <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
+</footer>
+
+<script>
+(function(){
+  var grid = document.getElementById('apps-grid');
+  var search = document.getElementById('app-search');
+  var sort = document.getElementById('app-sort');
+  var countEl = document.getElementById('app-count');
+  var ghost = grid.querySelector('[data-ghost]');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.app-card'));
+
+  function apply(){
+    var q = (search.value || '').trim().toLowerCase();
+    var mode = sort.value;
+    var visible = cards.filter(function(c){
+      var hay = (c.dataset.name + ' ' + c.dataset.cat).toLowerCase();
+      var show = hay.indexOf(q) !== -1;
+      c.style.display = show ? '' : 'none';
+      return show;
+    });
+    visible.sort(function(a,b){
+      if(mode === 'az') return a.dataset.name.localeCompare(b.dataset.name);
+      if(mode === 'newest') return (+b.dataset.order) - (+a.dataset.order);
+      return (+(b.dataset.featured||0)) - (+(a.dataset.featured||0));
+    });
+    visible.forEach(function(c){ grid.insertBefore(c, ghost); });
+    countEl.textContent = '(' + visible.length + ')';
+
+    var none = grid.querySelector('.no-results');
+    if(!visible.length){
+      ghost.style.display = 'none';
+      if(!none){ none = document.createElement('div'); none.className = 'no-results'; none.textContent = 'No apps match “' + search.value + '”.'; grid.appendChild(none); }
+      else none.textContent = 'No apps match “' + search.value + '”.';
+    } else {
+      ghost.style.display = '';
+      if(none) none.remove();
+    }
+  }
+  search.addEventListener('input', apply);
+  sort.addEventListener('change', apply);
+  apply();
+})();
+</script>
+
+</body>
+</html>
