@@ -1,315 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neuhaus Apps</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy Policy and support information for Inshore Cast, an accountless inshore fishing forecast app from Neuhaus Apps.">
+<title>Inshore Cast Privacy Policy | Neuhaus Apps</title>
 <style>
-  :root{
-    --ink:#0A0E12; --panel:#121820; --panel-2:#0E141B; --line:#22303A;
-    --paper:#EDEFEC; --paper-dim:#B9C2C3; --peach:#F3D9AE; --peach-2:#E0A968;
-    --signal:#C1571F; --violet:#5B16E8; --blue:#056FEA;
-    --font-display:'Archivo',sans-serif; --font-head:'Space Grotesk',sans-serif;
-    --font-body:'IBM Plex Sans',sans-serif; --font-mono:'IBM Plex Mono',monospace;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--ink); color:var(--paper); font-family:var(--font-body); overflow-x:hidden; -webkit-font-smoothing:antialiased;}
-  a{color:var(--signal); text-decoration:none;}
-  a:hover{color:var(--peach-2);}
-  ::selection{background:var(--signal); color:var(--ink);}
 
-  /* ---------- TOP NAV ---------- */
-  header{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px clamp(20px,4vw,48px);
-    position:sticky; top:0; z-index:100;
-    background:rgba(10,14,18,.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
-    border-bottom:1px solid #141b22;
-  }
-  .brand{font-family:var(--font-display); font-weight:900; font-size:clamp(16px,2vw,19px); letter-spacing:.04em; color:var(--paper);}
-  .brand span{color:var(--signal);}
-  nav{display:flex; align-items:center; gap:clamp(14px,2.4vw,28px); flex-wrap:wrap;}
-  nav a{font-family:var(--font-head); font-weight:600; font-size:clamp(13px,1.5vw,15px); color:var(--paper-dim); transition:color .2s;}
-  nav a:hover{color:var(--paper);}
-  nav a.nav-apps{
-    font-weight:700; color:var(--ink);
-    background:linear-gradient(135deg,var(--peach),var(--peach-2));
-    padding:9px 22px; border-radius:999px;
-  }
-  nav a.nav-apps:hover{color:var(--ink); filter:brightness(1.05);}
+:root {
+  --bg: #060F19;
+  --bg2: #0A1826;
+  --panel: rgba(13, 34, 52, 0.72);
+  --panel2: rgba(18, 42, 64, 0.62);
+  --aqua: #6FD3D6;
+  --aqua2: #35E6F0;
+  --gold: #F2A24D;
+  --gold2: #F5C07A;
+  --text: #EAF3F8;
+  --muted: #8FB3C4;
+  --muted2: #6F97AC;
+  --border: rgba(111, 211, 214, 0.24);
+  --goldBorder: rgba(242, 162, 77, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 74% 0%, rgba(242, 162, 77, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 12% 10%, rgba(111, 211, 214, 0.16), transparent 62%),
+    linear-gradient(180deg, #071320 0%, #030910 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--aqua); text-decoration: none; }
+a:hover { color: #b7faff; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(18px, 6vw, 72px);
+  border-bottom: 1px solid rgba(111, 211, 214, 0.14);
+  background: rgba(3, 9, 16, 0.45);
+  backdrop-filter: blur(16px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(242, 162, 77, 0.95), rgba(242, 162, 77, 0.15) 28%, transparent 35%),
+    conic-gradient(from -125deg, var(--aqua), var(--aqua2), var(--gold), var(--gold2), var(--aqua));
+  box-shadow: 0 0 22px rgba(111, 211, 214, 0.22);
+  position: relative;
+}
+.brand span span:first-child { color: var(--aqua); }
+.brand span span:last-child { color: var(--gold2); }
+.navlinks {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 650;
+}
+.navlinks a { color: #b9cad4; }
+.navlinks a:hover { color: var(--text); }
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 42px) clamp(72px, 10vw, 120px);
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 800;
+}
+h1 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.gradient-text {
+  background: linear-gradient(100deg, var(--aqua) 0%, #d5fbff 44%, var(--gold2) 75%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lede {
+  margin: 20px 0 0;
+  color: #b8ced9;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.65;
+}
+.updated { margin-top: 16px; color: var(--muted2); font-size: 15px; }
+.callout {
+  margin-top: 34px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--goldBorder);
+  background: linear-gradient(140deg, rgba(242, 162, 77, 0.12), rgba(111, 211, 214, 0.07)), rgba(5, 15, 25, 0.72);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+}
+.callout p { margin: 0; color: #e7f4f7; font-size: 20px; line-height: 1.55; }
+.content { margin-top: 44px; display: flex; flex-direction: column; gap: 28px; }
+.policy-section {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(111, 211, 214, 0.16);
+  background: radial-gradient(700px 240px at 100% 0%, rgba(111, 211, 214, 0.08), transparent 70%), rgba(7, 20, 33, 0.64);
+}
+.policy-section h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -0.02em; }
+.policy-section h3 { margin: 20px 0 8px; color: var(--text); font-size: 18px; }
+.policy-section p, .policy-section li { color: #b5c8d3; font-size: 16.5px; line-height: 1.72; }
+.policy-section p { margin: 0; }
+.policy-section p + p { margin-top: 14px; }
+.policy-section ul { margin: 14px 0 0; padding-left: 22px; }
+.policy-section li + li { margin-top: 7px; }
+.policy-section strong { color: #edf8fb; font-weight: 760; }
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(111, 211, 214, 0.13);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  color: #7792a1;
+  font-size: 14px;
+}
+.small { color: #8da8b7; font-size: 14px; }
+@media (max-width: 640px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .policy-section { padding: 21px; }
+}
 
-  /* ---------- HERO (kept from original artwork) ---------- */
-  #hero{
-    padding:clamp(16px,2.4vh,40px) 0 clamp(8px,2vh,28px);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    background:var(--ink); position:relative; overflow:hidden;
-  }
-  .hero-atmosphere{
-    position:absolute; inset:0; z-index:0; pointer-events:none;
-    background:
-      radial-gradient(ellipse 44% 62% at 6% 50%, rgba(122,26,31,0.40) 0%, rgba(90,20,20,0.16) 42%, transparent 72%),
-      radial-gradient(ellipse 44% 62% at 94% 50%, rgba(185,102,47,0.34) 0%, rgba(122,26,31,0.15) 42%, transparent 74%),
-      radial-gradient(ellipse 58% 50% at 50% 46%, rgba(102,36,18,0.22) 0%, transparent 66%),
-      linear-gradient(180deg,#04060A 0%,#0A0E12 26%,#0A0E12 74%,#04060A 100%);
-  }
-  .hero-art-wrap{
-    position:relative; z-index:2;
-    width:min(96vw, calc(88svh * 1.75)); max-width:1659px;
-    aspect-ratio:1659 / 948; margin:0 auto; overflow:hidden;
-  }
-  .hero-art-wrap picture{display:block; width:100%; height:100%;}
-  .hero-art-wrap img{display:block; width:100%; height:100%; object-fit:contain; object-position:center;}
-  .hero-mist{position:absolute; inset:0; z-index:3; pointer-events:none;}
-  .hero-mist-left{
-    background:
-      radial-gradient(ellipse 60% 40% at 0% 0%, rgba(3,2,2,0.9), transparent 68%),
-      radial-gradient(ellipse 60% 40% at 0% 100%, rgba(3,2,2,0.9), transparent 68%),
-      linear-gradient(to right, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
-    filter:blur(5px);
-  }
-  .hero-mist-right{
-    background:
-      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(3,2,2,0.9), transparent 68%),
-      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(3,2,2,0.9), transparent 68%),
-      linear-gradient(to left, rgba(3,2,2,0.26) 0%, rgba(3,2,2,0.08) 8%, transparent 13%);
-    filter:blur(5px);
-  }
-  .hero-vignette-outer{
-    position:absolute; inset:0; z-index:4; pointer-events:none;
-    background:radial-gradient(ellipse 82% 80% at 50% 50%, transparent 64%, rgba(4,6,8,0.46) 90%, var(--ink) 100%);
-  }
-  .hero-cta{
-    position:relative; z-index:5; margin-top:clamp(6px,1.5vh,18px);
-    display:inline-flex; align-items:center; gap:10px;
-    font-family:var(--font-display); font-weight:800; font-size:clamp(14px,1.4vw,16px); letter-spacing:.02em;
-    color:var(--ink); background:linear-gradient(135deg,var(--peach),var(--peach-2));
-    padding:15px 30px; border-radius:999px; box-shadow:0 14px 34px rgba(224,169,104,.32);
-    transition:transform .2s ease;
-  }
-  .hero-cta:hover{color:var(--ink); transform:translateY(-2px);}
-
-  /* ---------- SHOWCASE ---------- */
-  main{max-width:1200px; margin:0 auto; padding:clamp(40px,6vh,72px) clamp(20px,4vw,48px) clamp(56px,9vh,104px);}
-  .kicker{font-family:var(--font-mono); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:var(--signal); margin-bottom:16px;}
-
-  .featured{
-    position:relative; display:flex; gap:clamp(20px,3vw,30px); align-items:center; flex-wrap:wrap;
-    background:linear-gradient(135deg, rgba(91,22,232,.26), rgba(5,111,234,.14) 55%, rgba(10,14,18,0));
-    border:1px solid #3a2f5e; border-radius:22px; padding:clamp(22px,3vw,32px); overflow:hidden;
-    box-shadow:0 24px 60px rgba(60,25,190,.28), inset 0 1px 0 rgba(255,255,255,.06);
-  }
-  .featured::before{content:''; position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse 46% 120% at 12% 50%, rgba(123,63,242,.4), transparent 62%);}
-  .featured-icon{
-    position:relative; width:clamp(96px,10vw,116px); height:clamp(96px,10vw,116px); border-radius:26px; flex:none;
-    background:linear-gradient(135deg,var(--violet),var(--blue)); display:flex; align-items:center; justify-content:center;
-    font-family:var(--font-display); font-weight:900; font-size:clamp(44px,4.6vw,54px); color:#fff;
-    box-shadow:0 0 60px rgba(91,22,232,.6), 0 10px 30px rgba(0,0,0,.4); animation:nhFloat 6s ease-in-out infinite;
-  }
-  @keyframes nhFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-  .featured-body{position:relative; flex:1; min-width:240px; display:flex; flex-direction:column; gap:9px;}
-  .featured-label{font-family:var(--font-mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#B9A6FF;}
-  .featured-name{font-family:var(--font-head); font-weight:700; font-size:clamp(22px,2.6vw,28px); color:var(--paper);}
-  .featured-tag{font-size:15px; line-height:1.5; color:#CBD3D6; max-width:540px;}
-  .featured-actions{display:flex; gap:16px; margin-top:8px; align-items:center; flex-wrap:wrap;}
-
-  .store-badge{display:inline-flex; align-items:center; gap:8px; background:#000; border:1px solid #2a2a2a; border-radius:10px; padding:9px 14px; transition:border-color .2s;}
-  .store-badge:hover{border-color:#555;}
-  .store-mark{width:16px; height:16px; border-radius:5px; background:var(--paper); flex:none;}
-  .store-text{font-family:var(--font-mono); font-size:9px; line-height:1.2; color:var(--paper);}
-  .store-text b{display:block; font-family:var(--font-display); font-weight:800; font-size:12px;}
-  .privacy-link{font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; color:#8891a0;}
-  .privacy-link:hover{color:var(--peach-2);}
-
-  .apps-head{display:flex; align-items:center; justify-content:space-between; margin:clamp(44px,7vh,68px) 0 22px; flex-wrap:wrap; gap:16px; scroll-margin-top:88px;}
-  .apps-title{font-family:var(--font-display); font-weight:800; font-size:clamp(22px,3vw,28px); color:var(--paper);}
-  .apps-title span{font-family:var(--font-mono); font-size:14px; color:#5F6B75; font-weight:400;}
-  .apps-controls{display:flex; gap:10px;}
-  .apps-controls input, .apps-controls select{
-    background:var(--panel-2); border:1px solid var(--line); border-radius:10px; padding:11px 14px;
-    color:var(--paper); font-family:var(--font-body); font-size:14px; outline:none;
-  }
-  .apps-controls input{width:clamp(150px,26vw,240px);}
-  .apps-controls input::placeholder{color:#5F6B75;}
-  .apps-controls select{cursor:pointer;}
-
-  .apps-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:18px;}
-  .app-card{display:flex; flex-direction:column; align-items:center; text-align:center; background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px 20px; gap:12px; transition:border-color .2s, transform .2s;}
-  .app-card:hover{border-color:#3a4a55; transform:translateY(-3px);}
-  .app-icon{width:64px; height:64px; border-radius:16px; flex:none; background:linear-gradient(135deg,var(--signal),var(--peach-2)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:30px; color:var(--ink);}
-  .app-name{font-family:var(--font-head); font-weight:700; font-size:17px; color:var(--paper);}
-  .app-cat{font-family:var(--font-mono); font-size:10px; letter-spacing:.1em; color:#8C6A4A; text-transform:uppercase; margin-top:3px;}
-  .app-tag{font-size:13px; line-height:1.5; color:var(--paper-dim); flex:1;}
-  .app-store-mini{display:inline-flex; align-items:center; gap:6px; background:#000; border:1px solid #2a2a2a; border-radius:9px; padding:8px 13px; transition:border-color .2s;}
-  .app-store-mini:hover{border-color:#555;}
-  .app-store-mini b{font-family:var(--font-display); font-weight:800; font-size:10px; color:var(--paper);}
-  .app-privacy{font-family:var(--font-mono); font-size:11px; letter-spacing:.05em; color:#8891a0; border-top:1px solid var(--line); padding-top:12px; width:100%;}
-  .app-privacy:hover{color:var(--peach-2);}
-  .ghost-card{border:1.5px dashed var(--line); border-radius:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:200px; gap:8px;}
-  .ghost-plus{font-family:var(--font-display); font-weight:900; font-size:32px; color:#2f3d47;}
-  .ghost-text{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; color:#3f4d57; text-transform:uppercase;}
-  .no-results{grid-column:1/-1; text-align:center; padding:40px; font-family:var(--font-mono); font-size:13px; letter-spacing:.06em; color:#5F6B75;}
-
-  /* ---------- FOOTER (links preserved verbatim) ---------- */
-  footer{background:var(--ink); border-top:1px solid var(--line); padding:34px clamp(20px,4vw,48px); display:flex; flex-direction:column; align-items:center; gap:16px; text-align:center;}
-  footer .word{font-family:var(--font-display); font-weight:800; font-size:13px; letter-spacing:.06em;}
-  .foot-links{display:flex; gap:26px; flex-wrap:wrap; justify-content:center;}
-  .foot-links a{font-family:var(--font-mono); font-size:11px; letter-spacing:.08em; color:var(--paper-dim); transition:color .2s;}
-  .foot-links a:hover{color:var(--signal);}
-  .copyright{font-family:var(--font-mono); font-size:10.5px; color:var(--paper-dim);}
-
-  @media (max-width:760px){
-    #hero{padding:14px 0 6px;}
-    .hero-art-wrap{width:100%; max-width:none;}
-    nav{gap:12px;}
-  }
-  @media (prefers-reduced-motion:reduce){*{animation-duration:.001ms !important; transition-duration:.001ms !important;}}
 </style>
 </head>
 <body>
-
-<header>
-  <a href="/" class="brand">NEUHAUS<span>.</span>APPS</a>
-  <nav>
-    <a href="/">Home</a>
-    <a href="#apps">About</a>
-    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
-    <a href="#apps" class="nav-apps">Apps</a>
+<div class="topbar">
+  <a class="brand" href="../support/" aria-label="Inshore Cast support home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span><span>INSHORE</span> <span>CAST</span></span>
+  </a>
+  <nav class="navlinks" aria-label="Inshore Cast legal links">
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
   </nav>
-</header>
-
-<!-- PAGE 1: NEUHAUS HERO (artwork retained) -->
-<section id="hero">
-  <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">Neuhaus App Design — Apps Worth Opening</h1>
-  <div class="hero-atmosphere"></div>
-  <div class="hero-art-wrap">
-    <picture>
-      <source media="(max-width: 759px)" srcset="assets/Neuhaus-Apps-Mobile-Hero-v9.png">
-      <img src="assets/Neuhaus-Apps-Hero-v8.png" alt="Two hands reaching toward a glowing NEUHAUS app icon, with the words NEUHAUS APP DESIGN and the tagline Worth Opening">
-    </picture>
-    <div class="hero-mist hero-mist-left"></div>
-    <div class="hero-mist hero-mist-right"></div>
-  </div>
-  <div class="hero-vignette-outer"></div>
-  <a href="#apps" class="hero-cta">Explore all apps →</a>
-</section>
+</div>
 
 <main>
-  <!-- FEATURED -->
-  <div class="kicker">Featured</div>
-  <div class="featured">
-    <div class="featured-icon">P</div>
-    <div class="featured-body">
-      <div class="featured-label">✦ Featured app</div>
-      <div class="featured-name">Prayer Matters</div>
-      <div class="featured-tag">Daily guided prayer, scripture, and evening reflections.</div>
-      <div class="featured-actions">
-        <a href="prayer-matters.html" class="store-badge"><span class="store-mark"></span><span class="store-text">Download on the<b>App Store</b></span></a>
-        <a href="privacy.html" class="privacy-link">Privacy Policy ↗</a>
-      </div>
-    </div>
+  <span class="eyebrow">Privacy &amp; Support</span>
+  <h1><span class="gradient-text">Privacy Policy</span><br>for Inshore Cast</h1>
+  <p class="lede">How Inshore Cast handles location, forecast, notification, subscription, and accountless app information.</p>
+  <p class="updated">Last updated: August 10, 2026</p>
+
+  <div class="callout"><p>Inshore Cast is accountless by design. It uses only the information needed to provide local fishing forecasts, Cast Alerts, Live Cast, and Pro subscription features.</p></div>
+
+  <div class="content">
+    <section class="policy-section">
+      <h2>Support</h2>
+
+      <p>For help with Inshore Cast, contact Neuhaus Apps at <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>.</p>
+      <p>When reporting a problem, please include the app name, your device model, your iOS version, and a brief description of the issue. Please do not send private fishing locations or screenshots containing sensitive personal information unless you intentionally choose to share that information for support.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Overview</h2>
+
+      <p>Inshore Cast is developed by Neuhaus Apps. This Privacy Policy explains how the Inshore Cast iOS app and related support website handle information.</p>
+      <p>Inshore Cast is designed as an accountless fishing-forecast app. You do not need to create a Neuhaus Apps account, provide an email address, or sign in to use the app.</p>
+      <p>Inshore Cast uses location, weather, tide, notification, subscription, and backend services to provide fishing forecasts, Bite Scores, Cast Alerts, Live Cast, saved locations, and Inshore Cast Pro features.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Information We Collect or Process</h2>
+
+      <p>Inshore Cast may process the following information depending on the features you use:</p>
+      <ul>
+        <li><strong>Anonymous installation information</strong>, such as a randomly generated installation identifier, app version, operating system version, locale, time zone, and last-seen timestamps.</li>
+        <li><strong>Location-related information</strong>, such as a current location you allow, a location you search for, or a pin you drop on the map.</li>
+        <li><strong>Coarse monitoring locations</strong> used by the backend to calculate forecasts and alerts. The app is designed to keep exact private fishing pins primarily on your device and use rounded or coarse location data for backend monitoring.</li>
+        <li><strong>Fishing preferences</strong>, such as selected target species, saved fishing locations, alert thresholds, lead times, and enabled alert types.</li>
+        <li><strong>Notification tokens</strong>, including Apple Push Notification service device tokens and Live Activity push tokens, when you enable notifications, Cast Alerts, or Live Cast.</li>
+        <li><strong>Subscription information</strong>, such as Apple-signed transaction information, product ID, subscription state, expiration date, environment, and an anonymous app account token used to associate the purchase with your anonymous installation.</li>
+        <li><strong>Support correspondence</strong> if you voluntarily email Neuhaus Apps.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Information We Do Not Collect</h2>
+
+      <p>Inshore Cast does not require or intentionally collect:</p>
+      <ul>
+        <li>A Neuhaus Apps account, username, or password</li>
+        <li>Your email address inside the app</li>
+        <li>Advertising identifiers for targeted advertising</li>
+        <li>Contacts, photos, microphone recordings, health data, or calendars</li>
+        <li>Payment-card numbers or complete payment credentials</li>
+        <li>Public social profiles, follower lists, messages, or community posts</li>
+      </ul>
+      <p>Inshore Cast does not display advertising, does not sell personal information, and is not designed to track you across other companies’ apps or websites.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Location Information</h2>
+
+      <p>Inshore Cast uses location information to provide local fishing forecasts, tide information, weather context, saved fishing areas, Cast Alerts, and Live Cast.</p>
+      <p>You may use your current location, search for a location, or drop a pin manually. If you allow location access, Inshore Cast requests <strong>When In Use</strong> location permission. The app is not designed to continuously track your movement in the background.</p>
+      <p>Exact fishing spots can be sensitive. Inshore Cast is designed so exact saved pins remain primarily on your device, while the backend uses a rounded or coarse monitoring location when server-side forecasts, alerts, or Live Activity updates are needed.</p>
+      <p>You can change location permissions at any time in the Settings app on your device.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Weather, Tide, Forecast, and Bite Score Data</h2>
+
+      <p>Inshore Cast uses weather and tide data to generate fishing forecasts, Bite Scores, prime windows, Cast Alerts, and recommendations.</p>
+      <ul>
+        <li><strong>Apple Weather / WeatherKit</strong> is used for weather-related information.</li>
+        <li><strong>NOAA CO-OPS</strong> is used for tide, water-level, station, and coastal observation information where available.</li>
+        <li><strong>Inshore Cast</strong> combines these inputs with species and location preferences to generate derived Bite Scores and fishing guidance.</li>
+      </ul>
+      <p>Bite Score is an estimate based on environmental conditions and species preferences. It does not guarantee fish activity or catches and should not be used as a safety, emergency, marine-navigation, or regulatory tool.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Notifications, Cast Alerts, and Live Activities</h2>
+
+      <p>If you enable notifications, Cast Alerts, or Live Cast, Inshore Cast uses Apple’s notification and Live Activity systems to send and display updates about fishing conditions.</p>
+      <p>To deliver these features, the app and backend may process APNs device tokens, Live Activity push tokens, alert rules, species selections, coarse monitoring locations, and active-session information.</p>
+      <p>You can manage notification permissions through your device’s Settings app. Live Activities and Dynamic Island behavior are controlled by iOS and your device settings.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Purchases and Subscriptions</h2>
+
+      <p>Inshore Cast Pro subscriptions are purchased through Apple’s App Store. Apple processes payments, free trials, renewals, cancellations, refunds, taxes, and billing according to Apple’s own terms and privacy practices.</p>
+      <p>Neuhaus Apps does not receive or store your complete payment-card information.</p>
+      <p>To verify subscription status and provide Pro features, Inshore Cast may send Apple-signed transaction information to the backend. The backend uses this information to verify the purchase with Apple and store an entitlement state associated with an anonymous installation identifier.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>How We Use Information</h2>
+
+      <p>Neuhaus Apps uses information processed through Inshore Cast to:</p>
+      <ul>
+        <li>Provide local fishing forecasts and Bite Scores</li>
+        <li>Show tide, weather, and species-specific fishing information</li>
+        <li>Store user-selected species, saved locations, and app preferences</li>
+        <li>Deliver Cast Alerts, Live Cast, and notification features</li>
+        <li>Verify Inshore Cast Pro subscriptions</li>
+        <li>Improve reliability, security, and error handling</li>
+        <li>Respond to support requests you send by email</li>
+      </ul>
+      <p>Neuhaus Apps does not use this information to sell advertising or create a third-party advertising profile.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Third-Party Services</h2>
+
+      <p>Inshore Cast uses or may interact with the following third-party services:</p>
+      <ul>
+        <li><strong>Apple</strong> for App Store distribution, purchases, StoreKit, push notifications, Live Activities, Maps, WeatherKit, and device-level privacy controls.</li>
+        <li><strong>NOAA CO-OPS</strong> for tide, water-level, station, and coastal observation information.</li>
+        <li><strong>Supabase</strong> for backend database and Edge Function services used by accountless installations, alerts, subscriptions, and forecast processing.</li>
+        <li><strong>Website hosting providers</strong>, such as GitHub Pages or another host used by Neuhaus Apps, to display support, privacy, and terms pages.</li>
+      </ul>
+      <p>These services may process technical information according to their own policies and terms. You can review Apple’s Privacy Policy at <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">apple.com/legal/privacy</a>, NOAA CO-OPS information at <a href="https://www.co-ops.nos.noaa.gov/" target="_blank" rel="noopener noreferrer">co-ops.nos.noaa.gov</a>, and Supabase information at <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a>.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Sharing</h2>
+
+      <p>Neuhaus Apps does not sell your personal information.</p>
+      <p>Information may be processed by service providers only as needed to operate Inshore Cast, including Apple, Supabase, NOAA data services, and website hosting providers. Neuhaus Apps may also disclose information if required by law, to protect rights and security, or to respond to lawful requests.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Retention and Deletion</h2>
+
+      <p>Inshore Cast stores app preferences and selected information on your device. Backend records related to anonymous installations, alert rules, Live Activities, subscription entitlements, and forecast processing may be retained as needed to provide the app, operate Pro features, prevent abuse, maintain security, and comply with legal obligations.</p>
+      <p>You may remove local app data using available in-app controls or by deleting the app. If a reset-data option is available in the app, it may also deactivate or remove related backend records where technically practical.</p>
+      <p>You may contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a> for privacy questions or deletion requests related to support emails or backend records associated with your installation.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Security</h2>
+
+      <p>Neuhaus Apps uses reasonable technical and organizational measures to protect information processed through Inshore Cast. The app uses an accountless design, anonymous installation identifiers, backend access controls, and server-side secrets that are not intended to be included in the iOS app bundle.</p>
+      <p>No method of electronic storage or transmission can be guaranteed to be completely secure. You are responsible for protecting your device, passcode, Apple Account, backups, and device settings.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Children’s Privacy</h2>
+
+      <p>Inshore Cast is not directed to children under 13 and does not knowingly collect personal information from children under 13. If you believe a child has provided information to Neuhaus Apps, contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>International Processing</h2>
+
+      <p>Information may be processed in the United States or other locations where Neuhaus Apps or its service providers operate. By using Inshore Cast, you understand that information may be processed in jurisdictions different from where you live.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Choices</h2>
+
+      <ul>
+        <li>You can choose whether to grant location permission.</li>
+        <li>You can search or drop a pin manually instead of using current location.</li>
+        <li>You can enable or disable notifications in device Settings.</li>
+        <li>You can manage Live Activities through iOS settings and supported app controls.</li>
+        <li>You can manage or cancel subscriptions through your Apple Account subscriptions page.</li>
+        <li>You can delete the app or reset app data where the app provides that option.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes to This Policy</h2>
+
+      <p>Neuhaus Apps may update this Privacy Policy if Inshore Cast’s features, services, or privacy practices change. When updated, the revised policy will be posted on this page and the “Last updated” date will be changed.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact</h2>
+
+      <p>For support, privacy questions, or concerns about this policy, contact:</p>
+      <p><strong>Neuhaus Apps</strong><br>Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></p>
+
+    </section>
+
   </div>
 
-  <!-- ALL APPS -->
-  <div class="apps-head" id="apps">
-    <div class="apps-title">All apps <span id="app-count">(3)</span></div>
-    <div class="apps-controls">
-      <input id="app-search" type="text" placeholder="Search apps…" aria-label="Search apps">
-      <select id="app-sort" aria-label="Sort apps">
-        <option value="newest">Newest</option>
-        <option value="popular">Popular</option>
-        <option value="az">A–Z</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="apps-grid" id="apps-grid">
-    <div class="app-card" data-name="Prayer Matters" data-cat="faith" data-order="1" data-featured="1">
-      <div class="app-icon">P</div>
-      <div><div class="app-name">Prayer Matters</div><div class="app-cat">Faith</div></div>
-      <div class="app-tag">Daily guided prayer, scripture, and evening reflections.</div>
-      <a href="prayer-matters.html" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
-      <a href="privacy.html" class="app-privacy">Privacy Policy ↗</a>
-    </div>
-
-    <div class="app-card" data-name="SwiftShift" data-cat="work" data-order="2">
-      <div class="app-icon">S</div>
-      <div><div class="app-name">SwiftShift</div><div class="app-cat">Work</div></div>
-      <div class="app-tag">Fast, flexible shift scheduling for busy teams.</div>
-      <a href="#" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
-      <a href="/swiftshift/support/" class="app-privacy">Privacy Policy ↗</a>
-    </div>
-
-    <div class="app-card" data-name="Receipt Scanner" data-cat="productivity" data-order="3">
-      <div class="app-icon">R</div>
-      <div><div class="app-name">Receipt Scanner</div><div class="app-cat">Productivity</div></div>
-      <div class="app-tag">Snap, scan, and organize every receipt in seconds.</div>
-      <a href="#" class="app-store-mini"><span class="store-mark"></span><b>App Store</b></a>
-      <a href="#" class="app-privacy">Privacy Policy ↗</a>
-    </div>
-
-    <div class="ghost-card" data-ghost="1">
-      <div class="ghost-plus">+</div>
-      <div class="ghost-text">More apps soon</div>
-    </div>
+  <div class="footer">
+    <span>© 2026 Neuhaus Apps. All rights reserved.</span>
+    <span><a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></span>
   </div>
 </main>
-
-<footer>
-  <div class="word">NEUHAUS APPS</div>
-  <div class="foot-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="/swiftshift/support/">SwiftShift Support</a>
-    <a href="eula.html">EULA</a>
-    <a href="terms.html">Terms of Use</a>
-    <a href="mailto:Ineuhaus.musc@gmail.com">Contact</a>
-  </div>
-  <div class="copyright">© 2026 Neuhaus Apps. All rights reserved.</div>
-</footer>
-
-<script>
-(function(){
-  var grid = document.getElementById('apps-grid');
-  var search = document.getElementById('app-search');
-  var sort = document.getElementById('app-sort');
-  var countEl = document.getElementById('app-count');
-  var ghost = grid.querySelector('[data-ghost]');
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.app-card'));
-
-  function apply(){
-    var q = (search.value || '').trim().toLowerCase();
-    var mode = sort.value;
-    var visible = cards.filter(function(c){
-      var hay = (c.dataset.name + ' ' + c.dataset.cat).toLowerCase();
-      var show = hay.indexOf(q) !== -1;
-      c.style.display = show ? '' : 'none';
-      return show;
-    });
-    visible.sort(function(a,b){
-      if(mode === 'az') return a.dataset.name.localeCompare(b.dataset.name);
-      if(mode === 'newest') return (+b.dataset.order) - (+a.dataset.order);
-      return (+(b.dataset.featured||0)) - (+(a.dataset.featured||0));
-    });
-    visible.forEach(function(c){ grid.insertBefore(c, ghost); });
-    countEl.textContent = '(' + visible.length + ')';
-
-    var none = grid.querySelector('.no-results');
-    if(!visible.length){
-      ghost.style.display = 'none';
-      if(!none){ none = document.createElement('div'); none.className = 'no-results'; none.textContent = 'No apps match “' + search.value + '”.'; grid.appendChild(none); }
-      else none.textContent = 'No apps match “' + search.value + '”.';
-    } else {
-      ghost.style.display = '';
-      if(none) none.remove();
-    }
-  }
-  search.addEventListener('input', apply);
-  sort.addEventListener('change', apply);
-  apply();
-})();
-</script>
-
 </body>
 </html>
