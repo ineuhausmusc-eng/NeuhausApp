@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Terms of Use for Inshore Cast, an inshore fishing forecast app from Neuhaus Apps.">
+<title>Inshore Cast Terms of Use | Neuhaus Apps</title>
+<style>
+
+:root {
+  --bg: #060F19;
+  --bg2: #0A1826;
+  --panel: rgba(13, 34, 52, 0.72);
+  --panel2: rgba(18, 42, 64, 0.62);
+  --aqua: #6FD3D6;
+  --aqua2: #35E6F0;
+  --gold: #F2A24D;
+  --gold2: #F5C07A;
+  --text: #EAF3F8;
+  --muted: #8FB3C4;
+  --muted2: #6F97AC;
+  --border: rgba(111, 211, 214, 0.24);
+  --goldBorder: rgba(242, 162, 77, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 74% 0%, rgba(242, 162, 77, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 12% 10%, rgba(111, 211, 214, 0.16), transparent 62%),
+    linear-gradient(180deg, #071320 0%, #030910 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--aqua); text-decoration: none; }
+a:hover { color: #b7faff; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(18px, 6vw, 72px);
+  border-bottom: 1px solid rgba(111, 211, 214, 0.14);
+  background: rgba(3, 9, 16, 0.45);
+  backdrop-filter: blur(16px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(242, 162, 77, 0.95), rgba(242, 162, 77, 0.15) 28%, transparent 35%),
+    conic-gradient(from -125deg, var(--aqua), var(--aqua2), var(--gold), var(--gold2), var(--aqua));
+  box-shadow: 0 0 22px rgba(111, 211, 214, 0.22);
+  position: relative;
+}
+.brand span span:first-child { color: var(--aqua); }
+.brand span span:last-child { color: var(--gold2); }
+.navlinks {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 650;
+}
+.navlinks a { color: #b9cad4; }
+.navlinks a:hover { color: var(--text); }
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 42px) clamp(72px, 10vw, 120px);
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 800;
+}
+h1 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.gradient-text {
+  background: linear-gradient(100deg, var(--aqua) 0%, #d5fbff 44%, var(--gold2) 75%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lede {
+  margin: 20px 0 0;
+  color: #b8ced9;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.65;
+}
+.updated { margin-top: 16px; color: var(--muted2); font-size: 15px; }
+.callout {
+  margin-top: 34px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--goldBorder);
+  background: linear-gradient(140deg, rgba(242, 162, 77, 0.12), rgba(111, 211, 214, 0.07)), rgba(5, 15, 25, 0.72);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+}
+.callout p { margin: 0; color: #e7f4f7; font-size: 20px; line-height: 1.55; }
+.content { margin-top: 44px; display: flex; flex-direction: column; gap: 28px; }
+.policy-section {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(111, 211, 214, 0.16);
+  background: radial-gradient(700px 240px at 100% 0%, rgba(111, 211, 214, 0.08), transparent 70%), rgba(7, 20, 33, 0.64);
+}
+.policy-section h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -0.02em; }
+.policy-section h3 { margin: 20px 0 8px; color: var(--text); font-size: 18px; }
+.policy-section p, .policy-section li { color: #b5c8d3; font-size: 16.5px; line-height: 1.72; }
+.policy-section p { margin: 0; }
+.policy-section p + p { margin-top: 14px; }
+.policy-section ul { margin: 14px 0 0; padding-left: 22px; }
+.policy-section li + li { margin-top: 7px; }
+.policy-section strong { color: #edf8fb; font-weight: 760; }
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(111, 211, 214, 0.13);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  color: #7792a1;
+  font-size: 14px;
+}
+.small { color: #8da8b7; font-size: 14px; }
+@media (max-width: 640px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .policy-section { padding: 21px; }
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="../support/" aria-label="Inshore Cast support home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span><span>INSHORE</span> <span>CAST</span></span>
+  </a>
+  <nav class="navlinks" aria-label="Inshore Cast legal links">
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
+  </nav>
+</div>
+
+<main>
+  <span class="eyebrow">Terms of Use</span>
+  <h1><span class="gradient-text">Terms of Use</span><br>for Inshore Cast</h1>
+  <p class="lede">The rules and responsibilities that apply when using Inshore Cast, Cast Alerts, Live Cast, and Inshore Cast Pro.</p>
+  <p class="updated">Last updated: August 10, 2026</p>
+
+  <div class="callout"><p>Inshore Cast is a recreational fishing-planning tool. It helps you decide when to fish and what to throw, but it does not replace official weather, tide, safety, navigation, or fishing-regulation sources.</p></div>
+
+  <div class="content">
+    <section class="policy-section">
+      <h2>Agreement to These Terms</h2>
+
+      <p>These Terms of Use apply to your use of the Inshore Cast iOS app and related Neuhaus Apps support website. By downloading, accessing, or using Inshore Cast, you agree to these Terms.</p>
+      <p>If you do not agree to these Terms, do not use Inshore Cast.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>About Inshore Cast</h2>
+
+      <p>Inshore Cast is a recreational fishing-forecast app that provides fishing outlooks, Bite Scores, weather and tide context, species-specific recommendations, saved locations, Cast Alerts, Live Cast, and optional Inshore Cast Pro features.</p>
+      <p>Inshore Cast is not a marine-navigation app, emergency weather service, legal-regulation service, or guarantee of fish activity.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>No Account Required</h2>
+
+      <p>Inshore Cast is designed to operate without a Neuhaus Apps user account. Some features use an anonymous installation identifier so the app can provide notifications, Live Activities, alert rules, subscription entitlements, and backend forecast features without requiring a sign-in.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Fishing Forecasts and Safety</h2>
+
+      <p>Bite Score, fishing windows, “What to Throw” recommendations, Cast Alerts, Live Cast, weather context, and tide information are estimates and planning aids only.</p>
+      <p>You are solely responsible for your decisions, safety, travel, boating, fishing, and outdoor activities. Always verify current weather, tides, marine conditions, water hazards, local fishing regulations, licenses, closures, and safety information from official and local sources before going on the water.</p>
+      <p>Neuhaus Apps does not guarantee that you will catch fish or that the app’s information will be complete, current, accurate, uninterrupted, or available at all times.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Location and Map Features</h2>
+
+      <p>Inshore Cast may let you use your current location, search for a place, save fishing locations, or drop a pin. Location and map information may be approximate, incomplete, delayed, or unavailable.</p>
+      <p>Do not rely on Inshore Cast for navigation, emergency response, safe boating routes, property boundaries, legal access, or hazard avoidance.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Notifications, Cast Alerts, and Live Cast</h2>
+
+      <p>Notifications, Cast Alerts, Live Cast, Lock Screen information, and Dynamic Island updates are optional convenience features. They may be delayed, fail to deliver, expire, or be limited by Apple, iOS settings, network conditions, your device, or backend availability.</p>
+      <p>Do not rely on notifications or Live Activities for emergency weather, safety, navigation, or time-critical warnings.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Subscriptions and Purchases</h2>
+
+      <p>Inshore Cast may offer an optional auto-renewable subscription, including Inshore Cast Pro. Subscription details, pricing, trial eligibility, renewal terms, and available offers are shown in the app and managed by Apple through the App Store.</p>
+      <p>Unless canceled, auto-renewable subscriptions renew according to Apple’s terms. You can manage or cancel subscriptions through your Apple Account settings. Refunds, billing, taxes, renewals, and payment issues are handled by Apple according to Apple’s policies.</p>
+      <p>Neuhaus Apps does not collect or store your complete payment-card information.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Acceptable Use</h2>
+
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use Inshore Cast for unlawful, unsafe, or harmful activity.</li>
+        <li>Attempt to reverse engineer, modify, disrupt, or interfere with the app or backend services except where allowed by law.</li>
+        <li>Attempt to access data or systems you are not authorized to access.</li>
+        <li>Use the app to violate fishing laws, boating rules, property rights, or safety regulations.</li>
+        <li>Misrepresent information from Inshore Cast as a guarantee, official regulation, navigation instruction, or emergency warning.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Responsibility for Fishing Activity</h2>
+
+      <p>You are responsible for complying with all applicable fishing licenses, seasons, size limits, bag limits, protected species rules, boating regulations, property access rules, and local laws.</p>
+      <p>Inshore Cast may provide general fishing information, but it does not replace official regulations or legal advice.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Intellectual Property</h2>
+
+      <p>Inshore Cast, including its design, software, branding, visual assets, text, graphics, derived Bite Score system, and related content, is owned by Neuhaus Apps or its licensors and is protected by intellectual-property laws.</p>
+      <p>You may use the app for personal, non-commercial purposes in accordance with these Terms and Apple’s applicable App Store terms. You may not copy, sell, redistribute, or exploit the app or its content except as allowed by law or with written permission from Neuhaus Apps.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Third-Party Services and Data</h2>
+
+      <p>Inshore Cast may use or interact with Apple services, WeatherKit, MapKit, StoreKit, APNs, Live Activities, NOAA CO-OPS data, Supabase backend services, and other technical service providers.</p>
+      <p>Third-party services and data may change, become unavailable, contain errors, or be subject to separate terms and privacy practices. Neuhaus Apps is not responsible for third-party service outages, errors, restrictions, or policy changes.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Updates and Changes</h2>
+
+      <p>Neuhaus Apps may update, modify, suspend, or discontinue parts of Inshore Cast at any time, including features, forecasts, data sources, subscription offerings, design, and backend services.</p>
+      <p>Neuhaus Apps may also update these Terms. Continued use of Inshore Cast after updated Terms are posted means you accept the updated Terms.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Disclaimers</h2>
+
+      <p>Inshore Cast is provided “as is” and “as available.” To the fullest extent permitted by law, Neuhaus Apps disclaims all warranties, express or implied, including warranties of accuracy, reliability, fitness for a particular purpose, merchantability, and non-infringement.</p>
+      <p>Neuhaus Apps does not warrant that Inshore Cast will be uninterrupted, error-free, secure, or that forecasts, alerts, Live Activities, recommendations, or data will be accurate or timely.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Limitation of Liability</h2>
+
+      <p>To the fullest extent permitted by law, Neuhaus Apps will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, or for lost profits, lost data, injury, property damage, fishing losses, travel costs, or reliance on forecasts, alerts, maps, tide data, weather data, or app recommendations.</p>
+      <p>Some jurisdictions do not allow certain limitations, so some limitations may not apply to you.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Indemnification</h2>
+
+      <p>You agree to defend, indemnify, and hold harmless Neuhaus Apps from claims, damages, liabilities, losses, costs, and expenses arising from your use of Inshore Cast, your violation of these Terms, your fishing or boating activity, or your violation of laws or third-party rights.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Termination</h2>
+
+      <p>Neuhaus Apps may suspend or terminate access to Inshore Cast or related services if you violate these Terms, misuse the app or backend, create security risks, or if continued operation is no longer practical or lawful.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Governing Law</h2>
+
+      <p>These Terms are governed by the laws of the State of Florida, United States, without regard to conflict-of-law rules, except where applicable law requires otherwise.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact</h2>
+
+      <p>For support questions or questions about these Terms, contact:</p>
+      <p><strong>Neuhaus Apps</strong><br>Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></p>
+
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Neuhaus Apps. All rights reserved.</span>
+    <span><a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></span>
+  </div>
+</main>
+</body>
+</html>
