@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Support page for Inshore Cast, an inshore fishing forecast app from Neuhaus Apps.">
+<title>Inshore Cast Support | Neuhaus Apps</title>
+<style>
+
+:root {
+  --bg: #060F19;
+  --bg2: #0A1826;
+  --panel: rgba(13, 34, 52, 0.72);
+  --panel2: rgba(18, 42, 64, 0.62);
+  --aqua: #6FD3D6;
+  --aqua2: #35E6F0;
+  --gold: #F2A24D;
+  --gold2: #F5C07A;
+  --text: #EAF3F8;
+  --muted: #8FB3C4;
+  --muted2: #6F97AC;
+  --border: rgba(111, 211, 214, 0.24);
+  --goldBorder: rgba(242, 162, 77, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 74% 0%, rgba(242, 162, 77, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 12% 10%, rgba(111, 211, 214, 0.16), transparent 62%),
+    linear-gradient(180deg, #071320 0%, #030910 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--aqua); text-decoration: none; }
+a:hover { color: #b7faff; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(18px, 6vw, 72px);
+  border-bottom: 1px solid rgba(111, 211, 214, 0.14);
+  background: rgba(3, 9, 16, 0.45);
+  backdrop-filter: blur(16px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(242, 162, 77, 0.95), rgba(242, 162, 77, 0.15) 28%, transparent 35%),
+    conic-gradient(from -125deg, var(--aqua), var(--aqua2), var(--gold), var(--gold2), var(--aqua));
+  box-shadow: 0 0 22px rgba(111, 211, 214, 0.22);
+  position: relative;
+}
+.brand span span:first-child { color: var(--aqua); }
+.brand span span:last-child { color: var(--gold2); }
+.navlinks {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 650;
+}
+.navlinks a { color: #b9cad4; }
+.navlinks a:hover { color: var(--text); }
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 42px) clamp(72px, 10vw, 120px);
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 800;
+}
+h1 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.gradient-text {
+  background: linear-gradient(100deg, var(--aqua) 0%, #d5fbff 44%, var(--gold2) 75%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lede {
+  margin: 20px 0 0;
+  color: #b8ced9;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.65;
+}
+.updated { margin-top: 16px; color: var(--muted2); font-size: 15px; }
+.callout {
+  margin-top: 34px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--goldBorder);
+  background: linear-gradient(140deg, rgba(242, 162, 77, 0.12), rgba(111, 211, 214, 0.07)), rgba(5, 15, 25, 0.72);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+}
+.callout p { margin: 0; color: #e7f4f7; font-size: 20px; line-height: 1.55; }
+.content { margin-top: 44px; display: flex; flex-direction: column; gap: 28px; }
+.policy-section {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(111, 211, 214, 0.16);
+  background: radial-gradient(700px 240px at 100% 0%, rgba(111, 211, 214, 0.08), transparent 70%), rgba(7, 20, 33, 0.64);
+}
+.policy-section h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -0.02em; }
+.policy-section h3 { margin: 20px 0 8px; color: var(--text); font-size: 18px; }
+.policy-section p, .policy-section li { color: #b5c8d3; font-size: 16.5px; line-height: 1.72; }
+.policy-section p { margin: 0; }
+.policy-section p + p { margin-top: 14px; }
+.policy-section ul { margin: 14px 0 0; padding-left: 22px; }
+.policy-section li + li { margin-top: 7px; }
+.policy-section strong { color: #edf8fb; font-weight: 760; }
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(111, 211, 214, 0.13);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  color: #7792a1;
+  font-size: 14px;
+}
+.small { color: #8da8b7; font-size: 14px; }
+@media (max-width: 640px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .policy-section { padding: 21px; }
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="../support/" aria-label="Inshore Cast support home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span><span>INSHORE</span> <span>CAST</span></span>
+  </a>
+  <nav class="navlinks" aria-label="Inshore Cast legal links">
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
+  </nav>
+</div>
+
+<main>
+  <span class="eyebrow">Support</span>
+  <h1><span class="gradient-text">Inshore Cast</span><br>Support</h1>
+  <p class="lede">Get help with Inshore Cast, review the Privacy Policy, or read the Terms of Use.</p>
+  <p class="updated">Last updated: August 10, 2026</p>
+
+  <div class="callout"><p>Need help? Email support@neuhausapps.com and include your device, iOS version, and a short description of the issue.</p></div>
+
+  <div class="content">
+    <section class="policy-section">
+      <h2>Contact Support</h2>
+
+      <p>Email Neuhaus Apps at <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>.</p>
+      <p>Please include the app name, your iPhone model, your iOS version, and a brief description of the issue.</p>
+      <p>Please do not send private fishing locations, screenshots containing sensitive information, or private key/credential information unless you intentionally choose to share it for troubleshooting.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Helpful Links</h2>
+
+      <ul>
+        <li><a href="../privacy/">Privacy Policy</a></li>
+        <li><a href="../terms/">Terms of Use</a></li>
+        <li><a href="mailto:support@neuhausapps.com">Email Support</a></li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>About Inshore Cast</h2>
+
+      <p>Inshore Cast provides local fishing forecasts, species-specific Bite Scores, tide and weather context, Cast Alerts, Live Cast, and optional Inshore Cast Pro features for inshore anglers.</p>
+      <p>Forecasts and alerts are estimates and should always be checked against official weather, tide, safety, and fishing-regulation sources.</p>
+
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Neuhaus Apps. All rights reserved.</span>
+    <span><a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></span>
+  </div>
+</main>
+</body>
+</html>
