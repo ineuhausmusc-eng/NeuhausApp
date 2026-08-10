@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy Policy and support information for Inshore Cast, an accountless inshore fishing forecast app from Neuhaus Apps.">
+<title>Inshore Cast Privacy Policy | Neuhaus Apps</title>
+<style>
+
+:root {
+  --bg: #060F19;
+  --bg2: #0A1826;
+  --panel: rgba(13, 34, 52, 0.72);
+  --panel2: rgba(18, 42, 64, 0.62);
+  --aqua: #6FD3D6;
+  --aqua2: #35E6F0;
+  --gold: #F2A24D;
+  --gold2: #F5C07A;
+  --text: #EAF3F8;
+  --muted: #8FB3C4;
+  --muted2: #6F97AC;
+  --border: rgba(111, 211, 214, 0.24);
+  --goldBorder: rgba(242, 162, 77, 0.28);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 500px at 74% 0%, rgba(242, 162, 77, 0.18), transparent 62%),
+    radial-gradient(900px 700px at 12% 10%, rgba(111, 211, 214, 0.16), transparent 62%),
+    linear-gradient(180deg, #071320 0%, #030910 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--aqua); text-decoration: none; }
+a:hover { color: #b7faff; }
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px clamp(18px, 6vw, 72px);
+  border-bottom: 1px solid rgba(111, 211, 214, 0.14);
+  background: rgba(3, 9, 16, 0.45);
+  backdrop-filter: blur(16px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(242, 162, 77, 0.95), rgba(242, 162, 77, 0.15) 28%, transparent 35%),
+    conic-gradient(from -125deg, var(--aqua), var(--aqua2), var(--gold), var(--gold2), var(--aqua));
+  box-shadow: 0 0 22px rgba(111, 211, 214, 0.22);
+  position: relative;
+}
+.brand span span:first-child { color: var(--aqua); }
+.brand span span:last-child { color: var(--gold2); }
+.navlinks {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  font-weight: 650;
+}
+.navlinks a { color: #b9cad4; }
+.navlinks a:hover { color: var(--text); }
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 96px) clamp(20px, 6vw, 42px) clamp(72px, 10vw, 120px);
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold2);
+  font-weight: 800;
+}
+h1 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 7vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+.gradient-text {
+  background: linear-gradient(100deg, var(--aqua) 0%, #d5fbff 44%, var(--gold2) 75%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lede {
+  margin: 20px 0 0;
+  color: #b8ced9;
+  font-size: clamp(17px, 2.2vw, 21px);
+  line-height: 1.65;
+}
+.updated { margin-top: 16px; color: var(--muted2); font-size: 15px; }
+.callout {
+  margin-top: 34px;
+  padding: 22px 24px;
+  border-radius: 22px;
+  border: 1px solid var(--goldBorder);
+  background: linear-gradient(140deg, rgba(242, 162, 77, 0.12), rgba(111, 211, 214, 0.07)), rgba(5, 15, 25, 0.72);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.24);
+}
+.callout p { margin: 0; color: #e7f4f7; font-size: 20px; line-height: 1.55; }
+.content { margin-top: 44px; display: flex; flex-direction: column; gap: 28px; }
+.policy-section {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(111, 211, 214, 0.16);
+  background: radial-gradient(700px 240px at 100% 0%, rgba(111, 211, 214, 0.08), transparent 70%), rgba(7, 20, 33, 0.64);
+}
+.policy-section h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -0.02em; }
+.policy-section h3 { margin: 20px 0 8px; color: var(--text); font-size: 18px; }
+.policy-section p, .policy-section li { color: #b5c8d3; font-size: 16.5px; line-height: 1.72; }
+.policy-section p { margin: 0; }
+.policy-section p + p { margin-top: 14px; }
+.policy-section ul { margin: 14px 0 0; padding-left: 22px; }
+.policy-section li + li { margin-top: 7px; }
+.policy-section strong { color: #edf8fb; font-weight: 760; }
+.footer {
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(111, 211, 214, 0.13);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px;
+  color: #7792a1;
+  font-size: 14px;
+}
+.small { color: #8da8b7; font-size: 14px; }
+@media (max-width: 640px) {
+  .topbar { align-items: flex-start; flex-direction: column; }
+  .policy-section { padding: 21px; }
+}
+
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="../support/" aria-label="Inshore Cast support home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span><span>INSHORE</span> <span>CAST</span></span>
+  </a>
+  <nav class="navlinks" aria-label="Inshore Cast legal links">
+    <a href="../support/">Support</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="../terms/">Terms</a>
+  </nav>
+</div>
+
+<main>
+  <span class="eyebrow">Privacy &amp; Support</span>
+  <h1><span class="gradient-text">Privacy Policy</span><br>for Inshore Cast</h1>
+  <p class="lede">How Inshore Cast handles location, forecast, notification, subscription, and accountless app information.</p>
+  <p class="updated">Last updated: August 10, 2026</p>
+
+  <div class="callout"><p>Inshore Cast is accountless by design. It uses only the information needed to provide local fishing forecasts, Cast Alerts, Live Cast, and Pro subscription features.</p></div>
+
+  <div class="content">
+    <section class="policy-section">
+      <h2>Support</h2>
+
+      <p>For help with Inshore Cast, contact Neuhaus Apps at <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>.</p>
+      <p>When reporting a problem, please include the app name, your device model, your iOS version, and a brief description of the issue. Please do not send private fishing locations or screenshots containing sensitive personal information unless you intentionally choose to share that information for support.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Overview</h2>
+
+      <p>Inshore Cast is developed by Neuhaus Apps. This Privacy Policy explains how the Inshore Cast iOS app and related support website handle information.</p>
+      <p>Inshore Cast is designed as an accountless fishing-forecast app. You do not need to create a Neuhaus Apps account, provide an email address, or sign in to use the app.</p>
+      <p>Inshore Cast uses location, weather, tide, notification, subscription, and backend services to provide fishing forecasts, Bite Scores, Cast Alerts, Live Cast, saved locations, and Inshore Cast Pro features.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Information We Collect or Process</h2>
+
+      <p>Inshore Cast may process the following information depending on the features you use:</p>
+      <ul>
+        <li><strong>Anonymous installation information</strong>, such as a randomly generated installation identifier, app version, operating system version, locale, time zone, and last-seen timestamps.</li>
+        <li><strong>Location-related information</strong>, such as a current location you allow, a location you search for, or a pin you drop on the map.</li>
+        <li><strong>Coarse monitoring locations</strong> used by the backend to calculate forecasts and alerts. The app is designed to keep exact private fishing pins primarily on your device and use rounded or coarse location data for backend monitoring.</li>
+        <li><strong>Fishing preferences</strong>, such as selected target species, saved fishing locations, alert thresholds, lead times, and enabled alert types.</li>
+        <li><strong>Notification tokens</strong>, including Apple Push Notification service device tokens and Live Activity push tokens, when you enable notifications, Cast Alerts, or Live Cast.</li>
+        <li><strong>Subscription information</strong>, such as Apple-signed transaction information, product ID, subscription state, expiration date, environment, and an anonymous app account token used to associate the purchase with your anonymous installation.</li>
+        <li><strong>Support correspondence</strong> if you voluntarily email Neuhaus Apps.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Information We Do Not Collect</h2>
+
+      <p>Inshore Cast does not require or intentionally collect:</p>
+      <ul>
+        <li>A Neuhaus Apps account, username, or password</li>
+        <li>Your email address inside the app</li>
+        <li>Advertising identifiers for targeted advertising</li>
+        <li>Contacts, photos, microphone recordings, health data, or calendars</li>
+        <li>Payment-card numbers or complete payment credentials</li>
+        <li>Public social profiles, follower lists, messages, or community posts</li>
+      </ul>
+      <p>Inshore Cast does not display advertising, does not sell personal information, and is not designed to track you across other companies’ apps or websites.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Location Information</h2>
+
+      <p>Inshore Cast uses location information to provide local fishing forecasts, tide information, weather context, saved fishing areas, Cast Alerts, and Live Cast.</p>
+      <p>You may use your current location, search for a location, or drop a pin manually. If you allow location access, Inshore Cast requests <strong>When In Use</strong> location permission. The app is not designed to continuously track your movement in the background.</p>
+      <p>Exact fishing spots can be sensitive. Inshore Cast is designed so exact saved pins remain primarily on your device, while the backend uses a rounded or coarse monitoring location when server-side forecasts, alerts, or Live Activity updates are needed.</p>
+      <p>You can change location permissions at any time in the Settings app on your device.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Weather, Tide, Forecast, and Bite Score Data</h2>
+
+      <p>Inshore Cast uses weather and tide data to generate fishing forecasts, Bite Scores, prime windows, Cast Alerts, and recommendations.</p>
+      <ul>
+        <li><strong>Apple Weather / WeatherKit</strong> is used for weather-related information.</li>
+        <li><strong>NOAA CO-OPS</strong> is used for tide, water-level, station, and coastal observation information where available.</li>
+        <li><strong>Inshore Cast</strong> combines these inputs with species and location preferences to generate derived Bite Scores and fishing guidance.</li>
+      </ul>
+      <p>Bite Score is an estimate based on environmental conditions and species preferences. It does not guarantee fish activity or catches and should not be used as a safety, emergency, marine-navigation, or regulatory tool.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Notifications, Cast Alerts, and Live Activities</h2>
+
+      <p>If you enable notifications, Cast Alerts, or Live Cast, Inshore Cast uses Apple’s notification and Live Activity systems to send and display updates about fishing conditions.</p>
+      <p>To deliver these features, the app and backend may process APNs device tokens, Live Activity push tokens, alert rules, species selections, coarse monitoring locations, and active-session information.</p>
+      <p>You can manage notification permissions through your device’s Settings app. Live Activities and Dynamic Island behavior are controlled by iOS and your device settings.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Purchases and Subscriptions</h2>
+
+      <p>Inshore Cast Pro subscriptions are purchased through Apple’s App Store. Apple processes payments, free trials, renewals, cancellations, refunds, taxes, and billing according to Apple’s own terms and privacy practices.</p>
+      <p>Neuhaus Apps does not receive or store your complete payment-card information.</p>
+      <p>To verify subscription status and provide Pro features, Inshore Cast may send Apple-signed transaction information to the backend. The backend uses this information to verify the purchase with Apple and store an entitlement state associated with an anonymous installation identifier.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>How We Use Information</h2>
+
+      <p>Neuhaus Apps uses information processed through Inshore Cast to:</p>
+      <ul>
+        <li>Provide local fishing forecasts and Bite Scores</li>
+        <li>Show tide, weather, and species-specific fishing information</li>
+        <li>Store user-selected species, saved locations, and app preferences</li>
+        <li>Deliver Cast Alerts, Live Cast, and notification features</li>
+        <li>Verify Inshore Cast Pro subscriptions</li>
+        <li>Improve reliability, security, and error handling</li>
+        <li>Respond to support requests you send by email</li>
+      </ul>
+      <p>Neuhaus Apps does not use this information to sell advertising or create a third-party advertising profile.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Third-Party Services</h2>
+
+      <p>Inshore Cast uses or may interact with the following third-party services:</p>
+      <ul>
+        <li><strong>Apple</strong> for App Store distribution, purchases, StoreKit, push notifications, Live Activities, Maps, WeatherKit, and device-level privacy controls.</li>
+        <li><strong>NOAA CO-OPS</strong> for tide, water-level, station, and coastal observation information.</li>
+        <li><strong>Supabase</strong> for backend database and Edge Function services used by accountless installations, alerts, subscriptions, and forecast processing.</li>
+        <li><strong>Website hosting providers</strong>, such as GitHub Pages or another host used by Neuhaus Apps, to display support, privacy, and terms pages.</li>
+      </ul>
+      <p>These services may process technical information according to their own policies and terms. You can review Apple’s Privacy Policy at <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">apple.com/legal/privacy</a>, NOAA CO-OPS information at <a href="https://www.co-ops.nos.noaa.gov/" target="_blank" rel="noopener noreferrer">co-ops.nos.noaa.gov</a>, and Supabase information at <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a>.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Sharing</h2>
+
+      <p>Neuhaus Apps does not sell your personal information.</p>
+      <p>Information may be processed by service providers only as needed to operate Inshore Cast, including Apple, Supabase, NOAA data services, and website hosting providers. Neuhaus Apps may also disclose information if required by law, to protect rights and security, or to respond to lawful requests.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Retention and Deletion</h2>
+
+      <p>Inshore Cast stores app preferences and selected information on your device. Backend records related to anonymous installations, alert rules, Live Activities, subscription entitlements, and forecast processing may be retained as needed to provide the app, operate Pro features, prevent abuse, maintain security, and comply with legal obligations.</p>
+      <p>You may remove local app data using available in-app controls or by deleting the app. If a reset-data option is available in the app, it may also deactivate or remove related backend records where technically practical.</p>
+      <p>You may contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a> for privacy questions or deletion requests related to support emails or backend records associated with your installation.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Security</h2>
+
+      <p>Neuhaus Apps uses reasonable technical and organizational measures to protect information processed through Inshore Cast. The app uses an accountless design, anonymous installation identifiers, backend access controls, and server-side secrets that are not intended to be included in the iOS app bundle.</p>
+      <p>No method of electronic storage or transmission can be guaranteed to be completely secure. You are responsible for protecting your device, passcode, Apple Account, backups, and device settings.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Children’s Privacy</h2>
+
+      <p>Inshore Cast is not directed to children under 13 and does not knowingly collect personal information from children under 13. If you believe a child has provided information to Neuhaus Apps, contact <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a>.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>International Processing</h2>
+
+      <p>Information may be processed in the United States or other locations where Neuhaus Apps or its service providers operate. By using Inshore Cast, you understand that information may be processed in jurisdictions different from where you live.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Choices</h2>
+
+      <ul>
+        <li>You can choose whether to grant location permission.</li>
+        <li>You can search or drop a pin manually instead of using current location.</li>
+        <li>You can enable or disable notifications in device Settings.</li>
+        <li>You can manage Live Activities through iOS settings and supported app controls.</li>
+        <li>You can manage or cancel subscriptions through your Apple Account subscriptions page.</li>
+        <li>You can delete the app or reset app data where the app provides that option.</li>
+      </ul>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes to This Policy</h2>
+
+      <p>Neuhaus Apps may update this Privacy Policy if Inshore Cast’s features, services, or privacy practices change. When updated, the revised policy will be posted on this page and the “Last updated” date will be changed.</p>
+
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact</h2>
+
+      <p>For support, privacy questions, or concerns about this policy, contact:</p>
+      <p><strong>Neuhaus Apps</strong><br>Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></p>
+
+    </section>
+
+  </div>
+
+  <div class="footer">
+    <span>© 2026 Neuhaus Apps. All rights reserved.</span>
+    <span><a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a></span>
+  </div>
+</main>
+</body>
+</html>
