@@ -1,166 +1,297 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<title>Neuhaus Apps — Focused iPhone apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#05070B; --panel:#0B0F16; --line:#1C2636;
+    --text:#ffffff; --muted:#AEB6C2; --dim:#7A8496;
+    --accent:#3478FF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit;}
+  a:hover{color:var(--accent);}
+  img{max-width:100%;display:block;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;margin:0;line-height:1.05;}
+  .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- HEADER ---------- */
+  .site-head{position:relative;z-index:2;}
+  .head-inner{
+    display:flex;flex-direction:column;align-items:center;gap:18px;
+    padding:22px 0;
+  }
+  .brand{display:flex;align-items:center;gap:9px;}
+  .dots{width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:none;}
+  .dots i{background:#fff;border-radius:50%;display:block;}
+  .dots i:first-child{background:var(--accent);box-shadow:0 0 8px var(--accent);}
+  .brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;}
+  .nav{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:26px;}
+  .nav a{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--accent);color:#fff;font-weight:600;
+    border-radius:999px;box-shadow:0 0 34px rgba(52,120,255,.55);
+    min-height:48px;padding:14px 30px;font-size:15px;
+  }
+  .btn:hover{color:#fff;filter:brightness(1.08);}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding-bottom:12px;}
+  .hero-glow{
+    position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 35%,rgba(52,120,255,.22),transparent 60%),
+      radial-gradient(ellipse 40% 50% at 8% 80%,rgba(52,120,255,.14),transparent 65%),
+      radial-gradient(ellipse 40% 50% at 92% 80%,rgba(52,120,255,.14),transparent 65%);
+  }
+  .hero-art{position:relative;border-radius:18px;overflow:hidden;}
+  .hero-copy{position:relative;text-align:center;padding:34px 0 44px;}
+  .hero-copy p{max-width:560px;margin:0 auto;font-size:17px;line-height:1.6;color:var(--muted);}
+  .hero-copy .btn{margin-top:26px;}
+
+  /* ---------- FEATURED ---------- */
+  .featured{border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .featured-grid{display:grid;grid-template-columns:1fr;}
+  .featured-copy{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    justify-content:center;gap:16px;padding:44px 20px;
+  }
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+  .featured-copy h2{font-size:clamp(32px,7vw,52px);}
+  .featured-copy p{margin:0;max-width:380px;font-size:16px;line-height:1.6;color:var(--muted);}
+  .meta-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;margin-top:6px;}
+  .appstore{
+    display:inline-flex;align-items:center;gap:9px;background:#000;
+    border:1px solid #22304A;border-radius:12px;padding:11px 18px;min-height:48px;
+  }
+  .appstore:hover{color:#fff;border-color:var(--accent);}
+  .appstore small{font-size:9px;line-height:1.2;display:block;}
+  .appstore b{font-family:'Space Grotesk',sans-serif;font-size:13px;display:block;}
+  .fineprint{font-size:12px;color:var(--dim);}
+  .featured-art{
+    position:relative;min-height:300px;
+    background:linear-gradient(160deg,#1a1207,var(--bg) 70%);
+    display:flex;align-items:center;justify-content:center;padding:40px 20px;
+  }
+  .featured-art::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 60% at 60% 35%,rgba(193,87,31,.35),transparent 65%);
+  }
+  .featured-art img{
+    position:relative;width:clamp(150px,38vw,240px);height:clamp(150px,38vw,240px);
+    object-fit:cover;box-shadow:0 24px 70px rgba(0,0,0,.55);
+  }
+
+  /* ---------- ALL APPS ---------- */
+  .apps{padding:48px 0;}
+  .apps-head{
+    display:flex;flex-direction:column;align-items:center;text-align:center;
+    gap:16px;margin-bottom:28px;
+  }
+  .apps-head h2{font-size:clamp(22px,5vw,30px);}
+  .apps-head h2 em{font-family:'Inter',sans-serif;font-style:normal;font-weight:400;font-size:.62em;color:var(--dim);}
+  .search{
+    width:100%;max-width:300px;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;padding:13px 16px;font-size:15px;color:#fff;
+    font-family:inherit;outline:none;min-height:48px;
+  }
+  .search::placeholder{color:var(--dim);}
+  .search:focus{border-color:var(--accent);}
+  .grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:22px;
+    padding:30px 24px;display:flex;flex-direction:column;align-items:center;
+    text-align:center;gap:12px;
+  }
+  .card-icon{
+    width:72px;height:72px;border-radius:18px;overflow:hidden;display:flex;
+    align-items:center;justify-content:center;flex:none;
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;
+  }
+  .card-icon.pm{box-shadow:0 0 30px rgba(193,87,31,.5);}
+  .card-icon.ss{background:linear-gradient(135deg,#14181C,#4B5359);}
+  .card h3{font-size:18px;}
+  .card p{margin:0;font-size:14px;line-height:1.55;color:var(--muted);}
+  .card-links{
+    display:flex;flex-wrap:wrap;gap:16px;justify-content:center;
+    border-top:1px solid var(--line);padding-top:14px;width:100%;margin-top:4px;
+  }
+  .card-links a{font-size:12px;color:var(--dim);}
+  .soon{
+    border:1.5px dashed var(--line);border-radius:22px;min-height:200px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  }
+  .soon span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;color:#2A3648;}
+  .soon small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#3F4D57;}
+
+  /* ---------- FOOTER ---------- */
+  .foot{
+    border-top:1px solid var(--line);
+    background:linear-gradient(180deg,transparent,rgba(52,120,255,.08));
+    padding:48px 0 40px;
+  }
+  .foot-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;}
+  .foot h2{font-size:clamp(24px,6vw,34px);}
+  .foot-nav{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;font-size:14px;color:var(--muted);}
+  .copyright{font-size:12px;color:var(--dim);}
+
+  /* ---------- TABLET ---------- */
+  @media (min-width:700px){
+    .wrap{padding:0 32px;}
+    .grid{grid-template-columns:repeat(2,1fr);gap:22px;}
+    .featured-grid{grid-template-columns:1.05fr .95fr;}
+    .featured-copy{align-items:flex-start;text-align:left;padding:56px 40px;}
+    .meta-row{justify-content:flex-start;}
+    .apps{padding:64px 0;}
+  }
+
+  /* ---------- DESKTOP ---------- */
+  @media (min-width:1000px){
+    .head-inner{flex-direction:row;justify-content:space-between;gap:32px;padding:26px 0;}
+    .brand span{font-size:24px;}
+    .nav{gap:36px;}
+    .nav a{font-size:15px;}
+    .hero-copy{padding:44px 0 56px;}
+    .featured-copy{padding:72px 56px;gap:18px;}
+    .featured-art{min-height:420px;}
+    .grid{grid-template-columns:repeat(3,1fr);gap:24px;}
+    .apps-head{
+      flex-direction:row;justify-content:space-between;align-items:center;
+      text-align:left;margin-bottom:34px;
+    }
+    .apps{padding:80px 0;}
+    .foot{padding:64px 0 52px;}
+  }
+</style>
 </head>
 <body>
-<x-dc>
 
-<helmet>
-  <meta name="design_doc_mode" content="canvas">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body{margin:0;background:#f0eee9;font-family:system-ui,sans-serif;}
-    a{text-decoration:none;}
-    .dv-turn{padding:40px 44px 32px;}
-    .dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px;}
-    .dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none;}
-    .dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a;}
-    .dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;}
-    .dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;}
-    .dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none;}
-    .dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55);}
-    .dv-card{background:#05070B;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.2);}
-    .dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5);}
-  </style>
-</helmet>
+<header class="site-head">
+  <div class="wrap">
+    <div class="head-inner">
+      <a class="brand" href="/"><span class="dots"><i></i><i></i><i></i><i></i></span><span>Neuhaus Apps</span></a>
+      <nav class="nav">
+        <a href="#featured">Featured</a>
+        <a href="#apps">Apps</a>
+        <a href="mailto:Support@neuhausapps.com">Contact</a>
+      </nav>
+      <a class="btn" href="#apps">Get the apps</a>
+    </div>
+  </div>
+</header>
 
-<section class="dv-turn" id="t1">
-  <div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Redesign of everything below the hero</span></div>
-  <div class="dv-opts">
-    <div class="dv-opt" id="1a">
-      <div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Editorial split &mdash; big featured spread, list-style app rows</div>
-      <div class="dv-card" style="width:100%;max-width:1320px;font-family:'Inter',sans-serif;color:#fff;">
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="wrap">
+    <div class="hero-art">
+      <picture>
+        <source media="(max-width:640px)" srcset="assets/neuhaus-hero-art-mobile.png">
+        <img src="assets/neuhaus-hero-art.png" alt="Two hands reaching toward a glowing Neuhaus app icon">
+      </picture>
+    </div>
+    <div class="hero-copy">
+      <p>We design and build focused iPhone apps &mdash; no clutter, no accounts you don't need, just tools that do one job well.</p>
+      <a class="btn" href="#apps">Explore all apps</a>
+    </div>
+  </div>
+</section>
 
-        <!-- HERO -->
-        <div style="position:relative;padding-bottom:8px;">
-          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(52,120,255,0.22) 0%,transparent 60%),radial-gradient(ellipse 40% 50% at 8% 80%,rgba(52,120,255,0.14) 0%,transparent 65%),radial-gradient(ellipse 40% 50% at 92% 80%,rgba(52,120,255,0.14) 0%,transparent 65%);"></div>
-          <div style="position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;row-gap:16px;column-gap:24px;padding:22px 40px;">
-            <div style="display:flex;align-items:center;justify-content:center;gap:9px;flex:1;min-width:180px;">
-              <div style="width:26px;height:26px;display:grid;grid-template-columns:1fr 1fr;gap:3px;flex:none;">
-                <div style="background:#3478FF;border-radius:50%;box-shadow:0 0 8px #3478FF;"></div>
-                <div style="background:#fff;border-radius:50%;"></div>
-                <div style="background:#fff;border-radius:50%;"></div>
-                <div style="background:#fff;border-radius:50%;"></div>
-              </div>
-              <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#fff;">Neuhaus Apps</span>
-            </div>
-            <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:38px;">
-              <a href="prayer-matters.html" style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#fff;font-weight:700;">Featured</a>
-              <a href="#apps" style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#fff;font-weight:700;">Apps</a>
-              <a href="mailto:Support@neuhausapps.com" style="font-family:'Space Grotesk',sans-serif;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:#fff;font-weight:700;">Contact</a>
-            </div>
-            <a href="#apps" style="background:#3478FF;color:#fff;font-weight:700;font-size:15px;padding:13px 26px;border-radius:999px;box-shadow:0 0 28px #3478FF;">Get the apps</a>
-          </div>
-          <div style="position:relative;padding:8px 24px 0;">
-            <picture>
-              <source media="(max-width: 640px)" srcset="assets/neuhaus-hero-art-mobile.png">
-              <img src="assets/neuhaus-hero-art.png" alt="Two hands reaching toward a glowing NEUHAUS app icon" style="display:block;width:100%;border-radius:16px;">
-            </picture>
-          </div>
-          <div style="position:relative;text-align:center;padding:34px 20px 40px;">
-            <p style="max-width:520px;margin:0 auto;font-size:17px;color:#AEB6C2;line-height:1.6;">We design and build focused iPhone apps &mdash; no clutter, no accounts you don't need, just tools that do one job well.</p>
-            <a href="#apps" style="display:inline-block;margin-top:26px;background:#3478FF;color:#fff;font-weight:600;font-size:15px;padding:15px 32px;border-radius:999px;box-shadow:0 0 40px #3478FF;">Explore all apps</a>
-          </div>
+<section class="featured" id="featured">
+  <div class="featured-grid">
+    <div class="featured-copy">
+      <div class="eyebrow">Featured</div>
+      <h2>Prayer<br>Matters</h2>
+      <p>Daily guided prayer, scripture, and evening reflections.</p>
+      <div class="meta-row">
+        <a class="appstore" href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <a class="fineprint" href="https://neuhausapps.com/privacy.html">Privacy &#8599;</a>
+        <a class="fineprint" href="https://neuhausapps.com/terms.html">Terms &#8599;</a>
+      </div>
+    </div>
+    <a class="featured-art" href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453">
+      <img src="assets/prayer-matters-icon.png" alt="Prayer Matters app icon">
+    </a>
+  </div>
+</section>
+
+<section class="apps" id="apps">
+  <div class="wrap">
+    <div class="apps-head">
+      <h2>All apps <em>(2)</em></h2>
+      <input class="search" type="search" placeholder="Search apps&hellip;" aria-label="Search apps">
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <a class="card-icon pm" href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453">
+          <img src="assets/prayer-matters-icon.png" alt="Prayer Matters app icon">
+        </a>
+        <h3>Prayer Matters</h3>
+        <p>Daily guided prayer, scripture, and evening reflections.</p>
+        <a class="appstore" href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <div class="card-links">
+          <a href="https://neuhausapps.com/privacy.html">Privacy Policy &#8599;</a>
+          <a href="https://neuhausapps.com/terms.html">Terms of Use &#8599;</a>
         </div>
+      </div>
 
-        <!-- FEATURED: big split spread -->
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0;border-bottom:1px solid #1C2636;">
-          <div style="padding:clamp(36px,7vw,56px) clamp(20px,5vw,48px);display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;gap:18px;">
-            <div style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#3478FF;">Featured</div>
-            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,6vw,44px);line-height:1.05;">Prayer<br>Matters</div>
-            <p style="font-size:15px;color:#AEB6C2;line-height:1.6;max-width:340px;margin:0;">Daily guided prayer, scripture, and evening reflections.</p>
-            <div style="display:flex;gap:16px;align-items:center;justify-content:center;margin-top:8px;flex-wrap:wrap;">
-              <a href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453" style="display:inline-flex;align-items:center;gap:9px;background:#000;border:1px solid #22304A;border-radius:11px;padding:10px 18px;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
-                <span style="font-size:9px;line-height:1.2;color:#fff;">Download on the<b style="display:block;font-family:'Space Grotesk',sans-serif;font-size:12px;">App Store</b></span>
-              </a>
-              <a href="https://neuhausapps.com/privacy.html" style="font-size:12px;color:#8891A0;">Privacy ↗</a>
-              <a href="https://neuhausapps.com/terms.html" style="font-size:12px;color:#8891A0;">Terms ↗</a>
-            </div>
-          </div>
-          <a href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453" style="display:block;position:relative;min-height:280px;background:linear-gradient(160deg,#1a1207,#05070B 70%);">
-            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 70% 30%,rgba(193,87,31,0.35),transparent 65%);"></div>
-            <img src="assets/prayer-matters-icon.png" alt="Prayer Matters app icon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;object-fit:cover;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-          </a>
+      <div class="card">
+        <a class="card-icon ss" href="https://neuhausapps.com/swiftshift/support/">S</a>
+        <h3>SwiftShift</h3>
+        <p>Fast, flexible shift scheduling for busy teams.</p>
+        <a class="appstore" href="https://neuhausapps.com/swiftshift/support/">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
+          <span><small>Download on the</small><b>App Store</b></span>
+        </a>
+        <div class="card-links">
+          <a href="https://neuhausapps.com/swiftshift/support/">Privacy Policy &#8599;</a>
+          <a href="https://neuhausapps.com/terms.html">Terms of Use &#8599;</a>
         </div>
+      </div>
 
-        <!-- ALL APPS: list rows instead of grid -->
-        <div style="padding:clamp(28px,6vw,44px) clamp(20px,5vw,48px);">
-          <div style="display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;margin-bottom:24px;gap:14px;">
-            <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;">All apps <span style="font-family:'Inter',sans-serif;font-weight:400;color:#7A8496;font-size:15px;">(2)</span></div>
-            <input placeholder="Search apps…" style="background:#0B0F16;border:1px solid #1C2636;border-radius:10px;padding:10px 14px;font-size:14px;color:#fff;outline:none;width:100%;max-width:280px;">
-          </div>
-
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;">
-            <div style="background:#0B0F16;border:1px solid #1C2636;border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;">
-              <a href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453" style="width:60px;height:60px;border-radius:16px;overflow:hidden;display:block;box-shadow:0 0 26px rgba(193,87,31,0.5);">
-                <img src="assets/prayer-matters-icon.png" alt="Prayer Matters icon" style="width:100%;height:100%;object-fit:cover;display:block;">
-              </a>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">Prayer Matters</div>
-              <div style="font-size:13px;color:#AEB6C2;line-height:1.5;">Daily guided prayer, scripture, and evening reflections.</div>
-              <a href="https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453" style="display:inline-flex;align-items:center;gap:6px;background:#000;border:1px solid #22304A;border-radius:9px;padding:7px 13px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
-                <b style="font-family:'Space Grotesk',sans-serif;font-size:10px;color:#fff;">App Store</b>
-              </a>
-              <div style="display:flex;gap:14px;border-top:1px solid #1C2636;padding-top:11px;width:100%;justify-content:center;">
-                <a href="https://neuhausapps.com/privacy.html" style="font-size:11px;color:#7A8496;">Privacy Policy ↗</a>
-                <a href="https://neuhausapps.com/terms.html" style="font-size:11px;color:#7A8496;">Terms of Use ↗</a>
-              </div>
-            </div>
-
-            <div style="background:#0B0F16;border:1px solid #1C2636;border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;">
-              <a href="https://neuhausapps.com/swiftshift/support/" style="width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,#14181C,#4B5359);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;">S</a>
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;">SwiftShift</div>
-              <div style="font-size:13px;color:#AEB6C2;line-height:1.5;">Fast, flexible shift scheduling for busy teams.</div>
-              <a href="https://neuhausapps.com/swiftshift/support/" style="display:inline-flex;align-items:center;gap:6px;background:#000;border:1px solid #22304A;border-radius:9px;padding:7px 13px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M16.365 1.43c0 1.14-.478 2.09-1.14 2.83-.75.84-1.98 1.5-3.02 1.42-.13-1.09.42-2.24 1.13-2.97.78-.81 2.14-1.42 3.03-1.28zm3.06 16.94c-.55 1.27-.81 1.84-1.52 2.96-1 1.57-2.4 3.53-4.14 3.55-1.55.02-1.95-1.02-4.05-1.01-2.1.01-2.54 1.03-4.09 1-1.74-.03-3.06-1.78-4.06-3.35-2.78-4.35-3.07-9.46-1.35-12.18 1.22-1.93 3.15-3.05 4.97-3.05 1.85 0 3.02 1.02 4.55 1.02 1.48 0 2.39-1.02 4.55-1.02 1.62 0 3.34.88 4.56 2.41-4.01 2.2-3.36 7.92.58 9.67z"/></svg>
-                <b style="font-family:'Space Grotesk',sans-serif;font-size:10px;color:#fff;">App Store</b>
-              </a>
-              <div style="display:flex;gap:14px;border-top:1px solid #1C2636;padding-top:11px;width:100%;justify-content:center;">
-                <a href="https://neuhausapps.com/swiftshift/support/" style="font-size:11px;color:#7A8496;">Privacy Policy ↗</a>
-                <a href="https://neuhausapps.com/terms.html" style="font-size:11px;color:#7A8496;">Terms of Use ↗</a>
-              </div>
-            </div>
-
-            <div style="border:1.5px dashed #1C2636;border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;gap:8px;">
-              <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:28px;color:#2A3648;">+</div>
-              <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#3F4D57;">More apps soon</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA: compact bar instead of full art card -->
-        <div style="padding:clamp(32px,7vw,48px) clamp(20px,5vw,48px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;background:linear-gradient(180deg,transparent,rgba(52,120,255,0.08));">
-          <div style="display:flex;align-items:center;justify-content:center;gap:9px;">
-            <div style="width:22px;height:22px;display:grid;grid-template-columns:1fr 1fr;gap:3px;">
-              <div style="background:#3478FF;border-radius:50%;box-shadow:0 0 8px #3478FF;"></div>
-              <div style="background:#fff;border-radius:50%;"></div>
-              <div style="background:#fff;border-radius:50%;"></div>
-              <div style="background:#fff;border-radius:50%;"></div>
-            </div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#fff;">Neuhaus Apps</span>
-          </div>
-          <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,6vw,30px);line-height:1.1;">Apps worth opening.</div>
-          <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;font-size:13px;color:#AEB6C2;">
-            <a href="/" style="color:#AEB6C2;">Home</a>
-            <a href="#apps" style="color:#AEB6C2;">Apps</a>
-            <a href="mailto:Support@neuhausapps.com" style="color:#AEB6C2;">Contact</a>
-            <a href="https://neuhausapps.com/privacy.html" style="color:#AEB6C2;">Privacy</a>
-            <a href="https://neuhausapps.com/terms.html" style="color:#AEB6C2;">Terms</a>
-          </div>
-          <div style="font-size:12px;color:#7A8496;">© 2026 Neuhaus Apps</div>
-        </div>
-
+      <div class="soon">
+        <span>+</span>
+        <small>More apps soon</small>
       </div>
     </div>
   </div>
-  <p class="dv-next">Try next: "make the app rows expandable" · "add a second option with cards instead of a list" · "try a lighter background"</p>
 </section>
 
-</x-dc>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <a class="brand" href="/"><span class="dots"><i></i><i></i><i></i><i></i></span><span>Neuhaus Apps</span></a>
+      <h2>Apps worth opening.</h2>
+      <nav class="foot-nav">
+        <a href="/">Home</a>
+        <a href="#apps">Apps</a>
+        <a href="mailto:Support@neuhausapps.com">Contact</a>
+        <a href="https://neuhausapps.com/privacy.html">Privacy</a>
+        <a href="https://neuhausapps.com/terms.html">Terms</a>
+      </nav>
+      <div class="copyright">&copy; 2026 Neuhaus Apps</div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
