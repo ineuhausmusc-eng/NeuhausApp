@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#0f6b5b">
+  <meta name="description" content="Terms of Use for OrderLess: Takeout Tracker by Neuhaus Apps.">
+  <title>OrderLess Terms of Use | Neuhaus Apps</title>
+  <style>
+    :root {
+      --canvas: #fbfaf5;
+      --surface: #ffffff;
+      --ink: #17212b;
+      --muted: #56636a;
+      --forest: #0f6b5b;
+      --forest-dark: #084b41;
+      --mint: #35c99a;
+      --mint-soft: #e4f8f1;
+      --amber: #f4c66a;
+      --amber-soft: #fff4d8;
+      --coral: #ff684a;
+      --line: #dce7e1;
+      --shadow: 0 24px 70px rgba(15, 107, 91, 0.10);
+      --radius-xl: 30px;
+      --radius-lg: 21px;
+      --radius-md: 14px;
+      --content: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(850px 600px at -8% 5%, rgba(53, 201, 154, 0.18), transparent 66%),
+        radial-gradient(760px 580px at 108% 24%, rgba(244, 198, 106, 0.22), transparent 67%),
+        var(--canvas);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--forest); text-underline-offset: 3px; }
+    a:hover { color: var(--forest-dark); }
+    a:focus-visible {
+      outline: 3px solid rgba(255, 104, 74, 0.42);
+      outline-offset: 4px;
+      border-radius: 6px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      left: 16px;
+      top: 12px;
+      transform: translateY(-180%);
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: #fff;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell {
+      width: min(calc(100% - 40px), var(--content));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: relative;
+      z-index: 5;
+      border-bottom: 1px solid rgba(15, 107, 91, 0.12);
+      background: rgba(251, 250, 245, 0.90);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -0.025em;
+    }
+
+    .brand-mark {
+      position: relative;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      overflow: hidden;
+      border-radius: 13px;
+      background: linear-gradient(145deg, var(--forest-dark), var(--forest));
+      box-shadow: 0 10px 25px rgba(15, 107, 91, 0.22);
+    }
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 8px;
+      top: 9px;
+      border: 4px solid var(--amber);
+      border-radius: 50%;
+      box-shadow: 0 0 14px rgba(244, 198, 106, 0.55);
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 19px;
+      right: 7px;
+      bottom: 7px;
+      border-left: 4px solid var(--mint);
+      border-bottom: 4px solid var(--mint);
+      border-radius: 0 0 0 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+    .nav-links a { text-decoration: none; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(64px, 10vw, 112px) 0 70px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: min(850px, 98vw);
+      height: 260px;
+      left: 50%;
+      bottom: -190px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(53, 201, 154, 0.20);
+      filter: blur(34px);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      color: var(--forest);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--amber);
+      box-shadow: 0 0 0 5px rgba(244, 198, 106, 0.20);
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      line-height: 1.13;
+      letter-spacing: -0.035em;
+    }
+    h1 {
+      margin: 18px auto 20px;
+      font-size: clamp(44px, 8vw, 76px);
+      font-weight: 880;
+    }
+    .hero-accent {
+      background: linear-gradient(105deg, var(--forest-dark), var(--mint));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-copy {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(18px, 2.4vw, 21px);
+    }
+    .updated {
+      margin: 24px 0 0;
+      color: #6b7771;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 44px;
+    }
+    .highlight {
+      min-height: 160px;
+      padding: 24px;
+      border: 1px solid rgba(15, 107, 91, 0.13);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.80);
+      box-shadow: 0 12px 34px rgba(23, 33, 43, 0.06);
+    }
+    .highlight-icon {
+      width: 38px;
+      height: 38px;
+      margin: 0 auto 13px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--mint-soft);
+      color: var(--forest-dark);
+      font-weight: 900;
+    }
+    .highlight:nth-child(2) .highlight-icon { background: var(--amber-soft); color: #75510d; }
+    .highlight:nth-child(3) .highlight-icon { background: #ffe7e1; color: #9e321d; }
+    .highlight h2 { margin-bottom: 7px; font-size: 17px; letter-spacing: -0.02em; }
+    .highlight p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    .agreement {
+      margin: 0 auto 52px;
+      padding: 22px 24px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      border: 1px solid rgba(15, 107, 91, 0.25);
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #f5fcf9, var(--mint-soft));
+    }
+    .agreement-mark {
+      width: 39px;
+      height: 39px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--forest);
+      color: #fff;
+      font-weight: 900;
+    }
+    .agreement p { margin: 0; color: #36534c; }
+
+    .terms-layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: clamp(32px, 6vw, 72px);
+      align-items: start;
+      padding-bottom: 110px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 28px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: 0 12px 32px rgba(23, 33, 43, 0.05);
+    }
+    .toc h2 {
+      margin-bottom: 14px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .toc ol { margin: 0; padding: 0; list-style: none; }
+    .toc li + li { margin-top: 5px; }
+    .toc a {
+      display: block;
+      padding: 6px 8px;
+      border-radius: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.3;
+      text-decoration: none;
+    }
+    .toc a:hover { background: var(--mint-soft); color: var(--forest-dark); }
+
+    .terms {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .terms-section {
+      padding: clamp(30px, 5vw, 54px);
+      scroll-margin-top: 28px;
+    }
+    .terms-section + .terms-section { border-top: 1px solid var(--line); }
+    .section-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    .terms-section h2 {
+      margin-bottom: 16px;
+      font-size: clamp(27px, 4vw, 37px);
+    }
+    .terms-section h3 {
+      margin: 28px 0 9px;
+      font-size: 19px;
+      letter-spacing: -0.02em;
+    }
+    .terms-section p { margin: 0; color: var(--muted); }
+    .terms-section p + p { margin-top: 15px; }
+    .terms-section ul { margin: 16px 0 0; padding-left: 23px; color: var(--muted); }
+    .terms-section li + li { margin-top: 8px; }
+    .terms-section strong { color: var(--ink); }
+
+    .callout {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--amber);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: var(--amber-soft);
+      color: #654c1d;
+    }
+
+    .purchase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .purchase-card {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: #f8fcfa;
+    }
+    .purchase-card:last-child { background: #fffaf0; border-color: #eed9a7; }
+    .purchase-card .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--forest);
+      font-size: 11px;
+      font-weight: 850;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .purchase-card h3 { margin: 0 0 7px; font-size: 21px; }
+    .purchase-card p { font-size: 15px; line-height: 1.55; }
+
+    .contact-card {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(145deg, var(--forest-dark), var(--forest));
+      color: #fff;
+      box-shadow: 0 18px 45px rgba(15, 107, 91, 0.22);
+    }
+    .contact-card p { color: rgba(255, 255, 255, 0.82); }
+    .contact-card strong { color: #fff; }
+    .contact-card a { color: #c7ffec; }
+
+    .site-footer {
+      padding: 34px 0 44px;
+      border-top: 1px solid rgba(15, 107, 91, 0.13);
+      color: #68736e;
+      font-size: 14px;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+
+    @media (max-width: 900px) {
+      .terms-layout { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc ol { columns: 2; column-gap: 24px; }
+      .toc li { break-inside: avoid; }
+    }
+
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 28px), var(--content)); }
+      .nav { min-height: 66px; }
+      .nav-links a:first-child { display: none; }
+      .highlights,
+      .purchase-grid { grid-template-columns: 1fr; }
+      .highlight { min-height: auto; }
+      .agreement { grid-template-columns: 1fr; }
+      .toc ol { columns: 1; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+    }
+
+    @media print {
+      .site-header, .toc, .site-footer, .skip-link { display: none !important; }
+      body { background: #fff; font-size: 12pt; }
+      .hero { padding: 28px 0; }
+      .highlights { grid-template-columns: repeat(3, 1fr); }
+      .terms-layout { display: block; }
+      .terms { border: 0; box-shadow: none; }
+      .terms-section { padding: 24px 0; break-inside: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#terms-content">Skip to Terms of Use</a>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="https://neuhausapps.com" aria-label="Neuhaus Apps home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>OrderLess <span style="color:var(--forest)">by Neuhaus Apps</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Page links">
+        <a href="../Privacy/">Privacy</a>
+        <a href="mailto:support@neuhausapps.com">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="terms-content">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="shell hero-inner">
+        <p class="eyebrow">Terms of Use</p>
+        <h1 id="page-title">Clear terms.<br><span class="hero-accent">No hidden ingredients.</span></h1>
+        <p class="hero-copy">These terms explain how OrderLess works, what paid access includes, and the responsibilities that come with using the app.</p>
+        <p class="updated">Effective and last updated: August 28, 2026</p>
+
+        <div class="highlights" aria-label="Purchase highlights">
+          <article class="highlight">
+            <div class="highlight-icon" aria-hidden="true">↻</div>
+            <h2>Weekly renews automatically</h2>
+            <p>The weekly subscription continues until you cancel it through your Apple account.</p>
+          </article>
+          <article class="highlight">
+            <div class="highlight-icon" aria-hidden="true">1×</div>
+            <h2>Lifetime is one payment</h2>
+            <p>Lifetime access is a non-consumable purchase with no recurring subscription charge.</p>
+          </article>
+          <article class="highlight">
+            <div class="highlight-icon" aria-hidden="true">≈</div>
+            <h2>Savings are estimates</h2>
+            <p>Results depend on the information you record and the choices you make.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="shell">
+      <aside class="agreement" aria-label="Agreement notice">
+        <div class="agreement-mark" aria-hidden="true">✓</div>
+        <p>By downloading, purchasing, accessing, or using OrderLess, you agree to these Terms and the applicable Apple license terms. If you do not agree, do not purchase or use OrderLess.</p>
+      </aside>
+
+      <div class="terms-layout">
+        <nav class="toc" aria-label="Terms sections">
+          <h2>On this page</h2>
+          <ol>
+            <li><a href="#agreement">Agreement and operator</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#purpose">Purpose and estimates</a></li>
+            <li><a href="#license">App license</a></li>
+            <li><a href="#apple">Apple terms</a></li>
+            <li><a href="#purchases">Purchases and access</a></li>
+            <li><a href="#subscription">Weekly subscription</a></li>
+            <li><a href="#trial">Trials and promotions</a></li>
+            <li><a href="#lifetime">Lifetime purchase</a></li>
+            <li><a href="#billing">Billing and refunds</a></li>
+            <li><a href="#content">Local data and exports</a></li>
+            <li><a href="#notifications">Notifications</a></li>
+            <li><a href="#acceptable-use">Acceptable use</a></li>
+            <li><a href="#intellectual-property">Intellectual property</a></li>
+            <li><a href="#third-parties">Third-party services</a></li>
+            <li><a href="#availability">Updates and availability</a></li>
+            <li><a href="#warranties">Warranty disclaimer</a></li>
+            <li><a href="#liability">Limitation of liability</a></li>
+            <li><a href="#indemnification">Indemnification</a></li>
+            <li><a href="#termination">Termination</a></li>
+            <li><a href="#law">Governing law</a></li>
+            <li><a href="#changes">Changes and general terms</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+
+        <article class="terms" aria-label="OrderLess Terms of Use">
+          <section class="terms-section" id="agreement">
+            <span class="section-label">01 / Agreement</span>
+            <h2>Agreement and operator</h2>
+            <p>These Terms of Use ("Terms") govern your access to and use of the <strong>OrderLess: Takeout Tracker</strong> iOS application, its associated content and features, and its support pages (collectively, the "Services").</p>
+            <p>The Services are developed and operated by <strong>Ian Neuhaus, an individual developer operating under the Neuhaus Apps name</strong> ("Neuhaus Apps," "we," "us," or "our") in Florida, United States.</p>
+            <p>These Terms incorporate the <a href="../Privacy/">OrderLess Privacy Policy</a>. Your license to the App is also subject to Apple’s applicable terms, including the <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard Licensed Application End User License Agreement</a> ("Apple Standard EULA"), unless a different Apple-approved license is presented with the App.</p>
+          </section>
+
+          <section class="terms-section" id="eligibility">
+            <span class="section-label">02 / Eligibility</span>
+            <h2>Who may use OrderLess</h2>
+            <p>You must be legally capable of agreeing to these Terms. If you are under the age of legal majority where you live, a parent or legal guardian must review and agree to these Terms and supervise your use. OrderLess is not directed to children under 13.</p>
+            <p>You may use the Services only where permitted by law and in compliance with the rules applicable to your Apple account and App Store territory. You are responsible for maintaining the security of your device and Apple account.</p>
+          </section>
+
+          <section class="terms-section" id="purpose">
+            <span class="section-label">03 / Purpose</span>
+            <h2>A planning tool—not a promise</h2>
+            <p>OrderLess is a habit and budgeting-support tool designed to help you record restaurant delivery and pickup orders, follow a gradual weekly plan, reflect on ordering patterns, and view estimated spending or savings.</p>
+            <p>Calculations and insights depend on information you enter, including order frequency, optional prices, weekly spending estimates, targets, and reflections. Results may be incomplete, inaccurate, delayed, or different from your actual spending. OrderLess does not access your bank, credit-card account, restaurant account, or delivery-service history to verify entries.</p>
+            <div class="callout"><strong>No guaranteed result:</strong> Neuhaus Apps does not promise that OrderLess will reduce your orders, save a particular amount of money, improve health, change behavior, or produce any specific outcome.</div>
+            <p>OrderLess does not provide financial, accounting, tax, medical, nutritional, dietary, psychological, or other professional advice. It is not a treatment for an eating disorder, mental-health condition, or other health concern. Seek an appropriately qualified professional when you need professional advice or care.</p>
+          </section>
+
+          <section class="terms-section" id="license">
+            <span class="section-label">04 / License</span>
+            <h2>Limited right to use the App</h2>
+            <p>Subject to these Terms, the Apple Standard EULA, and your valid App Store entitlement, Neuhaus Apps grants you a limited, personal, revocable, nonexclusive, nontransferable, and non-sublicensable license to use OrderLess on Apple-branded devices that you own or control, as permitted by Apple’s usage rules.</p>
+            <p>OrderLess is licensed, not sold. Neuhaus Apps and its licensors reserve every right not expressly granted. Purchase of a subscription or lifetime entitlement does not transfer ownership of the App, source code, branding, content, or other intellectual property.</p>
+          </section>
+
+          <section class="terms-section" id="apple">
+            <span class="section-label">05 / Apple</span>
+            <h2>Terms relating to Apple</h2>
+            <p>You acknowledge that these Terms are between you and Neuhaus Apps, not Apple. Neuhaus Apps—not Apple—is responsible for OrderLess and its content, subject to the Apple Standard EULA.</p>
+            <ul>
+              <li>Apple has no obligation to provide maintenance or support for OrderLess.</li>
+              <li>If OrderLess fails to conform to an applicable warranty that cannot lawfully be disclaimed, you may notify Apple, and Apple may refund the purchase price, if any, as provided by the Apple Standard EULA. To the maximum extent permitted by law, Apple has no other warranty obligation for OrderLess.</li>
+              <li>Neuhaus Apps, not Apple, is responsible for addressing claims relating to OrderLess, including product-liability, legal-compliance, consumer-protection, and intellectual-property claims, to the extent required by law.</li>
+              <li>You must comply with applicable third-party agreements when using OrderLess, including your wireless-data and Apple account terms.</li>
+              <li>Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce the Apple-related provisions after your acceptance.</li>
+            </ul>
+          </section>
+
+          <section class="terms-section" id="purchases">
+            <span class="section-label">06 / Paid access</span>
+            <h2>Purchases and premium access</h2>
+            <p>OrderLess may require a valid paid entitlement for access. Purchase options, availability, introductory offers, and localized prices are displayed through the App Store before you confirm a transaction.</p>
+            <div class="purchase-grid" aria-label="OrderLess purchase options">
+              <article class="purchase-card">
+                <span class="tag">Auto-renewing</span>
+                <h3>Weekly access</h3>
+                <p>Currently intended as $4.99 per week in the United States, with a three-day free trial only when Apple confirms eligibility.</p>
+              </article>
+              <article class="purchase-card">
+                <span class="tag">One time</span>
+                <h3>Lifetime access</h3>
+                <p>Currently intended as a $29.99 non-consumable purchase in the United States, with no free trial.</p>
+              </article>
+            </div>
+            <p>The exact product, price, currency, billing period, trial eligibility, and renewal disclosure shown by Apple on the purchase-confirmation screen control your transaction. Prices may vary by country, currency, tax, App Store price tier, and future approved changes.</p>
+            <p>RevenueCat assists with offering display, purchase validation, entitlement status, and restoration. It does not replace Apple as the payment processor.</p>
+          </section>
+
+          <section class="terms-section" id="subscription">
+            <span class="section-label">07 / Subscription</span>
+            <h2>Weekly auto-renewing subscription</h2>
+            <p>If you purchase weekly access, your subscription automatically renews for additional weekly periods unless you cancel it through your Apple account before the next renewal. Apple charges the payment method associated with your Apple account according to the price and timing shown at purchase and in your subscription settings.</p>
+            <p>You may cancel at any time through <strong>iOS Settings → your name → Subscriptions → OrderLess → Cancel Subscription</strong>. Cancellation prevents future renewal and ordinarily takes effect at the end of the current paid period. Deleting OrderLess, deleting local App data, turning off notifications, or emailing Neuhaus Apps does not cancel an Apple subscription.</p>
+            <p>Apple may manage price-change notices, required consent, billing retries, grace periods, refunds, and subscription status under its policies and your storefront’s law.</p>
+          </section>
+
+          <section class="terms-section" id="trial">
+            <span class="section-label">08 / Offers</span>
+            <h2>Free trials and promotional offers</h2>
+            <p>The three-day free trial applies only to the weekly subscription and only when Apple confirms that your Apple account is eligible. A trial is not guaranteed. The lifetime purchase does not include a trial.</p>
+            <p>Unless you cancel before the trial ends, the weekly subscription automatically converts to a paid subscription at the price displayed when you began the trial and continues renewing until canceled. Manage or cancel a trial through your Apple subscription settings.</p>
+            <p>Neuhaus Apps may offer eligible users promotional, introductory, or retention pricing. Any additional eligibility, duration, and price terms displayed with the offer apply. Offers may not be combined unless expressly stated.</p>
+          </section>
+
+          <section class="terms-section" id="lifetime">
+            <span class="section-label">09 / Lifetime</span>
+            <h2>What “lifetime access” means</h2>
+            <p>Lifetime access is a one-time, non-consumable purchase that unlocks the included premium OrderLess features without a recurring subscription charge for as long as OrderLess remains offered and supported for compatible devices under the purchasing Apple account.</p>
+            <p>“Lifetime” refers to the supported lifetime of the OrderLess product—not the lifetime of the purchaser or developer. It does not guarantee that the App, every feature, compatibility with every future operating system or device, App Store distribution, or support will continue indefinitely. It does not include a right to separate future products or services unless Neuhaus Apps expressly includes them.</p>
+            <p>This section does not limit any non-waivable consumer right or remedy that applies where you live.</p>
+          </section>
+
+          <section class="terms-section" id="billing">
+            <span class="section-label">10 / Transactions</span>
+            <h2>Billing, restoration, and refunds</h2>
+            <p>Apple processes payments, receipts, taxes, cancellations, and refund requests. Neuhaus Apps does not receive your complete payment-card or bank-account information and cannot directly cancel an Apple subscription.</p>
+            <p>Refund eligibility and processing are controlled by Apple and applicable law. You may request an eligible refund through <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener noreferrer">reportaproblem.apple.com</a>.</p>
+            <p>OrderLess provides a Restore Purchases control. Restoration depends on Apple, RevenueCat, your Apple account, product configuration, storefront rules, network access, and transaction history. A restore does not recover local plans, orders, prices, reflections, or settings that were deleted or stored only on another device.</p>
+          </section>
+
+          <section class="terms-section" id="content">
+            <span class="section-label">11 / Your information</span>
+            <h2>Local data, reflections, and exports</h2>
+            <p>OrderLess may let you create or store onboarding answers, a first name, plan information, order records, optional prices, reflections, notes, preferences, and related content ("User Content"). You retain ownership of your User Content.</p>
+            <p>User Content is stored locally on your device as described in the <a href="../Privacy/">OrderLess Privacy Policy</a>. Neuhaus Apps does not operate a cloud account or remote backup for that content and generally cannot view, retrieve, restore, or remotely delete it.</p>
+            <p>You are responsible for the information you enter, your device security, your Apple backup choices, and any exported copy. Do not enter another person’s private information without appropriate authority. When you intentionally export data through Apple’s share sheet, the destination you choose becomes responsible under its own terms and privacy practices.</p>
+            <p>Deleting local data does not cancel billing. Deleting the App or local data may permanently remove User Content, subject to copies in Apple-controlled backups or exports you previously sent elsewhere.</p>
+          </section>
+
+          <section class="terms-section" id="notifications">
+            <span class="section-label">12 / Reminders</span>
+            <h2>Notifications and permissions</h2>
+            <p>OrderLess may offer optional local reminders. You choose whether to grant notification permission and may change the setting through OrderLess or iOS Settings. Reminder timing, including any pattern-based reminder, is not guaranteed to be accurate, timely, or available.</p>
+            <p>You remain responsible for your decisions and actions. A missing, delayed, or incorrect notification does not create liability or change these Terms.</p>
+          </section>
+
+          <section class="terms-section" id="acceptable-use">
+            <span class="section-label">13 / Conduct</span>
+            <h2>Acceptable use</h2>
+            <p>You agree not to:</p>
+            <ul>
+              <li>Use the Services for unlawful, fraudulent, abusive, or harmful purposes.</li>
+              <li>Interfere with, disrupt, damage, overload, or impair the App, website, purchase systems, or related infrastructure.</li>
+              <li>Attempt to gain unauthorized access to code, systems, services, accounts, entitlements, or networks.</li>
+              <li>Circumvent a paywall, purchase validation, access control, security feature, or technical protection.</li>
+              <li>Introduce malware or other harmful technology.</li>
+              <li>Reverse engineer, decompile, disassemble, modify, or attempt to derive protected source code except to the limited extent applicable law expressly permits.</li>
+              <li>Copy, scrape, republish, resell, license, or commercially exploit a substantial portion of the Services without written permission.</li>
+              <li>Remove or alter copyright, trademark, attribution, or proprietary notices.</li>
+              <li>Misrepresent your identity or falsely imply affiliation with Neuhaus Apps.</li>
+              <li>Use the Services in a way that violates another person’s rights or applicable law.</li>
+            </ul>
+          </section>
+
+          <section class="terms-section" id="intellectual-property">
+            <span class="section-label">14 / Ownership</span>
+            <h2>Intellectual property and feedback</h2>
+            <p>Except for User Content and third-party materials, the OrderLess software, original text, calculations, visual design, graphics, icons, branding, name, logos, and other original materials are owned by Ian Neuhaus or applicable licensors and are protected by intellectual-property laws.</p>
+            <p>“OrderLess,” “Neuhaus Apps,” associated marks, and trade dress may not be used in a way that causes confusion or implies endorsement without permission.</p>
+            <p>If you voluntarily send ideas or feedback, you grant Neuhaus Apps a worldwide, perpetual, irrevocable, royalty-free right to use, reproduce, modify, and incorporate that feedback without compensation or attribution, provided we do not claim ownership of your local User Content.</p>
+          </section>
+
+          <section class="terms-section" id="third-parties">
+            <span class="section-label">15 / Other services</span>
+            <h2>Third-party platforms and links</h2>
+            <p>OrderLess relies on or links to third-party platforms, including Apple’s App Store and operating-system services, RevenueCat purchase infrastructure, and website hosting. An export may also be sent to a destination you select.</p>
+            <p>Third-party services operate independently and may have their own terms, privacy policies, technical limitations, and availability. Neuhaus Apps does not control and, to the extent permitted by law, is not responsible for their independent content, security, availability, or practices.</p>
+            <p>OrderLess is not affiliated with or endorsed by any restaurant, food-delivery platform, grocery service, bank, credit-card issuer, or other merchant merely because a user records a related order or expense.</p>
+          </section>
+
+          <section class="terms-section" id="availability">
+            <span class="section-label">16 / Service changes</span>
+            <h2>Updates, compatibility, and availability</h2>
+            <p>Neuhaus Apps may update, improve, modify, add, remove, suspend, or discontinue features when reasonably necessary for product development, security, legal compliance, vendor changes, compatibility, or operation.</p>
+            <p>We do not guarantee that every feature will remain available, that the App will operate without interruption or error, or that it will remain compatible with every future device, iOS version, App Store requirement, or third-party service. Updates may be required for continued use.</p>
+            <p>When reasonably practicable, Neuhaus Apps will avoid materially reducing paid access without a legitimate operational, legal, security, or technical reason. Non-waivable consumer remedies remain unaffected.</p>
+          </section>
+
+          <section class="terms-section" id="warranties">
+            <span class="section-label">17 / Disclaimers</span>
+            <h2>Disclaimer of warranties</h2>
+            <p>To the fullest extent permitted by law, the Services are provided <strong>“as is” and “as available,” with all faults</strong> and without warranties of any kind, whether express, implied, or statutory.</p>
+            <p>Neuhaus Apps does not warrant that the Services will be uninterrupted, error-free, completely secure, accurate, suitable for your particular needs, or free from harmful components. We disclaim implied warranties of merchantability, satisfactory quality, fitness for a particular purpose, title, quiet enjoyment, accuracy, and non-infringement to the extent those warranties may lawfully be disclaimed.</p>
+            <p>Nothing in these Terms excludes a warranty, remedy, or consumer right that applicable law does not permit us to exclude. Apple-related warranty remedies remain governed by the Apple Standard EULA.</p>
+          </section>
+
+          <section class="terms-section" id="liability">
+            <span class="section-label">18 / Liability</span>
+            <h2>Limitation of liability</h2>
+            <p>To the fullest extent permitted by law, Ian Neuhaus, Neuhaus Apps, and applicable contractors, licensors, and service providers will not be liable for indirect, incidental, special, exemplary, punitive, or consequential damages arising from or related to the Services.</p>
+            <p>This includes, where permitted, loss of data, lost savings, unexpected spending, loss of use, business interruption, device problems, missed reminders, reliance on estimates, or inability to access or use the Services, regardless of legal theory and even if the possibility was known.</p>
+            <p>To the fullest extent permitted by law, the total aggregate liability of Ian Neuhaus and Neuhaus Apps for all claims arising from or related to the Services will not exceed the greater of <strong>US $50.00</strong> or the amount you paid for OrderLess through the App Store during the twelve months immediately before the event giving rise to the claim.</p>
+            <p>These limits do not apply to fraud, willful misconduct, death or personal injury caused by negligence where liability cannot be limited, or any other liability that applicable law does not allow to be excluded or limited.</p>
+          </section>
+
+          <section class="terms-section" id="indemnification">
+            <span class="section-label">19 / Responsibility</span>
+            <h2>Indemnification</h2>
+            <p>To the extent permitted by law, you agree to indemnify and hold Ian Neuhaus and Neuhaus Apps harmless from third-party claims, liabilities, damages, judgments, losses, and reasonable expenses arising directly from:</p>
+            <ul>
+              <li>Your intentional, unlawful, or fraudulent misuse of the Services.</li>
+              <li>Your material violation of these Terms.</li>
+              <li>Your infringement or violation of another person’s legal rights.</li>
+            </ul>
+            <p>This obligation does not apply to the extent a claim results from negligence, willful misconduct, or violation of law by Ian Neuhaus or Neuhaus Apps.</p>
+          </section>
+
+          <section class="terms-section" id="termination">
+            <span class="section-label">20 / Ending use</span>
+            <h2>Suspension and termination</h2>
+            <p>You may stop using OrderLess at any time. You remain responsible for separately canceling any active subscription through Apple.</p>
+            <p>Neuhaus Apps may suspend or terminate access if reasonably necessary because of a material violation of these Terms, fraud, entitlement abuse, security risk, legal requirement, discontinuation, or conduct that harms the Services or others. Where appropriate and reasonably possible, we will provide notice or an opportunity to correct the issue.</p>
+            <p>Upon termination, your license ends and you must stop prohibited use. Provisions that by their nature should survive—including intellectual property, disclaimers, liability, indemnification, governing law, and general terms—will remain in effect.</p>
+          </section>
+
+          <section class="terms-section" id="law">
+            <span class="section-label">21 / Legal venue</span>
+            <h2>Governing law and venue</h2>
+            <p>These Terms and disputes arising from them are governed by the laws of the State of Florida, United States, without regard to conflict-of-law principles.</p>
+            <p>Subject to applicable consumer-protection law, disputes will be brought in the state courts located in St. Johns County, Florida, or the federal courts having jurisdiction over St. Johns County, Florida.</p>
+            <p>If the law where you reside gives you mandatory consumer rights, governing-law protections, or the right to bring a claim in another forum, nothing in these Terms removes those rights. The Apple Standard EULA separately governs the license relationship covered by that agreement.</p>
+          </section>
+
+          <section class="terms-section" id="changes">
+            <span class="section-label">22 / General</span>
+            <h2>Changes and general terms</h2>
+            <p>Neuhaus Apps may update these Terms to reflect changes to OrderLess, purchases, vendors, technology, law, or operating practices. The revised Terms will be posted at this URL with a new effective date. Material changes will receive additional notice when required by law.</p>
+            <p>Changes apply prospectively from their stated effective date unless applicable law permits otherwise. Continued use after revised Terms become effective constitutes acceptance to the extent permitted by law. If you do not agree, you must stop using the affected Services and separately cancel any renewing subscription.</p>
+            <p>If any provision is unenforceable, it will be enforced to the greatest extent permitted, and the remaining provisions will remain effective. Failure to enforce a provision is not a waiver. You may not assign these Terms without written consent; Neuhaus Apps may assign them in connection with a reorganization, sale, or transfer of the Services, subject to applicable law.</p>
+            <p>These Terms, the Apple Standard EULA, the <a href="../Privacy/">OrderLess Privacy Policy</a>, and any specific offer terms shown at purchase constitute the applicable agreement for your use of OrderLess. If they conflict, Apple’s purchase screen controls the transaction’s product, localized price, billing period, and trial eligibility; the Apple Standard EULA controls the licensed use it governs; and these Terms control other OrderLess matters to the extent allowed by law.</p>
+          </section>
+
+          <section class="terms-section" id="contact">
+            <span class="section-label">23 / Contact</span>
+            <h2>Questions and support</h2>
+            <p>For questions about these Terms or help with OrderLess, contact:</p>
+            <div class="contact-card">
+              <p><strong>Ian Neuhaus</strong><br>Individual Developer and Operator of Neuhaus Apps<br>Florida, United States<br>Email: <a href="mailto:support@neuhausapps.com">support@neuhausapps.com</a><br>Website: <a href="https://neuhausapps.com">neuhausapps.com</a></p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <span>&copy; 2026 Ian Neuhaus. Published under the Neuhaus Apps name.</span>
+      <div class="footer-links">
+        <a href="../Privacy/">Privacy Policy</a>
+        <a href="mailto:support@neuhausapps.com">Support</a>
+        <a href="#page-title">Back to top</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
