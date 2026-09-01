@@ -6,6 +6,9 @@
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#0f6b5b">
   <meta name="description" content="Terms of Use for OrderLess: Takeout Tracker by Neuhaus Apps.">
+  <link rel="icon" type="image/png" href="../orderless-app-icon.png">
+  <link rel="apple-touch-icon" href="../orderless-app-icon.png">
+  <meta property="og:image" content="https://neuhausapps.com/OrderLess/orderless-app-icon.png">
   <title>OrderLess Terms of Use | Neuhaus Apps</title>
   <style>
     :root {
@@ -96,36 +99,12 @@
     }
 
     .brand-mark {
-      position: relative;
       width: 42px;
       height: 42px;
       flex: 0 0 auto;
-      overflow: hidden;
       border-radius: 13px;
-      background: linear-gradient(145deg, var(--forest-dark), var(--forest));
+      object-fit: cover;
       box-shadow: 0 10px 25px rgba(15, 107, 91, 0.22);
-    }
-    .brand-mark::before {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      left: 8px;
-      top: 9px;
-      border: 4px solid var(--amber);
-      border-radius: 50%;
-      box-shadow: 0 0 14px rgba(244, 198, 106, 0.55);
-    }
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 19px;
-      right: 7px;
-      bottom: 7px;
-      border-left: 4px solid var(--mint);
-      border-bottom: 4px solid var(--mint);
-      border-radius: 0 0 0 4px;
     }
 
     .nav-links {
@@ -441,7 +420,7 @@
   <header class="site-header">
     <div class="shell nav">
       <a class="brand" href="https://neuhausapps.com" aria-label="Neuhaus Apps home">
-        <span class="brand-mark" aria-hidden="true"></span>
+        <img class="brand-mark" src="../orderless-app-icon.png" alt="" width="42" height="42">
         <span>OrderLess <span style="color:var(--forest)">by Neuhaus Apps</span></span>
       </a>
       <nav class="nav-links" aria-label="Page links">
