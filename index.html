@@ -106,11 +106,11 @@
   }
   .search::placeholder{color:var(--dim);}
   .search:focus{border-color:var(--accent);}
-  .grid{display:grid;grid-template-columns:1fr;gap:18px;}
+  .grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:stretch;}
   .card{
     position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;
     padding:20px 16px;display:flex;flex-direction:column;align-items:center;
-    text-align:center;gap:10px;
+    text-align:center;gap:10px;height:100%;
     transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
   }
   @media (hover:hover){
@@ -140,17 +140,12 @@
   .card p{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted);position:relative;z-index:2;}
   .card-links{
     display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
-    border-top:1px solid var(--line);padding-top:12px;width:100%;margin-top:2px;
+    border-top:1px solid var(--line);padding-top:8px;width:100%;margin-top:auto;
     position:relative;z-index:2;
   }
-  .card-links a{font-size:11.5px;color:var(--dim);}
+  .card-links a{font-size:11.5px;color:var(--dim);padding:8px 4px;position:relative;z-index:3;}
   .card-links a:hover{color:var(--muted);}
-  .soon{
-    border:1.5px dashed var(--line);border-radius:20px;min-height:180px;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
-  }
-  .soon span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:30px;color:#2A3648;}
-  .soon small{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#3F4D57;}
+  .card-icon.ol{box-shadow:0 0 22px rgba(226,164,44,.42);}
   /* ---------- FOOTER ---------- */
   .foot{
     border-top:1px solid var(--line);
@@ -184,6 +179,8 @@
       flex-direction:row;justify-content:space-between;align-items:center;
       text-align:left;margin-bottom:34px;
     }
+    .apps-head h2{margin-right:auto;}
+    .search{max-width:280px;}
     .apps{padding:80px 0;}
     .foot{padding:64px 0 52px;}
   }
@@ -241,7 +238,7 @@
 <section class="apps" id="apps">
   <div class="wrap">
     <div class="apps-head">
-      <h2>All apps <em>(2)</em></h2>
+      <h2>All apps <em>(3)</em></h2>
       <input class="search" type="search" placeholder="Search apps&hellip;" aria-label="Search apps">
     </div>
     <div class="grid">
@@ -267,9 +264,17 @@
           <a href="https://neuhausapps.com/terms.html">Terms of Use &#8599;</a>
         </div>
       </div>
-      <div class="soon">
-        <span>+</span>
-        <small>More apps soon</small>
+      <div class="card">
+        <a class="card-hit" href="https://apps.apple.com/us/app/orderless/id6808019506" aria-label="Open OrderLess on the App Store"></a>
+        <div class="card-icon ol">
+          <img src="assets/orderless-icon.png" alt="OrderLess app icon">
+        </div>
+        <h3>OrderLess</h3>
+        <p>A simpler way to cut back on takeout and fast-food spending.</p>
+        <div class="card-links">
+          <a href="https://neuhausapps.com/orderless/privacy/" target="_blank" rel="noopener">Privacy Policy &#8599;</a>
+          <a href="https://neuhausapps.com/orderless/terms/" target="_blank" rel="noopener">Terms of Use &#8599;</a>
+        </div>
       </div>
     </div>
   </div>
