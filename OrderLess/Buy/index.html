@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="OrderLess is a takeout tracker for iPhone. Set weekly goals, log delivery and pickup orders, and see your progress.">
+  <title>OrderLess | Takeout Tracker for iPhone</title>
+  <link rel="icon" href="./assets/orderless-icon-BdZMoQo8.png">
+  <script type="module" crossorigin src="./assets/index-B-Kl6bPr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-S0ZgbiBx.css">
+</head>
+<body>
+  <main id="app"></main>
+  <noscript><p class="noscript">Please enable JavaScript to continue with OrderLess. No purchase has been started.</p></noscript>
+  <template id="qualify"><div class="orderless-compatibility" style="padding:48px 24px;display:flex;flex-direction:column;gap:14px;flex:1;justify-content:center;text-align:center;background:#FBFAF5">
+        <div style="display:flex;align-items:center;justify-content:center;gap:7px"><img alt="" src="./assets/orderless-icon-BdZMoQo8.png" style="width:22px;height:22px;border-radius:6px;object-fit:cover"><div style="font-weight:800;font-size:14px;color:#17212B">OrderLess</div></div>
+        <div style="width:64px;height:64px;border-radius:18px;background:radial-gradient(circle at 18% 92%,rgba(126,239,60,.95) 0%,rgba(38,192,106,.72) 28%,transparent 54%),radial-gradient(circle at 92% 60%,rgba(78,225,209,.88) 0%,rgba(18,171,127,.72) 34%,transparent 62%),linear-gradient(160deg,#05382F 0%,#0A624D 46%,#12A56F 100%);margin:8px auto 0;display:flex;align-items:center;justify-content:center">
+          <div style="width:28px;height:44px;border:2.5px solid #48CD8E;border-radius:7px;position:relative"><div style="position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:10px;height:2px;border-radius:1px;background:#48CD8E"></div></div>
+        </div>
+        <h1 tabindex="-1" style="margin:0;font-size:23px;color:#17212B;font-weight:800">Do you have an iPhone?</h1>
+        <p style="margin:0;font-size:13px;color:#5B6672;line-height:1.5">OrderLess works only on iPhone, not iPad, Android, or computers. You'll need an iPhone to install and use the app.</p>
+        <div style="background:#FDF1DC;border-radius:12px;padding:12px;font-size:12px;color:#8A5A16;line-height:1.5;text-align:left"><b>Important:</b> if you don't have an iPhone, you won't be able to activate and use OrderLess after purchase.</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:6px">
+          <button data-action="yes" style="background:radial-gradient(circle at 14% 115%,rgba(126,239,60,.78) 0%,rgba(36,188,109,.64) 30%,transparent 54%),radial-gradient(circle at 92% 36%,rgba(78,225,209,.72) 0%,rgba(15,137,107,.7) 36%,transparent 64%),linear-gradient(160deg,#064538 0%,#0C745B 54%,#159F70 100%);color:#fff;border:none;border-radius:999px;padding:16px;font-size:14px;font-weight:700;cursor:pointer">YES, I HAVE AN IPHONE — CONTINUE</button>
+          <button data-action="no" style="background:none;border:none;color:#5B6672;font-size:13px;font-weight:600;cursor:pointer;padding:8px">NO, I DON'T HAVE AN IPHONE</button>
+        </div>
+      </div></template>
+  <template id="hero"><section class="orderless-hero" aria-label="OrderLess introduction">
+        <h1 tabindex="-1" class="hero-title">Start Spending Less on<br>Takeout <span>This Week</span></h1>
+        <div class="hero-demo">
+          <img src="./assets/orderless-hero-optimized-BgWT3X7k.webp" alt="OrderLess app demo showing order tracking and weekly progress">
+        </div>
+        <p class="hero-copy">Track delivery and pickup orders, set a weekly goal, and <strong>cut back on takeout</strong> without giving it up.</p>
+        <button class="hero-cta" data-action="continue">SEE HOW IT WORKS <span aria-hidden="true">→</span></button>
+        <div class="hero-store" aria-label="App Store">
+          <img class="hero-laurel" src="./assets/laurel-left-BpaB6Hqd.png" alt="" aria-hidden="true">
+          <img class="hero-store-icon" src="./assets/app-store-icon-CJjfdM_K.png" alt="" aria-hidden="true">
+          <span>App Store</span>
+          <img class="hero-laurel hero-laurel-right" src="./assets/laurel-left-BpaB6Hqd.png" alt="" aria-hidden="true">
+        </div>
+        <footer class="hero-brand">
+          <img src="./assets/orderless-app-icon-original-0J_GwbX2.png" alt="OrderLess app icon" class="hero-brand-icon">
+          <div class="hero-brand-type">
+            <div class="hero-brand-name">OrderLess</div>
+            <div class="hero-brand-tagline">Takeout tracker for weekly goals.</div>
+          </div>
+        </footer>
+
+      </section></template>
+  <template id="proof"><section class="orderless-proof" aria-label="Why I built OrderLess">
+        <div class="proof-brand"><img src="./assets/orderless-app-icon-original-0J_GwbX2.png" alt="OrderLess app icon"><span>OrderLess</span></div>
+        <h1 tabindex="-1" class="proof-title">Why I Built<br><span>OrderLess</span></h1>
+        <div class="proof-portrait"><div class="proof-portrait-crop"><img src="./assets/ian-founder-photo-QJBfDv6d.png" alt="Ian, creator of OrderLess"></div></div>
+        <figure class="proof-story">
+          <div class="proof-quote-mark" aria-hidden="true">“</div>
+          <blockquote>
+            <p class="proof-intro">I built OrderLess because takeout had become too easy to repeat. Tracking each delivery and pickup order helped me see the habit clearly.</p>
+            <p class="proof-emphasis"><strong>A weekly goal makes it easier to order less,</strong> one logged order <strong class="proof-coral">at a time.</strong></p>
+          </blockquote>
+          <figcaption>— <strong>Ian</strong>, App creator.</figcaption>
+        </figure>
+        <div class="proof-actions"><button class="hero-cta" data-action="continue">CONTINUE <span aria-hidden="true">→</span></button></div>
+
+      </section></template>
+  <template id="goodbye">
+    <section class="orderless-compatibility simple-screen">
+      <img class="activation-icon" src="./assets/orderless-icon-BdZMoQo8.png" alt="OrderLess">
+      <h1 tabindex="-1">OrderLess is currently iPhone-only.</h1>
+      <p>You'll need an iPhone to install and use the app.</p>
+      <button class="secondary-action" data-action="back">BACK</button>
+    </section>
+  </template>
+  <template id="offer">
+    <section class="orderless-offer" aria-label="Choose your OrderLess plan">
+      <header class="offer-header">
+        <div class="offer-brand"><img src="./assets/orderless-app-icon-original-0J_GwbX2.png" alt="OrderLess app icon"><span>OrderLess</span></div>
+        <h1 tabindex="-1">Your Takeout Tracker.<br><span>Weekly Goals to Spend Less.</span></h1>
+        <p>Log delivery and pickup orders, add prices when you know them, and see your weekly progress.</p>
+      </header>
+      <fieldset class="offer-plans" aria-label="Choose a plan">
+        <label class="offer-plan">
+          <span class="offer-recommended">RECOMMENDED</span>
+          <input type="radio" name="orderless-plan" value="weekly" aria-label="Weekly, 7-day free trial, then $4.99 per week" checked>
+          <span class="offer-plan-label">WEEKLY</span>
+          <span class="offer-plan-price">$4.99<small>/week</small></span>
+          <span class="offer-plan-trial">7-day free trial</span>
+          <span class="offer-plan-period">Then billed weekly</span>
+        </label>
+        <label class="offer-plan">
+          <input type="radio" name="orderless-plan" value="lifetime" aria-label="Lifetime, $29.99 once, no free trial">
+          <span class="offer-plan-label">LIFETIME</span>
+          <span class="offer-plan-price">$29.99<small> once</small></span>
+          <span class="offer-plan-period">No free trial<br>No recurring charge</span>
+        </label>
+      </fieldset>
+      <section class="offer-details" aria-label="Plan benefits and billing">
+        <h2>YOUR PLAN UNLOCKS</h2>
+        <ul class="offer-benefits">
+          <li><span aria-hidden="true">&#127919;</span><span>Weekly takeout goal</span></li>
+          <li><span aria-hidden="true">&#129534;</span><span>Delivery and pickup order log</span></li>
+          <li><span aria-hidden="true">&#128200;</span><span>Spending progress from recorded prices</span></li>
+        </ul>
+        <h2>HOW IT WORKS</h2>
+        <div class="offer-billing" aria-live="polite">
+          <div class="offer-billing-row"><span>Today</span><strong data-copy="today"></strong></div>
+          <div class="offer-billing-row"><span data-copy="nextLabel"></span><strong data-copy="renewal"></strong></div>
+        </div>
+      </section>
+      <div class="offer-payment">
+        <button class="offer-apple-pay" data-action="purchase" disabled>Start My 7-Day Free Trial</button>
+        <p class="checkout-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <button class="offer-card-pay" data-action="retry" hidden>Retry</button>
+      </div>
+      <p class="offer-terms" data-copy="terms"></p>
+      <p class="offer-terms">Prices in USD. Any applicable tax is shown at checkout.</p>
+      <p class="offer-terms">By continuing, you agree to the <span data-link="terms">Terms (unavailable)</span> and <span data-link="privacy">Privacy Policy (unavailable)</span>.</p>
+      <p class="offer-terms">For iPhone. Purchase here, then activate OrderLess on your iPhone.</p>
+      <p class="offer-terms"><span data-link="support">Support (unavailable)</span></p>
+    </section>
+  </template>
+  <template id="success">
+    <section class="simple-screen activation-screen">
+      <img class="activation-icon" src="./assets/orderless-icon-BdZMoQo8.png" alt="OrderLess">
+      <h1 tabindex="-1">You're in.</h1>
+      <p data-purchased-plan></p>
+      <p>Activate OrderLess on your iPhone to finish setup. Your purchase is not yet confirmed inside the app.</p>
+      <a class="hero-cta activate-link" hidden>Open OrderLess to Activate</a>
+      <div class="qr-handoff" hidden>
+        <img class="activation-qr" alt="Scan this activation QR code with your iPhone camera" width="220" height="220">
+        <p>Scan with your iPhone camera to activate.</p>
+      </div>
+      <p class="activation-status" role="status" aria-live="polite"></p>
+      <p>Install or update OrderLess on your iPhone before opening the activation link.</p>
+      <p><span data-link="appStore">App Store link unavailable</span></p>
+      <p>Activation links are single-use and expire after 60 minutes. If activation fails, check your purchase email or contact support. Do not purchase again.</p>
+      <p><span data-link="support">Support link unavailable</span></p>
+      <p>For subscription management and cancellation, use the customer portal link in your purchase email.</p>
+    </section>
+  </template>
+  <template id="recovery">
+    <section class="simple-screen activation-screen">
+      <img class="activation-icon" src="./assets/orderless-icon-BdZMoQo8.png" alt="OrderLess">
+      <h1 tabindex="-1">Check your purchase</h1>
+      <p>Checkout may have completed, or a previous purchase was found. We have paused new purchases in this browser to help prevent a duplicate charge.</p>
+      <p>Check your purchase email for your receipt, activation instructions, and subscription management. Open OrderLess on your iPhone to check access.</p>
+      <p>If no email arrives or activation fails, contact support before trying another purchase.</p>
+      <p><span data-link="support">Support link unavailable. Please return once checkout setup is complete.</span></p>
+      <p><span data-link="appStore">App Store link unavailable</span></p>
+    </section>
+  </template>
+  <template id="marketing-consent">
+    <aside class="marketing-consent" role="dialog" aria-label="Advertising measurement choices">
+      <div>
+        <strong>Help us measure what works</strong>
+        <p>Allow optional TikTok measurement so we can learn which ads lead to checkout and purchases. You can continue without it.</p>
+        <a data-consent-privacy target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </div>
+      <div class="marketing-consent-actions">
+        <button type="button" data-consent="denied">Continue without</button>
+        <button type="button" data-consent="granted">Allow measurement</button>
+      </div>
+    </aside>
+  </template>
+</body>
+</html>
