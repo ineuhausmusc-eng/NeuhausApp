@@ -7,8 +7,8 @@
   <meta name="description" content="OrderLess is a takeout tracker for iPhone. Set weekly goals, log delivery and pickup orders, and see your progress.">
   <title>OrderLess | Takeout Tracker for iPhone</title>
   <link rel="icon" href="./assets/orderless-icon-BdZMoQo8.png">
-  <script type="module" crossorigin src="./assets/index-CNC17zpC.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-w8DipPG9.css">
+  <script type="module" crossorigin src="./assets/index-0QU1rGDe.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CqTkP3s2.css">
 </head>
 <body>
   <main id="app"></main>
@@ -108,9 +108,11 @@
         </div>
       </section>
       <div class="offer-payment">
-        <button class="offer-apple-pay" data-action="purchase" disabled>Start My 7-Day Free Trial</button>
+        <div class="offer-express" data-express aria-label="Express checkout"></div>
+        <div class="offer-divider" data-express-divider hidden>OR PAY BY CARD</div>
+        <button class="offer-card-pay" data-action="purchase" disabled>Start My 7-Day Free Trial</button>
         <p class="checkout-status" role="status" aria-live="polite" aria-atomic="true"></p>
-        <button class="offer-card-pay" data-action="retry" hidden>Retry</button>
+        <button class="offer-card-pay" data-action="retry" hidden>Retry loading plans</button>
       </div>
       <p class="offer-terms" data-copy="terms"></p>
       <p class="offer-terms">Prices in USD. Any applicable tax is shown at checkout.</p>
