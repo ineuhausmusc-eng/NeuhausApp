@@ -7,8 +7,8 @@
   <meta name="description" content="OrderLess is a takeout tracker for iPhone. Set weekly goals, log delivery and pickup orders, and see your progress.">
   <title>OrderLess | Takeout Tracker for iPhone</title>
   <link rel="icon" href="./assets/orderless-icon-BdZMoQo8.png">
-  <script type="module" crossorigin src="./assets/index-B6DQ0liy.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CqTkP3s2.css">
+  <script type="module" crossorigin src="./assets/index-BwCofiEC.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DexcyMOZ.css">
 </head>
 <body>
   <main id="app"></main>
@@ -124,20 +124,21 @@
   <template id="success">
     <section class="simple-screen activation-screen">
       <img class="activation-icon" src="./assets/orderless-icon-BdZMoQo8.png" alt="OrderLess">
-      <h1 tabindex="-1">You're in.</h1>
-      <p data-purchased-plan></p>
-      <p>Activate OrderLess on your iPhone to finish setup. Your purchase is not yet confirmed inside the app.</p>
-      <a class="hero-cta activate-link" hidden>Open OrderLess to Activate</a>
-      <div class="qr-handoff" hidden>
-        <img class="activation-qr" alt="Scan this activation QR code with your iPhone camera" width="220" height="220">
-        <p>Scan with your iPhone camera to activate.</p>
-      </div>
+      <h1 tabindex="-1">Purchase complete</h1>
+      <p class="purchase-summary" data-purchased-plan></p>
+      <p class="activation-intro">One last step: open OrderLess on this iPhone to activate your purchase.</p>
+      <a class="activation-primary activate-link" hidden>Open OrderLess</a>
       <p class="activation-status" role="status" aria-live="polite"></p>
-      <p>Install or update OrderLess on your iPhone before opening the activation link.</p>
-      <p><span data-link="appStore">App Store link unavailable</span></p>
-      <p>Activation links are single-use and expire after 60 minutes. If activation fails, check your purchase email or contact support. Do not purchase again.</p>
-      <p><span data-link="support">Support link unavailable</span></p>
-      <p>For subscription management and cancellation, use the customer portal link in your purchase email.</p>
+      <p class="app-store-fallback">Don't have the latest OrderLess version? <span data-link="appStore">App Store link unavailable</span></p>
+      <div class="qr-handoff" hidden>
+        <h2>Activate on your iPhone</h2>
+        <img class="activation-qr" alt="Scan this activation QR code with your iPhone camera" width="220" height="220">
+        <p>Open your iPhone camera and scan this code.</p>
+      </div>
+      <div class="activation-help">
+        <p>If activation fails, check your purchase email. Do not purchase again. <span data-link="support">Contact support</span>.</p>
+        <p data-subscription-management>Manage or cancel your subscription using the customer portal in your purchase email.</p>
+      </div>
     </section>
   </template>
   <template id="recovery">
