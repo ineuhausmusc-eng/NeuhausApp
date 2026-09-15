@@ -1,0 +1,51 @@
+name: Deploy Neuhaus Apps site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out site
+        uses: actions/checkout@v6
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir _site
+          rsync -a \
+            --exclude '.git/' \
+            --exclude '.github/' \
+            --exclude '.pages/' \
+            --exclude '_site/' \
+            ./ _site/
+
+      - name: Inject OrderLess browser configuration
+        env:
+          VITE_RC_PUBLIC_WEB_KEY: ${{ vars.VITE_RC_PUBLIC_WEB_KEY }}
+          VITE_TIKTOK_PIXEL_ID: ${{ vars.VITE_TIKTOK_PIXEL_ID }}
+        run: node .pages/inject-orderless-config.mjs _site
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
