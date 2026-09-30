@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+    />
+    <title>Opening secure sign-in… | DOT Physical</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #eaf6ff;
+        color: #10233f;
+      }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(
+            circle at 18% 16%,
+            rgba(36, 205, 239, 0.38),
+            transparent 42%
+          ),
+          radial-gradient(
+            circle at 82% 88%,
+            rgba(129, 112, 255, 0.3),
+            transparent 46%
+          ),
+          linear-gradient(145deg, #0d68e9 0%, #43bde9 48%, #edf6ff 100%);
+      }
+
+      main {
+        width: min(84vw, 32rem);
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.72);
+        border-radius: 1.75rem;
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 1.5rem 4rem rgba(8, 42, 90, 0.2);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.55rem, 5vw, 2.15rem);
+      }
+
+      p {
+        margin: 0;
+        color: #526984;
+        line-height: 1.55;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Opening secure sign-in…</h1>
+      <p id="status">
+        Connecting to Google through DOT Physical: Examiner Guide.
+      </p>
+    </main>
+    <script>
+      (() => {
+        const status = document.getElementById("status");
+
+        try {
+          const encodedTarget = window.location.hash.slice(1);
+          const target = new URL(decodeURIComponent(encodedTarget));
+          const expectedRedirect = "dotexaminer://auth/callback";
+
+          if (
+            target.origin !== "https://hhtbqbddmszzrygtkmhc.supabase.co" ||
+            target.pathname !== "/auth/v1/authorize" ||
+            target.searchParams.get("provider") !== "google" ||
+            target.searchParams.get("redirect_to") !== expectedRedirect
+          ) {
+            throw new Error("Unexpected sign-in destination.");
+          }
+
+          window.location.replace(target.toString());
+        } catch {
+          status.textContent =
+            "This sign-in link is invalid. Close this window and start again from the DOT Physical app.";
+        }
+      })();
+    </script>
+  </body>
+</html>
