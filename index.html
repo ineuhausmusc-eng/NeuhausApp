@@ -8,13 +8,13 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Neuhaus Apps — Apps worth opening">
   <meta property="og:description" content="Focused iPhone apps, designed to do one job well.">
-  <meta property="og:image" content="https://neuhausapps.com/assets/neuhaus-stage-desktop.webp">
+  <meta property="og:image" content="https://neuhausapps.com/assets/neuhaus-stage-desktop-4k.webp">
   <title>Neuhaus Apps — Apps worth opening</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/neuhaus-stage-desktop.webp" media="(min-width: 721px)">
-  <link rel="preload" as="image" href="assets/neuhaus-stage-mobile.webp" media="(max-width: 720px)">
+  <link rel="preload" as="image" href="assets/neuhaus-stage-desktop-4k.webp" media="(min-width: 721px)">
+  <link rel="preload" as="image" href="assets/neuhaus-stage-mobile-4k.webp" media="(max-width: 720px)">
   <style>
     :root {
       color-scheme: dark;
@@ -44,7 +44,7 @@
     /* The artwork has no baked-in controls. Everything above it is real HTML. */
     .hero { padding: 22px 22px 0; }
     .hero-frame { position: relative; width: min(100%, 1480px); margin: auto; overflow: hidden; isolation: isolate; border: 1px solid rgba(137, 188, 255, .25); border-radius: 20px; background: #071941; box-shadow: 0 24px 75px rgba(0, 0, 0, .55), 0 0 70px rgba(31, 103, 255, .16); }
-    .hero-picture img { width: 100%; height: auto; aspect-ratio: 1672 / 941; object-fit: cover; }
+    .hero-picture img { width: 100%; height: auto; aspect-ratio: 3840 / 2160; object-fit: cover; }
     .hero-frame::after { content: ""; position: absolute; z-index: 0; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(2, 9, 30, .64), transparent 19%, transparent 72%, rgba(2, 9, 30, .32)); }
     .hero-ui { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
     .hero-ui a, .hero-ui button, .hero-ui nav { pointer-events: auto; }
@@ -60,7 +60,7 @@
     .top-cta { justify-self: end; display: inline-flex; align-items: center; gap: 18px; min-height: 50px; padding: 0 22px; border-radius: 999px; background: #030a17; border: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 9px 26px rgba(0, 0, 0, .28); font-size: 14px; font-weight: 700; white-space: nowrap; }
     .top-cta:hover { background: #102447; }
     .menu-toggle, .mobile-menu { display: none; }
-    .hero-kicker { position: absolute; top: 12.5%; left: 50%; width: max-content; max-width: 88%; transform: translateX(-50%); margin: 0; color: #b9d9ff; font-family: "Space Grotesk", sans-serif; font-size: clamp(12px, 1.7vw, 24px); font-weight: 600; letter-spacing: clamp(.17em, .52vw, .44em); text-align: center; text-transform: uppercase; white-space: nowrap; text-shadow: 0 0 18px #006eff, 0 0 38px #006eff; }
+    .hero-kicker { position: absolute; top: 12.5%; left: 50%; width: max-content; max-width: 88%; transform: translateX(-50%); margin: 0; color: #eef7ff; font-family: "Space Grotesk", sans-serif; font-size: clamp(12px, 1.7vw, 24px); font-weight: 600; letter-spacing: clamp(.17em, .52vw, .44em); text-align: center; text-transform: uppercase; white-space: nowrap; text-shadow: 0 1px 2px rgba(0, 13, 41, .9), 0 0 9px rgba(0, 110, 255, .65); }
     .hero-bottom { position: absolute; right: clamp(18px, 3vw, 48px); bottom: clamp(16px, 2.7vw, 40px); left: clamp(18px, 3vw, 48px); display: flex; align-items: end; justify-content: space-between; gap: 20px; }
     .hero-note { margin: 0; color: #d4e7ff; font-size: clamp(11px, 1.1vw, 15px); font-weight: 600; letter-spacing: .17em; line-height: 1.45; text-transform: uppercase; text-shadow: 0 2px 12px #011639; }
     .hero-button, .solid-button { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: #fff; color: #071326; box-shadow: 0 10px 25px rgba(0, 0, 0, .28); font-weight: 700; white-space: nowrap; transition: transform .18s ease, box-shadow .18s ease; }
@@ -116,7 +116,7 @@
     @media (max-width: 720px) {
       .hero { padding: 0; }
       .hero-frame { border: 0; border-radius: 0 0 18px 18px; box-shadow: 0 20px 50px rgba(0, 0, 0, .48); }
-      .hero-picture img { aspect-ratio: 941 / 1672; }
+      .hero-picture img { aspect-ratio: 2160 / 3840; }
       .hero-frame::after { background: linear-gradient(to bottom, rgba(2, 9, 30, .45), transparent 27%, transparent 78%, rgba(2, 9, 30, .38)); }
       .topbar { grid-template-columns: 1fr auto; align-items: center; padding: 18px 20px; }
       .brand-main { font-size: 18px; }
@@ -133,9 +133,11 @@
       .hero-button { min-height: 46px; padding-inline: 20px; font-size: 13px; }
       .intro { padding: 38px 0 46px; }
       .apps { padding: 58px 0 70px; }
-      .apps-head { align-items: stretch; flex-direction: column; }
+      .apps-head { align-items: center; flex-direction: column; text-align: center; }
       .search { width: 100%; max-width: none; }
       .app-grid { grid-template-columns: 1fr; gap: 16px; }
+      .app-card > a:first-child { align-items: center; text-align: center; }
+      .legal-links { justify-content: center; }
       .app-card { min-height: 0; }
       .about { padding: 64px 0 72px; }
       .about-grid { grid-template-columns: 1fr; }
@@ -157,8 +159,8 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-frame">
         <picture class="hero-picture">
-          <source media="(max-width: 720px)" srcset="assets/neuhaus-stage-mobile.webp" type="image/webp">
-          <img src="assets/neuhaus-stage-desktop.webp" width="1672" height="941" fetchpriority="high" alt="Marble Neuhaus lettering and two sculptural hands reaching toward a glowing app icon, with an iPhone and app tiles below">
+          <source media="(max-width: 720px)" srcset="assets/neuhaus-stage-mobile-4k.webp" type="image/webp">
+          <img src="assets/neuhaus-stage-desktop-4k.webp" width="3840" height="2160" fetchpriority="high" alt="Marble Neuhaus lettering and two sculptural hands reaching toward a glowing app icon, with an iPhone and app tiles below">
         </picture>
         <div class="hero-ui">
           <div class="topbar">
