@@ -78,6 +78,12 @@
     .search { width: min(100%, 300px); min-height: 48px; padding: 12px 18px; border: 1px solid rgba(143, 186, 255, .26); border-radius: 999px; outline: none; background: rgba(13, 28, 58, .78); color: #fff; font-size: 14px; }
     .search::placeholder { color: #91a1be; }
     .search:focus { border-color: #76baff; box-shadow: 0 0 0 3px rgba(52, 120, 255, .2); }
+    .android-callout { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; padding: 26px 28px; border: 1px solid rgba(137, 230, 177, .34); border-radius: 22px; background: linear-gradient(110deg, rgba(31, 93, 85, .48), rgba(12, 31, 59, .88)); }
+    .android-callout .section-label { margin-bottom: 8px; color: #9cebbb; }
+    .android-callout h3 { margin: 0 0 8px; font-family: "Space Grotesk", sans-serif; font-size: clamp(22px, 2.6vw, 30px); }
+    .android-callout p:not(.section-label) { margin: 0; color: #c4d7e5; font-size: 14px; line-height: 1.6; }
+    .android-callout a { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 48px; padding: 0 20px; border-radius: 999px; background: #9cebbb; color: #0b2419; font-size: 14px; font-weight: 700; white-space: nowrap; }
+    .android-callout a:hover { background: #c3f5d5; }
     .app-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .app-card { display: flex; flex-direction: column; min-height: 302px; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(180deg, #111d34, #0a1120 72%); box-shadow: inset 0 1px rgba(255, 255, 255, .06); transition: transform .18s ease, border-color .18s ease; }
     .app-card:hover { transform: translateY(-4px); border-color: rgba(144, 193, 255, .48); }
@@ -136,6 +142,7 @@
       .apps-head { align-items: center; flex-direction: column; text-align: center; }
       .search { width: 100%; max-width: none; }
       .app-grid { grid-template-columns: 1fr; gap: 16px; }
+      .android-callout { align-items: flex-start; flex-direction: column; padding: 22px; }
       .app-card > a:first-child { align-items: center; text-align: center; }
       .legal-links { justify-content: center; }
       .app-card { min-height: 0; }
@@ -198,6 +205,10 @@
           <div><p class="section-label">The collection</p><h2 id="apps-heading">All apps <span class="app-count" id="app-count" aria-live="polite">(3)</span></h2></div>
           <input class="search" id="app-search" type="search" placeholder="Search apps…" aria-label="Search apps" autocomplete="off">
         </div>
+        <div class="android-callout">
+          <div><p class="section-label">For Android</p><h3>Looking for Android apps?</h3><p>Visit the separate Android page for future releases and Google Play links.</p></div>
+          <a href="/android/">Explore Android apps <span aria-hidden="true">→</span></a>
+        </div>
         <div class="app-grid" id="app-grid">
           <article class="app-card" data-app>
             <a href="https://apps.apple.com/us/app/orderless/id6808019506" aria-label="OrderLess on the App Store">
@@ -246,7 +257,7 @@
 
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-inner"><h2>Apps worth opening.</h2><nav class="footer-nav" aria-label="Footer navigation"><a href="#top">Home</a><a href="#apps">Apps</a><a href="#about">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="mailto:Support@neuhausapps.com">Contact</a></nav></div>
+      <div class="footer-inner"><h2>Apps worth opening.</h2><nav class="footer-nav" aria-label="Footer navigation"><a href="#top">Home</a><a href="#apps">Apps</a><a href="/android/">Android</a><a href="#about">About</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="mailto:Support@neuhausapps.com">Contact</a></nav></div>
       <p class="copyright">© 2026 Neuhaus Apps</p>
     </div>
   </footer>
