@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; object-src 'none'; form-action 'none'; frame-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'none'; upgrade-insecure-requests">
   <meta name="theme-color" content="#061026">
   <meta name="description" content="Neuhaus Apps designs and builds focused iPhone apps worth opening.">
   <meta property="og:type" content="website">
@@ -262,37 +263,6 @@
     </div>
   </footer>
 
-  <script>
-    const menuButton = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('#mobile-menu');
-    function closeMenu() { menuButton.setAttribute('aria-expanded', 'false'); menuButton.setAttribute('aria-label', 'Open menu'); mobileMenu.hidden = true; }
-    menuButton.addEventListener('click', () => {
-      const opening = menuButton.getAttribute('aria-expanded') !== 'true';
-      menuButton.setAttribute('aria-expanded', String(opening));
-      menuButton.setAttribute('aria-label', opening ? 'Close menu' : 'Open menu');
-      mobileMenu.hidden = !opening;
-    });
-    mobileMenu.addEventListener('click', event => { if (event.target.closest('a')) closeMenu(); });
-    document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
-    const search = document.querySelector('#app-search');
-    const cards = [...document.querySelectorAll('[data-app]')];
-    const count = document.querySelector('#app-count');
-    const empty = document.querySelector('#empty-results');
-    search.addEventListener('input', () => {
-      const query = search.value.trim().toLocaleLowerCase();
-      let visible = 0;
-      cards.forEach(card => {
-        const searchable = [card.querySelector('h3')?.textContent, card.querySelector('p')?.textContent].join(' ').toLocaleLowerCase();
-        const match = searchable.includes(query);
-        card.hidden = !match;
-        if (match) visible++;
-      });
-      count.textContent = '(' + visible + ')';
-      empty.hidden = visible !== 0;
-    });
-    document.querySelectorAll('[data-focus-search]').forEach(link => link.addEventListener('click', () => {
-      setTimeout(() => search.focus({ preventScroll: true }), 350);
-    }));
-  </script>
+  <script src="/assets/site-home.js"></script>
 </body>
 </html>
