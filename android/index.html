@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071123">
+  <meta name="description" content="A separate home for Android apps from Neuhaus Apps. New releases and Google Play links will appear here.">
+  <link rel="canonical" href="https://neuhausapps.com/android/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Android Apps | Neuhaus Apps">
+  <meta property="og:description" content="A new home for Android apps from Neuhaus Apps.">
+  <title>Android Apps | Neuhaus Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --bg: #071123; --panel: #0e1b31; --text: #f7fbff; --muted: #b7c8db; --line: rgba(170, 205, 238, .18); --accent: #89e6b1; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-width: 320px; min-height: 100vh; background: var(--bg); color: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .skip { position: absolute; top: -80px; left: 16px; z-index: 5; padding: 12px 16px; border-radius: 8px; background: #fff; color: #071123; }
+    .skip:focus { top: 16px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    header { border-bottom: 1px solid var(--line); }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 82px; }
+    .brand { display: inline-flex; flex-direction: column; align-items: flex-start; width: max-content; font-family: "Space Grotesk", sans-serif; font-weight: 700; line-height: 1; }
+    .brand-main { font-size: 23px; letter-spacing: .23em; }
+    .brand-sub { align-self: center; margin-top: 5px; font-size: 10px; letter-spacing: .52em; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 28px; font-size: 14px; font-weight: 600; }
+    nav a:hover, footer a:hover { color: var(--accent); }
+    nav a[aria-current] { color: var(--accent); }
+    .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(circle at 75% 42%, rgba(57, 171, 130, .22), transparent 34%), radial-gradient(circle at 24% 10%, rgba(48, 111, 224, .18), transparent 42%), #071123; }
+    .hero-inner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); align-items: center; gap: 48px; min-height: 560px; padding-block: 90px; }
+    .eyebrow { margin: 0 0 22px; color: var(--accent); font-family: "Space Grotesk", sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+    h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.045em; }
+    h1 { max-width: 12ch; margin: 0; font-size: clamp(48px, 7vw, 86px); line-height: 1.03; }
+    .hero p.description { max-width: 52ch; margin: 26px 0 0; color: var(--muted); font-size: clamp(16px, 1.8vw, 19px); line-height: 1.7; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 34px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 52px; padding: 0 24px; border-radius: 999px; background: var(--accent); color: #092019; font-size: 14px; font-weight: 700; }
+    .button:hover { background: #b4f4ce; }
+    .text-link { color: #e5f0fb; font-size: 14px; font-weight: 600; }
+    .text-link:hover { color: var(--accent); }
+    .phone-stage { display: grid; min-height: 370px; place-items: center; }
+    .phone { position: relative; width: min(250px, 66vw); aspect-ratio: 9 / 16; padding: 13px; border: 2px solid #93aeca; border-radius: 39px; background: #040a14; box-shadow: 0 36px 90px rgba(0, 0, 0, .45), 0 0 85px rgba(103, 229, 156, .15); transform: rotate(9deg); }
+    .screen { display: grid; height: 100%; place-items: center; overflow: hidden; border-radius: 27px; background: radial-gradient(circle at 50% 30%, rgba(137, 230, 177, .45), transparent 39%), linear-gradient(145deg, #14283b, #0a1425 70%); }
+    .screen::before { content: ""; position: absolute; top: 19px; left: 50%; width: 63px; height: 15px; border-radius: 0 0 12px 12px; background: #040a14; transform: translateX(-50%); }
+    .screen-mark { display: grid; width: 118px; height: 118px; place-items: center; border: 1px solid rgba(198, 255, 219, .35); border-radius: 31px; background: linear-gradient(145deg, #5bd196, #19726b); box-shadow: 0 20px 40px rgba(0, 0, 0, .32); font-family: "Space Grotesk", sans-serif; font-size: 49px; font-weight: 700; }
+    .collection { padding-block: 86px 110px; }
+    .collection h2 { margin: 0 0 20px; font-size: clamp(34px, 4vw, 52px); }
+    .collection > p { max-width: 63ch; margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+    .empty-state { display: flex; align-items: flex-start; gap: 22px; max-width: 720px; margin-top: 34px; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: linear-gradient(145deg, #12223a, #0b1729); }
+    .empty-icon { display: grid; flex: 0 0 48px; width: 48px; height: 48px; place-items: center; border-radius: 14px; background: rgba(137, 230, 177, .14); color: var(--accent); font-size: 26px; }
+    .empty-state h3 { margin: 0 0 7px; font-family: "Space Grotesk", sans-serif; font-size: 21px; }
+    .empty-state p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 30px; padding-block: 27px; color: #9db1c9; font-size: 13px; }
+    .footer-inner p { margin: 0; }
+    .footer-inner div { display: flex; flex-wrap: wrap; gap: 12px 22px; }
+    @media (max-width: 720px) { .topbar { align-items: flex-start; flex-direction: column; justify-content: center; gap: 20px; padding-block: 22px; } .brand-main { font-size: 19px; } nav { gap: 12px 20px; } .hero-inner { grid-template-columns: 1fr; gap: 10px; padding-block: 68px 42px; } h1 { max-width: 13ch; } .phone-stage { min-height: 300px; } .phone { width: 180px; border-radius: 30px; } .screen { border-radius: 20px; } .screen-mark { width: 85px; height: 85px; border-radius: 23px; font-size: 36px; } .collection { padding-block: 65px 80px; } .empty-state { padding: 22px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="/" aria-label="Neuhaus Apps home"><span class="brand-main">NEUHAUS</span><span class="brand-sub">APPS</span></a>
+      <nav aria-label="Main navigation"><a href="/">Home</a><a href="#android-apps" aria-current="page">Android apps</a><a href="mailto:Support@neuhausapps.com">Contact</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">Neuhaus Apps · Android</p>
+          <h1 id="hero-heading">A new home for Android apps.</h1>
+          <p class="description">We're making space for apps built for Android. When the first app is ready, you'll find its Google Play link here.</p>
+          <div class="actions"><a class="button" href="#android-apps">See what's coming <span aria-hidden="true">↗</span></a><a class="text-link" href="/">Explore our iPhone apps →</a></div>
+        </div>
+        <div class="phone-stage" aria-hidden="true"><div class="phone"><div class="screen"><div class="screen-mark">N</div></div></div></div>
+      </div>
+    </section>
+    <section class="collection wrap" id="android-apps" aria-labelledby="apps-heading">
+      <p class="eyebrow">The Android collection</p>
+      <h2 id="apps-heading">Coming soon</h2>
+      <p>This page is ready for Android releases. App details and direct Google Play links will be added as they become available.</p>
+      <div class="empty-state"><div class="empty-icon" aria-hidden="true">↗</div><div><h3>First release on the way</h3><p>Check back here for the first Android app. Have a question? <a href="mailto:Support@neuhausapps.com" style="color: var(--accent); text-decoration: underline;">Get in touch</a>.</p></div></div>
+    </section>
+  </main>
+  <footer><div class="wrap footer-inner"><p>© 2026 Neuhaus Apps</p><div><a href="/">Main site</a><a href="mailto:Support@neuhausapps.com">Contact</a></div></div></footer>
+</body>
+</html>
