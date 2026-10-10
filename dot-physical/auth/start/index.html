@@ -7,7 +7,7 @@
     <meta name="referrer" content="no-referrer" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'"
+      content="default-src 'none'; style-src 'unsafe-inline'; script-src 'sha256-vxuAK7MwC53JyF/Vc+LhBJ+VEduEdP+gKe5zBTYxMGI='; base-uri 'none'; form-action 'none'; object-src 'none'"
     />
     <title>Opening secure sign-in… | DOT Physical</title>
     <style>
@@ -78,7 +78,12 @@
           if (
             target.origin !== "https://hhtbqbddmszzrygtkmhc.supabase.co" ||
             target.pathname !== "/auth/v1/authorize" ||
+            target.username ||
+            target.password ||
+            target.hash ||
+            target.searchParams.getAll("provider").length !== 1 ||
             target.searchParams.get("provider") !== "google" ||
+            target.searchParams.getAll("redirect_to").length !== 1 ||
             target.searchParams.get("redirect_to") !== expectedRedirect
           ) {
             throw new Error("Unexpected sign-in destination.");
