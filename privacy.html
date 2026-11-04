@@ -102,9 +102,11 @@
     padding:14px clamp(16px,6vw,64px);
     border-bottom:1px solid rgba(255,255,255,0.07);
   ">
-    <a href="prayer-matters.html" style="display:flex; align-items:center; gap:11px;">
+    <a href="/" style="display:flex; align-items:center; gap:11px;">
       <img
-        src="assets/logo-ring.jpeg"
+        src="assets/prayer-matters-icon-current.png"
+        width="34"
+        height="34"
         alt="Prayer Matters"
         style="width:34px; height:34px; border-radius:10px;"
       >
@@ -127,7 +129,7 @@
       </span>
     </a>
 
-    <a href="prayer-matters.html" style="
+    <a href="/" style="
       font-family:'Manrope',sans-serif;
       font-weight:600;
       font-size:15px;
@@ -180,7 +182,7 @@
       font-size:16px;
       color:#9aa0b4;
     ">
-      Last updated: August 5, 2026
+      Last updated: November 3, 2026
     </p>
 
     <div style="
@@ -203,9 +205,11 @@
         color:#d9dced;
       ">
         Prayer Matters is designed to be a quiet and private place for prayer,
-        Scripture, reflection, and journaling. Your personal content stays on
-        your device, and Neuhaus Apps does not collect or track your activity
-        through the app.
+        Scripture, reflection, and journaling. Your journal entries and Bible
+        notes are stored on your device. Limited technical information is
+        processed to deliver updates, measure update adoption, stream audio,
+        and keep the app reliable, as explained below. The app does not display
+        ads or use your data for advertising tracking.
       </p>
     </div>
 
@@ -248,9 +252,11 @@
         </p>
 
         <p>
-          Prayer Matters is designed to operate locally on your device.
-          Neuhaus Apps does not collect, transmit, sell, rent, or share personal
-          information through the Prayer Matters app.
+          Prayer Matters keeps the journal entries, written reflections, and
+          Bible annotations you create locally on your device. The app does not
+          provide an account or a service that uploads or syncs that content to
+          Neuhaus Apps. App-update and audio-delivery providers process limited
+          technical information when those services are used.
         </p>
       </section>
 
@@ -258,17 +264,20 @@
         <h2>Information We Collect</h2>
 
         <p>
-          Prayer Matters does not collect personal information or user activity
-          through the app.
+          Prayer Matters and its service providers process limited technical
+          update activity, a random installation identifier, crash reports, and
+          other update diagnostics. Audio and website requests also involve
+          ordinary connection information, such as an IP address and the
+          requested file. See the sections below for the purposes and providers.
         </p>
 
         <ul>
           <li>No account or sign-in is required.</li>
           <li>No advertising is displayed.</li>
-          <li>No third-party analytics are used.</li>
-          <li>No user-tracking technology is used.</li>
+          <li>Limited technical update analytics are used to measure update adoption.</li>
+          <li>No advertising tracking across other apps or websites is used.</li>
           <li>No advertising profile is created.</li>
-          <li>No personal information is sold or shared.</li>
+          <li>No personal information is sold or shared for advertising.</li>
           <li>No payment-card information is collected by Neuhaus Apps.</li>
         </ul>
 
@@ -291,15 +300,11 @@
         <p>Depending on the features you use, this may include:</p>
 
         <ul>
-          <li>Private journal entries</li>
-          <li>Written prayers</li>
-          <li>Gratitude entries</li>
-          <li>Saved or favorite prayers</li>
-          <li>Bible-reading progress</li>
-          <li>Prayer-library activity</li>
-          <li>Reminder preferences</li>
-          <li>Appearance and other app settings</li>
-          <li>Other personal reflections saved within the app</li>
+          <li>Private journal entries, written prayers, and reflections</li>
+          <li>Gratitude and answered-prayer entries</li>
+          <li>Bible notes, highlights, and underlines</li>
+          <li>Daily Walk with God marks and streak history</li>
+          <li>Reading, display, and other app preferences</li>
         </ul>
 
         <p>
@@ -317,10 +322,11 @@
         </p>
 
         <p>
-          Your prayer selections, Bible-reading activity, favorites, journal
-          entries, and personal reflections are not transmitted to Neuhaus Apps.
-          Prayer Matters does not use your religious activity to create an
-          advertising, behavioral, or marketing profile.
+          Your written prayers, journal entries, Bible annotations, and personal
+          reflections are not uploaded by the app to Neuhaus Apps or its update
+          service. Streaming a selected audio-guided prayer requires requesting
+          that recording from the audio provider. Prayer Matters does not use
+          your religious activity to create an advertising or marketing profile.
         </p>
       </section>
 
@@ -328,41 +334,64 @@
         <h2>Audio and Microphone Access</h2>
 
         <p>
-          Prayer Matters may play audio-guided prayers and other included audio
-          content. The app does not record your voice, listen through your
-          microphone, or send your listening activity to Neuhaus Apps.
+          Audio-guided prayers are streamed from Cloudflare R2 and require an
+          internet connection. The provider receives the requested recording
+          and ordinary connection information, such as your IP address and
+          technical request metadata, to deliver and protect the service.
+        </p>
+
+        <p>
+          Prayer Matters does not record your voice, listen through your
+          microphone, or request microphone permission. Playing a prayer does
+          not upload a voice recording, journal entry, or Bible note. Written
+          prayers, the Bible, and saved journal content can be read on the device
+          without streaming audio.
         </p>
       </section>
 
       <section class="policy-section">
-        <h2>Notifications and Reminders</h2>
+        <h2>App Updates and Diagnostics</h2>
 
         <p>
-          If you enable prayer or devotional reminders, Prayer Matters may use
-          Apple’s notification system to display reminders on your device.
+          Prayer Matters uses Expo EAS Update to check for and download
+          compatible app updates. Update requests include technical information
+          such as the operating system, app and runtime version, project and
+          update identifiers, recent failed-update identifiers, and a random
+          installation identifier. Network providers also receive connection
+          information needed to handle the request.
         </p>
 
         <p>
-          Reminder preferences are stored locally. They are not used to track
-          you, create a user profile, or transmit your private prayer or journal
-          information to Neuhaus Apps.
+          The installation identifier is generated randomly on the device. It
+          is not derived from a hardware identifier or an account, but it stays
+          consistent across app launches and updates so update activity can be
+          associated with that installation. It supports update delivery,
+          installation and adoption measurements, and troubleshooting.
         </p>
 
         <p>
-          You can change notification permissions at any time through the
-          Settings app on your device.
+          After certain fatal app errors, the update library can send a limited
+          error report with a later update request. Crash and other update
+          diagnostics help identify failed updates and maintain reliability.
+          The app does not upload your journal entries or Bible notes to this
+          service. This technical processing is not used for advertising
+          tracking or to personalize ads.
         </p>
       </section>
 
       <section class="policy-section">
         <h2>Tracking, Analytics, and Advertising</h2>
 
-        <p>Prayer Matters does not track users.</p>
+        <p>
+          Prayer Matters uses limited technical update analytics and
+          diagnostics as described above. It does not use advertising tracking
+          or combine activity across other companies’ apps or websites to
+          target or measure advertisements.
+        </p>
 
         <p>Prayer Matters does not:</p>
 
         <ul>
-          <li>Use third-party analytics</li>
           <li>Use behavioral or targeted advertising</li>
           <li>Display advertisements</li>
           <li>Track activity across other apps or websites</li>
@@ -456,26 +485,53 @@
           Neuhaus Apps does not provide an account-recovery or cloud-based
           content-recovery service for locally stored Prayer Matters information.
         </p>
+
+        <p>
+          Technical service records are handled under the relevant providers’
+          retention and deletion policies for service operation, reliability,
+          security, and applicable legal requirements. Deleting local app data
+          does not itself guarantee deletion of records already held by a
+          provider or information in a device backup. Contact Neuhaus Apps with
+          questions or requests about technical data or support correspondence;
+          see the provider privacy links below for their practices.
+        </p>
       </section>
 
       <section class="policy-section">
         <h2>Children’s Privacy</h2>
 
         <p>
-          Prayer Matters does not knowingly collect personal information from
-          children because the app does not collect personal information from
-          any user.
+          Prayer Matters does not ask children to create accounts or provide
+          private information. The limited technical processing described in
+          this policy can occur when the app is used.
         </p>
 
         <p>
           Parents and guardians should determine whether the app’s Bible,
           prayer, devotional, and faith-based content is appropriate for their
-          children.
+          children. If you believe a child has provided personal information to
+          Neuhaus Apps or have a privacy concern, please contact us.
         </p>
       </section>
 
       <section class="policy-section">
         <h2>Third-Party Services</h2>
+
+        <p>
+          <strong>Expo EAS Update:</strong> Expo processes installation
+          identifiers, update activity, and diagnostic information for app
+          update delivery, adoption measurement, and reliability. See
+          <a href="https://expo.dev/privacy" target="_blank" rel="noopener noreferrer">Expo’s Privacy Policy</a>
+          and its
+          <a href="https://expo.dev/privacy-explained" target="_blank" rel="noopener noreferrer">privacy explanation</a>.
+        </p>
+
+        <p>
+          <strong>Cloudflare R2:</strong> Cloudflare delivers streamed prayer
+          audio and processes technical network requests needed to provide and
+          protect that service. See
+          <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare’s Privacy Policy</a>.
+        </p>
 
         <p>
           Prayer Matters is distributed through Apple’s App Store. Apple may
@@ -520,8 +576,8 @@
 
         <p>
           These website services do not provide Neuhaus Apps with access to your
-          private Prayer Matters journal entries, written prayers, Bible-reading
-          activity, favorites, or other locally stored app content.
+          private Prayer Matters journal entries, written prayers, Bible notes,
+          or other locally stored app content.
         </p>
       </section>
 
@@ -535,9 +591,8 @@
         </p>
 
         <p>
-          You can manage notification permissions, device backups, privacy
-          settings, and other system-level choices through your device’s Settings
-          app.
+          You can manage device backups, privacy settings, and other
+          system-level choices through your device’s Settings app.
         </p>
 
         <p>
@@ -596,10 +651,10 @@
         </p>
 
         <p>
-          Because Prayer Matters does not collect or store personal app
-          information, Neuhaus Apps generally will not possess your private
-          journal entries, written prayers, reading history, favorites, or
-          similar content.
+          The app does not upload your private journal entries, written
+          prayers, Bible notes, or similar locally stored content to Neuhaus
+          Apps. Please avoid sending that content in a support message unless
+          you intentionally choose to share it.
         </p>
       </section>
 
@@ -615,7 +670,7 @@
       justify-content:space-between;
       gap:18px;
     ">
-      <a href="prayer-matters.html" style="
+      <a href="/#apps" style="
         font-family:'Manrope',sans-serif;
         font-weight:600;
         font-size:15px;
@@ -638,3 +693,4 @@
 </x-dc>
 </body>
 </html>
+
