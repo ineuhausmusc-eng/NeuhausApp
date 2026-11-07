@@ -190,11 +190,9 @@ button, input { font: inherit; color: inherit; }
 }
 
 /* ---------- Hero ---------------------------------------------------------- */
-/* The portrait and baked-in NEUHAUS wordmark stay whole at every width.
-   Real HTML type follows the approved left-space mockup, without covering
-   the face. Container units keep its placement proportional to the image. */
-/* Option A: contain the composition on wide monitors without enlarging the
-   approved 1586px image to fill the screen. The caption shares its frame. */
+/* Use only the hero portion of the approved mockup. Navigation, buttons and
+   app shortcuts are real HTML. The desktop artwork includes the headline;
+   phones use a portrait crop and the same H1 as visible, resizable text. */
 .nh-hero {
   position: relative; background: var(--nh-espresso);
   padding-block: clamp(16px, 2.25vw, 32px) 8px;
@@ -205,20 +203,24 @@ button, input { font: inherit; color: inherit; }
   border: 1px solid rgba(165, 138, 118, .5); border-radius: 12px;
   box-shadow: 0 18px 70px rgba(0, 0, 0, .2);
 }
-.nh-hero__media { position: relative; container-type: inline-size; isolation: isolate; }
-.nh-hero__img { width: 100%; height: auto; aspect-ratio: 1586 / 992; }
-.nh-hero__media::after {
-  content: ""; position: absolute; inset: auto 0 0; height: 17%;
-  background: linear-gradient(to bottom, transparent, #100D0C);
-  pointer-events: none;
-}
+.nh-hero__media { position: relative; }
+.nh-hero__img { width: 100%; height: auto; aspect-ratio: 1500 / 728; object-fit: cover; }
 .nh-hero__title {
-  position: absolute; top: 36.5%; left: 3.9%; z-index: 1;
-  font-size: 14.3cqw; line-height: .91; letter-spacing: .009em;
-  color: var(--nh-white); white-space: nowrap; text-wrap: initial;
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
 }
 .nh-hero__title span { display: block; }
 .nh-hero__title span:last-child { color: var(--nh-taupe); }
+@media (max-width: 47.99rem) {
+  .nh-hero__img { aspect-ratio: 1000 / 728; object-position: right center; }
+  .nh-hero__title {
+    position: static; width: auto; height: auto; margin: 0;
+    padding: 24px clamp(18px, 4vw, 32px) 26px;
+    overflow: visible; clip-path: none; white-space: normal;
+    font-size: clamp(64px, 15vw, 100px); line-height: .94;
+    letter-spacing: .009em; color: var(--nh-white); text-wrap: initial;
+  }
+}
 .nh-hero__content {
   display: grid; align-items: center; gap: var(--nh-space-3);
   padding: var(--nh-space-3) clamp(18px, 2.25vw, 32px);

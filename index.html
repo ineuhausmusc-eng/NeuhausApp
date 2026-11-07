@@ -11,12 +11,15 @@
   <meta property="og:title" content="Neuhaus Apps — Apps worth opening">
   <meta property="og:description" content="Focused iPhone apps for tracking takeout, making room for prayer, and comparing job offers.">
   <meta property="og:url" content="https://neuhausapps.com/">
-  <meta property="og:image" content="https://neuhausapps.com/assets/img/neuhaus-approved-hero.png">
+  <meta property="og:image" content="https://neuhausapps.com/assets/img/neuhaus-team-hero.jpg">
+  <meta property="og:image:width" content="1500">
+  <meta property="og:image:height" content="728">
+  <meta property="og:image:alt" content="Ian Neuhaus and his father in complementary ties beneath the Neuhaus wordmark">
   <meta name="theme-color" content="#140E0C">
   <link rel="preload" href="assets/fonts/dorsa-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/site.css?v=20261106-frame-a">
+  <link rel="stylesheet" href="assets/css/site.css?v=20261106-team-hero">
   <script src="assets/js/apps-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -62,10 +65,13 @@
     <div class="nh-hero__frame">
       <div class="nh-hero__media">
         <picture>
-          <source type="image/webp" srcset="assets/img/neuhaus-approved-hero-800.webp 800w, assets/img/neuhaus-approved-hero-1586.webp 1586w" sizes="(min-width: 1408px) 1280px, (min-width: 445px) 91vw, calc(100vw - 40px)">
-          <img class="nh-hero__img" src="assets/img/neuhaus-approved-hero.png" width="1586" height="992" fetchpriority="high"
-               alt="Ian Neuhaus, founder of Neuhaus Apps, in a taupe suit and white shirt, looking off to the side beneath bronze NEUHAUS lettering">
+          <source media="(max-width: 47.99rem)" type="image/webp" srcset="assets/img/neuhaus-team-mobile-600.webp 600w, assets/img/neuhaus-team-mobile-1000.webp 1000w" sizes="calc(100vw - 40px)" width="1000" height="728">
+          <source type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="(min-width: 1408px) 1280px, 91vw">
+          <img class="nh-hero__img" src="assets/img/neuhaus-team-hero.jpg" width="1500" height="728" fetchpriority="high"
+               alt="Ian Neuhaus, wearing glasses and a forest-green tie, alongside his father in a burgundy tie, both in taupe suits beneath bronze NEUHAUS lettering">
         </picture>
+        <!-- The approved desktop artwork includes this headline. Keep one
+             accessible H1; on phones it becomes live text below the portraits. -->
         <h1 class="nh-hero__title nh-display" id="hero-title"><span>Apps worth</span> <span>opening.</span></h1>
       </div>
 
@@ -73,7 +79,7 @@
         <p class="nh-hero__text">Three focused iPhone apps for everyday life: tracking takeout, making room for prayer, and comparing job offers.</p>
         <div class="nh-hero__aside">
           <a class="nh-btn nh-btn--light nh-btn--block" href="#apps">Discover the apps <span aria-hidden="true">↓</span></a>
-          <a class="nh-textlink" href="#about">Meet the maker</a>
+          <a class="nh-textlink" href="#about">Meet the studio</a>
         </div>
       </div>
     </div>
