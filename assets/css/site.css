@@ -193,7 +193,18 @@ button, input { font: inherit; color: inherit; }
 /* The portrait and baked-in NEUHAUS wordmark stay whole at every width.
    Real HTML type follows the approved left-space mockup, without covering
    the face. Container units keep its placement proportional to the image. */
-.nh-hero { position: relative; background: #100D0C; }
+/* Option A: contain the composition on wide monitors without enlarging the
+   approved 1586px image to fill the screen. The caption shares its frame. */
+.nh-hero {
+  position: relative; background: var(--nh-espresso);
+  padding-block: clamp(16px, 2.25vw, 32px) 8px;
+}
+.nh-hero__frame {
+  width: calc(100% - 2 * var(--nh-gutter)); max-width: 80rem;
+  margin-inline: auto; overflow: hidden; background: #100D0C;
+  border: 1px solid rgba(165, 138, 118, .5); border-radius: 12px;
+  box-shadow: 0 18px 70px rgba(0, 0, 0, .2);
+}
 .nh-hero__media { position: relative; container-type: inline-size; isolation: isolate; }
 .nh-hero__img { width: 100%; height: auto; aspect-ratio: 1586 / 992; }
 .nh-hero__media::after {
@@ -210,7 +221,7 @@ button, input { font: inherit; color: inherit; }
 .nh-hero__title span:last-child { color: var(--nh-taupe); }
 .nh-hero__content {
   display: grid; align-items: center; gap: var(--nh-space-3);
-  padding: var(--nh-space-3) var(--nh-gutter);
+  padding: var(--nh-space-3) clamp(18px, 2.25vw, 32px);
   border-top: 1px solid var(--nh-line-dark);
 }
 .nh-hero__text { max-width: 45rem; color: var(--nh-ink-muted); font-size: var(--nh-text-base); line-height: 1.6; }
@@ -218,8 +229,8 @@ button, input { font: inherit; color: inherit; }
 .nh-hero__aside .nh-btn { width: auto; }
 .nh-hero__rail {
   display: grid; gap: var(--nh-space-2);
-  margin-inline: var(--nh-gutter); padding-block: var(--nh-space-3);
-  border-top: 1px solid var(--nh-line-dark);
+  width: calc(100% - 2 * var(--nh-gutter)); max-width: 80rem;
+  margin: 16px auto 0; padding-block: 10px 18px;
 }
 .nh-hero__apps { display: grid; gap: 4px; }
 .nh-hero__apps a {
