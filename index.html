@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/dorsa-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/site.css?v=20261106-team-hero">
+  <link rel="stylesheet" href="assets/css/site.css?v=20261107-mobile-centered">
   <script src="assets/js/apps-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -65,9 +65,9 @@
     <div class="nh-hero__frame">
       <div class="nh-hero__media">
         <picture>
-          <source media="(max-width: 47.99rem)" type="image/webp" srcset="assets/img/neuhaus-team-mobile-600.webp 600w, assets/img/neuhaus-team-mobile-1000.webp 1000w" sizes="calc(100vw - 40px)" width="1000" height="728">
-          <source type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="(min-width: 1408px) 1280px, 91vw">
-          <img class="nh-hero__img" src="assets/img/neuhaus-team-hero.jpg" width="1500" height="728" fetchpriority="high"
+          <source media="(min-width: 48rem)" type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="(min-width: 1408px) 1280px, 91vw" width="1500" height="728">
+          <source media="(min-width: 48rem)" srcset="assets/img/neuhaus-team-hero.jpg" width="1500" height="728">
+          <img class="nh-hero__img" src="assets/img/neuhaus-team-mobile-600.webp" srcset="assets/img/neuhaus-team-mobile-600.webp 600w, assets/img/neuhaus-team-mobile-1000.webp 1000w" sizes="calc(100vw - 40px)" width="1000" height="728" fetchpriority="high"
                alt="Ian Neuhaus, wearing glasses and a forest-green tie, alongside his father in a burgundy tie, both in taupe suits beneath bronze NEUHAUS lettering">
         </picture>
         <!-- The approved desktop artwork includes this headline. Keep one
@@ -399,3 +399,4 @@
 </footer>
 </body>
 </html>
+

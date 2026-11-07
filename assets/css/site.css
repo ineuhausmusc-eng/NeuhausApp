@@ -191,8 +191,9 @@ button, input { font: inherit; color: inherit; }
 
 /* ---------- Hero ---------------------------------------------------------- */
 /* Use only the hero portion of the approved mockup. Navigation, buttons and
-   app shortcuts are real HTML. The desktop artwork includes the headline;
-   phones use a portrait crop and the same H1 as visible, resizable text. */
+   app shortcuts are real HTML. The mobile image is the default; wider screens
+   select the desktop artwork, which already includes the headline. Phones
+   keep the same H1 as visible, resizable text below both portraits. */
 .nh-hero {
   position: relative; background: var(--nh-espresso);
   padding-block: clamp(16px, 2.25vw, 32px) 8px;
@@ -204,7 +205,7 @@ button, input { font: inherit; color: inherit; }
   box-shadow: 0 18px 70px rgba(0, 0, 0, .2);
 }
 .nh-hero__media { position: relative; }
-.nh-hero__img { width: 100%; height: auto; aspect-ratio: 1500 / 728; object-fit: cover; }
+.nh-hero__img { width: 100%; height: auto; aspect-ratio: 1000 / 728; object-fit: cover; object-position: center; }
 .nh-hero__title {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip-path: inset(50%); white-space: nowrap;
@@ -212,13 +213,12 @@ button, input { font: inherit; color: inherit; }
 .nh-hero__title span { display: block; }
 .nh-hero__title span:last-child { color: var(--nh-taupe); }
 @media (max-width: 47.99rem) {
-  .nh-hero__img { aspect-ratio: 1000 / 728; object-position: right center; }
   .nh-hero__title {
     position: static; width: auto; height: auto; margin: 0;
     padding: 24px clamp(18px, 4vw, 32px) 26px;
     overflow: visible; clip-path: none; white-space: normal;
     font-size: clamp(64px, 15vw, 100px); line-height: .94;
-    letter-spacing: .009em; color: var(--nh-white); text-wrap: initial;
+    letter-spacing: .009em; color: var(--nh-white); text-align: center;
   }
 }
 .nh-hero__content {
@@ -242,6 +242,7 @@ button, input { font: inherit; color: inherit; }
 .nh-hero__apps img { width: 32px; height: 32px; border-radius: 8px; }
 .nh-hero__apps a:hover { color: var(--nh-taupe); }
 @media (min-width: 48rem) {
+  .nh-hero__img { aspect-ratio: 1500 / 728; }
   .nh-hero__apps { display: flex; flex-wrap: wrap; gap: 8px var(--nh-space-4); }
 }
 @media (min-width: 70rem) {
@@ -606,8 +607,56 @@ button, input { font: inherit; color: inherit; }
 /* Arrows sit beside link text without being underlined. */
 .nh-textlink > span[aria-hidden], .nh-platform > span[aria-hidden] { display: inline-block; text-decoration: none; }
 
+/* Phone layouts share a centered axis. Keep structured questions and numbered
+   instructions left-aligned within that axis for comfortable reading. */
+@media (max-width: 47.99rem) {
+  .nh-hero__content { justify-items: center; text-align: center; }
+  .nh-hero__text { max-width: 32rem; text-wrap: pretty; }
+  .nh-hero__aside { flex-direction: column; width: 100%; gap: 12px; }
+  .nh-hero__aside .nh-btn { width: 100%; max-width: 22rem; }
+  .nh-hero__rail { text-align: center; }
+  .nh-hero__apps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .nh-hero__apps li { min-width: 0; }
+  .nh-hero__apps a {
+    flex-direction: column; justify-content: flex-start; width: 100%;
+    padding-block: 8px; gap: 10px; font-size: var(--nh-text-xs); line-height: 1.4;
+  }
+  .nh-hero__apps img { width: 40px; height: 40px; border-radius: 10px; }
+
+  .nh-directory__head, .nh-android, .nh-card__inner,
+  .nh-look__intro, .nh-approach__head, .nh-principles,
+  .nh-about__grid, .nh-contact, .nh-footer__brand { text-align: center; }
+  .nh-search { width: 100%; max-width: 32rem; margin-inline: auto; }
+  .nh-android .nh-btn { justify-self: center; }
+  .nh-cards { max-width: 34rem; width: 100%; margin-inline: auto; }
+  .nh-card__top { flex-direction: column; gap: 12px; }
+  .nh-card__icon { width: 72px; height: 72px; }
+  .nh-card__kind { text-align: center; }
+  .nh-card__actions, .nh-card__legal { justify-content: center; }
+  .nh-empty { justify-items: center; text-align: center; }
+
+  .nh-tabs { max-width: 32rem; margin-inline: auto; }
+  .nh-tab { position: relative; justify-content: center; padding-inline: 32px; }
+  .nh-tab[aria-selected="true"]::after { position: absolute; right: 16px; margin: 0; }
+  .nh-panel__shots { max-width: 34rem; width: 100%; margin-inline: auto; }
+  .nh-panel__shots figure:last-child { transform: none; }
+  .nh-panel__notes { max-width: 32rem; width: 100%; margin-inline: auto; }
+  .nh-panel__notes > .nh-textlink { display: flex; justify-content: center; text-align: center; }
+  .nh-look__note { margin-top: var(--nh-space-3); text-align: center; }
+
+  .nh-approach__lead, .nh-principles p, .nh-about__copy { margin-inline: auto; }
+  .nh-principles li { grid-template-columns: 1fr; }
+  .nh-about__grid { padding: 2rem 1.25rem; }
+  .nh-about__copy .nh-textlink, .nh-contact__mail { justify-self: center; }
+  .nh-support__faq > .nh-label, .nh-support__title { text-align: center; }
+  .nh-contact .nh-btn { justify-content: center; }
+  .nh-footer__cols { text-align: center; }
+  .nh-footer__bottom { justify-content: center; text-align: center; }
+}
+
 /* Narrow phones: keep full-width buttons on one line. */
 @media (max-width: 29.99rem) {
   .nh-btn { padding-inline: 18px; gap: 12px; letter-spacing: .06em; }
   .nh-contact { padding: 1.5rem 1.25rem; }
 }
+
