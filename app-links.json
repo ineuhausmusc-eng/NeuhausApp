@@ -1,0 +1,94 @@
+{
+  "verified": "2026-11-06",
+  "contact": "mailto:Support@neuhausapps.com",
+  "androidPage": "https://neuhausapps.com/android/",
+  "apps": [
+    {
+      "key": "orderless",
+      "id": 6808019506,
+      "title": "OrderLess",
+      "icon": "assets/img/apps/orderless-icon.jpg",
+      "description": "Set a weekly goal and track takeout, delivery, and pickup orders.",
+      "keywords": "takeout spending food goal finance pickup delivery",
+      "privacy": "https://neuhausapps.com/OrderLess/Privacy/",
+      "terms": "https://neuhausapps.com/OrderLess/Terms/",
+      "apple": "https://apps.apple.com/us/app/orderless-takeout-tracker/id6808019506",
+      "googlePlay": null,
+      "android": "https://neuhausapps.com/android/",
+      "androidLabel": "Android updates",
+      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/0f/b9/d80fb911-32eb-33a3-08b6-e36fd567fd5c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "screenshots": [
+        {
+          "file": "assets/img/screens/orderless-app-store-1.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/82/de/71/82de718a-0787-f8d6-8d32-9a1c7852dbb2/01-takeout-tracked-1284x2778.jpg/800x800bb.jpg"
+        },
+        {
+          "file": "assets/img/screens/orderless-app-store-2.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b6/97/f4/b697f4f8-bc5b-ff08-5a5f-29ae2248bf04/02-set-takeout-goal-1284x2778.jpg/800x800bb.jpg"
+        }
+      ],
+      "homepageScreens": [
+        "assets/img/screens/orderless-app-store-1.jpg",
+        "assets/img/screens/orderless-app-store-2.jpg"
+      ]
+    },
+    {
+      "key": "prayer",
+      "id": 6798304453,
+      "title": "Prayer Matters",
+      "icon": "assets/img/apps/prayer-matters-icon.png",
+      "description": "Guided prayer, Scripture, and a private journal for daily reflection.",
+      "keywords": "prayer scripture bible journal reflection guided audio",
+      "privacy": "https://neuhausapps.com/privacy.html",
+      "terms": "https://neuhausapps.com/terms.html",
+      "apple": "https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453",
+      "googlePlay": null,
+      "android": "https://neuhausapps.com/android/",
+      "androidLabel": "Android updates",
+      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/d0/7e/8cd07e0f-aee8-e140-4e8d-2f2c8831fcbb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "screenshots": [
+        {
+          "file": "assets/img/screens/prayer-app-store-1.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/f5/7c/72/f57c72fa-d985-bdbc-98b9-c75320d6d53c/01-make-space.png/800x800bb.jpg"
+        },
+        {
+          "file": "assets/img/screens/prayer-app-store-2.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/38/80/5a/38805a16-fd23-8e4b-8369-abf598404dad/02-for-god.png/800x800bb.jpg"
+        }
+      ],
+      "homepageScreens": [
+        "assets/img/screens/prayer-app-store-1.jpg",
+        "assets/img/screens/prayer-screen.jpg"
+      ]
+    },
+    {
+      "key": "swift",
+      "id": 6796545269,
+      "title": "SwiftShift Job Compare",
+      "icon": "assets/img/apps/swiftshift-icon.jpg",
+      "description": "Compare job offers side by side, including pay, paid time off, and commute costs.",
+      "keywords": "job offers pay commute pto compensation comparison",
+      "privacy": "https://neuhausapps.com/swiftshift/support/",
+      "terms": "https://neuhausapps.com/terms.html",
+      "apple": "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
+      "googlePlay": null,
+      "android": "https://neuhausapps.com/android/",
+      "androidLabel": "Android updates",
+      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/64/b9/5264b92f-33c7-19ad-12f0-bd58d24e46b5/swiftshift-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "screenshots": [
+        {
+          "file": "assets/img/screens/swift-app-store-1.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fd/fd/3b/fdfd3b26-ae32-d2b2-f7bf-c0adf42a8db7/SwiftShift-AppStore-01-1284x2778.png/800x800bb.jpg"
+        },
+        {
+          "file": "assets/img/screens/swift-app-store-2.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/63/5a/06/635a068b-a5fc-aa47-4a51-9aec60d36b9e/SwiftShift-AppStore-02-1284x2778.png/800x800bb.jpg"
+        }
+      ],
+      "homepageScreens": [
+        "assets/img/screens/swift-app-store-1.jpg",
+        "assets/img/screens/swift-app-store-2.jpg"
+      ]
+    }
+  ]
+}
