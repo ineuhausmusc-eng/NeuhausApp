@@ -7,7 +7,7 @@
       "key": "orderless",
       "id": 6808019506,
       "title": "OrderLess",
-      "icon": "assets/img/apps/orderless-icon.jpg",
+      "icon": "/OrderLess/orderless-app-icon.png?v=ultraviolet-ember",
       "description": "Set a weekly goal and track takeout, delivery, and pickup orders.",
       "keywords": "takeout spending food goal finance pickup delivery",
       "privacy": "https://neuhausapps.com/OrderLess/Privacy/",

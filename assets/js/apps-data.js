@@ -15,7 +15,7 @@ window.NEUHAUS_APPS = [
     kind: "Takeout tracker",
     description: "Set a weekly takeout goal and log every delivery and pickup order.",
     keywords: "orderless takeout spending food goal pickup delivery order tracker weekly",
-    icon: "assets/img/apps/orderless-icon.jpg",
+    icon: "/OrderLess/orderless-app-icon.png?v=ultraviolet-ember",
     apple: "https://apps.apple.com/us/app/orderless-takeout-tracker/id6808019506",
     googlePlay: null,
     android: "https://neuhausapps.com/android/",
