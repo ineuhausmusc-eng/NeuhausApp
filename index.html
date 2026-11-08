@@ -19,7 +19,7 @@
   <link rel="preload" href="assets/fonts/dorsa-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/site.css?v=20261107-mobile-centered">
+  <link rel="stylesheet" href="assets/css/site.css?v=20261108-mobile-hero-collection">
   <script src="assets/js/apps-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -38,9 +38,8 @@
       <ul class="nh-nav__list">
         <li><a href="#top" data-nav="top">Home</a></li>
         <li><a href="#apps" data-nav="apps">Apps</a></li>
-        <li><a href="#approach" data-nav="approach">Approach</a></li>
-        <li><a href="#about" data-nav="about">About</a></li>
         <li><a href="#contact" data-nav="contact">Contact</a></li>
+        <li><a href="#about" data-nav="about">About</a></li>
       </ul>
       <div class="nh-nav__extra">
         <a class="nh-btn nh-btn--light" href="#apps">Browse all apps <span aria-hidden="true">→</span></a>
@@ -67,11 +66,12 @@
         <picture>
           <source media="(min-width: 48rem)" type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="(min-width: 1408px) 1280px, 91vw" width="1500" height="728">
           <source media="(min-width: 48rem)" srcset="assets/img/neuhaus-team-hero.jpg" width="1500" height="728">
-          <img class="nh-hero__img" src="assets/img/neuhaus-team-mobile-600.webp" srcset="assets/img/neuhaus-team-mobile-600.webp 600w, assets/img/neuhaus-team-mobile-1000.webp 1000w" sizes="calc(100vw - 40px)" width="1000" height="728" fetchpriority="high"
-               alt="Ian Neuhaus, wearing glasses and a forest-green tie, alongside his father in a burgundy tie, both in taupe suits beneath bronze NEUHAUS lettering">
+          <source type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="calc(100vw - 40px)" width="1500" height="728">
+          <img class="nh-hero__img" src="assets/img/neuhaus-team-hero.jpg" width="1500" height="728" fetchpriority="high"
+               alt="Ian Neuhaus and his father in taupe suits beneath the full bronze NEUHAUS wordmark">
         </picture>
-        <!-- The approved desktop artwork includes this headline. Keep one
-             accessible H1; on phones it becomes live text below the portraits. -->
+        <!-- The approved artwork includes the headline. Keep one accessible H1
+             in live text while the responsive image supplies the visual title. -->
         <h1 class="nh-hero__title nh-display" id="hero-title"><span>Apps worth</span> <span>opening.</span></h1>
       </div>
 
@@ -87,9 +87,9 @@
     <div class="nh-hero__rail">
       <p class="nh-label">In the collection</p>
       <ul class="nh-hero__apps">
-        <li><a href="#app-orderless"><img src="/OrderLess/orderless-app-icon.png?v=ultraviolet-ember" width="32" height="32" alt="">OrderLess</a></li>
-        <li><a href="#app-prayer"><img src="assets/img/apps/prayer-matters-icon.png" width="32" height="32" alt="">Prayer Matters</a></li>
-        <li><a href="#app-swift"><img src="assets/img/apps/swiftshift-icon.jpg" width="32" height="32" alt="">SwiftShift Job Compare</a></li>
+        <li><a href="#app-orderless"><img src="/OrderLess/orderless-app-icon.png?v=ultraviolet-ember" width="40" height="40" alt="">OrderLess</a></li>
+        <li><a href="#app-prayer"><img src="assets/img/apps/prayer-matters-icon.png" width="40" height="40" alt="">Prayer Matters</a></li>
+        <li><a href="#app-swift"><img src="assets/img/apps/swiftshift-icon.jpg" width="40" height="40" alt="">SwiftShift Job Compare</a></li>
       </ul>
     </div>
   </section>
@@ -270,47 +270,6 @@
     </div></div>
   </section>
 
-  <!-- ========================= APPROACH + ABOUT (ivory) ================= -->
-  <div class="nh-light">
-    <section class="nh-approach" id="approach" aria-labelledby="approach-title">
-      <div class="nh-wrap nh-approach__grid">
-        <div class="nh-approach__head" data-reveal-group>
-          <p class="nh-label nh-label--bronze" data-reveal="text">Approach</p>
-          <h2 class="nh-display nh-approach__title" id="approach-title" data-reveal="text">Less noise.<br><span>More purpose.</span></h2>
-          <p class="nh-approach__lead" data-reveal="text" data-beat="1">Good software starts with a simple question: what would make this part of life a little easier?</p>
-        </div>
-        <ol class="nh-principles">
-          <li data-reveal-group data-reveal="text">
-            <span class="nh-principles__n" aria-hidden="true">01</span>
-            <div><h3>Start with one clear purpose.</h3><p>Each app is built around a specific part of daily life, and makes that purpose clear the moment you open it.</p></div>
-          </li>
-          <li data-reveal-group data-reveal="text">
-            <span class="nh-principles__n" aria-hidden="true">02</span>
-            <div><h3>Make the details count.</h3><p>The right words, a clear next step, and an interface that gives the task room to breathe.</p></div>
-          </li>
-          <li data-reveal-group data-reveal="text">
-            <span class="nh-principles__n" aria-hidden="true">03</span>
-            <div><h3>Keep everyday life in mind.</h3><p>Design for the quick check-in and the quiet moment. Build something useful enough to come back to.</p></div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="nh-about" id="about" aria-labelledby="about-title">
-      <div class="nh-wrap"><div class="nh-about__grid" data-reveal-group>
-        <div class="nh-about__sig" data-reveal="text">
-          <p class="nh-label nh-label--bronze">About</p>
-          <h2 class="nh-display nh-about__title" id="about-title">Made by<br>Ian Neuhaus.</h2>
-        </div>
-        <div class="nh-about__copy" data-reveal="text" data-beat="1">
-          <p class="nh-about__lead">Neuhaus Apps is an independent app studio creating thoughtful tools for everyday life.</p>
-          <p>Each one begins with a practical need or a personal interest: spending more intentionally, making time for reflection, weighing a job decision. The aim stays the same every time: make something worth opening.</p>
-          <a class="nh-textlink nh-textlink--dark" href="#contact">Write to the studio <span aria-hidden="true">→</span></a>
-        </div>
-      </div></div>
-    </section>
-  </div>
-
   <!-- ======================== SUPPORT + CONTACT ========================= -->
   <section class="nh-support" id="support" aria-labelledby="support-title">
     <div class="nh-wrap nh-support__grid">
@@ -346,6 +305,22 @@
       </div>
     </div>
   </section>
+
+  <!-- ================================= ABOUT =========================== -->
+  <div class="nh-light">
+    <section class="nh-about" id="about" aria-labelledby="about-title">
+      <div class="nh-wrap"><div class="nh-about__grid" data-reveal-group>
+        <div class="nh-about__sig" data-reveal="text">
+          <h2 class="nh-display nh-about__title" id="about-title">About</h2>
+        </div>
+        <div class="nh-about__copy" data-reveal="text" data-beat="1">
+          <p class="nh-about__lead">Neuhaus Apps is an independent app studio creating thoughtful tools for everyday life.</p>
+          <p>Each one begins with a practical need or a personal interest: spending more intentionally, making time for reflection, weighing a job decision. The aim stays the same every time: make something worth opening.</p>
+          <a class="nh-textlink nh-textlink--dark" href="#contact">Write to the studio <span aria-hidden="true">→</span></a>
+        </div>
+      </div></div>
+    </section>
+  </div>
 </main>
 
 <!-- =============================== FOOTER =============================== -->
