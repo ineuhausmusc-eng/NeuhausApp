@@ -120,9 +120,8 @@
     ["top", $(".nh-hero")],
     ["apps", $("#apps")],
     ["apps", $("#closer-look")],
-    ["approach", $("#approach")],
-    ["about", $("#about")],
-    ["contact", $("#support")]
+    ["contact", $("#support")],
+    ["about", $("#about")]
   ].filter(([, el]) => el);
   const navLinks = $$(".nh-nav__list a");
   function spy() {
