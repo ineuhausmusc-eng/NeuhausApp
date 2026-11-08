@@ -4,16 +4,16 @@ Neuhaus Apps company website.
 
 ## Homepage artwork
 
-The approved father-and-son mockup is retained in
-`assets/img/neuhaus-team-approved.png`. The hero WebP/JPEG files are cropped
-exports of that exact image, without repainting the portraits. Desktop uses the
-complete hero composition; mobile uses a closer crop of both portraits and a
-visible HTML headline. The desktop headline has an equivalent accessible H1.
-Navigation, calls to action, app shortcuts and the directory remain live HTML.
+The homepage uses the approved layered father-and-son animation. Portrait cutouts
+and high-resolution antique patina platform icons live in `assets/img/hero/`.
+Hovering or focusing a portrait reveals its platform link with an 875 ms blur
+and fade; the icon stays sharp and grows 9% on hover, keyboard focus, or press.
+On touch screens, tap the portrait, then tap the revealed icon. Reduced-motion
+settings disable transitions, and fallback platform links work without JavaScript.
+The full wordmark and headline are responsive HTML rather than cropped image text.
 
-The hero stays capped at 1280 CSS pixels so it does not stretch across large
-monitors. New asset filenames and the homepage stylesheet version keep the
-previous single-person artwork from being reused by browser caches.
+The hero stays capped at 1280 CSS pixels. Icons use 640-pixel source images and
+render at no more than 174 CSS pixels, preserving detail on high-density screens.
 
 ## Deployment
 

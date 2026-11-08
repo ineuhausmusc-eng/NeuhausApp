@@ -19,9 +19,10 @@
   <link rel="preload" href="assets/fonts/dorsa-latin-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/tokens.css">
-  <link rel="stylesheet" href="assets/css/site.css?v=20261108-mobile-hero-collection">
+  <link rel="stylesheet" href="assets/css/site.css?v=20261108-antique-hero">
   <script src="assets/js/apps-data.js" defer></script>
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/hero.js?v=20261108-antique-hero" defer></script>
 </head>
 <body>
 <a class="nh-skip" href="#main">Skip to content</a>
@@ -62,18 +63,24 @@
   <!-- =============================== HERO =============================== -->
   <section class="nh-hero" aria-labelledby="hero-title">
     <div class="nh-hero__frame">
-      <div class="nh-hero__media">
-        <picture>
-          <source media="(min-width: 48rem)" type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="(min-width: 1408px) 1280px, 91vw" width="1500" height="728">
-          <source media="(min-width: 48rem)" srcset="assets/img/neuhaus-team-hero.jpg" width="1500" height="728">
-          <source type="image/webp" srcset="assets/img/neuhaus-team-hero-960.webp 960w, assets/img/neuhaus-team-hero-1500.webp 1500w" sizes="calc(100vw - 40px)" width="1500" height="728">
-          <img class="nh-hero__img" src="assets/img/neuhaus-team-hero.jpg" width="1500" height="728" fetchpriority="high"
-               alt="Ian Neuhaus and his father in taupe suits beneath the full bronze NEUHAUS wordmark">
-        </picture>
-        <!-- The approved artwork includes the headline. Keep one accessible H1
-             in live text while the responsive image supplies the visual title. -->
-        <h1 class="nh-hero__title nh-display" id="hero-title"><span>Apps worth</span> <span>opening.</span></h1>
+      <div class="nh-portrait" data-hero data-platform="both">
+        <div class="nh-portrait__wordmark" aria-hidden="true">NEUHAUS</div>
+        <img class="nh-portrait__person nh-portrait__person--father" src="assets/img/hero/father.webp?v=20261108-hires" width="887" height="887" fetchpriority="high" alt="Ian’s father in a taupe suit and burgundy tie">
+        <img class="nh-portrait__person nh-portrait__person--ian" src="assets/img/hero/ian.webp?v=20261108-hires" width="887" height="887" fetchpriority="high" alt="Ian in glasses, a taupe suit, and a green tie">
+        <div class="nh-portrait__shade" aria-hidden="true"></div>
+        <button class="nh-portrait__trigger nh-portrait__trigger--ian" type="button" data-hero-trigger="ios" aria-label="Ian: reveal iPhone apps" aria-controls="hero-iphone" aria-expanded="false" hidden><span>iPhone apps</span></button>
+        <a class="nh-portrait__link nh-portrait__link--apple" id="hero-iphone" data-hero-link="ios" href="#apps" hidden>
+          <img class="nh-portrait__icon" src="assets/img/hero/apple-antique-patina.webp" width="640" height="640" alt="">
+          <span>iPhone apps <span aria-hidden="true">↗</span></span>
+        </a>
+        <button class="nh-portrait__trigger nh-portrait__trigger--father" type="button" data-hero-trigger="android" aria-label="Father: reveal Android apps" aria-controls="hero-android" aria-expanded="false" hidden><span>Android</span></button>
+        <a class="nh-portrait__link nh-portrait__link--android" id="hero-android" data-hero-link="android" href="/android/" hidden>
+          <img class="nh-portrait__icon" src="assets/img/hero/android-antique-patina.webp" width="640" height="640" alt="">
+          <span>Android apps <span aria-hidden="true">↗</span></span>
+        </a>
       </div>
+      <nav class="nh-hero__fallback" aria-label="App platforms"><a href="#apps">iPhone apps</a><a href="/android/">Android apps</a></nav>
+      <h1 class="nh-hero__title nh-display" id="hero-title"><span>Apps worth</span> <span>opening.</span></h1>
 
       <div class="nh-hero__content">
         <p class="nh-hero__text">Three focused iPhone apps for everyday life: tracking takeout, making room for prayer, and comparing job offers.</p>

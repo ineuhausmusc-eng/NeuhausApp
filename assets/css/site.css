@@ -190,8 +190,7 @@ button, input { font: inherit; color: inherit; }
 }
 
 /* ---------- Hero ---------------------------------------------------------- */
-/* The approved artwork includes the complete wordmark and headline at every
-   size. Navigation, buttons, and app shortcuts remain live HTML. */
+/* The approved layered portrait and antique patina icons. */
 .nh-hero {
   position: relative; background: var(--nh-espresso);
   padding-block: clamp(16px, 2.25vw, 32px) 8px;
@@ -202,14 +201,98 @@ button, input { font: inherit; color: inherit; }
   border: 1px solid rgba(165, 138, 118, .5); border-radius: 12px;
   box-shadow: 0 18px 70px rgba(0, 0, 0, .2);
 }
-.nh-hero__media { position: relative; }
-.nh-hero__img { width: 100%; height: auto; aspect-ratio: 1500 / 728; object-fit: cover; object-position: center; }
 .nh-hero__title {
-  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+  display: flex; justify-content: center; flex-wrap: wrap; gap: 0 .18em;
+  padding: 20px 12px 24px; border-top: 1px solid var(--nh-line-dark);
+  font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; text-align: center;
 }
-.nh-hero__title span { display: block; }
 .nh-hero__title span:last-child { color: var(--nh-taupe); }
+.nh-portrait {
+  --hero-duration: 875ms;
+  position: relative; isolation: isolate; container-type: inline-size;
+  aspect-ratio: 1.6; overflow: hidden;
+  background: radial-gradient(ellipse at 26% 65%, #50392b66, transparent 57%),
+    radial-gradient(ellipse at 80% 70%, #48372d66, transparent 55%), #110d0b;
+}
+.nh-portrait__wordmark {
+  position: absolute; inset: 14px 0 auto; padding-left: .16em;
+  font: 400 26cqw/1 var(--nh-font-display); letter-spacing: .16em;
+  text-align: center; white-space: nowrap; color: #c79b78; opacity: .8;
+  pointer-events: none; transition: filter var(--hero-duration), opacity var(--hero-duration);
+}
+.nh-portrait__person {
+  position: absolute; bottom: -1px; width: 57%; max-width: none; height: auto;
+  transform-origin: 50% 85%; pointer-events: none;
+  transition: transform var(--hero-duration) var(--nh-ease),
+    filter var(--hero-duration) ease, opacity var(--hero-duration) ease;
+}
+.nh-portrait__person--ian { left: 0; z-index: 3; }
+.nh-portrait__person--father { right: 0; z-index: 2; }
+.nh-portrait__shade {
+  position: absolute; z-index: 4; inset: 55% 0 0;
+  background: linear-gradient(transparent, #110d0b55); pointer-events: none;
+}
+.nh-portrait__trigger {
+  position: absolute; z-index: 5; top: 14%; bottom: 4px; width: 46%;
+  padding: 0; border: 0; border-radius: 14px; background: transparent;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.nh-portrait__trigger--ian { left: 2%; }
+.nh-portrait__trigger--father { right: 2%; }
+.nh-portrait__trigger > span {
+  position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  padding: 7px 14px; white-space: nowrap; border: 1px solid #c0a18466;
+  border-radius: 30px; background: #160f0be6; color: var(--nh-ivory);
+  font-size: 13px; line-height: 1.4; transition: opacity 250ms;
+}
+.nh-portrait__link {
+  position: absolute; z-index: 7; top: 50%; width: 43%; min-height: 44px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--nh-ivory); text-align: center; text-decoration: none;
+  font-size: clamp(13px, 1.6cqw, 18px); line-height: 1.4;
+  opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(6px);
+  transition: opacity 583ms ease, transform 875ms var(--nh-ease), visibility 0s 583ms;
+  touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+}
+.nh-portrait__link--apple { left: 5%; }
+.nh-portrait__link--android { right: 5%; }
+.nh-portrait__icon {
+  display: block; width: 25cqw; max-width: 174px; height: auto; aspect-ratio: 1;
+  object-fit: contain; filter: drop-shadow(0 12px 16px #0007);
+  transition: transform 220ms var(--nh-ease);
+}
+/* Keep the icon sharp; only the portraits lose focus. */
+.nh-portrait__link:focus-visible .nh-portrait__icon,
+.nh-portrait__link:active .nh-portrait__icon { transform: translateY(-3px) scale(1.09); }
+@media (hover: hover) and (pointer: fine) {
+  .nh-portrait__link:hover .nh-portrait__icon { transform: translateY(-3px) scale(1.09); }
+}
+.nh-portrait[data-platform="ios"] .nh-portrait__link--apple,
+.nh-portrait[data-platform="android"] .nh-portrait__link--android {
+  opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
+  transition-delay: 150ms, 100ms, 0s;
+}
+.nh-portrait[data-platform="ios"] .nh-portrait__person--ian,
+.nh-portrait[data-platform="android"] .nh-portrait__person--father {
+  opacity: .16; filter: blur(12px); transform: scale(.985);
+}
+.nh-portrait[data-platform="ios"] .nh-portrait__person--father,
+.nh-portrait[data-platform="android"] .nh-portrait__person--ian { opacity: .7; filter: blur(2px); }
+.nh-portrait:not([data-platform="both"]) .nh-portrait__wordmark { opacity: .4; filter: blur(2px); }
+.nh-portrait[data-platform="ios"] .nh-portrait__trigger--ian > span,
+.nh-portrait[data-platform="android"] .nh-portrait__trigger--father > span { opacity: 0; }
+.nh-hero__fallback { display: flex; justify-content: center; gap: 24px; padding: 12px; }
+.nh-portrait.is-interactive + .nh-hero__fallback { display: none; }
+@media (max-width: 47.99rem) {
+  .nh-portrait { aspect-ratio: 1.25; }
+  .nh-portrait__person { width: 69%; }
+  .nh-portrait__person--ian { left: -7%; }
+  .nh-portrait__person--father { right: -7%; }
+  .nh-portrait__wordmark { top: 7px; }
+  .nh-portrait__icon { width: 29cqw; max-width: 140px; }
+  .nh-portrait__trigger > span { bottom: 8px; padding: 6px 10px; font-size: 12px; }
+  .nh-portrait__link { gap: 4px; }
+}
 .nh-hero__content {
   display: grid; align-items: center; gap: var(--nh-space-3);
   padding: var(--nh-space-3) clamp(18px, 2.25vw, 32px);
