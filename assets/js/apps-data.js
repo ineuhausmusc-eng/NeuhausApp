@@ -6,7 +6,7 @@
    googlePlay   null until a Google Play listing is verified. When you set a
                 URL here, every Android action for that app switches to it
                 automatically and its label becomes "Get it on Google Play".
-   android      Interim Android destination (studio Android updates page).
+   android      Interim Android destination (homepage app availability notice).
    ========================================================================== */
 window.NEUHAUS_APPS = [
   {
@@ -18,7 +18,7 @@ window.NEUHAUS_APPS = [
     icon: "/OrderLess/orderless-app-icon.png?v=ultraviolet-ember",
     apple: "https://apps.apple.com/us/app/orderless-takeout-tracker/id6808019506",
     googlePlay: null,
-    android: "https://neuhausapps.com/android/",
+    android: "https://neuhausapps.com/#apps",
     androidLabel: "Android updates",
     privacy: "https://neuhausapps.com/OrderLess/Privacy/",
     terms: "https://neuhausapps.com/OrderLess/Terms/"
@@ -32,7 +32,7 @@ window.NEUHAUS_APPS = [
     icon: "assets/img/apps/prayer-matters-icon.png",
     apple: "https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453",
     googlePlay: null,
-    android: "https://neuhausapps.com/android/",
+    android: "https://neuhausapps.com/#apps",
     androidLabel: "Android updates",
     privacy: "https://neuhausapps.com/privacy.html",
     terms: "https://neuhausapps.com/terms.html"
@@ -46,7 +46,7 @@ window.NEUHAUS_APPS = [
     icon: "assets/img/apps/swiftshift-icon.jpg",
     apple: "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
     googlePlay: null,
-    android: "https://neuhausapps.com/android/",
+    android: "https://neuhausapps.com/#apps",
     androidLabel: "Android updates",
     privacy: "https://neuhausapps.com/swiftshift/support/",
     terms: "https://neuhausapps.com/terms.html"
