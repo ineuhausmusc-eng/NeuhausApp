@@ -229,8 +229,9 @@ button, input { font: inherit; color: inherit; }
 .nh-portrait__person--ian { left: 0; z-index: 3; }
 .nh-portrait__person--father { right: 0; z-index: 2; }
 .nh-portrait__shade {
-  position: absolute; z-index: 4; inset: 55% 0 0;
-  background: linear-gradient(transparent, #110d0b55); pointer-events: none;
+  position: absolute; z-index: 4; inset: 0;
+  background: linear-gradient(to bottom, transparent 46%, rgba(17, 13, 11, .12) 74%, rgba(17, 13, 11, .33) 100%);
+  pointer-events: none;
 }
 .nh-portrait__trigger {
   position: absolute; z-index: 5; top: 14%; bottom: 4px; width: 46%;
