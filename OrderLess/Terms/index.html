@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#0f6b5b">
+  <meta name="theme-color" content="#fbf3ff">
   <meta name="description" content="Terms of Use for OrderLess: Takeout Tracker by Neuhaus Apps.">
   <link rel="icon" type="image/png" href="/OrderLess/orderless-app-icon.png?v=ultraviolet-ember">
   <link rel="apple-touch-icon" href="/OrderLess/orderless-app-icon.png?v=ultraviolet-ember">
@@ -12,19 +12,6 @@
   <title>OrderLess Terms of Use | Neuhaus Apps</title>
   <style>
     :root {
-      --canvas: #fbfaf5;
-      --surface: #ffffff;
-      --ink: #17212b;
-      --muted: #56636a;
-      --forest: #0f6b5b;
-      --forest-dark: #084b41;
-      --mint: #35c99a;
-      --mint-soft: #e4f8f1;
-      --amber: #f4c66a;
-      --amber-soft: #fff4d8;
-      --coral: #ff684a;
-      --line: #dce7e1;
-      --shadow: 0 24px 70px rgba(15, 107, 91, 0.10);
       --radius-xl: 30px;
       --radius-lg: 21px;
       --radius-md: 14px;
@@ -35,10 +22,6 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background:
-        radial-gradient(850px 600px at -8% 5%, rgba(53, 201, 154, 0.18), transparent 66%),
-        radial-gradient(760px 580px at 108% 24%, rgba(244, 198, 106, 0.22), transparent 67%),
-        var(--canvas);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
       font-size: 17px;
@@ -46,10 +29,10 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: var(--forest); text-underline-offset: 3px; }
-    a:hover { color: var(--forest-dark); }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { color: var(--accent-dark); }
     a:focus-visible {
-      outline: 3px solid rgba(255, 104, 74, 0.42);
+      outline: 3px solid var(--accent);
       outline-offset: 4px;
       border-radius: 6px;
     }
@@ -75,8 +58,8 @@
     .site-header {
       position: relative;
       z-index: 5;
-      border-bottom: 1px solid rgba(15, 107, 91, 0.12);
-      background: rgba(251, 250, 245, 0.90);
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 255, 0.82);
       backdrop-filter: blur(18px);
     }
 
@@ -104,7 +87,7 @@
       flex: 0 0 auto;
       border-radius: 13px;
       object-fit: cover;
-      box-shadow: 0 10px 25px rgba(15, 107, 91, 0.22);
+      box-shadow: 0 10px 25px rgba(73, 27, 109, 0.18);
     }
 
     .nav-links {
@@ -121,20 +104,6 @@
       overflow: hidden;
       padding: clamp(64px, 10vw, 112px) 0 70px;
     }
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: min(850px, 98vw);
-      height: 260px;
-      left: 50%;
-      bottom: -190px;
-      transform: translateX(-50%);
-      border-radius: 50%;
-      background: rgba(53, 201, 154, 0.20);
-      filter: blur(34px);
-      pointer-events: none;
-    }
-
     .hero-inner {
       position: relative;
       z-index: 1;
@@ -148,7 +117,7 @@
       align-items: center;
       gap: 8px;
       margin: 0;
-      color: var(--forest);
+      color: var(--accent);
       font-size: 13px;
       font-weight: 850;
       letter-spacing: 0.14em;
@@ -159,8 +128,8 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--amber);
-      box-shadow: 0 0 0 5px rgba(244, 198, 106, 0.20);
+      background: var(--peach);
+      box-shadow: 0 0 0 5px var(--peach-soft);
     }
 
     h1, h2, h3 {
@@ -173,12 +142,6 @@
       font-size: clamp(44px, 8vw, 76px);
       font-weight: 880;
     }
-    .hero-accent {
-      background: linear-gradient(105deg, var(--forest-dark), var(--mint));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
     .hero-copy {
       max-width: 700px;
       margin: 0 auto;
@@ -187,7 +150,7 @@
     }
     .updated {
       margin: 24px 0 0;
-      color: #6b7771;
+      color: var(--muted);
       font-size: 14px;
       font-weight: 650;
     }
@@ -201,10 +164,10 @@
     .highlight {
       min-height: 160px;
       padding: 24px;
-      border: 1px solid rgba(15, 107, 91, 0.13);
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       background: rgba(255, 255, 255, 0.80);
-      box-shadow: 0 12px 34px rgba(23, 33, 43, 0.06);
+      box-shadow: 0 12px 34px rgba(53, 16, 63, 0.06);
     }
     .highlight-icon {
       width: 38px;
@@ -213,11 +176,11 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: var(--mint-soft);
-      color: var(--forest-dark);
+      background: var(--accent-soft);
+      color: var(--accent-dark);
       font-weight: 900;
     }
-    .highlight:nth-child(2) .highlight-icon { background: var(--amber-soft); color: #75510d; }
+    .highlight:nth-child(2) .highlight-icon { background: var(--peach-soft); color: var(--ink); }
     .highlight:nth-child(3) .highlight-icon { background: #ffe7e1; color: #9e321d; }
     .highlight h2 { margin-bottom: 7px; font-size: 17px; letter-spacing: -0.02em; }
     .highlight p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
@@ -228,9 +191,9 @@
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 16px;
-      border: 1px solid rgba(15, 107, 91, 0.25);
+      border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #f5fcf9, var(--mint-soft));
+      background: linear-gradient(135deg, #fcf8ff, var(--accent-soft));
     }
     .agreement-mark {
       width: 39px;
@@ -238,11 +201,11 @@
       display: grid;
       place-items: center;
       border-radius: 12px;
-      background: var(--forest);
+      background: var(--accent);
       color: #fff;
       font-weight: 900;
     }
-    .agreement p { margin: 0; color: #36534c; }
+    .agreement p { margin: 0; color: var(--ink); }
 
     .terms-layout {
       display: grid;
@@ -259,7 +222,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
       background: rgba(255, 255, 255, 0.86);
-      box-shadow: 0 12px 32px rgba(23, 33, 43, 0.05);
+      box-shadow: 0 12px 32px rgba(53, 16, 63, 0.05);
     }
     .toc h2 {
       margin-bottom: 14px;
@@ -279,7 +242,7 @@
       line-height: 1.3;
       text-decoration: none;
     }
-    .toc a:hover { background: var(--mint-soft); color: var(--forest-dark); }
+    .toc a:hover { background: var(--accent-soft); color: var(--accent-dark); }
 
     .terms {
       min-width: 0;
@@ -297,7 +260,7 @@
     .section-label {
       display: block;
       margin-bottom: 10px;
-      color: var(--mint);
+      color: var(--accent);
       font-size: 12px;
       font-weight: 850;
       letter-spacing: 0.13em;
@@ -321,10 +284,10 @@
     .callout {
       margin-top: 22px;
       padding: 18px 20px;
-      border-left: 4px solid var(--amber);
+      border-left: 4px solid var(--peach);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      background: var(--amber-soft);
-      color: #654c1d;
+      background: var(--peach-soft);
+      color: var(--ink);
     }
 
     .purchase-grid {
@@ -337,13 +300,13 @@
       padding: 20px;
       border: 1px solid var(--line);
       border-radius: 17px;
-      background: #f8fcfa;
+      background: var(--surface-soft);
     }
-    .purchase-card:last-child { background: #fffaf0; border-color: #eed9a7; }
+    .purchase-card:last-child { background: #fff8f7; border-color: #eed0c5; }
     .purchase-card .tag {
       display: inline-block;
       margin-bottom: 8px;
-      color: var(--forest);
+      color: var(--accent);
       font-size: 11px;
       font-weight: 850;
       letter-spacing: 0.1em;
@@ -356,18 +319,18 @@
       margin-top: 22px;
       padding: 22px;
       border-radius: var(--radius-lg);
-      background: linear-gradient(145deg, var(--forest-dark), var(--forest));
+      background: linear-gradient(145deg, var(--accent-dark), var(--accent));
       color: #fff;
-      box-shadow: 0 18px 45px rgba(15, 107, 91, 0.22);
+      box-shadow: 0 18px 45px rgba(73, 27, 109, 0.18);
     }
     .contact-card p { color: rgba(255, 255, 255, 0.82); }
     .contact-card strong { color: #fff; }
-    .contact-card a { color: #c7ffec; }
+    .contact-card a { color: #ffdef6; }
 
     .site-footer {
       padding: 34px 0 44px;
-      border-top: 1px solid rgba(15, 107, 91, 0.13);
-      color: #68736e;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       font-size: 14px;
     }
     .footer-inner {
@@ -388,7 +351,6 @@
     @media (max-width: 700px) {
       .shell { width: min(calc(100% - 28px), var(--content)); }
       .nav { min-height: 66px; }
-      .nav-links a:first-child { display: none; }
       .highlights,
       .purchase-grid { grid-template-columns: 1fr; }
       .highlight { min-height: auto; }
@@ -413,6 +375,7 @@
       a { color: inherit; }
     }
   </style>
+  <link rel="stylesheet" href="../legal-theme.css">
 </head>
 <body>
   <a class="skip-link" href="#terms-content">Skip to Terms of Use</a>
@@ -421,7 +384,7 @@
     <div class="shell nav">
       <a class="brand" href="https://neuhausapps.com" aria-label="Neuhaus Apps home">
         <img class="brand-mark" src="/OrderLess/orderless-app-icon.png?v=ultraviolet-ember" alt="" width="42" height="42">
-        <span>OrderLess <span style="color:var(--forest)">by Neuhaus Apps</span></span>
+        <span>OrderLess <span style="color:var(--accent)">by Neuhaus Apps</span></span>
       </a>
       <nav class="nav-links" aria-label="Page links">
         <a href="../Privacy/">Privacy</a>

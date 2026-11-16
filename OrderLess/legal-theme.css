@@ -1,0 +1,79 @@
+:root {
+  --canvas: #fbf3ff;
+  --surface: rgba(255, 253, 255, 0.94);
+  --surface-soft: #faf4ff;
+  --ink: #35103f;
+  --muted: #56405e;
+  --accent: #5900e8;
+  --accent-dark: #4607a6;
+  --accent-soft: #efe4ff;
+  --peach: #ffba91;
+  --peach-soft: #ffebe5;
+  --line: #e3c9de;
+  --shadow: 0 24px 70px rgba(53, 16, 63, 0.1);
+}
+
+@media screen {
+  body {
+    background-color: var(--canvas);
+    isolation: isolate;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--canvas) url("./legal-pearl.webp") center / cover no-repeat;
+  }
+}
+
+.hero-accent {
+  color: var(--accent);
+}
+
+@media screen and (forced-colors: none) {
+  @supports (background-clip: text) or (-webkit-background-clip: text) {
+    .hero-accent {
+      background-image: linear-gradient(105deg, #7000ee 6%, #b1149e 54%, #be382c 96%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.contact-card a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 700px) {
+  .nav {
+    flex-wrap: wrap;
+    row-gap: 0;
+    padding-block: 8px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
+@media print {
+  .contact-card,
+  .contact-card p,
+  .contact-card strong,
+  .contact-card a {
+    background: white;
+    color: var(--ink);
+    box-shadow: none;
+  }
+}
