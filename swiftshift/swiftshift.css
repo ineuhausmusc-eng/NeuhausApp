@@ -494,3 +494,148 @@ li {
     border: 1px solid ButtonText;
   }
 }
+
+/* Stronger SwiftShift app identity: the same lavender, cyan, and mint wash used in-app. */
+:root {
+  --ss-charcoal: #0e1017;
+  --ss-glass: #171820;
+  --ss-glass-2: #201e29;
+  --ss-line: rgba(211, 172, 238, 0.24);
+  --ss-line-soft: rgba(211, 172, 238, 0.16);
+  --ss-text: #f7f5f4;
+  --ss-muted: #d0cbd5;
+  --ss-lavender: #d3acee;
+  --ss-cyan: #a9dff6;
+  --ss-mint: #96ebd3;
+  --ss-pink-edge: #e9b5f4;
+  --ss-violet-edge: #9e8bfa;
+  --ss-cyan-edge: #83dcf1;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 9% 7%, rgba(211, 172, 238, .17), transparent 34rem),
+    radial-gradient(ellipse at 94% 19%, rgba(131, 220, 241, .12), transparent 35rem),
+    radial-gradient(ellipse at 55% 88%, rgba(150, 235, 211, .08), transparent 38rem),
+    var(--ss-charcoal);
+}
+
+.ss-header {
+  border-bottom-color: rgba(211, 172, 238, .24);
+  background: linear-gradient(90deg, rgba(211,172,238,.07), rgba(131,220,241,.055), rgba(150,235,211,.07));
+}
+
+.ss-brand__shift {
+  background: linear-gradient(100deg, var(--ss-lavender), var(--ss-cyan) 58%, var(--ss-mint));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ss-nav a[aria-current="page"] {
+  border-color: rgba(211, 172, 238, .62);
+  background: linear-gradient(110deg, rgba(211,172,238,.18), rgba(131,220,241,.12), rgba(150,235,211,.14));
+  box-shadow: 0 0 22px rgba(174, 169, 246, .12);
+}
+
+.ss-signature {
+  border-width: 1px;
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(211,172,238,.25), transparent 65%),
+    linear-gradient(120deg, rgba(211,172,238,.16), rgba(120,107,255,.10) 48%, rgba(57,215,245,.15) 78%, rgba(150,235,211,.12)),
+    linear-gradient(145deg, #201c2a, #151820 56%, #14202a) padding-box,
+    linear-gradient(115deg, #e9b5f4, #9e8bfa 42%, #83dcf1 72%, #96ebd3) border-box;
+  box-shadow: 0 20px 70px rgba(112, 89, 166, .17), inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+.ss-signature .ss-icon {
+  box-shadow: 0 0 0 5px rgba(211,172,238,.11), 0 0 36px rgba(131,220,241,.24);
+}
+
+.ss-signature h1 {
+  background: linear-gradient(100deg, #fff 7%, #e5ccf7 40%, #b9eafa 76%, #b0f0dc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ss-lede {
+  color: #e0dce7;
+}
+
+.ss-button {
+  box-shadow: 0 8px 30px rgba(169, 223, 246, .18), 0 0 0 1px rgba(255,255,255,.22) inset;
+  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+.ss-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 34px rgba(169, 223, 246, .26), 0 0 0 1px rgba(255,255,255,.30) inset;
+}
+
+.ss-toc {
+  border-color: rgba(211,172,238,.32);
+  background:
+    linear-gradient(145deg, rgba(211,172,238,.13), rgba(131,220,241,.055) 56%, rgba(150,235,211,.08)),
+    #171820;
+  box-shadow: 0 12px 38px rgba(0,0,0,.18);
+}
+.ss-toc h2 { color: var(--ss-lavender); }
+.ss-toc a { border-radius: 8px; padding-left: .45rem; padding-right: .45rem; }
+.ss-toc a:hover { background: rgba(131,220,241,.10); }
+
+.ss-card {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(211,172,238,.25);
+  background:
+    linear-gradient(145deg, rgba(211,172,238,.095), transparent 43%),
+    linear-gradient(325deg, rgba(131,220,241,.055), transparent 46%),
+    #171820;
+  box-shadow: 0 16px 48px rgba(0,0,0,.20), inset 0 1px 0 rgba(255,255,255,.045);
+}
+.ss-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, #e9b5f4, #9e8bfa 38%, #83dcf1 72%, #96ebd3);
+  opacity: .92;
+}
+.ss-card > h2 {
+  color: var(--ss-lavender);
+}
+.ss-card h3 {
+  color: var(--ss-cyan);
+}
+.ss-card li::marker { color: var(--ss-mint); }
+.ss-subsection {
+  border-top-color: rgba(211,172,238,.22);
+}
+.ss-subsection:nth-of-type(even) h3 { color: var(--ss-mint); }
+.ss-updated {
+  display: inline-block;
+  padding: .28rem .75rem;
+  border: 1px solid rgba(150,235,211,.28);
+  border-radius: 999px;
+  background: rgba(150,235,211,.09);
+  color: var(--ss-mint);
+}
+
+.ss-link-button {
+  border-color: rgba(211,172,238,.34);
+  background: linear-gradient(110deg, rgba(211,172,238,.15), rgba(131,220,241,.10));
+}
+.ss-link-button:hover {
+  border-color: rgba(131,220,241,.64);
+  background: linear-gradient(110deg, rgba(211,172,238,.24), rgba(131,220,241,.17), rgba(150,235,211,.15));
+  box-shadow: 0 0 22px rgba(131,220,241,.10);
+}
+
+.ss-footer {
+  border-top-color: rgba(211,172,238,.22);
+  background: linear-gradient(90deg, rgba(211,172,238,.06), rgba(131,220,241,.045), rgba(150,235,211,.05));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ss-button { transition: none; }
+}
