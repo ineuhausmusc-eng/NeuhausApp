@@ -639,3 +639,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .ss-button { transition: none; }
 }
+
+.ss-signature { border-top: 2px solid var(--ss-lavender); }
+.ss-signature h1 { text-wrap: balance; }
+.ss-toc a:focus-visible, .ss-footer a:focus-visible { outline-offset: 3px; }
+.ss-footer a { display: inline-flex; align-items: center; min-height: 44px; }

@@ -2,13 +2,22 @@
    Neuhaus Apps — app data model
    The single place to change store destinations.
 
-   apple        Direct US App Store listing (verified Nov 6, 2026).
-   googlePlay   null until a Google Play listing is verified. When you set a
-                URL here, every Android action for that app switches to it
-                automatically and its label becomes "Get it on Google Play".
-   android      Interim Android destination (homepage app availability notice).
+   apple        Direct US App Store listing (verified Nov 27, 2026).
+   googlePlay   Verified Google Play listing, or null for iPhone-only apps.
    ========================================================================== */
 window.NEUHAUS_APPS = [
+  {
+    key: "swift",
+    name: "SwiftShift Job Compare",
+    kind: "Job offer comparison",
+    description: "Compare job offers side by side, including pay, paid time off, and commute costs.",
+    keywords: "swiftshift swift shift job jobs compare offers pay salary commute pto paid time off compensation career",
+    icon: "/assets/img/apps/swiftshift-app-icon.png",
+    apple: "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
+    googlePlay: null,
+    privacy: "/swiftshift/support/#privacy",
+    terms: "/swiftshift/terms/"
+  },
   {
     key: "orderless",
     name: "OrderLess",
@@ -18,10 +27,8 @@ window.NEUHAUS_APPS = [
     icon: "/OrderLess/orderless-app-icon.png?v=ultraviolet-ember",
     apple: "https://apps.apple.com/us/app/orderless-takeout-tracker/id6808019506",
     googlePlay: null,
-    android: "https://neuhausapps.com/#apps",
-    androidLabel: "Android updates",
-    privacy: "https://neuhausapps.com/OrderLess/Privacy/",
-    terms: "https://neuhausapps.com/OrderLess/Terms/"
+    privacy: "/OrderLess/Privacy/",
+    terms: "/OrderLess/Terms/"
   },
   {
     key: "prayer",
@@ -29,26 +36,10 @@ window.NEUHAUS_APPS = [
     kind: "Prayer & Scripture",
     description: "Guided prayer, Scripture, and a private journal for daily reflection.",
     keywords: "prayer matters scripture bible journal reflection guided faith devotional",
-    icon: "assets/img/apps/prayer-matters-icon.png",
+    icon: "/assets/img/apps/prayer-matters-icon.png",
     apple: "https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453",
-    googlePlay: null,
-    android: "https://neuhausapps.com/#apps",
-    androidLabel: "Android updates",
-    privacy: "https://neuhausapps.com/privacy.html",
-    terms: "https://neuhausapps.com/terms.html"
-  },
-  {
-    key: "swift",
-    name: "SwiftShift Job Compare",
-    kind: "Job offer comparison",
-    description: "Compare job offers side by side, including pay, paid time off, and commute costs.",
-    keywords: "swiftshift swift shift job compare offers pay salary commute pto paid time off compensation career",
-    icon: "assets/img/apps/swiftshift-icon.jpg",
-    apple: "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
-    googlePlay: null,
-    android: "https://neuhausapps.com/#apps",
-    androidLabel: "Android updates",
-    privacy: "https://neuhausapps.com/swiftshift/support/",
-    terms: "https://neuhausapps.com/terms.html"
+    googlePlay: "https://play.google.com/store/apps/details?id=com.prayermatters.app",
+    privacy: "/privacy.html",
+    terms: "/terms.html"
   }
 ];

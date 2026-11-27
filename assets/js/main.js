@@ -21,27 +21,14 @@
   };
 
   /* ---------- 1. Store destinations from the data model ------------------ */
-  // Apple links: [data-store="apple"] inside a card, or with data-app-link.
-  // Android links: [data-store="android"] inside a card.
-  function appKeyFor(el) {
-    return el.dataset.appLink || el.closest("[data-app]")?.dataset.app;
-  }
-  $$('[data-store="apple"]').forEach((a) => {
-    const app = byKey[appKeyFor(a)];
-    if (app?.apple) a.href = app.apple;
-  });
-  $$('[data-store="android"]').forEach((a) => {
-    const app = byKey[appKeyFor(a)];
+  $$("[data-store]").forEach((link) => {
+    const appKey = link.dataset.appLink || link.closest("[data-app]")?.dataset.app;
+    const app = byKey[appKey];
     if (!app) return;
-    const label = $("[data-store-label]", a);
-    if (app.googlePlay) {
-      a.href = app.googlePlay;
-      if (label) label.textContent = "Get it on Google Play";
-      a.setAttribute("aria-label", `Get ${app.name} on Google Play`);
-    } else {
-      a.href = app.android;
-      if (label) label.textContent = app.androidLabel || "Android updates";
-    }
+    const url = link.dataset.store === "android" ? app.googlePlay : app.apple;
+    link.hidden = !url;
+    if (url) link.href = url;
+    else link.removeAttribute("href");
   });
 
   /* ---------- 2. Header: scrolled state, mobile menu, scroll-spy ---------- */
@@ -152,7 +139,8 @@
     const app = byKey[card.dataset.app] || {};
     const text = [
       $(".nh-card__title", card)?.textContent, $(".nh-card__kind", card)?.textContent,
-      $(".nh-card__desc", card)?.textContent, app.name, app.kind, app.keywords
+      $(".nh-card__desc", card)?.textContent, app.name, app.kind, app.keywords,
+      app.apple ? "iPhone iOS App Store" : "", app.googlePlay ? "Android Google Play" : ""
     ].join(" ");
     return [card, text.toLowerCase().replace(/\s+/g, " ")];
   }));

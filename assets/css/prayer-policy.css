@@ -1,0 +1,48 @@
+.prayer-privacy, .prayer-legal {
+  --ink: #0c0d16; --panel: #171825; --line: #343444; --paper: #f2f1fb;
+  --paper-dim: #c4c4d8; --signal: #b4afff; --peach: #e0dbff; --peach-dim: #c5bde5;
+  --font-body: var(--nh-font-ui); --font-display: var(--nh-font-ui);
+  --font-mono: ui-monospace, monospace;
+}
+.prayer-privacy {
+  margin: 0; font: 1rem/1.7 var(--nh-font-ui); background: var(--ink); color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+.prayer-privacy * { box-sizing: border-box; }
+.prayer-privacy a { color: #c6c5ff; text-underline-offset: .26em; }
+.prayer-privacy a:hover { color: white; }
+.prayer-privacy :focus-visible, .prayer-legal :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.prayer-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .65rem max(1.25rem, calc((100% - 68rem)/2));
+  border-bottom: 1px solid var(--line); background: var(--ink);
+}
+.prayer-header a { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; font-size: .9375rem; }
+.prayer-header a:first-child { color: white; text-decoration: none; font-weight: 750; }
+.prayer-header img, .prayer-legal .hero-breadcrumb img { border-radius: 22%; }
+.prayer-document { width: min(47rem, calc(100% - 2.5rem)); margin: auto; padding: clamp(2.75rem, 7vw, 5.5rem) 0 3rem; }
+.prayer-document h1 { font-size: clamp(2.6rem, 6.5vw, 4.6rem); line-height: 1.05; letter-spacing: -.06em; margin: 0; }
+.policy-date { color: #b7b5cf; font-size: .9375rem; margin-block: 1rem 2rem; }
+.prayer-intro { padding: clamp(1.25rem, 3vw, 2rem); background: linear-gradient(135deg,#242038,#171a29); border: 1px solid #413952; border-radius: 14px; font-size: 1.125rem; }
+.prayer-sections { display: flex; flex-wrap: wrap; align-items: baseline; gap: .5rem 1.5rem; padding-block: .5rem; }
+.prayer-sections summary { cursor: pointer; color: var(--paper); }
+.prayer-sections > a, .prayer-sections summary { padding-block: .65rem; }
+.prayer-sections details[open] { width: 100%; }
+.prayer-sections details ul { columns: 2 16rem; padding-inline-start: 1.2rem; }
+.prayer-sections details li { break-inside: avoid; padding: .3rem 0; }
+.prayer-document .policy-section { padding-block: clamp(1.5rem, 4vw, 2.5rem); border-top: 1px solid var(--line); color: var(--paper-dim); scroll-margin-top: 1rem; }
+.prayer-document .policy-section h2 { margin: 0 0 .8rem; font-size: clamp(1.35rem, 3vw, 1.75rem); line-height: 1.25; letter-spacing: -.035em; color: var(--paper); }
+.prayer-document .policy-section :is(p, li) { max-width: 70ch; }
+.prayer-document .policy-section :last-child { margin-bottom: 0; }
+.prayer-document footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem 1.25rem; border-top: 1px solid var(--line); padding-top: 1.5rem; font-size: .875rem; }
+.prayer-legal .hero-breadcrumb { display: flex; gap: .75rem; align-items: center; color: var(--peach); }
+.prayer-legal .legal-particles { display: none; }
+.prayer-legal .legal-hero-atmosphere { background: radial-gradient(ellipse at 12% 10%, #29203d 0%, transparent 63%); }
+.prayer-legal .hero-title { font-size: clamp(2.5rem, 6vw, 5.5rem); }
+.prayer-legal .hero-title .line-outline { color: var(--paper); -webkit-text-stroke: 0; }
+.prayer-legal .policy-section a { text-decoration: underline; text-underline-offset: .22em; }
+.prayer-legal .toc-list a, .prayer-legal .foot-links a { font-size: .875rem; }
+@media print {
+  .prayer-privacy { background: white; color: black; }
+  .prayer-privacy :is(h1,h2,p,li,strong,a) { color: black !important; }
+  .prayer-header, .prayer-sections, .prayer-document footer { display: none; }
+}

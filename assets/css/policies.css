@@ -1,0 +1,32 @@
+* { box-sizing: border-box; }
+.directory-page {
+  background: var(--nh-ivory); color: var(--nh-espresso); margin: 0;
+  font-family: var(--nh-font-ui); -webkit-font-smoothing: antialiased;
+}
+.directory-page a { color: inherit; text-underline-offset: .25em; }
+.directory-page a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+.directory-header { background: var(--nh-espresso); color: var(--nh-ivory); }
+.directory-header > div, .policy-directory { width: min(64rem, 100% - clamp(2.5rem, 10vw, 7rem)); margin: auto; }
+.directory-header > div { display: flex; align-items: center; justify-content: space-between; padding-block: .75rem; }
+.directory-header a { display: flex; align-items: center; min-height: 44px; font-size: .9375rem; }
+.directory-header a:first-child { text-decoration: none; font-weight: 750; letter-spacing: .13em; }
+.policy-directory { padding-block: clamp(2.5rem, 6vw, 5rem); }
+.policy-directory h1 {
+  font: 400 clamp(5rem, 12vw, 8rem)/.95 var(--nh-font-display);
+  margin: 0 0 clamp(1.75rem, 4vw, 3rem); letter-spacing: -.012em;
+}
+.policy-directory ul { margin: 0; padding: 0; border-top: 1px solid var(--nh-bronze); }
+.directory-row {
+  display: grid; grid-template-columns: 3.75rem 1fr auto; align-items: center;
+  column-gap: clamp(1rem, 3vw, 2rem); padding: 1.3rem .15rem; border-bottom: 1px solid var(--nh-line-light);
+}
+.directory-row img { width: 100%; height: auto; aspect-ratio: 1; border-radius: 22%; box-shadow: 0 1px 5px #21181025; }
+.directory-row h2 { margin: 0; font-weight: 650; font-size: clamp(1.125rem, 2.3vw, 1.5rem); line-height: 1.25; letter-spacing: -.035em; }
+.directory-links { display: flex; gap: .3rem 1.15rem; flex-wrap: wrap; }
+.directory-links a, .policy-directory footer a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; font-weight: 600; }
+.directory-page main a:hover { color: var(--nh-bronze); }
+.policy-directory footer { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; color: #5c514a; }
+@media (max-width: 40rem) {
+  .directory-row { grid-template-columns: 3.25rem 1fr; row-gap: .15rem; }
+  .directory-links { grid-column: 2; }
+}

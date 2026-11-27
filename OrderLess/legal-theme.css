@@ -77,3 +77,10 @@
     box-shadow: none;
   }
 }
+
+@media screen {
+  .hero h1 { text-wrap: balance; }
+  .toc { border-top: 3px solid var(--accent); }
+  :is(.terms-section, .policy-section) :is(p, li) a { text-underline-offset: .22em; }
+  .footer-links a { display: inline-flex; align-items: center; min-height: 44px; }
+}

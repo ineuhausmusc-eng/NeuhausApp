@@ -1,8 +1,37 @@
 {
-  "verified": "2026-11-06",
+  "verified": "2026-11-27",
   "contact": "mailto:Support@neuhausapps.com",
-  "androidPage": "https://neuhausapps.com/#apps",
+  "androidPage": "https://neuhausapps.com/#android-availability",
   "apps": [
+    {
+      "key": "swift",
+      "id": 6796545269,
+      "title": "SwiftShift Job Compare",
+      "icon": "/assets/img/apps/swiftshift-app-icon.png",
+      "description": "Compare job offers side by side, including pay, paid time off, and commute costs.",
+      "keywords": "job offers pay commute pto compensation comparison",
+      "privacy": "https://neuhausapps.com/swiftshift/support/#privacy",
+      "terms": "https://neuhausapps.com/swiftshift/terms/",
+      "apple": "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
+      "googlePlay": null,
+      "android": "https://neuhausapps.com/#android-availability",
+      "androidLabel": "Android availability",
+      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/64/b9/5264b92f-33c7-19ad-12f0-bd58d24e46b5/swiftshift-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
+      "screenshots": [
+        {
+          "file": "assets/img/screens/swift-app-store-1.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fd/fd/3b/fdfd3b26-ae32-d2b2-f7bf-c0adf42a8db7/SwiftShift-AppStore-01-1284x2778.png/800x800bb.jpg"
+        },
+        {
+          "file": "assets/img/screens/swift-app-store-2.jpg",
+          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/63/5a/06/635a068b-a5fc-aa47-4a51-9aec60d36b9e/SwiftShift-AppStore-02-1284x2778.png/800x800bb.jpg"
+        }
+      ],
+      "homepageScreens": [
+        "assets/img/screens/swift-app-store-1.jpg",
+        "assets/img/screens/swift-app-store-2.jpg"
+      ]
+    },
     {
       "key": "orderless",
       "id": 6808019506,
@@ -14,8 +43,8 @@
       "terms": "https://neuhausapps.com/OrderLess/Terms/",
       "apple": "https://apps.apple.com/us/app/orderless-takeout-tracker/id6808019506",
       "googlePlay": null,
-      "android": "https://neuhausapps.com/#apps",
-      "androidLabel": "Android updates",
+      "android": "https://neuhausapps.com/#android-availability",
+      "androidLabel": "Android availability",
       "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d8/0f/b9/d80fb911-32eb-33a3-08b6-e36fd567fd5c/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "screenshots": [
         {
@@ -36,16 +65,16 @@
       "key": "prayer",
       "id": 6798304453,
       "title": "Prayer Matters",
-      "icon": "assets/img/apps/prayer-matters-icon.png",
+      "icon": "/assets/img/apps/prayer-matters-icon.png",
       "description": "Guided prayer, Scripture, and a private journal for daily reflection.",
       "keywords": "prayer scripture bible journal reflection guided audio",
       "privacy": "https://neuhausapps.com/privacy.html",
       "terms": "https://neuhausapps.com/terms.html",
       "apple": "https://apps.apple.com/us/app/prayer-matters-bible-journal/id6798304453",
-      "googlePlay": null,
-      "android": "https://neuhausapps.com/#apps",
-      "androidLabel": "Android updates",
-      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8c/d0/7e/8cd07e0f-aee8-e140-4e8d-2f2c8831fcbb/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+      "googlePlay": "https://play.google.com/store/apps/details?id=com.prayermatters.app",
+      "android": "https://play.google.com/store/apps/details?id=com.prayermatters.app",
+      "androidLabel": "Google Play",
+      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3f/1f/9c/3f1f9cbb-b540-ba51-366f-da83a85e28c7/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
       "screenshots": [
         {
           "file": "assets/img/screens/prayer-app-store-1.jpg",
@@ -59,35 +88,6 @@
       "homepageScreens": [
         "assets/img/screens/prayer-app-store-1.jpg",
         "assets/img/screens/prayer-screen.jpg"
-      ]
-    },
-    {
-      "key": "swift",
-      "id": 6796545269,
-      "title": "SwiftShift Job Compare",
-      "icon": "assets/img/apps/swiftshift-icon.jpg",
-      "description": "Compare job offers side by side, including pay, paid time off, and commute costs.",
-      "keywords": "job offers pay commute pto compensation comparison",
-      "privacy": "https://neuhausapps.com/swiftshift/support/",
-      "terms": "https://neuhausapps.com/terms.html",
-      "apple": "https://apps.apple.com/us/app/swiftshift-job-compare/id6796545269",
-      "googlePlay": null,
-      "android": "https://neuhausapps.com/#apps",
-      "androidLabel": "Android updates",
-      "appleArtwork": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/52/64/b9/5264b92f-33c7-19ad-12f0-bd58d24e46b5/swiftshift-0-0-1x_U007ephone-0-1-sRGB-85-220.png/512x512bb.jpg",
-      "screenshots": [
-        {
-          "file": "assets/img/screens/swift-app-store-1.jpg",
-          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/fd/fd/3b/fdfd3b26-ae32-d2b2-f7bf-c0adf42a8db7/SwiftShift-AppStore-01-1284x2778.png/800x800bb.jpg"
-        },
-        {
-          "file": "assets/img/screens/swift-app-store-2.jpg",
-          "source": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/63/5a/06/635a068b-a5fc-aa47-4a51-9aec60d36b9e/SwiftShift-AppStore-02-1284x2778.png/800x800bb.jpg"
-        }
-      ],
-      "homepageScreens": [
-        "assets/img/screens/swift-app-store-1.jpg",
-        "assets/img/screens/swift-app-store-2.jpg"
       ]
     }
   ]
