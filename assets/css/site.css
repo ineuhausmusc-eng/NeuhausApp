@@ -190,7 +190,7 @@ button, input { font: inherit; color: inherit; }
 }
 
 /* ---------- Hero ---------------------------------------------------------- */
-/* The approved layered portrait and antique patina icons. */
+/* The family portrait and antique patina icons. */
 .nh-hero {
   position: relative; background: var(--nh-espresso);
   padding-block: clamp(16px, 2.25vw, 32px) 8px;
@@ -210,32 +210,29 @@ button, input { font: inherit; color: inherit; }
 .nh-portrait {
   --hero-duration: 875ms;
   position: relative; isolation: isolate; container-type: inline-size;
-  aspect-ratio: 1.6; overflow: hidden;
-  background: radial-gradient(ellipse at 26% 65%, #50392b66, transparent 57%),
-    radial-gradient(ellipse at 80% 70%, #48372d66, transparent 55%), #110d0b;
+  aspect-ratio: 2.08; overflow: hidden; background: #17100d;
 }
 .nh-portrait__wordmark {
-  position: absolute; inset: 14px 0 auto; padding-left: .16em;
-  font: 400 26cqw/1 var(--nh-font-display); letter-spacing: .16em;
-  text-align: center; white-space: nowrap; color: #c79b78; opacity: .8;
+  position: absolute; inset: 0 0 auto; padding-inline-start: 4.8606cqw;
+  font: 400 18.6644cqw/1 var(--nh-font-display); letter-spacing: 4.8606cqw;
+  text-align: center; white-space: nowrap; color: #ad896c;
   pointer-events: none; transition: filter var(--hero-duration), opacity var(--hero-duration);
 }
-.nh-portrait__person {
-  position: absolute; bottom: -1px; width: 57%; max-width: none; height: auto;
-  transform-origin: 50% 85%; pointer-events: none;
-  transition: transform var(--hero-duration) var(--nh-ease),
-    filter var(--hero-duration) ease, opacity var(--hero-duration) ease;
+.nh-portrait__pair {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  width: 100%;
+  height: calc(100% - 5cqw);
+  object-fit: contain;
+  object-position: center bottom;
+  mask-image: linear-gradient(to bottom, transparent, black 1%);
+  pointer-events: none;
+  transition: opacity var(--hero-duration) ease;
 }
-.nh-portrait__person--ian,
-.nh-portrait__person--ian-blur-light,
-.nh-portrait__person--ian-blur-heavy { left: 0; z-index: 3; }
-.nh-portrait__person--father,
-.nh-portrait__person--father-blur-light,
-.nh-portrait__person--father-blur-heavy { right: 0; z-index: 2; }
-.nh-portrait__person--father-blur-light,
-.nh-portrait__person--father-blur-heavy,
-.nh-portrait__person--ian-blur-light,
-.nh-portrait__person--ian-blur-heavy { opacity: 0; }
+.nh-portrait:not([data-platform="both"]) .nh-portrait__pair {
+  opacity: .58;
+}
 .nh-portrait__shade {
   position: absolute; z-index: 4; inset: 0;
   background: linear-gradient(to bottom, transparent 46%, rgba(17, 13, 11, .12) 74%, rgba(17, 13, 11, .33) 100%);
@@ -264,7 +261,7 @@ button, input { font: inherit; color: inherit; }
   object-fit: contain; filter: drop-shadow(0 12px 16px #0007);
   transition: transform 220ms var(--nh-ease);
 }
-/* Keep the icon sharp; only the portraits lose focus. */
+/* Give the platform icon a subtle lift on interaction. */
 .nh-portrait__link:focus-visible .nh-portrait__icon,
 .nh-portrait__link:active .nh-portrait__icon { transform: translateY(-3px) scale(1.09); }
 @media (hover: hover) and (pointer: fine) {
@@ -275,37 +272,12 @@ button, input { font: inherit; color: inherit; }
   opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0);
   transition-delay: 150ms, 100ms, 0s;
 }
-.nh-portrait[data-platform="ios"] .nh-portrait__person--ian,
-.nh-portrait[data-platform="android"] .nh-portrait__person--father,
-.nh-portrait[data-platform="ios"] .nh-portrait__person--father,
-.nh-portrait[data-platform="android"] .nh-portrait__person--ian { opacity: 0; }
-.nh-portrait[data-platform="ios"] .nh-portrait__person--ian-blur-heavy,
-.nh-portrait[data-platform="android"] .nh-portrait__person--father-blur-heavy {
-  opacity: .16; transform: scale(.985);
-}
-.nh-portrait[data-platform="ios"] .nh-portrait__person--father-blur-light,
-.nh-portrait[data-platform="android"] .nh-portrait__person--ian-blur-light { opacity: .7; }
 .nh-portrait:not([data-platform="both"]) .nh-portrait__wordmark { opacity: .4; filter: blur(2px); }
 .nh-hero__fallback { display: flex; justify-content: center; gap: 24px; padding: 12px; }
 .nh-portrait.is-interactive + .nh-hero__fallback { display: none; }
 @media (max-width: 47.99rem) {
-  .nh-portrait { aspect-ratio: 1.25; }
-  .nh-portrait__person { width: 69%; }
-  .nh-portrait__person--father-blur-light,
-  .nh-portrait__person--father-blur-heavy,
-  .nh-portrait__person--ian-blur-light,
-  .nh-portrait__person--ian-blur-heavy { display: none; }
-  .nh-portrait__person--ian { left: -7%; }
-  .nh-portrait__person--father { right: -7%; }
-  .nh-portrait[data-platform="ios"] .nh-portrait__person--ian,
-  .nh-portrait[data-platform="android"] .nh-portrait__person--father {
-    opacity: .16; filter: blur(12px); transform: scale(.985);
-  }
-  .nh-portrait[data-platform="ios"] .nh-portrait__person--father,
-  .nh-portrait[data-platform="android"] .nh-portrait__person--ian {
-    opacity: .7; filter: blur(2px);
-  }
-  .nh-portrait__wordmark { top: 7px; }
+  .nh-portrait { aspect-ratio: 1.43; }
+  .nh-portrait__pair { height: calc(100% - 7cqw); object-fit: cover; }
   .nh-portrait__icon { width: 29cqw; max-width: 140px; }
   .nh-portrait__link { gap: 4px; }
 }
